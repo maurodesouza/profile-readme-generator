@@ -1,5 +1,7 @@
+import { Blocks } from './blocks';
+
 export type CanvasContent = {
   id: string;
-  type: string;
+  type: Blocks;
   content: string;
 };

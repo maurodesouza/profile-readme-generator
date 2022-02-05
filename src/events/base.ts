@@ -1,8 +1,12 @@
 import { Events } from '../types';
 
+import { CanvasHandleEvents } from './canvas';
+
 type Callback = (args: CustomEvent) => void;
 
 export class EventHandle {
+  canvas = new CanvasHandleEvents(this);
+
   on(event: Events, callback: Callback) {
     document.addEventListener(event, callback as EventListener);
   }

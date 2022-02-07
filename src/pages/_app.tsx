@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 
-import { theme } from 'styles';
+import { theme, GlobalStyles } from 'styles';
 import { CanvasProvider } from 'contexts';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -9,6 +9,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={theme}>
       <CanvasProvider>
         <Component {...pageProps} />
+        <GlobalStyles />
       </CanvasProvider>
     </ThemeProvider>
   );

@@ -31,7 +31,9 @@ const defaultBlocksProps = {
           direction: 'row',
         },
 
-        from: 'maurodesouza',
+        from: {
+          username: 'maurodesouza',
+        },
       },
     },
   },

@@ -1,3 +1,3 @@
 export enum Blocks {
-  TEXT = 'canvas.content.text',
+  STATS = 'canvas.content.stats',
 }

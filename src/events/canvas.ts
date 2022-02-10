@@ -12,6 +12,10 @@ class CanvasHandleEvents {
   remove(contentId: string) {
     this.handle.emit(Events.CANVAS_REMOVE_CONTENT, contentId);
   }
+
+  currentContent(contentId: string) {
+    this.handle.emit(Events.CANVAS_SET_CURRENT_CONTENT, contentId);
+  }
 }
 
 export { CanvasHandleEvents };

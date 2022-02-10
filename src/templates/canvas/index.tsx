@@ -1,13 +1,20 @@
-import { Canvas, PanelNewBlock, PanelEditBlock } from 'components';
+import {
+  Canvas,
+  PanelNewBlock,
+  PanelEditBlock,
+  RenderOnlyClientSide,
+} from 'components';
 
 import * as S from './styles';
 
 const CanvasTemplate = () => {
   return (
     <S.Container>
-      <PanelNewBlock />
-      <Canvas />
-      <PanelEditBlock />
+      <RenderOnlyClientSide>
+        <PanelNewBlock />
+        <Canvas />
+        <PanelEditBlock />
+      </RenderOnlyClientSide>
     </S.Container>
   );
 };

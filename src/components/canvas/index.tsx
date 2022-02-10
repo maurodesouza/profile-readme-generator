@@ -1,4 +1,4 @@
-import { blockTypes } from 'components';
+import { blockTypes, BaseBlock } from 'components';
 
 import { useCanvas } from 'hooks';
 import * as S from './styles';
@@ -8,10 +8,14 @@ const Canvas = () => {
 
   return (
     <S.Container>
-      {contents.map(({ type, id, ...rest }) => {
+      {contents.map(({ type, id, props }) => {
         const Block = blockTypes[type];
 
-        return <Block key={id} {...rest} />;
+        return (
+          <BaseBlock key={id} id={id}>
+            <Block {...props} />
+          </BaseBlock>
+        );
       })}
     </S.Container>
   );

@@ -1,8 +1,8 @@
-import { InputsTypes } from 'types';
+import { Inputs } from 'types';
 import { Input } from './input';
 
-const inputTypes = {
-  [InputsTypes.TEXT]: Input,
+const inputMap = {
+  [Inputs.TEXT]: Input,
 };
 
-export { inputTypes };
+export { inputMap };

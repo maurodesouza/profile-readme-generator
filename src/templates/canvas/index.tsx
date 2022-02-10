@@ -1,7 +1,7 @@
 import {
   Canvas,
-  PanelNewBlock,
-  PanelEditBlock,
+  PanelNewSection,
+  PanelEditSection,
   RenderOnlyClientSide,
 } from 'components';
 
@@ -11,9 +11,9 @@ const CanvasTemplate = () => {
   return (
     <S.Container>
       <RenderOnlyClientSide>
-        <PanelNewBlock />
+        <PanelNewSection />
         <Canvas />
-        <PanelEditBlock />
+        <PanelEditSection />
       </RenderOnlyClientSide>
     </S.Container>
   );

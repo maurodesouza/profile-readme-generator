@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 
 import { editingPanels } from 'components';
-import { events } from '@events/base';
-
-import { Blocks, Events } from 'types';
 import { PanelBase } from '../base';
+
+import { events } from '@events/base';
 import { useCanvas } from 'hooks';
 
-const PanelEditBlock = () => {
-  const { currentContent } = useCanvas();
+import { Sections, Events } from 'types';
 
-  const [panel, setPanel] = useState<Blocks | undefined>(currentContent?.type);
+const PanelEditSection = () => {
+  const { currentSection } = useCanvas();
+
+  const [panel, setPanel] = useState<Sections | undefined>(
+    currentSection?.type
+  );
   const PanelComponent = editingPanels[panel || 'default'];
 
-  const handleChangePanel = (event: CustomEvent<Blocks>) => {
+  const handleChangePanel = (event: CustomEvent<Sections>) => {
     setPanel(event.detail);
   };
 
@@ -32,4 +35,4 @@ const PanelEditBlock = () => {
   );
 };
 
-export { PanelEditBlock };
+export { PanelEditSection };

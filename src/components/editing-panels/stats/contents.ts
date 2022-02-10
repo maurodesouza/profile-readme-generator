@@ -1,8 +1,8 @@
-import { InputsTypes } from 'types';
+import { Inputs } from 'types';
 
 const fields = [
   {
-    type: InputsTypes.TEXT,
+    type: Inputs.TEXT,
     path: 'content.graphs.stats.custom_title',
     label: 'Custom title',
     props: {},

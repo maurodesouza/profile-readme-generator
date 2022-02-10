@@ -12,19 +12,19 @@ type InputProps = {
 };
 
 const Input = ({ label, path }: InputProps) => {
-  const { currentContent } = useCanvas();
+  const { currentSection } = useCanvas();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleUpdate = () => {
     const { value } = inputRef.current!;
-    const id = currentContent!.id;
+    const id = currentSection!.id;
 
     events.canvas.edit({ id, path, value });
   };
 
   const defaultValue = getDeepObjectProperty<string>(
-    currentContent?.props,
+    currentSection?.props,
     path
   );
 
@@ -32,7 +32,7 @@ const Input = ({ label, path }: InputProps) => {
     <S.Container>
       <S.Label>{label}</S.Label>
       <S.Input
-        key={currentContent?.id}
+        key={currentSection?.id}
         ref={inputRef}
         defaultValue={defaultValue}
         onInput={debounce(handleUpdate)}

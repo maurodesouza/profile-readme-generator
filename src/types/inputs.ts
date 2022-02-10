@@ -1,3 +1,3 @@
-export enum InputsTypes {
+export enum Inputs {
   TEXT = 'input.text',
 }

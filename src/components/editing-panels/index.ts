@@ -1,10 +1,10 @@
-import { Blocks } from 'types';
+import { Sections } from 'types';
 
 import { StatsEditPanel } from './stats';
 import { DefaultEditPanel } from './default';
 
 const editingPanels = {
-  [Blocks.STATS]: StatsEditPanel,
+  [Sections.STATS]: StatsEditPanel,
   default: DefaultEditPanel,
 };
 

@@ -1,11 +1,11 @@
 import { PieChart } from '@styled-icons/feather';
 
-import { Blocks } from 'types';
+import { Sections } from 'types';
 
 const contents = [
   {
     icon: PieChart,
-    blockType: Blocks.STATS,
+    sectionType: Sections.STATS,
     name: 'Estatísticas',
   },
 ];

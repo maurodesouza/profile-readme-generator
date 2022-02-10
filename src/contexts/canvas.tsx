@@ -2,21 +2,21 @@ import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { events } from '@events/index';
-import { Blocks, CanvasContent, Events } from 'types';
+import { Sections, CanvasSection, Events } from 'types';
 
-import { defaultBlocksProps } from 'config';
+import { defaultSectionProps } from 'config';
 import { deepChangeObjectProperty } from 'utils';
 
-type HandleAddContentArgs = CustomEvent<Blocks>;
-type HandleEditContentArgs = CustomEvent<{
+type HandleAddSectionArgs = CustomEvent<Sections>;
+type HandleEditSectionArgs = CustomEvent<{
   id: string;
   path: string;
   value: unknown;
 }>;
 
 type CanvasContextData = {
-  contents: CanvasContent[];
-  currentContent?: CanvasContent;
+  sections: CanvasSection[];
+  currentSection?: CanvasSection;
 };
 
 type CanvasProviderProps = {
@@ -26,34 +26,34 @@ type CanvasProviderProps = {
 const CanvasContext = createContext<CanvasContextData>({} as CanvasContextData);
 
 const CanvasProvider = ({ children }: CanvasProviderProps) => {
-  const [contents, setContents] = useState<CanvasContent[]>([]);
-  const [currentContent, setCurrentContent] = useState<CanvasContent>();
+  const [sections, setSections] = useState<CanvasSection[]>([]);
+  const [currentSection, setCurrentSection] = useState<CanvasSection>();
 
-  const handleAddContent = (event: HandleAddContentArgs) => {
-    const blockType = event.detail;
-    const defaultProps = defaultBlocksProps[blockType];
+  const handleAddSection = (event: HandleAddSectionArgs) => {
+    const sectionType = event.detail;
+    const defaultProps = defaultSectionProps[sectionType];
 
-    const newContent = {
+    const newSection = {
       id: uuid(),
       type: event.detail,
       ...defaultProps,
     };
 
-    setContents(state => [...state, newContent]);
+    setSections(state => [...state, newSection]);
   };
 
-  const handleEditContent = (event: HandleEditContentArgs) => {
+  const handleEditSection = (event: HandleEditSectionArgs) => {
     const { id, path, value } = event.detail;
 
-    const obj = contents.find(item => item.id === id)!;
+    const obj = sections.find(item => item.id === id)!;
 
-    const result = deepChangeObjectProperty<CanvasContent>({
+    const result = deepChangeObjectProperty<CanvasSection>({
       obj,
       path,
       value,
     });
 
-    setContents(state =>
+    setSections(state =>
       state.map(item => {
         if (item.id === id) return result;
         return item;
@@ -61,34 +61,34 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     );
   };
 
-  const handleRemoveContent = (event: CustomEvent<string>) => {
-    setContents(state => state.filter(item => item.id !== event.detail));
+  const handleRemoveSection = (event: CustomEvent<string>) => {
+    setSections(state => state.filter(item => item.id !== event.detail));
   };
 
-  const handleSetCurrentContent = (event: CustomEvent<string>) => {
+  const handleSetCurrentSection = (event: CustomEvent<string>) => {
     const id = event.detail;
 
-    const result = contents.find(item => item.id === id);
+    const result = sections.find(item => item.id === id);
 
-    setCurrentContent(result);
+    setCurrentSection(result);
   };
 
   useEffect(() => {
-    events.on(Events.CANVAS_ADD_CONTENT, handleAddContent);
-    events.on(Events.CANVAS_EDIT_CONTENT, handleEditContent);
-    events.on(Events.CANVAS_REMOVE_CONTENT, handleRemoveContent);
-    events.on(Events.CANVAS_SET_CURRENT_CONTENT, handleSetCurrentContent);
+    events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
+    events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
+    events.on(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
+    events.on(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
 
     return () => {
-      events.off(Events.CANVAS_ADD_CONTENT, handleAddContent);
-      events.off(Events.CANVAS_EDIT_CONTENT, handleEditContent);
-      events.off(Events.CANVAS_REMOVE_CONTENT, handleRemoveContent);
-      events.off(Events.CANVAS_SET_CURRENT_CONTENT, handleSetCurrentContent);
+      events.off(Events.CANVAS_ADD_SECTION, handleAddSection);
+      events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
+      events.off(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
+      events.off(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
     };
-  }, [contents, currentContent]);
+  }, [sections, currentSection]);
 
   return (
-    <CanvasContext.Provider value={{ contents, currentContent }}>
+    <CanvasContext.Provider value={{ sections, currentSection }}>
       {children}
     </CanvasContext.Provider>
   );

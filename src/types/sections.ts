@@ -1,3 +1,3 @@
-export enum Blocks {
+export enum Sections {
   STATS = 'canvas.content.stats',
 }

@@ -1,2 +1,2 @@
-export * from './new-block';
-export * from './edit-block';
+export * from './new-section';
+export * from './edit-section';

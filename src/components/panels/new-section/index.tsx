@@ -5,12 +5,12 @@ import { contents } from './contents';
 
 import * as S from './styles';
 
-const PanelNewBlock = () => {
+const PanelNewSection = () => {
   return (
     <PanelBase>
       <S.Container>
-        {contents.map(({ icon: Icon, name, blockType }) => (
-          <S.Wrapper key={name} onClick={() => events.canvas.add(blockType)}>
+        {contents.map(({ icon: Icon, name, sectionType }) => (
+          <S.Wrapper key={name} onClick={() => events.canvas.add(sectionType)}>
             <S.Block>
               <Icon size={48} />
               {name}
@@ -22,4 +22,4 @@ const PanelNewBlock = () => {
   );
 };
 
-export { PanelNewBlock };
+export { PanelNewSection };

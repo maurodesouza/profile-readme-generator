@@ -1,4 +1,5 @@
-import { inputTypes } from 'components';
+import { inputMap } from 'components';
+
 import { fields } from './contents';
 import * as S from './styles';
 
@@ -6,7 +7,7 @@ const StatsEditPanel = () => {
   return (
     <S.Container>
       {fields.map(field => {
-        const Input = inputTypes[field.type];
+        const Input = inputMap[field.type];
 
         return (
           <Input

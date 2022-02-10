@@ -3,11 +3,11 @@ import { objectToQueryParams } from 'utils';
 import { urls } from './urls';
 import * as S from './styles';
 
-type StatsBlockProps = {
+type StatsSectionProps = {
   content: any;
 };
 
-const StatsBlock = ({ content }: StatsBlockProps) => {
+const StatsSection = ({ content }: StatsSectionProps) => {
   const { graphs, styles, from } = content;
 
   return (
@@ -26,4 +26,4 @@ const StatsBlock = ({ content }: StatsBlockProps) => {
   );
 };
 
-export { StatsBlock };
+export { StatsSection };

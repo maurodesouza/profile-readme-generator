@@ -1,20 +1,20 @@
-import { blockTypes, BaseBlock } from 'components';
+import { sectionMap, BaseSection } from 'components';
 
 import { useCanvas } from 'hooks';
 import * as S from './styles';
 
 const Canvas = () => {
-  const { contents } = useCanvas();
+  const { sections } = useCanvas();
 
   return (
     <S.Container>
-      {contents.map(({ type, id, props }) => {
-        const Block = blockTypes[type];
+      {sections.map(({ type, id, props }) => {
+        const Section = sectionMap[type];
 
         return (
-          <BaseBlock key={id} id={id} type={type}>
-            <Block {...props} />
-          </BaseBlock>
+          <BaseSection key={id} id={id} type={type}>
+            <Section {...props} />
+          </BaseSection>
         );
       })}
     </S.Container>

@@ -1,26 +1,26 @@
 import { useCanvas } from 'hooks';
 import { events } from '@events/base';
 
-import { Blocks } from 'types';
+import { Sections } from 'types';
 import * as S from './styles';
 
-type BaseBlockProps = {
+type BaseSectionProps = {
   id: string;
-  type: Blocks;
+  type: Sections;
   children: React.ReactNode;
 };
 
-const BaseBlock = ({ id, type, children }: BaseBlockProps) => {
-  const { currentContent } = useCanvas();
+const BaseSection = ({ id, type, children }: BaseSectionProps) => {
+  const { currentSection } = useCanvas();
 
   const handleSelectSection = () => {
     events.editpanel.open(type);
-    events.canvas.currentContent(id);
+    events.canvas.currentSection(id);
   };
 
   return (
     <S.Container
-      isSelected={id === currentContent?.id}
+      isSelected={id === currentSection?.id}
       onClick={handleSelectSection}
     >
       {children}
@@ -28,4 +28,4 @@ const BaseBlock = ({ id, type, children }: BaseBlockProps) => {
   );
 };
 
-export { BaseBlock };
+export { BaseSection };

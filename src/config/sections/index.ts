@@ -1,7 +1,7 @@
-import { Blocks } from 'types';
+import { Sections } from 'types';
 
-const defaultBlocksProps = {
-  [Blocks.STATS]: {
+const defaultSectionProps = {
+  [Sections.STATS]: {
     props: {
       content: {
         graphs: {
@@ -39,4 +39,4 @@ const defaultBlocksProps = {
   },
 };
 
-export { defaultBlocksProps };
+export { defaultSectionProps };

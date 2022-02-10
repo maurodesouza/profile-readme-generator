@@ -1,7 +1,7 @@
-import { Blocks } from './blocks';
+import { Sections } from '.';
 
-export type CanvasContent = {
+export type CanvasSection = {
   id: string;
-  type: Blocks;
+  type: Sections;
   props: any;
 };

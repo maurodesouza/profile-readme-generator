@@ -4,7 +4,7 @@ export const Container = styled.div``;
 
 export const Sticky = styled.div`
   ${({ theme }) => css`
-    padding: ${theme.spacings.xlarge};
+    padding: ${theme.spacings.medium};
     position: sticky;
     top: 24px;
     width: 100%;

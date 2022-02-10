@@ -12,7 +12,7 @@ const Canvas = () => {
         const Block = blockTypes[type];
 
         return (
-          <BaseBlock key={id} id={id}>
+          <BaseBlock key={id} id={id} type={type}>
             <Block {...props} />
           </BaseBlock>
         );

@@ -1,12 +1,12 @@
-import { CanvasContent, Events } from 'types';
+import { Blocks, Events } from 'types';
 
 import { EventHandle } from './base';
 
 class CanvasHandleEvents {
   constructor(private readonly handle: EventHandle) {}
 
-  add(content: CanvasContent) {
-    this.handle.emit(Events.CANVAS_ADD_CONTENT, content);
+  add(contentType: Blocks) {
+    this.handle.emit(Events.CANVAS_ADD_CONTENT, contentType);
   }
 
   remove(contentId: string) {

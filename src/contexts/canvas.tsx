@@ -2,9 +2,10 @@ import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { events } from '@events/index';
-import { CanvasContent, Events } from 'types';
+import { Blocks, CanvasContent, Events } from 'types';
 
-type HandleAddContentArgs = CustomEvent<Omit<CanvasContent, 'id'>>;
+import { defaultBlocksProps } from 'config';
+type HandleAddContentArgs = CustomEvent<Blocks>;
 
 type CanvasContextData = {
   contents: CanvasContent[];
@@ -20,9 +21,13 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   const [contents, setContents] = useState<CanvasContent[]>([]);
 
   const handleAddContent = (event: HandleAddContentArgs) => {
+    const blockType = event.detail;
+    const defaultProps = defaultBlocksProps[blockType];
+
     const newContent = {
       id: uuid(),
-      ...event.detail,
+      type: event.detail,
+      ...defaultProps,
     };
 
     setContents(state => [...state, newContent]);

@@ -1,10 +1,10 @@
 import { Blocks } from 'types';
 
 import { BaseBlock } from './base';
-import { TextBlock } from './text';
+import { StatsBlock } from './stats';
 
 const blockTypes = {
-  [Blocks.TEXT]: TextBlock,
+  [Blocks.STATS]: StatsBlock,
 };
 
 export { BaseBlock, blockTypes };

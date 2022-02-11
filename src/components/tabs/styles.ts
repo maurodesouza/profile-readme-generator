@@ -29,6 +29,10 @@ export const Tab = styled.div<TabProps>`
     cursor: pointer;
     color: ${isActive ? theme.colors.primary : theme.colors.text};
     padding: 0 ${theme.spacings.small};
+
+    * {
+      cursor: pointer;
+    }
   `}
 `;
 

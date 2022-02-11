@@ -6,6 +6,7 @@ const defaultSectionProps = {
       content: {
         graphs: {
           stats: {
+            height: 150,
             hide_title: false,
             hide_rank: false,
             show_icons: true,
@@ -18,6 +19,7 @@ const defaultSectionProps = {
           },
 
           languages: {
+            height: 150,
             locale: 'pt-br',
             hide_title: false,
             layout: 'compact',

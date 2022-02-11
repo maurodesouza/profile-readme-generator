@@ -59,6 +59,10 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
         return item;
       })
     );
+
+    const isEditingCurrentSection = currentSection!.id === id;
+
+    isEditingCurrentSection && setCurrentSection(result);
   };
 
   const handleRemoveSection = (event: CustomEvent<string>) => {

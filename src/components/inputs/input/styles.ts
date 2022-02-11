@@ -4,8 +4,9 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const Label = styled.div`
+export const Label = styled.span`
   ${({ theme }) => css`
+    display: block;
     font-weight: ${theme.font.weights.bold};
     margin-bottom: ${theme.spacings.xsmall};
     width: 100%;

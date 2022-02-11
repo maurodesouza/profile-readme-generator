@@ -17,10 +17,10 @@ const StatsSection = ({ content }: StatsSectionProps) => {
 
         if (!graph) return null;
 
-        const { height = '150px', ...props } = { ...from, ...graph };
+        const { height = '', ...props } = { ...from, ...graph };
         const fullUrl = `${url}?${objectToQueryParams(props)}`;
 
-        return <img height={height} key={key} src={fullUrl} alt={alt} />;
+        return <img height={height || 150} key={key} src={fullUrl} alt={alt} />;
       })}
     </S.Container>
   );

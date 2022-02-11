@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, InputHTMLAttributes } from 'react';
 
 import { events } from '@events/base';
 import { useCanvas } from 'hooks';
@@ -6,12 +6,12 @@ import { useCanvas } from 'hooks';
 import { debounce, getDeepObjectProperty } from 'utils';
 import * as S from './styles';
 
-type InputProps = {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   path: string;
 };
 
-const Input = ({ label, path }: InputProps) => {
+const Input = ({ label, path, ...rest }: InputProps) => {
   const { currentSection } = useCanvas();
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -36,6 +36,7 @@ const Input = ({ label, path }: InputProps) => {
         ref={inputRef}
         defaultValue={defaultValue}
         onInput={debounce(handleUpdate)}
+        {...rest}
       />
     </S.Container>
   );

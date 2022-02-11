@@ -20,7 +20,6 @@ export const Input = styled.input`
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
     border-color: ${theme.colors.border};
-    border-color: ${theme.colors.border};
     border-style: solid;
     padding: 8px 12px;
   `}

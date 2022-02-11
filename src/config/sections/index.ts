@@ -23,6 +23,8 @@ const defaultSectionProps = {
             locale: 'pt-br',
             hide_title: false,
             layout: 'compact',
+            card_width: 320,
+            langs_count: 5,
             theme: 'dracula',
             hide_border: false,
           },

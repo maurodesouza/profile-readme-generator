@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, Reorder } from 'framer-motion';
 
 import { Trash } from '@styled-icons/feather';
 
-export const Container = styled(motion.div)`
+export const Container = styled(Reorder.Item)`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: ${theme.spacings.small};
+    user-select: none;
 
     &:last-child {
       margin-bottom: 0;
@@ -20,7 +21,7 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
     width: 100%;
-    grid: 'logo menu' 2rem 'logo show-more' 2rem / 4rem 1fr;
+    grid: 'drag logo menu' 2rem ' drag logo show-more' 2rem / 2rem 4rem 1fr;
     justify-content: start;
     column-gap: ${theme.spacings.medium};
     padding: ${theme.spacings.small};
@@ -29,6 +30,36 @@ export const Content = styled.div`
     border-color: ${theme.colors.border};
     border-style: solid;
     height: 6.4rem;
+  `}
+`;
+
+export const Drag = styled.div`
+  ${({ theme }) => css`
+    grid-area: drag;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    color: ${theme.colors.text};
+    cursor: grab;
+
+    * {
+      cursor: grab;
+    }
+
+    &:hover {
+      color: ${theme.colors.primary};
+    }
+
+    &:active {
+      cursor: grabbing;
+
+      * {
+        cursor: grabbing;
+      }
+    }
   `}
 `;
 
@@ -71,6 +102,7 @@ export const ShowMore = styled.span`
     font-size: ${theme.font.sizes.xsmall};
     cursor: pointer;
     align-self: end;
+    justify-self: start;
 
     &:hover {
       color: ${theme.colors.primary};

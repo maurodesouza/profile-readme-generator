@@ -5,7 +5,9 @@ import {
   useRef,
   useEffect,
 } from 'react';
-import { usePresence } from 'framer-motion';
+import { useDragControls, usePresence } from 'framer-motion';
+
+import { Menu } from '@styled-icons/feather';
 
 import { events } from '@events/base';
 import { TechIcon } from 'components';
@@ -13,7 +15,7 @@ import { TechIcon } from 'components';
 import { getTechIconUrl } from 'utils';
 import { tech_icons } from 'resources';
 
-import { variants } from './animations';
+import { variants, animations } from './animations';
 import * as S from './styles';
 
 type TechIconVariantsProps = {
@@ -31,9 +33,11 @@ const TechIconVariants: React.ForwardRefRenderFunction<
   TechIconVariantsProps
 > = ({ tech, icon, refs }, ref) => {
   const iconContainerRef = useRef<HTMLDivElement>(null);
-  const [isOpenVariants, setIsOpenVariants] = useState(false);
 
+  const dragControls = useDragControls();
   const [isPresent, safeToRemove] = usePresence();
+
+  const [isOpenVariants, setIsOpenVariants] = useState(false);
 
   const getTechIcons = () => {
     const finded = tech_icons.find(icon => icon.name === tech);
@@ -59,10 +63,12 @@ const TechIconVariants: React.ForwardRefRenderFunction<
     events.canvas.edit({ path, value: undefined });
   };
 
+  const handleCloseVariants = () => setIsOpenVariants(false);
+
   useImperativeHandle(
     ref,
     () => ({
-      closeVariants: () => setIsOpenVariants(false),
+      closeVariants: handleCloseVariants,
     }),
     []
   );
@@ -78,10 +84,23 @@ const TechIconVariants: React.ForwardRefRenderFunction<
 
   return (
     <S.Container
+      value={tech}
       variants={variants.container}
-      exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+      dragListener={false}
+      dragControls={dragControls}
+      layout
+      {...animations.container}
     >
       <S.Content>
+        <S.Drag
+          onPointerDown={event => [
+            handleCloseVariants(),
+            dragControls.start(event),
+          ]}
+        >
+          <Menu />
+        </S.Drag>
+
         <S.Logo
           key={`${tech} ${icon}`}
           alt={`${tech} ${icon} logo`}

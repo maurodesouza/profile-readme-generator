@@ -41,4 +41,10 @@ const variants = createFramerMotionVariants({
   }),
 });
 
-export { variants };
+const animations = {
+  container: {
+    exit: { opacity: 0, height: 0, marginBottom: 0 },
+  },
+};
+
+export { variants, animations };

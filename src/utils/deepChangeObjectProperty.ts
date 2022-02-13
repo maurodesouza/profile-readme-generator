@@ -20,13 +20,22 @@ const deepChangeObjectProperty = <T extends Obj = Obj>({
   const paths = path.split('.');
   const objClone = JSON.parse(JSON.stringify(obj)) as T;
 
+  const isToRemoveProp = value === undefined;
+
   const result = paths.reduce((nested, key, index) => {
     if (nested === undefined || typeof nested !== 'object')
       deepChangeObjectPropertyError(path);
 
     const finalNested = index === paths.length - 1;
 
-    if (finalNested) return (nested[key] = value), objClone;
+    if (finalNested) {
+      return (
+        isToRemoveProp
+          ? Reflect.deleteProperty(nested, key)
+          : (nested[key] = value),
+        objClone
+      );
+    }
 
     return nested[key] as T;
   }, objClone as Obj);

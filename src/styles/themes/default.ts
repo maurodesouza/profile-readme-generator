@@ -32,6 +32,7 @@ const defaultTheme = {
     border: '#30363d',
     text: '#c9d1d9',
     bg: '#0d1117',
+    error: '#f85149',
   },
 
   spacings: {

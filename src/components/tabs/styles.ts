@@ -2,7 +2,10 @@ import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  ${({ theme }) => css`
+    width: 100%;
+    margin-bottom: ${theme.spacings.medium};
+  `}
 `;
 
 export const Tabs = styled.div`

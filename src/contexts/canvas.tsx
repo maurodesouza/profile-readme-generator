@@ -9,7 +9,7 @@ import { deepChangeObjectProperty } from 'utils';
 
 type HandleAddSectionArgs = CustomEvent<Sections>;
 type HandleEditSectionArgs = CustomEvent<{
-  id: string;
+  id?: string;
   path: string;
   value: unknown;
 }>;
@@ -43,7 +43,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   };
 
   const handleEditSection = (event: HandleEditSectionArgs) => {
-    const { id, path, value } = event.detail;
+    const { id = currentSection!.id, path, value } = event.detail;
 
     const obj = sections.find(item => item.id === id)!;
 

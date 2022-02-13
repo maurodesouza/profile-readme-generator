@@ -3,7 +3,7 @@ import { Sections, Events } from 'types';
 import { EventHandle } from './base';
 
 type HandleEditArgs = {
-  id: string;
+  id?: string;
   path: string;
   value: unknown;
 };

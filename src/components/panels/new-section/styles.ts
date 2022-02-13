@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
     color: ${theme.colors.border};
@@ -32,7 +28,7 @@ export const Wrapper = styled.div`
 
     &:hover,
     &:hover * {
-      color: ${theme.colors.primary} !important;
+      color: ${theme.colors.primary};
     }
   `}
 `;

@@ -1,11 +1,14 @@
-import { Sections } from 'types';
-
-import { StatsEditPanel } from './stats';
 import { DefaultEditPanel } from './default';
 
+import { StatsEditPanel } from './stats';
+import { TechsEditPanel } from './techs';
+
+import { Sections } from 'types';
+
 const editingPanels = {
-  [Sections.STATS]: StatsEditPanel,
   default: DefaultEditPanel,
+  [Sections.STATS]: StatsEditPanel,
+  [Sections.TECHS]: TechsEditPanel,
 };
 
 export { editingPanels };

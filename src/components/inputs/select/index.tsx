@@ -4,7 +4,12 @@ import { X as CloseIcon } from '@styled-icons/feather';
 import { events } from '@events/base';
 import { useCanvas, useForceUpdate } from 'hooks';
 
-import { debounce, getDeepObjectProperty } from 'utils';
+import {
+  debounce,
+  getDeepObjectProperty,
+  filterArrayByQueryMatch,
+} from 'utils';
+
 import * as S from './styles';
 
 type SelectOption = {
@@ -36,14 +41,6 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
   const [isToUpDropdown, setIsToUpDropdown] = useState(false);
 
   const clearInputValue = () => (inputRef.current!.value = '');
-
-  const handleFilterOptions = () => {
-    const { value = '' } = inputRef.current || {};
-
-    const regex = new RegExp(value, 'ig');
-
-    return options.filter(({ label }) => label.match(regex));
-  };
 
   const handleSelect = (option?: SelectOption) => () => {
     setSelectedOption(option);
@@ -84,7 +81,9 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
     setSelectedOption(option);
   }, []);
 
-  const filteredOptions = handleFilterOptions();
+  const { value = '' } = inputRef.current || {};
+
+  const filteredOptions = filterArrayByQueryMatch(value, options, ['label']);
   const canShowClearButton = !!selectedOption && !!rest.clearable;
 
   const placeholder =

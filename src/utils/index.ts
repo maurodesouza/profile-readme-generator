@@ -3,4 +3,5 @@ export * from './deepChangeObjectProperty';
 export * from './getDeepObjectProperty';
 export * from './objectToQueryParams';
 export * from './filterArrayByQueryMatch';
+export * from './createFramerMotionVariants';
 export * from './getTechIconUrl';

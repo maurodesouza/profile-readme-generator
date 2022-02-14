@@ -52,7 +52,7 @@ const Editing = () => {
       initial="closed"
       animate="open"
       variants={variants.container}
-      layout
+      layoutScroll
     >
       <AnimatePresence>
         <Reorder.Group

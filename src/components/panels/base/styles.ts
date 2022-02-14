@@ -13,5 +13,6 @@ export const Sticky = styled.div`
     border-width: ${theme.border.width};
     border-color: ${theme.colors.border};
     border-style: solid;
+    user-select: none;
   `}
 `;

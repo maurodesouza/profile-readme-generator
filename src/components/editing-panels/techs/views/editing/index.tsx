@@ -60,13 +60,13 @@ const Editing = () => {
           values={techs_names}
           onReorder={handleOnReOrder}
         >
-          {techs.map(([tech, { icon }], index) => (
+          {techs.map(([tech, props], index) => (
             <TechIconVariants
               key={tech}
               ref={ref => (techIconVariantsRefs.current[index] = ref!)}
               refs={techIconVariantsRefs.current}
               tech={tech}
-              icon={icon}
+              {...props}
             />
           ))}
         </Reorder.Group>

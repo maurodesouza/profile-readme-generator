@@ -10,16 +10,24 @@ import { tech_icons } from 'resources';
 
 import * as S from './styles';
 
+type HandleAddTechArgs = {
+  icon: string;
+  name: string;
+  short_name?: string;
+};
+
 const Adding = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const forceUpdate = useForceUpdate();
 
-  const handleAddTech = (name: string, icon: string) => () => {
-    const path = `content.techs.${name}`;
-    const value = { icon };
+  const handleAddTech =
+    ({ icon, name, short_name }: HandleAddTechArgs) =>
+    () => {
+      const path = `content.techs.${name}`;
+      const value = { icon, short_name };
 
-    events.canvas.edit({ path, value });
-  };
+      events.canvas.edit({ path, value });
+    };
 
   const { value = '' } = inputRef.current || {};
 
@@ -37,12 +45,11 @@ const Adding = () => {
       />
 
       <S.Content>
-        {filteredOptions.map(({ icons: [icon], name, ...rest }) => (
+        {filteredOptions.map(({ icons: [icon], ...rest }) => (
           <TechIcon
-            key={name}
-            name={name}
+            key={rest.name}
             icon={icon}
-            onClick={handleAddTech(name, icon)}
+            onClick={handleAddTech({ icon, ...rest })}
             {...rest}
           />
         ))}

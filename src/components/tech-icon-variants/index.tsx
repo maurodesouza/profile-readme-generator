@@ -21,6 +21,7 @@ import * as S from './styles';
 type TechIconVariantsProps = {
   tech: string;
   icon: string;
+  short_name?: string;
   refs: TechIconVariantsRef[];
 };
 
@@ -31,7 +32,7 @@ export type TechIconVariantsRef = {
 const TechIconVariants: React.ForwardRefRenderFunction<
   TechIconVariantsRef,
   TechIconVariantsProps
-> = ({ tech, icon, refs }, ref) => {
+> = ({ tech, icon, short_name, refs }, ref) => {
   const iconContainerRef = useRef<HTMLDivElement>(null);
 
   const dragControls = useDragControls();
@@ -108,7 +109,7 @@ const TechIconVariants: React.ForwardRefRenderFunction<
         />
 
         <S.Wrapper>
-          <S.Name>{tech}</S.Name>
+          <S.Name>{short_name || tech}</S.Name>
 
           <S.DeleteIcon size={16} onClick={handleDeleteTech} />
         </S.Wrapper>

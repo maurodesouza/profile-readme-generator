@@ -7,3 +7,4 @@ export * from './helpers';
 export * from './tabs';
 export * from './tech-icon';
 export * from './tech-icon-variants';
+export * from './group-fields';

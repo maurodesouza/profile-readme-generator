@@ -41,6 +41,7 @@ export const Block = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
+    text-align: center;
     inset: 0;
     gap: ${theme.spacings.xsmall};
   `}

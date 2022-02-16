@@ -9,9 +9,10 @@ import { getDeepObjectProperty } from 'utils';
 type SwitchProps = {
   label: string;
   path: string;
+  direction?: 'column' | 'row';
 };
 
-const Switch = ({ label, path }: SwitchProps) => {
+const Switch = ({ label, path, ...rest }: SwitchProps) => {
   const { currentSection } = useCanvas();
   const [checked, setChecked] = useState(() =>
     getDeepObjectProperty<boolean>(currentSection?.props, path)
@@ -32,7 +33,7 @@ const Switch = ({ label, path }: SwitchProps) => {
   }, [currentSection]);
 
   return (
-    <S.Container>
+    <S.Container {...rest}>
       <S.Switch>
         <S.Input type="checkbox" checked={checked} onChange={handleUpdate} />
         <S.Slider />

@@ -1,8 +1,28 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
+type ContainerProps = {
+  direction?: 'column' | 'row';
+};
+
+const containerModifiers = {
+  column: () => css`
+    flex-direction: column-reverse;
+    align-items: start;
+
+    ${Label} {
+      margin-bottom: 0;
+    }
+  `,
+};
+
+export const Container = styled.div<ContainerProps>`
+  ${({ direction }) => css`
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    ${direction === 'column' && containerModifiers.column};
+  `}
 `;
 
 export const Switch = styled.label`

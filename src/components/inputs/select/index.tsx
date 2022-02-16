@@ -79,7 +79,7 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
     const option = options.find(option => option.value === value);
 
     setSelectedOption(option);
-  }, []);
+  }, [currentSection]);
 
   const { value = '' } = inputRef.current || {};
 

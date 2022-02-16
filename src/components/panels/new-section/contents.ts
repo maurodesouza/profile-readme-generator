@@ -1,4 +1,4 @@
-import { PieChart, Share2, Github } from '@styled-icons/feather';
+import { PieChart, Share2, Github, Image } from '@styled-icons/feather';
 
 import { Sections } from 'types';
 
@@ -17,6 +17,11 @@ const contents = [
     icon: Github,
     sectionType: Sections.PROFILE_VIEWS,
     name: 'Visualizações de perfil',
+  },
+  {
+    icon: Image,
+    sectionType: Sections.IMAGE,
+    name: 'Imagem',
   },
 ];
 

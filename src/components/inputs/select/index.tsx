@@ -111,11 +111,15 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
         open={isDropdownOpen}
         openToUp={isToUpDropdown}
       >
-        {filteredOptions.map(option => (
-          <S.Option key={option.value} onClick={handleSelect(option)}>
-            {option.label}
-          </S.Option>
-        ))}
+        {!!filteredOptions.length ? (
+          filteredOptions.map(option => (
+            <S.Option key={option.value} onClick={handleSelect(option)}>
+              {option.label}
+            </S.Option>
+          ))
+        ) : (
+          <S.Option>Sem resultados para &quot;{value}&quot;</S.Option>
+        )}
       </S.Dropdown>
     </S.Container>
   );

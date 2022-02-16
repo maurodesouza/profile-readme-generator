@@ -5,6 +5,7 @@ const themeField = (graph: 'stats' | 'languages') => ({
   path: `content.graphs.${graph}.theme`,
   label: 'Tema',
   props: {
+    column: '1 / 3',
     clearable: true,
     options: [
       {

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { AnimateSharedLayout } from 'framer-motion';
 
-import { inputMap, Tabs } from 'components';
+import { GroupFields, Tabs } from 'components';
 
 import { tabs, views } from './tabs';
-import { fields } from './fields';
+import { groups } from './fields';
 
 import * as S from './styles';
 
@@ -17,17 +17,9 @@ const StatsEditPanel = () => {
 
   return (
     <S.Container>
-      <S.Fields>
-        {fields.map(field => {
-          const Input = inputMap[field.type];
-
-          return (
-            <S.Field key={field.path}>
-              <Input label={field.label} path={field.path} {...field.props} />
-            </S.Field>
-          );
-        })}
-      </S.Fields>
+      {groups.map(group => (
+        <GroupFields key={group.id} {...group} />
+      ))}
 
       <Tabs tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab} />
 

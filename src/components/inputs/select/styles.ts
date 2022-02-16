@@ -99,13 +99,18 @@ export const Dropdown = styled.div<DropdownProps>`
 
 export const Option = styled.button`
   ${({ theme }) => css`
-    display: block;
     width: 100%;
     padding: ${theme.spacings.xsmall} ${theme.spacings.medium};
     cursor: pointer;
     background: ${theme.colors.bg};
     border: none;
     text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 
     &:hover {
       filter: brightness(150%);

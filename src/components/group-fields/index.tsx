@@ -21,6 +21,7 @@ type Field = {
   path: string;
   label: string;
   props: Record<string, unknown>;
+  conditions?: Conditions;
 };
 
 type GroupFieldsProps = {
@@ -83,7 +84,11 @@ const GroupFields = ({
             const Input = inputMap[field.type];
             const { column, ...rest } = field.props;
 
-            return (
+            const canRender = !!field.conditions
+              ? checkDeepObjectValue({ obj, ...field.conditions })
+              : true;
+
+            return canRender ? (
               <S.Field
                 key={field.path}
                 variants={variants.field}
@@ -91,7 +96,7 @@ const GroupFields = ({
               >
                 <Input label={field.label} path={field.path} {...rest} />
               </S.Field>
-            );
+            ) : null;
           })}
         </S.Fields>
       </Glow>

@@ -1,4 +1,10 @@
-import { PieChart, Share2, Github, Image } from '@styled-icons/feather';
+import {
+  PieChart,
+  Share2,
+  Github,
+  Image,
+  MessageSquare,
+} from '@styled-icons/feather';
 
 import { Sections } from 'types';
 
@@ -22,6 +28,11 @@ const contents = [
     icon: Image,
     sectionType: Sections.IMAGE,
     name: 'Imagem',
+  },
+  {
+    icon: MessageSquare,
+    sectionType: Sections.SOCIALS,
+    name: 'Mídias sociais',
   },
 ];
 

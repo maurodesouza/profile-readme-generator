@@ -1,6 +1,14 @@
-const objectToQueryParams = (queries: Record<string, unknown>) => {
+const objectToQueryParams = (
+  queries: Record<string, unknown>,
+  excludeFalseValue = true
+) => {
   const result = Object.entries(queries).reduce((query, [key, value]) => {
-    if (!value && ['string', 'number'].includes(typeof value)) return query;
+    if (
+      excludeFalseValue &&
+      !value &&
+      ['string', 'number'].includes(typeof value)
+    )
+      return query;
 
     return `${query}&${key}=${value}`;
   }, '');

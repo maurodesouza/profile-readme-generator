@@ -1,10 +1,10 @@
 import { useRef } from 'react';
 
-import { TechIcon } from 'components';
+import { DisplayBlock } from 'components';
 import { events } from '@events/base';
 
 import { useForceUpdate } from 'hooks';
-import { debounce, filterArrayByQueryMatch } from 'utils';
+import { debounce, filterArrayByQueryMatch, getTechIconUrl } from 'utils';
 
 import { tech_icons } from 'resources';
 
@@ -45,12 +45,12 @@ const Adding = () => {
       />
 
       <S.Content>
-        {filteredOptions.map(({ icons: [icon], ...rest }) => (
-          <TechIcon
-            key={rest.name}
-            icon={icon}
-            onClick={handleAddTech({ icon, ...rest })}
-            {...rest}
+        {filteredOptions.map(({ icons: [icon], name, short_name }) => (
+          <DisplayBlock
+            key={name}
+            display={getTechIconUrl(name, icon)}
+            onClick={handleAddTech({ icon, name, short_name })}
+            label={short_name || name}
           />
         ))}
       </S.Content>

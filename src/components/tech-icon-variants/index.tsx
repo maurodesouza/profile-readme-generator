@@ -10,7 +10,7 @@ import { useDragControls, usePresence } from 'framer-motion';
 import { Menu } from '@styled-icons/feather';
 
 import { events } from '@events/base';
-import { TechIcon } from 'components';
+import { DisplayBlock } from 'components';
 
 import { getTechIconUrl } from 'utils';
 import { tech_icons } from 'resources';
@@ -128,11 +128,9 @@ const TechIconVariants: React.ForwardRefRenderFunction<
       >
         <S.Icons ref={iconContainerRef}>
           {icons.map(icon => (
-            <TechIcon
+            <DisplayBlock
               key={`${tech} ${icon}`}
-              name={tech}
-              icon={icon}
-              displayName={false}
+              display={getTechIconUrl(tech, icon)}
               onClick={handleChangeTechIcon(icon)}
             />
           ))}

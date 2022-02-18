@@ -99,6 +99,7 @@ export const Dropdown = styled.div<DropdownProps>`
 
 export const Option = styled.button`
   ${({ theme }) => css`
+    flex-shrink: 0;
     width: 100%;
     padding: ${theme.spacings.xsmall} ${theme.spacings.medium};
     cursor: pointer;

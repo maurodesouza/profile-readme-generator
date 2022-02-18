@@ -14,7 +14,7 @@ const PanelEditSection = () => {
   const [panel, setPanel] = useState<Sections | undefined>(
     currentSection?.type
   );
-  const PanelComponent = editingPanels[panel || 'default'];
+  const Panel = (editingPanels as any)[panel!] || editingPanels.default;
 
   const handleChangePanel = (event: CustomEvent<Sections>) => {
     setPanel(event.detail);
@@ -30,7 +30,7 @@ const PanelEditSection = () => {
 
   return (
     <PanelBase>
-      <PanelComponent />
+      <Panel />
     </PanelBase>
   );
 };

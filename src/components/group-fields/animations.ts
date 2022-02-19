@@ -17,6 +17,12 @@ const variants = createFramerMotionVariants({
   },
 
   fields_container: {
+    default: {
+      pointerEvents: 'all',
+      height: 'auto',
+      transition: { staggerChildren: 0.05, duration: 0.2 },
+    },
+
     open: {
       pointerEvents: 'all',
       marginTop: 16,

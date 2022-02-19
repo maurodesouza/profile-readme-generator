@@ -52,8 +52,8 @@ const GroupFields = ({
 
   const hasAccordion = !!label && accordion;
 
-  const isGlowOpen = isOpenAccordion || !hasAccordion;
-  const animationState = isGlowOpen ? 'open' : 'closed';
+  const accordioState = isOpenAccordion ? 'open' : 'closed';
+  const animationState = hasAccordion ? accordioState : 'default';
 
   return canRender ? (
     <S.Container>

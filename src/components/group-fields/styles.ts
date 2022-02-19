@@ -8,10 +8,6 @@ export const Container = styled(motion.div)`
     & + & ${Label} {
       padding-top: ${theme.spacings.xsmall};
     }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   `}
 `;
 
@@ -59,7 +55,7 @@ type FieldsProps = {
 
 export const Grow = styled(motion.div)`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.medium};
+    /* margin-top: ${theme.spacings.medium}; */
   `}
 `;
 

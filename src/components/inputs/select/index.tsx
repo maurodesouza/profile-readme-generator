@@ -2,7 +2,7 @@ import { FocusEvent, useEffect, useRef, useState } from 'react';
 import { X as CloseIcon } from '@styled-icons/feather';
 
 import { events } from '@events/base';
-import { useCanvas, useForceUpdate } from 'hooks';
+import { useForceUpdate } from 'hooks';
 
 import { debounce, filterArrayByQueryMatch } from 'utils';
 
@@ -36,7 +36,6 @@ const Select = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const forceUpdate = useForceUpdate();
-  const { currentSection } = useCanvas();
 
   const [selectedOption, setSelectedOption] = useState<
     SelectOption | undefined
@@ -53,10 +52,8 @@ const Select = ({
 
     setIsDropdownOpen(false);
 
-    const id = currentSection!.id;
     const value = option?.value || '';
-
-    events.canvas.edit({ id, path, value });
+    events.canvas.edit({ path, value });
   };
 
   const handleBlur = (event: FocusEvent) => {

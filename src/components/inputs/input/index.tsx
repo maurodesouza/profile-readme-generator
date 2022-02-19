@@ -1,7 +1,6 @@
 import { useRef, InputHTMLAttributes } from 'react';
 
 import { events } from '@events/base';
-import { useCanvas } from 'hooks';
 import { debounce } from 'utils';
 
 import * as S from './styles';
@@ -12,15 +11,12 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 };
 
 const Input = ({ label, path, defaultValue, ...rest }: InputProps) => {
-  const { currentSection } = useCanvas();
-
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleUpdate = () => {
     const { value } = inputRef.current!;
-    const id = currentSection!.id;
 
-    events.canvas.edit({ id, path, value });
+    events.canvas.edit({ path, value });
   };
 
   return (

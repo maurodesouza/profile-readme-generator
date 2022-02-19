@@ -1,6 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { useCanvas } from 'hooks';
 import { events } from '@events/index';
 import * as S from './styles';
 
@@ -12,14 +11,12 @@ type SwitchProps = {
 };
 
 const Switch = ({ label, path, defaultValue, ...rest }: SwitchProps) => {
-  const { currentSection } = useCanvas();
   const [checked, setChecked] = useState(!!defaultValue);
 
   const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked: value } = event.target;
-    const id = currentSection!.id;
 
-    events.canvas.edit({ id, path, value });
+    events.canvas.edit({ path, value });
     setChecked(!!value);
   };
 

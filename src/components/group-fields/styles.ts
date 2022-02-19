@@ -8,6 +8,10 @@ export const Container = styled(motion.div)`
     & + & ${Label} {
       padding-top: ${theme.spacings.xsmall};
     }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   `}
 `;
 

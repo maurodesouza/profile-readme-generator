@@ -9,3 +9,4 @@ export * from './display-block';
 export * from './tech-icon-variants';
 export * from './group-fields';
 export * from './edit-social-item';
+export * from './footer';

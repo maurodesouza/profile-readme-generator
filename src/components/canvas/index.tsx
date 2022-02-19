@@ -6,7 +6,7 @@ import * as S from './styles';
 import { events } from '@events/base';
 
 const Canvas = () => {
-  const { sections } = useCanvas();
+  const { sections, currentSection } = useCanvas();
 
   const sectionIds = sections.map(section => section.id);
 
@@ -21,7 +21,12 @@ const Canvas = () => {
           const Section = sectionMap[type];
 
           return (
-            <BaseSection key={id} id={id} type={type}>
+            <BaseSection
+              key={id}
+              id={id}
+              type={type}
+              selected={id === currentSection?.id}
+            >
               <Section {...props} />
             </BaseSection>
           );

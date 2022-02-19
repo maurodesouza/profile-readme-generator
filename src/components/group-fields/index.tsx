@@ -4,7 +4,7 @@ import { ChevronRight } from '@styled-icons/feather';
 import { inputMap } from 'components';
 import { useCanvas } from 'hooks';
 
-import { checkDeepObjectValue } from 'utils';
+import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
 import { Inputs } from 'types';
 
 import { variants } from './animations';
@@ -88,13 +88,23 @@ const GroupFields = ({
               ? checkDeepObjectValue({ obj, ...field.conditions })
               : true;
 
+            const defaultValue = getDeepObjectProperty<any>(
+              obj?.props,
+              field.path
+            );
+
             return canRender ? (
               <S.Field
                 key={field.path}
                 variants={variants.field}
                 column={column as string}
               >
-                <Input label={field.label} path={field.path} {...rest} />
+                <Input
+                  label={field.label}
+                  path={field.path}
+                  defaultValue={defaultValue}
+                  {...rest}
+                />
               </S.Field>
             ) : null;
           })}

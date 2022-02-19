@@ -2,21 +2,18 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 import { useCanvas } from 'hooks';
 import { events } from '@events/index';
-
 import * as S from './styles';
-import { getDeepObjectProperty } from 'utils';
 
 type SwitchProps = {
   label: string;
   path: string;
+  defaultValue: unknown;
   direction?: 'column' | 'row';
 };
 
-const Switch = ({ label, path, ...rest }: SwitchProps) => {
+const Switch = ({ label, path, defaultValue, ...rest }: SwitchProps) => {
   const { currentSection } = useCanvas();
-  const [checked, setChecked] = useState(() =>
-    getDeepObjectProperty<boolean>(currentSection?.props, path)
-  );
+  const [checked, setChecked] = useState(!!defaultValue);
 
   const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked: value } = event.target;
@@ -27,10 +24,8 @@ const Switch = ({ label, path, ...rest }: SwitchProps) => {
   };
 
   useEffect(() => {
-    const value = getDeepObjectProperty<boolean>(currentSection?.props, path);
-
-    setChecked(!!value);
-  }, [currentSection]);
+    setChecked(!!defaultValue);
+  }, [defaultValue]);
 
   return (
     <S.Container {...rest}>

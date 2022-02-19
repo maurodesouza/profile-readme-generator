@@ -4,11 +4,7 @@ import { X as CloseIcon } from '@styled-icons/feather';
 import { events } from '@events/base';
 import { useCanvas, useForceUpdate } from 'hooks';
 
-import {
-  debounce,
-  getDeepObjectProperty,
-  filterArrayByQueryMatch,
-} from 'utils';
+import { debounce, filterArrayByQueryMatch } from 'utils';
 
 import * as S from './styles';
 
@@ -21,12 +17,19 @@ type SelectOption = {
 type SelectProps = {
   path: string;
   label: string;
+  defaultValue: unknown;
   placeholder?: string;
   clearable?: boolean;
   options?: SelectOption[];
 };
 
-const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
+const Select = ({
+  label,
+  path,
+  defaultValue,
+  options = [],
+  ...rest
+}: SelectProps) => {
   const defaultPlaceholder = 'Escolha uma opção';
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -35,7 +38,9 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
 
-  const [selectedOption, setSelectedOption] = useState<SelectOption>();
+  const [selectedOption, setSelectedOption] = useState<
+    SelectOption | undefined
+  >(options.find(option => option.value === defaultValue));
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isToUpDropdown, setIsToUpDropdown] = useState(false);
@@ -74,12 +79,10 @@ const Select = ({ label, path, options = [], ...rest }: SelectProps) => {
   }, []);
 
   useEffect(() => {
-    const value = getDeepObjectProperty<string>(currentSection?.props, path);
-
-    const option = options.find(option => option.value === value);
+    const option = options.find(option => option.value === defaultValue);
 
     setSelectedOption(option);
-  }, [currentSection]);
+  }, [defaultValue]);
 
   const { value = '' } = inputRef.current || {};
 

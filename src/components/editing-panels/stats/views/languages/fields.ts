@@ -4,7 +4,7 @@ import { Inputs } from 'types';
 const groups = [
   {
     id: 1,
-    fields: [customTitleField('stats'), localeField('stats')],
+    fields: [customTitleField('languages'), localeField('languages')],
   },
   {
     id: 2,
@@ -48,10 +48,10 @@ const groups = [
           max: 12,
         },
       },
-      themeField('stats'),
+      themeField('languages'),
       {
         type: Inputs.SWITCH,
-        path: 'content.graphs.stats.hide_title',
+        path: 'content.graphs.languages.hide_title',
         label: 'Esconder título',
         props: {
           direction: 'column',
@@ -59,7 +59,7 @@ const groups = [
       },
       {
         type: Inputs.SWITCH,
-        path: `content.graphs.stats.hide_border`,
+        path: `content.graphs.languages.hide_border`,
         label: 'Esconder borda',
         props: {
           direction: 'column',

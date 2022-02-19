@@ -4,16 +4,10 @@ import { editingPanels } from 'components';
 import { PanelBase } from '../base';
 
 import { events } from '@events/base';
-import { useCanvas } from 'hooks';
-
 import { Sections, Events } from 'types';
 
 const PanelEditSection = () => {
-  const { currentSection } = useCanvas();
-
-  const [panel, setPanel] = useState<Sections | undefined>(
-    currentSection?.type
-  );
+  const [panel, setPanel] = useState<Sections>();
   const Panel = (editingPanels as any)[panel!] || editingPanels.default;
 
   const handleChangePanel = (event: CustomEvent<Sections>) => {

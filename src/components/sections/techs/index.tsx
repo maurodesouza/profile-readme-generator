@@ -19,7 +19,7 @@ type TechsSectionProps = {
   content: Content;
 };
 
-const TechsSections = ({ content }: TechsSectionProps) => {
+const TechsSection = ({ content }: TechsSectionProps) => {
   const { techs, styles } = content;
   const { size, ...containerStyles } = styles;
 
@@ -38,4 +38,4 @@ const TechsSections = ({ content }: TechsSectionProps) => {
   );
 };
 
-export { TechsSections };
+export { TechsSection };

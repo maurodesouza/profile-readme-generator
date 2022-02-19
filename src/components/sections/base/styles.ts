@@ -1,10 +1,11 @@
+import { Reorder } from 'framer-motion';
 import styled, { css } from 'styled-components';
 
 type ContainerProps = {
   isSelected: boolean;
 };
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled(Reorder.Item)<ContainerProps>`
   ${({ theme, isSelected }) => css`
     padding: ${theme.spacings.small};
     cursor: pointer;

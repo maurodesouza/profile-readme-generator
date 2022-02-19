@@ -22,6 +22,7 @@ const BaseSection = ({ id, type, children }: BaseSectionProps) => {
     <S.Container
       isSelected={id === currentSection?.id}
       onClick={handleSelectSection}
+      value={id}
     >
       {children}
     </S.Container>

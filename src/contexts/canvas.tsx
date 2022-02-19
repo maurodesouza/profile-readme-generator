@@ -77,17 +77,29 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setCurrentSection(result);
   };
 
+  const handleReorderSections = (event: CustomEvent<string[]>) => {
+    const order = event.detail;
+
+    const sectionsReorded = order.map(
+      sectionId => sections.find(section => section.id === sectionId)!
+    );
+
+    setSections(sectionsReorded);
+  };
+
   useEffect(() => {
     events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
     events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
     events.on(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
     events.on(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
+    events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
 
     return () => {
       events.off(Events.CANVAS_ADD_SECTION, handleAddSection);
       events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
       events.off(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
       events.off(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
+      events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
     };
   }, [sections, currentSection]);
 

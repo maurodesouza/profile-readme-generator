@@ -9,7 +9,9 @@ type HandleEditArgs = {
 };
 
 class CanvasHandleEvents {
-  constructor(private readonly handle: EventHandle) {}
+  constructor(private readonly handle: EventHandle) {
+    this.reorder = this.reorder.bind(this);
+  }
 
   add(sectionType: Sections) {
     this.handle.emit(Events.CANVAS_ADD_SECTION, sectionType);
@@ -24,6 +26,10 @@ class CanvasHandleEvents {
       ...rest,
       path: `props.${path}`,
     });
+  }
+
+  reorder(order: string[]) {
+    this.handle.emit(Events.CANVAS_REORDER_SECTIONS, order);
   }
 
   currentSection(sectionId: string) {

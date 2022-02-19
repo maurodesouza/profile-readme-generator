@@ -21,7 +21,7 @@ type Socials = {
 };
 
 const Editing = () => {
-  const techIconVariantsRefs = useRef<EditSocialItemRef[]>([]);
+  const EditSocialItemRefs = useRef<EditSocialItemRef[]>([]);
 
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
@@ -32,13 +32,13 @@ const Editing = () => {
   );
 
   const socials = Object.entries(selectedSocials);
-  const socials_names = socials.map(tech => tech[0]);
+  const socials_names = socials.map(social => social[0]);
 
   const handleOnReOrder = (order: typeof socials_names) => {
     const path = 'content.socials';
 
     const value = order.reduce((obj, name) => {
-      const finded = socials.find(tech => tech[0] === name)!;
+      const finded = socials.find(social => social[0] === name)!;
 
       obj[finded[0]] = finded[1];
 
@@ -66,12 +66,12 @@ const Editing = () => {
           values={socials_names}
           onReorder={handleOnReOrder}
         >
-          {socials.map(([tech, props], index) => (
+          {socials.map(([social, props], index) => (
             <EditSocialItem
-              key={tech}
-              ref={ref => (techIconVariantsRefs.current[index] = ref!)}
-              refs={techIconVariantsRefs.current}
-              tech={tech}
+              key={social}
+              ref={ref => (EditSocialItemRefs.current[index] = ref!)}
+              refs={EditSocialItemRefs.current}
+              social={social}
               {...props}
             />
           ))}

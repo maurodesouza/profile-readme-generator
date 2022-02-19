@@ -12,8 +12,8 @@ import { variants, animations } from './animations';
 import { groups } from './fields';
 import * as S from './styles';
 
-type TechIconVariantsProps = {
-  tech: string;
+type EditSocialItemProps = {
+  social: string;
   icon: string;
   short_name?: string;
   refs: EditSocialItemRef[];
@@ -25,8 +25,8 @@ export type EditSocialItemRef = {
 
 const EditSocialItem: React.ForwardRefRenderFunction<
   EditSocialItemRef,
-  TechIconVariantsProps
-> = ({ tech, icon, short_name, refs = [] }, ref) => {
+  EditSocialItemProps
+> = ({ social, icon, short_name, refs = [] }, ref) => {
   const dragControls = useDragControls();
   const [isPresent, safeToRemove] = usePresence();
 
@@ -38,8 +38,8 @@ const EditSocialItem: React.ForwardRefRenderFunction<
     setIsOpenEditForm(!isOpenEditForm);
   };
 
-  const handleDeleteTech = () => {
-    const path = `content.socials.${tech}`;
+  const handleDeleteSocial = () => {
+    const path = `content.socials.${social}`;
 
     events.canvas.edit({ path, value: undefined });
   };
@@ -63,7 +63,7 @@ const EditSocialItem: React.ForwardRefRenderFunction<
 
   return (
     <S.Container
-      value={tech}
+      value={social}
       variants={variants.container}
       dragListener={false}
       dragControls={dragControls}
@@ -81,15 +81,15 @@ const EditSocialItem: React.ForwardRefRenderFunction<
         </S.Drag>
 
         <S.Logo
-          key={`${tech} ${icon}`}
-          alt={`${tech} ${icon} logo`}
-          src={getSocialImgUrl('icon', tech, { icon })}
+          key={`${social} ${icon}`}
+          alt={`${social} ${icon} logo`}
+          src={getSocialImgUrl('icon', social, { icon })}
         />
 
         <S.Wrapper>
-          <S.Name>{short_name || tech}</S.Name>
+          <S.Name>{short_name || social}</S.Name>
 
-          <S.DeleteIcon size={16} onClick={handleDeleteTech} />
+          <S.DeleteIcon size={16} onClick={handleDeleteSocial} />
         </S.Wrapper>
 
         <S.EditIcon size={16} onClick={handleToggleEditForm} />
@@ -100,7 +100,7 @@ const EditSocialItem: React.ForwardRefRenderFunction<
         animate={isOpenEditForm ? 'open' : 'closed'}
         variants={variants.icons_container}
       >
-        {groups(tech).map(group => (
+        {groups(social).map(group => (
           <GroupFields key={group.id} {...group} />
         ))}
       </S.Grow>

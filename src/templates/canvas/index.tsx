@@ -1,4 +1,4 @@
-import { Canvas, PanelNewSection, PanelEditSection } from 'components';
+import { Canvas, PanelNewSection, PanelEditSection, Sticky } from 'components';
 
 import * as S from './styles';
 
@@ -6,7 +6,11 @@ const CanvasTemplate = () => {
   return (
     <S.Container>
       <PanelNewSection />
-      <Canvas />
+      <Sticky>
+        <S.Wrapper>
+          <Canvas />
+        </S.Wrapper>
+      </Sticky>
       <PanelEditSection />
     </S.Container>
   );

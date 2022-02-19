@@ -1,3 +1,4 @@
+export * from './sticky';
 export * from './canvas';
 export * from './sections';
 export * from './editing-panels';

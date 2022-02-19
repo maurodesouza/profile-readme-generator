@@ -1,3 +1,4 @@
+import { Sticky } from 'components';
 import * as S from './styles';
 
 type PanelBaseProps = {
@@ -6,9 +7,9 @@ type PanelBaseProps = {
 
 const PanelBase = ({ children }: PanelBaseProps) => {
   return (
-    <S.Container>
-      <S.Sticky>{children}</S.Sticky>
-    </S.Container>
+    <Sticky>
+      <S.Container>{children}</S.Container>
+    </Sticky>
   );
 };
 

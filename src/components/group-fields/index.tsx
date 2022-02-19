@@ -51,7 +51,6 @@ const GroupFields = ({
     : true;
 
   const hasAccordion = !!label && accordion;
-  const Glow = hasAccordion ? S.Grow : ({ children }: any) => <>{children}</>;
 
   const isGlowOpen = isOpenAccordion || !hasAccordion;
   const animationState = isGlowOpen ? 'open' : 'closed';
@@ -74,7 +73,7 @@ const GroupFields = ({
         </S.Label>
       )}
 
-      <Glow
+      <S.Grow
         initial={false}
         animate={animationState}
         variants={variants.fields_container}
@@ -109,7 +108,7 @@ const GroupFields = ({
             ) : null;
           })}
         </S.Fields>
-      </Glow>
+      </S.Grow>
     </S.Container>
   ) : null;
 };

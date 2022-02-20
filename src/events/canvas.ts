@@ -13,28 +13,28 @@ class CanvasHandleEvents {
     this.reorder = this.reorder.bind(this);
   }
 
-  add(sectionType: Sections) {
+  add = (sectionType: Sections) => {
     this.handle.emit(Events.CANVAS_ADD_SECTION, sectionType);
-  }
+  };
 
-  remove(sectionId: string) {
+  remove = (sectionId: string) => {
     this.handle.emit(Events.CANVAS_REMOVE_SECTION, sectionId);
-  }
+  };
 
-  edit({ path, ...rest }: HandleEditArgs) {
+  edit = ({ path, ...rest }: HandleEditArgs) => {
     this.handle.emit(Events.CANVAS_EDIT_SECTION, {
       ...rest,
       path: `props.${path}`,
     });
-  }
+  };
 
-  reorder(order: string[]) {
+  reorder = (order: string[]) => {
     this.handle.emit(Events.CANVAS_REORDER_SECTIONS, order);
-  }
+  };
 
-  currentSection(sectionId: string) {
+  currentSection = (sectionId: string) => {
     this.handle.emit(Events.CANVAS_SET_CURRENT_SECTION, sectionId);
-  }
+  };
 }
 
 export { CanvasHandleEvents };

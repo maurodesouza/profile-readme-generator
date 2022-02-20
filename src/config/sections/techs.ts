@@ -24,9 +24,12 @@ const techsSectionConfig = {
       },
 
       styles: {
-        align: 'center',
-        size: 40,
+        height: 40,
       },
+    },
+
+    styles: {
+      align: 'center',
     },
   },
 };

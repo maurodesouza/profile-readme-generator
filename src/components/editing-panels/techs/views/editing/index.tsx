@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
-import { TechIconVariants, TechIconVariantsRef } from 'components';
+import { GroupFields, TechIconVariants, TechIconVariantsRef } from 'components';
 import { useCanvas, useForceUpdate } from 'hooks';
 
 import { getDeepObjectProperty } from 'utils';
@@ -9,6 +9,7 @@ import { getDeepObjectProperty } from 'utils';
 import { variants } from './animations';
 import * as S from './styles';
 import { events } from '@events/base';
+import { fields } from './fields';
 
 type Tech = {
   icon: string;
@@ -54,6 +55,10 @@ const Editing = () => {
       variants={variants.container}
       layoutScroll
     >
+      {fields.map(field => (
+        <GroupFields key={field.id} {...field} />
+      ))}
+
       <AnimatePresence>
         <Reorder.Group
           axis="y"

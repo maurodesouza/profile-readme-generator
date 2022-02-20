@@ -2,8 +2,7 @@ import { getTechIconUrl } from 'utils';
 import * as S from './styles';
 
 type TechStyles = {
-  size: number;
-  align: 'center' | 'right' | 'left';
+  height: number;
 };
 
 type Tech = {
@@ -15,21 +14,28 @@ type Content = {
   styles: TechStyles;
 };
 
-type TechsSectionProps = {
-  content: Content;
+type SectionStyles = {
+  align: 'left' | 'center' | 'right';
 };
 
-const TechsSection = ({ content }: TechsSectionProps) => {
+type TechsSectionProps = {
+  content: Content;
+  styles: SectionStyles;
+};
+
+const TechsSection = ({
+  content,
+  styles: containerStyles,
+}: TechsSectionProps) => {
   const { techs, styles } = content;
-  const { size, ...containerStyles } = styles;
+  const { height } = styles;
 
   return (
     <S.Container {...containerStyles}>
       {Object.entries(techs).map(([tech, { icon }]) => (
         <img
           key={tech}
-          height={size}
-          width={size}
+          height={height}
           alt={`${tech} logo`}
           src={getTechIconUrl(tech, icon)}
         />

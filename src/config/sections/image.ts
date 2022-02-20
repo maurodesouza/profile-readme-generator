@@ -7,6 +7,7 @@ const imageSectionConfig = {
     styles: {
       align: 'center',
       height: 200,
+      float: 'none',
     },
   },
 };

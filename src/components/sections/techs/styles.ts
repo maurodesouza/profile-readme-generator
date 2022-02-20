@@ -6,7 +6,6 @@ type ContainerProps = {
 
 export const Container = styled.div<ContainerProps>`
   ${({ theme, align = 'center' }) => css`
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: ${align};

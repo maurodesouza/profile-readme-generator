@@ -56,6 +56,27 @@ const groups = [
           ],
         },
       },
+      {
+        type: Inputs.SELECT,
+        path: 'styles.float',
+        label: 'Flutuar para',
+        props: {
+          options: [
+            {
+              label: 'Não flutuar',
+              value: 'none',
+            },
+            {
+              label: 'Direita',
+              value: 'right',
+            },
+            {
+              label: 'Esquerda',
+              value: 'left',
+            },
+          ],
+        },
+      },
     ],
   },
   {

@@ -3,15 +3,22 @@ import { objectToQueryParams } from 'utils';
 import { urls } from './urls';
 import * as S from './styles';
 
+type SectionStyles = {
+  align: 'left' | 'center' | 'right';
+};
 type StatsSectionProps = {
   content: any;
+  styles: SectionStyles;
 };
 
-const StatsSection = ({ content }: StatsSectionProps) => {
-  const { graphs, styles, from } = content;
+const StatsSection = ({
+  content,
+  styles: containerStyles,
+}: StatsSectionProps) => {
+  const { graphs, from } = content;
 
   return (
-    <S.Container {...styles}>
+    <S.Container {...containerStyles}>
       {Object.entries(urls).map(([key, { url, alt }]) => {
         const graph = graphs[key];
 

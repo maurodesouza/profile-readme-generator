@@ -6,7 +6,7 @@ const groups = [
     fields: [
       {
         type: Inputs.SELECT,
-        path: 'content.styles.align',
+        path: 'styles.align',
         label: 'Alinhar cards',
         props: {
           options: [

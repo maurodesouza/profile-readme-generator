@@ -27,14 +27,13 @@ const statsSectionConfig = {
         },
       },
 
-      styles: {
-        align: 'center',
-        direction: 'row',
-      },
-
       from: {
         username: 'maurodesouza',
       },
+    },
+
+    styles: {
+      align: 'center',
     },
   },
 };

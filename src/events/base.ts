@@ -2,12 +2,14 @@ import { Events } from '../types';
 
 import { CanvasHandleEvents } from './canvas';
 import { EditPanelHandleEvents } from './edit-panel';
+import { ContextMenuHanldeEvents } from './context-menu';
 
 type Callback = (args: CustomEvent) => void;
 
 export class EventHandle {
   canvas = new CanvasHandleEvents(this);
   editpanel = new EditPanelHandleEvents(this);
+  contextmenu = new ContextMenuHanldeEvents(this);
 
   on(event: Events, callback: Callback) {
     document.addEventListener(event, callback as EventListener);

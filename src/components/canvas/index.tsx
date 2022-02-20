@@ -21,12 +21,7 @@ const Canvas = () => {
           const Section = sectionMap[type];
 
           return (
-            <BaseSection
-              key={id}
-              id={id}
-              type={type}
-              selected={id === currentSection?.id}
-            >
+            <BaseSection key={id} id={id} selected={id === currentSection?.id}>
               <Section {...props} />
             </BaseSection>
           );

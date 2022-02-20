@@ -1,18 +1,15 @@
 import { events } from '@events/base';
 
-import { Sections } from 'types';
 import * as S from './styles';
 
 type BaseSectionProps = {
   id: string;
   selected: boolean;
-  type: Sections;
   children: React.ReactNode;
 };
 
-const BaseSection = ({ id, type, children, selected }: BaseSectionProps) => {
+const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
   const handleSelectSection = () => {
-    events.editpanel.open(type);
     events.canvas.currentSection(id);
   };
 

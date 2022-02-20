@@ -12,12 +12,20 @@ const SectionContextMenu = ({ event }: SectionContextMenuProps) => {
   const sectionIdRef = useRef<string>();
 
   const canShow = () => {
+    const range = 5;
+
     const { nativeEvent } = event;
-
     const elements = (nativeEvent as any).path;
-    const section = elements[1] as HTMLElement;
 
-    const sectionId = section.dataset.sectionid;
+    let sectionId = '';
+    let currentIndex = 0;
+
+    while (!sectionId && currentIndex < range) {
+      const section = elements[currentIndex] as HTMLElement;
+
+      sectionId = section.dataset.sectionid!;
+      currentIndex += 1;
+    }
 
     if (sectionId) sectionIdRef.current = sectionId;
     else events.contextmenu.close();

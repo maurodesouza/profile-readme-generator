@@ -4,19 +4,20 @@ import { CanvasHandleEvents } from './canvas';
 import { EditPanelHandleEvents } from './edit-panel';
 import { ContextMenuHanldeEvents } from './context-menu';
 
-type Callback = (args: CustomEvent) => void;
+type Callback = (args: any) => void;
+type Event = Events | keyof DocumentEventMap;
 
 export class EventHandle {
   canvas = new CanvasHandleEvents(this);
   editpanel = new EditPanelHandleEvents(this);
   contextmenu = new ContextMenuHanldeEvents(this);
 
-  on(event: Events, callback: Callback) {
-    document.addEventListener(event, callback as EventListener);
+  on(event: Event, callback: Callback) {
+    document.addEventListener(event, callback);
   }
 
-  off(event: Events, callback: Callback) {
-    document.removeEventListener(event, callback as EventListener);
+  off(event: Event, callback: Callback) {
+    document.removeEventListener(event, callback);
   }
 
   emit(event: Events, payload?: unknown) {

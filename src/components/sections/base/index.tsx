@@ -14,7 +14,12 @@ const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
   };
 
   return (
-    <S.Container selected={selected} onClick={handleSelectSection} value={id}>
+    <S.Container
+      data-sectionid={id}
+      selected={selected}
+      onClick={handleSelectSection}
+      value={id}
+    >
       {children}
     </S.Container>
   );

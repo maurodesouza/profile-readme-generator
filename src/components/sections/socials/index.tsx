@@ -45,7 +45,7 @@ const SocialsSection = ({
         const Wrapper = !!link ? S.A : ({ children }: any) => <>{children}</>;
 
         return (
-          <Wrapper href={link} key={social}>
+          <Wrapper href={link} key={social} target="_blank">
             <img
               height={height}
               alt={`${social} logo`}

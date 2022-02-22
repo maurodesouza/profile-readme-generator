@@ -34,7 +34,6 @@ export const Label = styled.span<LabelProps>`
     border-top-width: ${theme.border.width};
     border-top-color: ${theme.colors.border};
     font-size: ${theme.font.sizes.medium};
-    /* border-top-style: solid; */
 
     ${hasAccordion && labelModifiers.accordion(theme)}
   `}
@@ -53,11 +52,7 @@ type FieldsProps = {
   columns: number;
 };
 
-export const Grow = styled(motion.div)`
-  ${({ theme }) => css`
-    /* margin-top: ${theme.spacings.medium}; */
-  `}
-`;
+export const Grow = styled(motion.div)``;
 
 export const Fields = styled(motion.div)<FieldsProps>`
   ${({ theme, columns }) => css`

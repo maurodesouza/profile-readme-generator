@@ -1,0 +1,4 @@
+const sectionsGeneratorMap = {
+};
+
+export { sectionsGeneratorMap };

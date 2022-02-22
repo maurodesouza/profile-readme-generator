@@ -4,11 +4,17 @@ import {
   Github,
   Image,
   MessageSquare,
+  Type,
 } from '@styled-icons/feather';
 
 import { Sections } from 'types';
 
 const contents = [
+  {
+    icon: Type,
+    sectionType: Sections.TEXT,
+    name: 'Texto',
+  },
   {
     icon: PieChart,
     sectionType: Sections.STATS,

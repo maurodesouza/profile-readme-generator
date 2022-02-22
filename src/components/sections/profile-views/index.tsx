@@ -1,10 +1,9 @@
-import { objectToQueryParams } from 'utils';
+import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
-import { urls } from './urls';
 import * as S from './styles';
 
 type Content = {
-  type: keyof typeof urls;
+  type: Parameters<typeof getProfileViewsUrl>[0];
   props: Record<string, unknown>;
 };
 
@@ -20,7 +19,7 @@ type ProfileViewsProps = {
 const ProfileViewsSection = ({ content, styles }: ProfileViewsProps) => {
   const { type, props } = content;
 
-  const url = urls[type]('maurodesouza');
+  const url = getProfileViewsUrl(type, 'maurodesouza');
   const fullUrl = `${url}${objectToQueryParams(props)}`;
 
   return (

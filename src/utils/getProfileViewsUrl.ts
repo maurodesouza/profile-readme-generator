@@ -6,4 +6,7 @@ const urls = {
     `https://profile-counter.glitch.me/${username}/count.svg?`,
 };
 
-export { urls };
+const getProfileViewsUrl = (type: keyof typeof urls, username: string) =>
+  urls[type](username);
+
+export { getProfileViewsUrl };

@@ -1,6 +1,5 @@
-import { objectToQueryParams } from 'utils';
+import { getStatsUrl, objectToQueryParams } from 'utils';
 
-import { urls } from './urls';
 import * as S from './styles';
 
 type SectionStyles = {
@@ -19,15 +18,22 @@ const StatsSection = ({
 
   return (
     <S.Container {...containerStyles}>
-      {Object.entries(urls).map(([key, { url, alt }]) => {
-        const graph = graphs[key];
+      {Object.entries(graphs).map(([graph, props]) => {
+        const url = getStatsUrl(graph);
 
         if (!graph) return null;
 
-        const { height = '', ...props } = { ...from, ...graph };
-        const fullUrl = `${url}?${objectToQueryParams(props)}`;
+        const { height = '', ...rest } = { ...from, ...props };
+        const fullUrl = `${url}?${objectToQueryParams(rest)}`;
 
-        return <img height={height || 150} key={key} src={fullUrl} alt={alt} />;
+        return (
+          <img
+            height={height || 150}
+            key={graph}
+            src={fullUrl}
+            alt={`${graph} graph`}
+          />
+        );
       })}
     </S.Container>
   );

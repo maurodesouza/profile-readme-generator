@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
+    user-select: all;
     position: relative;
     width: 100%;
     padding: ${theme.spacings.xlarge};

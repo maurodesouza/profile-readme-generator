@@ -3,7 +3,7 @@ import { Inputs } from 'types';
 const themeField = (graph: 'stats' | 'languages') => ({
   type: Inputs.SELECT,
   path: `content.graphs.${graph}.theme`,
-  label: 'Tema',
+  label: 'Theme',
   props: {
     column: '1 / 3',
     clearable: true,

@@ -3,27 +3,27 @@ import { Inputs } from 'types';
 const localeField = (graph: 'stats' | 'languages') => ({
   type: Inputs.SELECT,
   path: `content.graphs.${graph}.locale`,
-  label: 'Traduzir para',
+  label: 'Translate',
   props: {
     options: [
       {
-        label: 'Português',
+        label: 'Portuguese',
         value: 'pt-br',
       },
       {
-        label: 'Inglês',
+        label: 'English',
         value: 'en',
       },
       {
-        label: 'Francês',
+        label: 'French',
         value: 'fr',
       },
       {
-        label: 'Espanhol',
+        label: 'Spanish',
         value: 'es',
       },
       {
-        label: 'Alemão',
+        label: 'German',
         value: 'de',
       },
     ],

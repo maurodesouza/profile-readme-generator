@@ -7,7 +7,7 @@ const groups = [
       {
         type: Inputs.TEXT,
         path: 'content.url',
-        label: 'Url da imagem/gif',
+        label: 'image/gif url',
         props: {},
       },
     ],
@@ -19,19 +19,19 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhamento',
+        label: 'Align',
         props: {
           options: [
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],
@@ -40,7 +40,7 @@ const groups = [
       {
         type: Inputs.TEXT,
         path: 'styles.height',
-        label: 'Altura',
+        label: 'Height',
         props: {
           type: 'number',
         },
@@ -48,19 +48,19 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.float',
-        label: 'Flutuar para',
+        label: 'Float',
         props: {
           options: [
             {
-              label: 'Não flutuar',
+              label: 'None',
               value: 'none',
             },
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],

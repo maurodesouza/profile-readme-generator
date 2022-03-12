@@ -15,11 +15,11 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'content.type',
-        label: 'Formato da visualização',
+        label: 'Format',
         props: {
           options: [
             {
-              label: 'Padrão',
+              label: 'Default',
               value: 'default',
             },
             {
@@ -38,7 +38,7 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhamento',
+        label: 'Align',
         props: {
           options: [
             {
@@ -46,11 +46,11 @@ const groups = [
               value: 'right',
             },
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],
@@ -59,19 +59,19 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.float',
-        label: 'Flutuar para',
+        label: 'Float',
         props: {
           options: [
             {
-              label: 'Não flutuar',
+              label: 'None',
               value: 'none',
             },
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],
@@ -81,18 +81,18 @@ const groups = [
   },
   {
     id: 3,
-    label: 'Customizações para a badge',
+    label: 'Badge customizations',
     fields: [
       {
         type: Inputs.TEXT,
         path: 'content.props.left_text',
-        label: 'Texto customizado',
+        label: 'Custom text',
         props: {},
       },
       {
         type: Inputs.SELECT,
         path: 'content.props.left_color',
-        label: 'Cor da esquerda',
+        label: 'Left color',
         props: {
           options: colorOptions,
         },
@@ -100,7 +100,7 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'content.props.right_color',
-        label: 'Cor da direita',
+        label: 'Right color',
         props: {
           options: colorOptions,
         },

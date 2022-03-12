@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <S.Container>
       <Link href="/result" passHref>
-        <S.GenerateLink>Gerar README</S.GenerateLink>
+        <S.GenerateLink>Generate README</S.GenerateLink>
       </Link>
     </S.Container>
   );

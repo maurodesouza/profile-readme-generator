@@ -13,12 +13,12 @@ const contents = [
   {
     icon: Type,
     sectionType: Sections.TEXT,
-    name: 'Texto',
+    name: 'Text',
   },
   {
     icon: PieChart,
     sectionType: Sections.STATS,
-    name: 'Estatísticas',
+    name: 'Stats',
   },
   {
     icon: Share2,
@@ -28,17 +28,17 @@ const contents = [
   {
     icon: Github,
     sectionType: Sections.PROFILE_VIEWS,
-    name: 'Visualizações de perfil',
+    name: 'Profile views',
   },
   {
     icon: Image,
     sectionType: Sections.IMAGE,
-    name: 'Imagem',
+    name: 'Image',
   },
   {
     icon: MessageSquare,
     sectionType: Sections.SOCIALS,
-    name: 'Mídias sociais',
+    name: 'Social media',
   },
 ];
 

@@ -116,7 +116,7 @@ const TechIconVariants: React.ForwardRefRenderFunction<
 
         {hasIcons && (
           <S.ShowMore onClick={handleToggleVariants}>
-            {isOpenVariants ? 'Esconder' : 'Mostrar'} variantes
+            {isOpenVariants ? 'Hide' : 'Show'} variants
           </S.ShowMore>
         )}
       </S.Content>

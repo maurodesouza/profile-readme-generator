@@ -7,7 +7,7 @@ const groups = (path: string) => [
       {
         type: Inputs.TEXT,
         path: `content.socials.${path}.link`,
-        label: 'Link (full) para o seu perfil',
+        label: 'Full link to your profile',
         props: {
           placeholder: 'https://example.com/my-username',
         },
@@ -16,20 +16,20 @@ const groups = (path: string) => [
   },
   {
     id: 2,
-    label: 'Textos',
+    label: 'Texts',
     accordion: true,
     columns: 2,
     fields: [
       {
         type: Inputs.TEXT,
         path: `content.socials.${path}.label`,
-        label: 'Lado esquerdo',
+        label: 'Left side',
         props: {},
       },
       {
         type: Inputs.TEXT,
         path: `content.socials.${path}.message`,
-        label: 'Lado direito',
+        label: 'Right side',
         props: {},
       },
     ],
@@ -41,7 +41,7 @@ const groups = (path: string) => [
   },
   {
     id: 3,
-    label: 'Cores',
+    label: 'Colors',
     accordion: true,
     columns: 2,
     fields: [
@@ -51,23 +51,23 @@ const groups = (path: string) => [
         label: 'Logo',
         props: {
           column: '1 / 3',
-          placeholder: 'Cor em Hex',
+          placeholder: 'Hex color',
         },
       },
       {
         type: Inputs.TEXT,
         path: `content.socials.${path}.labelColor`,
-        label: 'Lado esquerdo',
+        label: 'Left side',
         props: {
-          placeholder: 'Cor em Hex',
+          placeholder: 'Hex color',
         },
       },
       {
         type: Inputs.TEXT,
         path: `content.socials.${path}.color`,
-        label: 'Lado direto',
+        label: 'Right side',
         props: {
-          placeholder: 'Cor em Hex',
+          placeholder: 'Hex color',
         },
       },
     ],

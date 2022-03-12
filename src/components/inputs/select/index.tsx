@@ -30,7 +30,7 @@ const Select = ({
   options = [],
   ...rest
 }: SelectProps) => {
-  const defaultPlaceholder = 'Escolha uma opção';
+  const defaultPlaceholder = 'Chose an option';
 
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -118,7 +118,7 @@ const Select = ({
             </S.Option>
           ))
         ) : (
-          <S.Option>Sem resultados para &quot;{value}&quot;</S.Option>
+          <S.Option>No result for &quot;{value}&quot;</S.Option>
         )}
       </S.Dropdown>
     </S.Container>

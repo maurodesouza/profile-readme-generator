@@ -3,25 +3,25 @@ import { Inputs } from 'types';
 const fields = [
   {
     id: 1,
-    label: 'Estilos da seção',
+    label: 'Section styles',
     accordion: true,
     fields: [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhamento',
+        label: 'Align',
         props: {
           options: [
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
           ],
@@ -31,13 +31,13 @@ const fields = [
   },
   {
     id: 2,
-    label: 'Estilo geral dos items',
+    label: 'Item styles',
     accordion: true,
     fields: [
       {
         type: Inputs.TEXT,
         path: 'content.styles.height',
-        label: 'Altura',
+        label: 'Height',
         props: {
           type: 'number',
         },
@@ -45,7 +45,7 @@ const fields = [
       {
         type: Inputs.TEXT,
         path: 'styles.spacing',
-        label: 'Espaçamento',
+        label: 'Spacing',
         props: {
           type: 'number',
           min: 5,

@@ -28,6 +28,7 @@ export const Tab = styled.div<TabProps>`
   ${({ theme, isActive }) => css`
     position: relative;
     display: flex;
+    flex: 1;
     flex-direction: column;
     cursor: pointer;
     color: ${isActive ? theme.colors.primary : theme.colors.text};
@@ -43,6 +44,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
+    align-self: center;
     gap: ${theme.spacings.xsmall};
     margin-bottom: ${theme.spacings.medium};
   `}

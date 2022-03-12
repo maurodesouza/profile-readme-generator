@@ -41,7 +41,7 @@ const Adding = () => {
       <S.Input
         ref={inputRef}
         onInput={debounce(forceUpdate, 200)}
-        placeholder="Filtre por aqui..."
+        placeholder="Search..."
       />
 
       <S.Content>

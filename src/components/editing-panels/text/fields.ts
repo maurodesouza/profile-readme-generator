@@ -8,19 +8,19 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhamento',
+        label: 'Align',
         props: {
           options: [
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],
@@ -30,12 +30,12 @@ const groups = [
   },
   {
     id: 2,
-    label: 'Conteúdo',
+    label: 'Content',
     fields: [
       {
         type: Inputs.TEXT,
         path: 'content.text',
-        label: 'Texto',
+        label: 'Text',
         props: {
           as: 'textarea',
         },

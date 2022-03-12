@@ -11,12 +11,12 @@ type Tab = {
 
 const tabs: Tab[] = [
   {
-    label: 'Adicionar',
+    label: 'Add',
     icon: Plus,
     view: 'adding',
   },
   {
-    label: 'Editar',
+    label: 'Edit',
     icon: Edit2,
     view: 'editing',
   },

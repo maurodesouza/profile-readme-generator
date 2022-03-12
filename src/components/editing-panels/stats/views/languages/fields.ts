@@ -14,16 +14,16 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'content.graphs.languages.layout',
-        label: 'Tipo',
+        label: 'Style',
         props: {
           column: '1 / 3',
           options: [
             {
-              label: 'Compacto',
+              label: 'Compact',
               value: 'compact',
             },
             {
-              label: 'Padrão',
+              label: 'Default',
               value: 'default ',
             },
           ],
@@ -32,7 +32,7 @@ const groups = [
       {
         type: Inputs.TEXT,
         path: 'content.graphs.languages.height',
-        label: 'Altura',
+        label: 'Height',
         props: {
           type: 'number',
           min: 0,
@@ -41,7 +41,7 @@ const groups = [
       {
         type: Inputs.TEXT,
         path: 'content.graphs.languages.langs_count',
-        label: 'Total de linguagens',
+        label: 'Languages count',
         props: {
           type: 'number',
           min: 1,
@@ -52,7 +52,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.languages.hide_title',
-        label: 'Esconder título',
+        label: 'Hide title',
         props: {
           direction: 'column',
         },
@@ -60,7 +60,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: `content.graphs.languages.hide_border`,
-        label: 'Esconder borda',
+        label: 'Hide border',
         props: {
           direction: 'column',
         },

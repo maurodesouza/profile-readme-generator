@@ -3,13 +3,13 @@ import { Inputs } from 'types';
 const fields = [
   {
     id: 1,
-    label: 'Estilos da seção',
+    label: 'Section styles',
     accordion: true,
     fields: [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhamento',
+        label: 'Align content',
         props: {
           options: [
             {
@@ -31,21 +31,21 @@ const fields = [
   },
   {
     id: 2,
-    label: 'Estilo geral dos items',
+    label: 'Item styles',
     accordion: true,
     fields: [
       {
         type: Inputs.SELECT,
         path: 'content.styles.type',
-        label: 'Mostrar no formato de',
+        label: 'Format',
         props: {
           options: [
             {
-              label: 'Icones',
+              label: 'Icons',
               value: 'icon',
             },
             {
-              label: 'Badges',
+              label: 'Badge',
               value: 'badge',
             },
           ],
@@ -54,7 +54,7 @@ const fields = [
       {
         type: Inputs.TEXT,
         path: 'content.styles.height',
-        label: 'Altura',
+        label: 'Height',
         props: {
           type: 'number',
         },
@@ -62,7 +62,7 @@ const fields = [
       {
         type: Inputs.TEXT,
         path: 'styles.spacing',
-        label: 'Espaçamento',
+        label: 'Spacing',
         props: {
           type: 'number',
           min: 5,
@@ -76,7 +76,7 @@ const fields = [
       {
         type: Inputs.SELECT,
         path: 'content.styles.style',
-        label: 'Formato das badges',
+        label: 'Badge style',
         props: {
           options: [
             {

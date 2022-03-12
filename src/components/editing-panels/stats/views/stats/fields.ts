@@ -14,7 +14,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.show_icons',
-        label: 'Mostrar icones',
+        label: 'Show icons',
         props: {
           direction: 'column',
         },
@@ -22,7 +22,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.hide_rank',
-        label: 'Esconder rank',
+        label: 'Hide rank',
         props: {
           direction: 'column',
         },
@@ -30,7 +30,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.hide_title',
-        label: 'Esconder título',
+        label: 'Hide title',
         props: {
           direction: 'column',
         },
@@ -38,7 +38,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: `content.graphs.stats.hide_border`,
-        label: 'Esconder borda',
+        label: 'Hide border',
         props: {
           direction: 'column',
         },
@@ -46,7 +46,7 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.disable_animations',
-        label: 'Desabilitar animações',
+        label: 'Disable animations',
         props: {
           column: '1 / 3',
         },
@@ -61,13 +61,13 @@ const groups = [
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.include_all_commits',
-        label: 'Incluir todos',
+        label: 'Include all the time',
         props: {},
       },
       {
         type: Inputs.SWITCH,
         path: 'content.graphs.stats.count_private',
-        label: 'Incluir privados',
+        label: 'Include privates',
         props: {},
       },
     ],

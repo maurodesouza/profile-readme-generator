@@ -7,19 +7,19 @@ const groups = [
       {
         type: Inputs.SELECT,
         path: 'styles.align',
-        label: 'Alinhar cards',
+        label: 'Align',
         props: {
           options: [
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
           ],

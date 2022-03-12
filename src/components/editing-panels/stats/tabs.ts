@@ -11,12 +11,12 @@ type Tab = {
 
 const tabs: Tab[] = [
   {
-    label: 'Estatisticas',
+    label: 'Stats',
     icon: PieChart,
     view: 'stats',
   },
   {
-    label: 'Linguagens',
+    label: 'Languages',
     icon: TrendingUp,
     view: 'languages',
   },

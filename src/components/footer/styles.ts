@@ -14,9 +14,11 @@ export const Container = styled.footer`
   `}
 `;
 
-export const GenerateButton = styled.button`
+export const GenerateLink = styled.a`
   ${({ theme }) => css`
     border: none;
+    display: grid;
+    place-items: center;
     background: ${theme.colors.secondary};
     color: ${theme.colors.text};
     border-radius: ${theme.border.radius};

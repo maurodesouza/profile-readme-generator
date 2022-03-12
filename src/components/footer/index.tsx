@@ -1,16 +1,12 @@
-import { useCanvas } from 'hooks';
-import { readmeGenerator } from 'generators';
-
 import * as S from './styles';
+import Link from 'next/link';
 
 const Footer = () => {
-  const { sections } = useCanvas();
-
   return (
     <S.Container>
-      <S.GenerateButton onClick={() => readmeGenerator(sections)}>
-        Gerar README
-      </S.GenerateButton>
+      <Link href="/result" passHref>
+        <S.GenerateLink>Gerar README</S.GenerateLink>
+      </Link>
     </S.Container>
   );
 };

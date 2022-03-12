@@ -8,6 +8,7 @@ type SocialStyles = {
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  spacing: number;
 };
 
 type SocialIcon = {
@@ -43,7 +44,7 @@ const generateSocialsSection = ({
 }: GenerateSocialsSectionArgs) => {
   const { socials, styles } = content;
 
-  const { align } = sectionStyles;
+  const { align, spacing } = sectionStyles;
   const { height = 40, type, style } = styles;
 
   const imgsHtml = Object.entries(socials)
@@ -51,7 +52,10 @@ const generateSocialsSection = ({
       const props = { ...rest, style };
       const url = getSocialImgUrl(type, social, props);
 
-      const img = `<img src="${url}" height="${height}" alt="${social} logo" />`;
+      const widthValue = Number(height) + Number(spacing);
+      const widthAttr = type === 'icon' ? ` width="${widthValue}"` : '';
+
+      const img = `<img src="${url}"${widthAttr} height="${height}" alt="${social} logo" />`;
       const finalHtml = !!link ? wrapperHtmlInLink(link, img) : img;
 
       return `${html}\n${finalHtml}`;

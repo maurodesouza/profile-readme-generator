@@ -60,6 +60,20 @@ const fields = [
         },
       },
       {
+        type: Inputs.TEXT,
+        path: 'styles.spacing',
+        label: 'Espaçamento',
+        props: {
+          type: 'number',
+          min: 5,
+        },
+        conditions: {
+          path: 'props.content.styles.type',
+          be: 'equal',
+          value: 'icon',
+        },
+      },
+      {
         type: Inputs.SELECT,
         path: 'content.styles.style',
         label: 'Formato das badges',
@@ -77,10 +91,6 @@ const fields = [
               label: 'For the badge',
               value: 'for-the-badge',
             },
-            // {
-            //   label: 'Social',
-            //   value: 'social',
-            // },
           ],
         },
         conditions: {

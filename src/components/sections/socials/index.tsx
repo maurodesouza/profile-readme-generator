@@ -9,6 +9,7 @@ type SocialStyles = {
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  spacing: number;
 };
 
 type SocialIcon = {
@@ -37,8 +38,10 @@ const SocialsSection = ({
   const { socials, styles } = content;
   const { type, style, height } = styles;
 
+  const fixSpacing = type === 'badge' && { spacing: 5 };
+
   return (
-    <S.Container {...containerStyles}>
+    <S.Container {...{ ...containerStyles, ...fixSpacing }}>
       {Object.entries(socials).map(([social, { link, ...rest }]) => {
         const props = { ...rest, style };
 

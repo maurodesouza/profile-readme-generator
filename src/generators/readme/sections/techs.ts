@@ -42,10 +42,10 @@ const generateTechsSection = ({
     .trim();
 
   return `
-    <div align="${align}"
+    <div align="${align}">
       ${imgsHtml}
     </div>
-  `.trim();
+  `;
 };
 
 export { generateTechsSection };

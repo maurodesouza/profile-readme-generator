@@ -1,19 +1,22 @@
+import htmlPrettify from 'html-prettify';
 import { CanvasSection } from 'types';
 
 import { sectionsGeneratorMap } from './sections';
 
 const readmeGenerator = (template: CanvasSection[]) => {
-  const finalReadme = template.reduce((readme, section) => {
+  const readme = template.reduce((readme, section) => {
     const generator = (sectionsGeneratorMap as any)[section.type!];
 
     if (!generator) return readme;
 
-    const html = generator(section.props);
+    const html = htmlPrettify(generator(section.props));
 
-    return `${readme} \n ${html}`;
+    return `${readme}\n${html}\n###`;
   }, '');
 
-  console.log('final readme', finalReadme);
+  const readmeFormated = readme.replace(/(###)/g, '\n$1');
+
+  return readmeFormated.trim();
 };
 
 export { readmeGenerator };

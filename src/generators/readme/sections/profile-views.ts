@@ -29,10 +29,10 @@ const generateProfileViewsSection = ({
   const floatStyle = `align="${float}" `;
 
   return `
-    ${!hasFloat ? `<div align="${align}"` : ''}
+    ${!hasFloat ? `<div align="${align}">` : ''}
       <img ${hasFloat ? floatStyle : ''}src="${fullUrl}" />
     ${!hasFloat ? '</div>' : ''}
-  `.trim();
+  `;
 };
 
 export { generateProfileViewsSection };

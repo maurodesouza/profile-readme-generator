@@ -22,13 +22,13 @@ const generateImageSection = ({
 
   const hasFloat = float !== 'none';
 
-  const floatStyle = `align="${float}"`;
+  const floatStyle = `align="${float}" `;
 
   return `
-    ${!hasFloat ? `<div align="${align}"` : ''}
-      <img ${hasFloat ? floatStyle : ''} height="${height}" src="${url}" />
+    ${!hasFloat ? `<div align="${align}">` : ''}
+      <img ${hasFloat ? floatStyle : ''}height="${height}" src="${url}" />
     ${!hasFloat ? '</div>' : ''}
-  `.trim();
+  `;
 };
 
 export { generateImageSection };

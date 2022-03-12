@@ -16,6 +16,7 @@ type Content = {
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  spacing: number;
 };
 
 type TechsSectionProps = {

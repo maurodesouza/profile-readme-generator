@@ -15,6 +15,7 @@ type Content = {
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  spacing: number;
 };
 
 type GenerateTechsSectionArgs = {
@@ -28,14 +29,15 @@ const generateTechsSection = ({
 }: GenerateTechsSectionArgs) => {
   const { techs, styles } = content;
 
-  const { align } = sectionStyles;
+  const { align, spacing } = sectionStyles;
   const { height = 40 } = styles;
 
   const imgsHtml = Object.entries(techs)
     .reduce((html, [tech, { icon }]) => {
       const url = getTechIconUrl(tech, icon);
+      const width = Number(height) + Number(spacing);
 
-      const img = `<img src="${url}" height="${height}" alt="${tech} logo" />`;
+      const img = `<img src="${url}" height="${height}" width="${width}" alt="${tech} logo" />`;
 
       return `${html} \n ${img}`;
     }, '')

@@ -30,6 +30,7 @@ const techsSectionConfig = {
 
     styles: {
       align: 'center',
+      spacing: 12,
     },
   },
 };

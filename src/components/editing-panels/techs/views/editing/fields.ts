@@ -42,6 +42,15 @@ const fields = [
           type: 'number',
         },
       },
+      {
+        type: Inputs.TEXT,
+        path: 'styles.spacing',
+        label: 'Espaçamento',
+        props: {
+          type: 'number',
+          min: 5,
+        },
+      },
     ],
   },
 ];

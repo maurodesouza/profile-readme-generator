@@ -4,7 +4,7 @@ type SectionStyles = {
 
 type Content = {
   text: string;
-  tag: string;
+  as: string;
 };
 
 type GenerateTextSectionArgs = {
@@ -13,7 +13,7 @@ type GenerateTextSectionArgs = {
 };
 
 const generateTextSection = ({ content, styles }: GenerateTextSectionArgs) => {
-  const { text, tag } = content;
+  const { text, as: tag } = content;
   const { align } = styles;
 
   return `<${tag} align="${align}">${text}</${tag}>`;

@@ -30,7 +30,7 @@ const Canvas = () => {
 
           return (
             <BaseSection key={id} id={id} selected={id === currentSection?.id}>
-              <Section {...props} />
+              <Section id={id} {...props} />
             </BaseSection>
           );
         })}

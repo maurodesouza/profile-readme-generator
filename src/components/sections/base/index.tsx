@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { events } from '@events/base';
+import { CanvasStatesEnum } from 'types';
 
 import * as S from './styles';
 
@@ -11,11 +13,26 @@ type BaseSectionProps = {
 
 const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
   const handleSelectSection = () => {
+    if (isInAlert) return;
+
     events.canvas.currentSection(id);
   };
 
   const { props } = React.Children.only(children) as React.ReactPortal;
   const { float = 'none' } = props.styles || {};
+
+  const isInAlert = props.state === CanvasStatesEnum.ALERT;
+
+  const getWrapperState = () => {
+    let state: CanvasStatesEnum = CanvasStatesEnum.DEFAULT;
+
+    if (selected) state = CanvasStatesEnum.SELECTED;
+    if (isInAlert) state = CanvasStatesEnum.ALERT;
+
+    return state;
+  };
+
+  const wrapperState = getWrapperState();
 
   return (
     <S.Container
@@ -24,7 +41,7 @@ const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
       value={id}
       float={float}
     >
-      <S.Wrapper selected={selected}>{children}</S.Wrapper>
+      <S.Wrapper state={wrapperState}>{children}</S.Wrapper>
     </S.Container>
   );
 };

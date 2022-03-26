@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { DisplayBlock } from 'components';
+import { DisplayBlock, SimpleInput } from 'components';
 import { events } from '@events/base';
 
 import { useForceUpdate } from 'hooks';
@@ -29,7 +29,7 @@ const Adding = () => {
 
   return (
     <>
-      <S.Input
+      <SimpleInput
         ref={inputRef}
         onInput={debounce(forceUpdate, 200)}
         placeholder="Search..."

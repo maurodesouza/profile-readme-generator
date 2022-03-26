@@ -1,33 +1,17 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import { SimpleInput } from '../simple-input';
 
 export const Container = styled.div`
   width: 100%;
   position: relative;
 `;
 
-export const Label = styled.span`
-  ${({ theme }) => css`
-    display: block;
-    font-weight: ${theme.font.weights.bold};
-    margin-bottom: ${theme.spacings.xsmall};
-    width: 100%;
-  `}
-`;
-
 type InputProps = {
   isSelected: boolean;
 };
 
-export const Input = styled.input<InputProps>`
+export const Input = styled(SimpleInput)<InputProps>`
   ${({ theme, isSelected }) => css`
-    width: 100%;
-    background: transparent;
-    border-radius: ${theme.border.radius};
-    border-width: ${theme.border.width};
-    border-color: ${theme.colors.border};
-    border-style: solid;
-    padding: 8px 12px;
-
     ${isSelected &&
     css`
       &::placeholder {

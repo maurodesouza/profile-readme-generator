@@ -1,9 +1,9 @@
 import { useRef, InputHTMLAttributes } from 'react';
 
+import { SimpleInput } from '..';
 import { events } from '@events/base';
-import { debounce } from 'utils';
 
-import * as S from './styles';
+import { debounce } from 'utils';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
@@ -20,15 +20,13 @@ const Input = ({ label, path, defaultValue, ...rest }: InputProps) => {
   };
 
   return (
-    <S.Container>
-      <S.Label>{label}</S.Label>
-      <S.Input
-        ref={inputRef}
-        defaultValue={defaultValue}
-        onInput={debounce(handleUpdate)}
-        {...rest}
-      />
-    </S.Container>
+    <SimpleInput
+      ref={inputRef}
+      label={label}
+      defaultValue={defaultValue}
+      onInput={debounce(handleUpdate)}
+      {...rest}
+    />
   );
 };
 

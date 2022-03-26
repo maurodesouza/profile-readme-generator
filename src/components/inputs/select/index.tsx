@@ -1,9 +1,9 @@
 import { FocusEvent, useEffect, useRef, useState } from 'react';
 import { X as CloseIcon } from '@styled-icons/feather';
 
-import { events } from '@events/base';
 import { useForceUpdate } from 'hooks';
 
+import { events } from '@events/base';
 import { debounce, filterArrayByQueryMatch } from 'utils';
 
 import * as S from './styles';
@@ -91,9 +91,8 @@ const Select = ({
 
   return (
     <S.Container>
-      <S.Label>{label}</S.Label>
-
       <S.Input
+        label={label}
         ref={inputRef}
         isSelected={!!selectedOption}
         placeholder={placeholder}

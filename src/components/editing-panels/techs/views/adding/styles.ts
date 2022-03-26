@@ -1,20 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Input = styled.input`
-  ${({ theme }) => css`
-    width: 100%;
-    background: transparent;
-    border-radius: ${theme.border.radius};
-    border-width: ${theme.border.width};
-    border-color: ${theme.colors.border};
-    border-style: solid;
-    padding: 8px 12px;
-    margin-bottom: ${theme.spacings.medium};
-  `}
-`;
-
 export const Content = styled.div`
   ${({ theme }) => css`
+    margin-top: ${theme.spacings.medium};
     width: calc(100% + ${theme.spacings.medium});
     display: grid;
     grid-template-columns: repeat(3, 1fr);

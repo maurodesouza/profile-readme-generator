@@ -43,7 +43,9 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   };
 
   const handleEditSection = (event: HandleEditSectionArgs) => {
-    const { id = currentSection!.id, path, value } = event.detail;
+    const { id = currentSection?.id, path, value } = event.detail;
+
+    if (!id) return;
 
     const obj = sections.find(item => item.id === id)!;
 
@@ -60,7 +62,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       })
     );
 
-    const isEditingCurrentSection = currentSection!.id === id;
+    const isEditingCurrentSection = currentSection?.id === id;
 
     isEditingCurrentSection && setCurrentSection(result);
   };

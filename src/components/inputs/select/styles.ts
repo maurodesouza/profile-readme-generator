@@ -14,7 +14,7 @@ export const Input = styled(SimpleInput)<InputProps>`
   ${({ theme, isSelected }) => css`
     ${isSelected &&
     css`
-      &::placeholder {
+      & input::placeholder {
         color: ${theme.colors.text};
       }
     `}

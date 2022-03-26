@@ -9,9 +9,9 @@ type SimpleInputProps = InputHTMLAttributes<HTMLInputElement> & {
 const SimpleInput: React.ForwardRefRenderFunction<
   HTMLInputElement,
   SimpleInputProps
-> = ({ label, ...rest }: SimpleInputProps, ref) => {
+> = ({ label, className, ...rest }: SimpleInputProps, ref) => {
   return (
-    <S.Container>
+    <S.Container className={className}>
       {label && <S.Label>{label}</S.Label>}
       <S.Input ref={ref} {...rest} />
     </S.Container>

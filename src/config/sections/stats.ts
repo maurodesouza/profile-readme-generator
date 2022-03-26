@@ -26,10 +26,6 @@ const statsSectionConfig = {
           hide_border: false,
         },
       },
-
-      from: {
-        username: 'maurodesouza',
-      },
     },
 
     styles: {

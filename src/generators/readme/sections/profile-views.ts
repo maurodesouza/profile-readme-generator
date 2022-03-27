@@ -1,3 +1,4 @@
+import { Settings } from 'types';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
 type Content = {
@@ -15,14 +16,14 @@ type GenerateProfileViewsSectionArgs = {
   styles: Styles;
 };
 
-const generateProfileViewsSection = ({
-  content,
-  styles,
-}: GenerateProfileViewsSectionArgs) => {
+const generateProfileViewsSection = (
+  { content, styles }: GenerateProfileViewsSectionArgs,
+  settings: Settings
+) => {
   const { type, props } = content;
   const { align, float } = styles;
 
-  const url = getProfileViewsUrl(type, 'maurodesouza');
+  const url = getProfileViewsUrl(type, settings.user.github as string);
   const fullUrl = `${url}${type === 'badge' ? objectToQueryParams(props) : ''}`;
 
   const hasFloat = float !== 'none';

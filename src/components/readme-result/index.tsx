@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import primsjs from 'prismjs';
 
 import { readmeGenerator } from 'generators';
-import { useCanvas } from 'hooks';
+import { useCanvas, useSettings } from 'hooks';
 
 import * as S from './styles';
 
@@ -10,8 +10,9 @@ const ReadmeResult = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { sections } = useCanvas();
+  const { settings } = useSettings();
 
-  const readme = readmeGenerator(sections);
+  const readme = readmeGenerator(sections, settings);
 
   useEffect(() => {
     primsjs.highlightAllUnder(containerRef.current!);

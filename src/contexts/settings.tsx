@@ -1,7 +1,9 @@
-import { events } from '@events/base';
 import { createContext, useEffect, useState } from 'react';
-import { Events } from 'types';
+
+import { events } from '@events/base';
 import { deepChangeObjectProperty } from 'utils';
+
+import { Events } from 'types';
 
 type HandleEditSettingsArgs = CustomEvent<{
   path: string;

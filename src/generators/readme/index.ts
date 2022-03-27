@@ -1,10 +1,12 @@
 import htmlPrettify from 'html-prettify';
-import { CanvasSection } from 'types';
+import { CanvasSection, CanvasStatesEnum } from 'types';
 
 import { sectionsGeneratorMap } from './sections';
 
 const readmeGenerator = (template: CanvasSection[]) => {
   const readme = template.reduce((readme, section) => {
+    if (section.props.state === CanvasStatesEnum.ALERT) return readme;
+
     const generator = (sectionsGeneratorMap as any)[section.type!];
 
     if (!generator) return readme;

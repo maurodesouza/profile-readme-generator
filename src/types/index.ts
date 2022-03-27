@@ -3,3 +3,4 @@ export * from './events';
 export * from './sections';
 export * from './inputs';
 export * from './context-menus';
+export * from './settings';

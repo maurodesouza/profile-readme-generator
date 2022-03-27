@@ -3,16 +3,12 @@ import { createContext, useEffect, useState } from 'react';
 import { events } from '@events/base';
 import { deepChangeObjectProperty } from 'utils';
 
-import { Events } from 'types';
+import { Events, Settings } from 'types';
 
 type HandleEditSettingsArgs = CustomEvent<{
   path: string;
   value: unknown;
 }>;
-
-type Settings = {
-  user: Record<string, unknown>;
-};
 
 type SettingsContextData = {
   settings: Settings;

@@ -1,10 +1,9 @@
 import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { events } from 'app';
+import { events, config } from 'app';
 import { Sections, CanvasSection, Events } from 'types';
 
-import { defaultSectionProps } from 'config';
 import { deepChangeObjectProperty } from 'utils';
 
 type HandleAddSectionArgs = CustomEvent<Sections>;
@@ -31,7 +30,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   const handleAddSection = (event: HandleAddSectionArgs) => {
     const sectionType = event.detail;
-    const defaultProps = defaultSectionProps[sectionType];
+    const defaultProps = config.sections.default[sectionType];
 
     const newSection = {
       id: uuid(),

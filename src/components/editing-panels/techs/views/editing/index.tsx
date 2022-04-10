@@ -8,7 +8,7 @@ import { getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';
 import * as S from './styles';
-import { events } from '@events/base';
+import { events } from 'app';
 import { fields } from './fields';
 
 type Tech = {

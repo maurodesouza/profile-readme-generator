@@ -1,7 +1,7 @@
 import { useRef, InputHTMLAttributes } from 'react';
 
 import { SimpleInput } from '..';
-import { events } from '@events/base';
+import { events } from 'app';
 
 import { debounce } from 'utils';
 

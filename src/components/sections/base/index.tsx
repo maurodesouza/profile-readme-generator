@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { CanvasStatesEnum } from 'types';
 
 import * as S from './styles';

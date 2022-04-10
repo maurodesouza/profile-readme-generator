@@ -6,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { ContextMenu } from 'components';
 import { CanvasProvider, SettingsProvider } from 'contexts';
 
-import { events } from '@events/index';
+import { events } from 'app';
 import { theme, GlobalStyles } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {

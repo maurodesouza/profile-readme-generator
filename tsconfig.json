@@ -20,9 +20,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "src",
-    "paths": {
-      "@events/*": ["events/*"]
-    }
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]

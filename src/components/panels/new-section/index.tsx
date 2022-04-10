@@ -1,6 +1,6 @@
 import { PanelBase } from '../base';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { contents } from './contents';
 
 import * as S from './styles';

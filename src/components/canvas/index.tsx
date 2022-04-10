@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 import { Reorder } from 'framer-motion';
 
 import { sectionMap, BaseSection } from 'components';
-import { events } from '@events/index';
+import { events } from 'app';
 
 import { ContextMenus } from 'types';
 import { useCanvas } from 'hooks';

@@ -3,7 +3,7 @@ import { useDragControls, usePresence } from 'framer-motion';
 
 import { Menu } from '@styled-icons/feather';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { GroupFields } from 'components';
 
 import { getSocialImgUrl } from 'utils';

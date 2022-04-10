@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { AlertBox } from 'components';
 import { useSettings } from 'hooks';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { getStatsUrl, objectToQueryParams } from 'utils';
 
 import { CanvasStatesEnum } from 'types';

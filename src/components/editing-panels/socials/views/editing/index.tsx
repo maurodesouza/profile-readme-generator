@@ -4,7 +4,7 @@ import { AnimatePresence, Reorder } from 'framer-motion';
 import { EditSocialItem, EditSocialItemRef, GroupFields } from 'components';
 import { useCanvas, useForceUpdate } from 'hooks';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';

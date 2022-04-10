@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, MouseEvent } from 'react';
 
 import { BaseContextMenu } from './base';
 import { ContextMenus, Events } from 'types';
-import { events } from '@events/index';
+import { events } from 'app';
 
 import { contextMenusMap } from './contexts';
 

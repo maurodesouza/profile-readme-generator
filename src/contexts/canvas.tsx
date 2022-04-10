@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { events } from '@events/index';
+import { events } from 'app';
 import { Sections, CanvasSection, Events } from 'types';
 
 import { defaultSectionProps } from 'config';

@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { events } from '@events/index';
+import { events } from 'app';
 import * as S from './styles';
 
 type SwitchProps = {

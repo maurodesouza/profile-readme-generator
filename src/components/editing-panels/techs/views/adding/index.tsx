@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import { DisplayBlock, SimpleInput } from 'components';
-import { events } from '@events/base';
+import { events } from 'app';
 
 import { useForceUpdate } from 'hooks';
 import { debounce, filterArrayByQueryMatch, getTechIconUrl } from 'utils';

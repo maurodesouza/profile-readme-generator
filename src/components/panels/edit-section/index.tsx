@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { editingPanels } from 'components';
 import { PanelBase } from '../base';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { Sections, Events } from 'types';
 
 const PanelEditSection = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { events } from '@events/index';
+import { events } from 'app';
 import { DefaultContextMenuProps } from '../base';
 
 import { actions } from './actions';

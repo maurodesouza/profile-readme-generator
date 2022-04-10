@@ -1,17 +1,19 @@
 import { Events } from 'types';
 
-import { EventHandle } from './base';
+import { BaseEventHandle } from './base';
 
 type HandleEditArgs = {
   path: string;
   value: unknown;
 };
 
-class SettingsHandleEvents {
-  constructor(private readonly handle: EventHandle) {}
+class SettingsHandleEvents extends BaseEventHandle {
+  constructor() {
+    super();
+  }
 
   edit = (args: HandleEditArgs) => {
-    this.handle.emit(Events.SETTINGS_EDIT, args);
+    this.emit(Events.SETTINGS_EDIT, args);
   };
 }
 

@@ -3,7 +3,7 @@ import { X as CloseIcon } from '@styled-icons/feather';
 
 import { useForceUpdate } from 'hooks';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { debounce, filterArrayByQueryMatch } from 'utils';
 
 import * as S from './styles';

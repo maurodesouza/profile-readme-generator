@@ -1,4 +1,4 @@
-import { events } from '@events/base';
+import { events } from 'app';
 import { Trash, Edit2 } from '@styled-icons/feather';
 
 const actions = [

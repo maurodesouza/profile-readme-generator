@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { debounce } from 'utils';
 
 import * as S from './styles';

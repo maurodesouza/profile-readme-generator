@@ -9,7 +9,7 @@ import { useDragControls, usePresence } from 'framer-motion';
 
 import { Menu } from '@styled-icons/feather';
 
-import { events } from '@events/base';
+import { events } from 'app';
 import { DisplayBlock } from 'components';
 
 import { getTechIconUrl } from 'utils';

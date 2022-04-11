@@ -13,18 +13,23 @@ const marginMap = {
 };
 
 const containerModifiers = {
-  float: (direction: 'left' | 'right', theme: DefaultTheme) => css`
-    margin-${marginMap[direction]}: ${theme.spacings.small};
+  float: (direction: 'left' | 'right') => css`
+    margin-${marginMap[direction]}: 4px;
     float: ${direction};
   `,
 };
 
 export const Container = styled(Reorder.Item)<ContainerProps>`
   ${({ theme, float }) => css`
-    ${float !== 'none' && containerModifiers.float(float, theme)};
+    ${float !== 'none' && containerModifiers.float(float)};
 
     & + & {
-      margin-top: 3px;
+      margin-top: 6px;
+    }
+
+    &[data-hasfloat='true'] + & {
+      padding-top: ${theme.spacings.xlarge};
+      margin-top: 0;
     }
   `}
 `;

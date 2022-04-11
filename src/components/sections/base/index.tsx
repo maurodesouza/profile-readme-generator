@@ -37,6 +37,7 @@ const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
   return (
     <S.Container
       data-sectionid={id}
+      data-hasfloat={float !== 'none'}
       onClick={handleSelectSection}
       value={id}
       float={float}

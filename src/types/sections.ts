@@ -5,4 +5,5 @@ export enum Sections {
   PROFILE_VIEWS = 'canvas.content.profile-views',
   IMAGE = 'canvas.content.image',
   SOCIALS = 'canvas.content.socials',
+  SNAKE = 'canvas.content.snake',
 }

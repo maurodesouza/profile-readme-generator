@@ -5,6 +5,7 @@ import {
   Image,
   MessageSquare,
   Type,
+  Activity,
 } from '@styled-icons/feather';
 
 import { Sections } from 'types';
@@ -39,6 +40,11 @@ const contents = [
     icon: MessageSquare,
     sectionType: Sections.SOCIALS,
     name: 'Social media',
+  },
+  {
+    icon: Activity,
+    sectionType: Sections.SNAKE,
+    name: 'Snake',
   },
 ];
 

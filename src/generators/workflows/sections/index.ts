@@ -1,0 +1,3 @@
+const workflowsGeneratorMap = {};
+
+export { workflowsGeneratorMap };

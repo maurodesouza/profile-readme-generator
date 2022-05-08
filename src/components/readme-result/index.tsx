@@ -1,27 +1,34 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import primsjs from 'prismjs';
 
-import { readmeGenerator } from 'generators';
-import { useCanvas, useSettings } from 'hooks';
+import { events } from 'app';
+import { Events } from 'types';
 
 import * as S from './styles';
 
 const ReadmeResult = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [content, setContent] = useState('');
 
-  const { sections } = useCanvas();
-  const { settings } = useSettings();
-
-  const readme = readmeGenerator(sections, settings);
+  const handleShowContent = (event: CustomEvent<string>) =>
+    setContent(event.detail);
 
   useEffect(() => {
     primsjs.highlightAllUnder(containerRef.current!);
+  }, [content]);
+
+  useEffect(() => {
+    events.on(Events.RESULT_SHOW_CONTENT, handleShowContent);
+
+    return () => {
+      events.off(Events.RESULT_SHOW_CONTENT, handleShowContent);
+    };
   }, []);
 
   return (
     <S.Container ref={containerRef}>
       <pre className={`language-html`}>
-        <code className={`language-html`}>{readme}</code>
+        <code className={`language-html`}>{content}</code>
       </pre>
     </S.Container>
   );

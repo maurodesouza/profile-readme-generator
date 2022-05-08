@@ -5,6 +5,8 @@ export enum Events {
   CANVAS_SET_CURRENT_SECTION = 'canvas.section.current',
   CANVAS_REORDER_SECTIONS = 'canvas.section.reorder',
 
+  RESULT_SHOW_CONTENT = 'result.canvas.show',
+
   SETTINGS_EDIT = 'settings.edit',
 
   CONTEXT_MENU_OPEN = 'contextmenu.open',

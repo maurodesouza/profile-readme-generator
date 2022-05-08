@@ -1,5 +1,6 @@
 import { DefaultEditPanel } from './default';
 
+import { SnakePanel } from './snake';
 import { TextEditPanel } from './text';
 import { StatsEditPanel } from './stats';
 import { TechsEditPanel } from './techs';
@@ -11,6 +12,7 @@ import { Sections } from 'types';
 
 const editingPanels = {
   default: DefaultEditPanel,
+  [Sections.SNAKE]: SnakePanel,
   [Sections.STATS]: StatsEditPanel,
   [Sections.TEXT]: TextEditPanel,
   [Sections.TECHS]: TechsEditPanel,

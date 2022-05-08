@@ -18,7 +18,17 @@ const readmeGenerator = (template: CanvasSection[], settings: Settings) => {
 
   const readmeFormated = readme.replace(/(###)/g, '\n$1');
 
-  return readmeFormated.trim();
+  const folder = {
+    name: '',
+    files: [
+      {
+        file: 'README.md',
+        content: readmeFormated.trim(),
+      },
+    ],
+  };
+
+  return folder;
 };
 
 export { readmeGenerator };

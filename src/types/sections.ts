@@ -1,9 +1,9 @@
 export enum Sections {
-  TEXT = 'canvas.content.text',
-  STATS = 'canvas.content.stats',
-  TECHS = 'canvas.content.techs',
-  PROFILE_VIEWS = 'canvas.content.profile-views',
-  IMAGE = 'canvas.content.image',
-  SOCIALS = 'canvas.content.socials',
-  SNAKE = 'canvas.content.snake',
+  TEXT = 'text',
+  STATS = 'stats',
+  TECHS = 'techs',
+  PROFILE_VIEWS = 'profile-views',
+  IMAGE = 'image',
+  SOCIALS = 'socials',
+  SNAKE = 'snake',
 }

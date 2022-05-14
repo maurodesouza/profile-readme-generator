@@ -14,6 +14,16 @@ export const Label = styled.span`
   `}
 `;
 
+export const Error = styled.span`
+  ${({ theme }) => css`
+    display: block;
+    text-align: left;
+    color: ${theme.colors.error};
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: ${theme.spacings.xsmall};
+  `}
+`;
+
 type InputProps = {
   as?: string;
 };

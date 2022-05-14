@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { events } from 'app';
 import { debounce } from 'utils';
@@ -10,22 +10,25 @@ const DEBOUNCE_TIMEOUT = 500;
 
 const AlertBox = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState('');
 
   const handleCheckGithubUsername = async () => {
     const { value = '' } = inputRef.current!;
 
     if (!value) return;
 
-    try {
-      await fetch(`${BASE_URL}${value}`);
+    const response = await fetch(`${BASE_URL}${value}`);
 
-      events.settings.edit({
-        path: 'user.github',
-        value,
-      });
-    } catch (err) {
-      console.error(err);
+    if (!response.ok) {
+      setError('User not found');
+
+      return;
     }
+
+    events.settings.edit({
+      path: 'user.github',
+      value,
+    });
   };
 
   return (
@@ -39,6 +42,7 @@ const AlertBox = () => {
       </S.Text>
 
       <S.Input
+        error={error}
         ref={inputRef}
         label="Github username"
         placeholder="Your github username"

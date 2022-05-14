@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { readmeGenerator, workflowsGenerator } from 'generators';
 
 import { Tree } from 'components';
-import { PanelBase } from '../base';
 
 import { useCanvas, useSettings } from 'hooks';
 import { events } from 'app';
@@ -25,11 +24,9 @@ const PanelGeneratedFiles = () => {
   }, []);
 
   return (
-    <PanelBase>
-      <S.Container>
-        <Tree tree={tree} />
-      </S.Container>
-    </PanelBase>
+    <S.Container>
+      <Tree tree={tree} />
+    </S.Container>
   );
 };
 

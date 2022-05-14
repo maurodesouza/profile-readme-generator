@@ -1,10 +1,10 @@
-import { ReadmeResult, Sticky, PanelGeneratedFiles } from 'components';
+import { ReadmeResult, Sticky, Panel } from 'components';
 import * as S from './styles';
 
 const ResultTemplate = () => {
   return (
     <S.Container>
-      <PanelGeneratedFiles />
+      <Panel side="left" />
 
       <Sticky>
         <S.Wrapper>

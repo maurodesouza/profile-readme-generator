@@ -1,7 +1,6 @@
 export * from './sticky';
 export * from './canvas';
 export * from './sections';
-export * from './editing-panels';
 export * from './readme-result';
 export * from './panels';
 export * from './inputs';

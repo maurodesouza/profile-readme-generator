@@ -6,6 +6,7 @@ import { debounce } from 'utils';
 import * as S from './styles';
 
 const BASE_URL = 'https://api.github.com/users/';
+const DEBOUNCE_TIMEOUT = 500;
 
 const AlertBox = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -41,7 +42,7 @@ const AlertBox = () => {
         ref={inputRef}
         label="Github username"
         placeholder="Your github username"
-        onChange={debounce(handleCheckGithubUsername)}
+        onChange={debounce(handleCheckGithubUsername, DEBOUNCE_TIMEOUT)}
       />
     </S.Container>
   );

@@ -1,12 +1,11 @@
-import { useRef, InputHTMLAttributes } from 'react';
+import { useRef } from 'react';
 
-import { SimpleInput } from '..';
+import { SimpleInput, SimpleInputProps } from '../simple-input';
 import { events } from 'app';
 
 import { debounce } from 'utils';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
+type InputProps = SimpleInputProps & {
   path: string;
 };
 

@@ -9,3 +9,4 @@ export * from './checkDeepObjectValue';
 export * from './getSocialImgUrl';
 export * from './getProfileViewsUrl';
 export * from './getStatsUrl';
+export * from './getPanelSideEvent';

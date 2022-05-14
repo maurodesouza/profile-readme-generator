@@ -8,17 +8,17 @@ import { ImageEditPanel } from './image';
 import { SocialsEditPanel } from './socials';
 import { ProfileViewsPanel } from './profile-views';
 
-import { Sections } from 'types';
+import { PanelsEnum } from 'types';
 
 const editingPanels = {
   default: DefaultEditPanel,
-  [Sections.SNAKE]: SnakePanel,
-  [Sections.STATS]: StatsEditPanel,
-  [Sections.TEXT]: TextEditPanel,
-  [Sections.TECHS]: TechsEditPanel,
-  [Sections.IMAGE]: ImageEditPanel,
-  [Sections.SOCIALS]: SocialsEditPanel,
-  [Sections.PROFILE_VIEWS]: ProfileViewsPanel,
+  [PanelsEnum.SNAKE]: SnakePanel,
+  [PanelsEnum.STATS]: StatsEditPanel,
+  [PanelsEnum.TEXT]: TextEditPanel,
+  [PanelsEnum.TECHS]: TechsEditPanel,
+  [PanelsEnum.IMAGE]: ImageEditPanel,
+  [PanelsEnum.SOCIALS]: SocialsEditPanel,
+  [PanelsEnum.PROFILE_VIEWS]: ProfileViewsPanel,
 };
 
 export { editingPanels };

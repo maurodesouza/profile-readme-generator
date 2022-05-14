@@ -1,10 +1,10 @@
 import * as S from './styles';
 
-type PanelBaseProps = {
+type StickyProps = {
   children: React.ReactNode;
 };
 
-const Sticky = ({ children }: PanelBaseProps) => {
+const Sticky = ({ children }: StickyProps) => {
   return (
     <S.Container>
       <S.Sticky>{children}</S.Sticky>

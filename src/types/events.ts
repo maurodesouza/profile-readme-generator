@@ -12,5 +12,6 @@ export enum Events {
   CONTEXT_MENU_OPEN = 'contextmenu.open',
   CONTEXT_MENU_CLOSE = 'contextmenu.close',
 
-  EDIT_PANEL_OPEN = 'panels.edit.open',
+  PANEL_RIGHT_OPEN = 'panel.right.open',
+  PANEL_LEFT_OPEN = 'panel.left.open',
 }

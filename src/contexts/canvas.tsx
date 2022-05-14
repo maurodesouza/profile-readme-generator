@@ -75,7 +75,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
     const result = sections.find(item => item.id === id);
 
-    events.editpanel.open(result!.type);
+    events.panel.open('right', result!.type);
     setCurrentSection(result);
   };
 

@@ -20,7 +20,7 @@ type Field = {
   type: Inputs;
   path: string;
   label: string;
-  props: Record<string, unknown>;
+  props?: Record<string, unknown>;
   conditions?: Conditions;
 };
 
@@ -81,7 +81,7 @@ const GroupFields = ({
         <S.Fields columns={columns}>
           {fields.map(field => {
             const Input = inputMap[field.type];
-            const { column, ...rest } = field.props;
+            const { column, ...rest } = field?.props ?? {};
 
             const canRender = !!field.conditions
               ? checkDeepObjectValue({ obj, ...field.conditions })

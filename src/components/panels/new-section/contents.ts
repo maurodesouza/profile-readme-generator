@@ -6,6 +6,7 @@ import {
   MessageSquare,
   Type,
   Activity,
+  FileText,
 } from '@styled-icons/feather';
 
 import { Sections } from 'types';
@@ -45,6 +46,11 @@ const contents = [
     icon: Activity,
     sectionType: Sections.SNAKE,
     name: 'Snake',
+  },
+  {
+    icon: FileText,
+    sectionType: Sections.POSTS,
+    name: 'My posts',
   },
 ];
 

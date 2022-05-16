@@ -1,5 +1,6 @@
 import { BaseSection } from './base';
 
+import { PostSection } from './post';
 import { StatsSection } from './stats';
 import { TechsSection } from './techs';
 import { TextSection } from './text';
@@ -12,6 +13,7 @@ import { ProfileViewsSection } from './profile-views';
 import { Sections } from 'types';
 
 const sectionMap = {
+  [Sections.POSTS]: PostSection,
   [Sections.SNAKE]: SnakeSection,
   [Sections.STATS]: StatsSection,
   [Sections.TECHS]: TechsSection,

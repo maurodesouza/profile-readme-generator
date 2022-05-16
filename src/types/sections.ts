@@ -6,4 +6,5 @@ export enum Sections {
   IMAGE = 'image',
   SOCIALS = 'socials',
   SNAKE = 'snake',
+  POSTS = 'posts',
 }

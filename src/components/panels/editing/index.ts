@@ -2,6 +2,7 @@ import { DefaultEditPanel } from './default';
 
 import { SnakePanel } from './snake';
 import { TextEditPanel } from './text';
+import { MusicEditPanel } from './music';
 import { PostsEditPanel } from './posts';
 import { StatsEditPanel } from './stats';
 import { TechsEditPanel } from './techs';
@@ -13,6 +14,7 @@ import { PanelsEnum } from 'types';
 
 const editingPanels = {
   default: DefaultEditPanel,
+  [PanelsEnum.MUSIC]: MusicEditPanel,
   [PanelsEnum.POSTS]: PostsEditPanel,
   [PanelsEnum.SNAKE]: SnakePanel,
   [PanelsEnum.STATS]: StatsEditPanel,

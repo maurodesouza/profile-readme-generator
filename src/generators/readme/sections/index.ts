@@ -2,6 +2,7 @@ import { Sections } from 'types';
 
 import { generateTextSection } from './text';
 import { generatePostsSection } from './posts';
+import { generateMusicSection } from './music';
 import { generateSnakeSection } from './snake';
 import { generateImageSection } from './image';
 import { generateStatsSection } from './stats';
@@ -12,6 +13,7 @@ import { generateProfileViewsSection } from './profile-views';
 const sectionsGeneratorMap = {
   [Sections.TEXT]: generateTextSection,
   [Sections.SNAKE]: generateSnakeSection,
+  [Sections.MUSIC]: generateMusicSection,
   [Sections.POSTS]: generatePostsSection,
   [Sections.IMAGE]: generateImageSection,
   [Sections.STATS]: generateStatsSection,

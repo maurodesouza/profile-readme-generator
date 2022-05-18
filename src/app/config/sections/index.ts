@@ -2,6 +2,7 @@ import { Sections } from 'types';
 
 import { statsSectionConfig } from './stats';
 import { techsSectionConfig } from './techs';
+import { musicSectionConfig } from './music';
 import { textSectionConfig } from './text';
 import { postsSectionConfig } from './posts';
 import { snakeSectionConfig } from './snake';
@@ -11,6 +12,7 @@ import { profileViewsSectionConfig } from './profile-views';
 
 const sections = {
   default: {
+    [Sections.MUSIC]: musicSectionConfig,
     [Sections.POSTS]: postsSectionConfig,
     [Sections.SNAKE]: snakeSectionConfig,
     [Sections.STATS]: statsSectionConfig,

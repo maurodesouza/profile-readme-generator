@@ -7,6 +7,7 @@ import {
   Type,
   Activity,
   FileText,
+  Music,
 } from '@styled-icons/feather';
 
 import { Sections } from 'types';
@@ -51,6 +52,11 @@ const contents = [
     icon: FileText,
     sectionType: Sections.POSTS,
     name: 'My posts',
+  },
+  {
+    icon: Music,
+    sectionType: Sections.MUSIC,
+    name: 'Music',
   },
 ];
 

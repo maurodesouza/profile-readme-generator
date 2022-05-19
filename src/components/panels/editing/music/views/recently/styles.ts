@@ -28,12 +28,4 @@ export const Links = styled.div`
   flex-direction: column;
 `;
 
-export const Link = styled.a`
-  ${({ theme }) => css`
-    color: ${theme.colors.primary};
-
-    &:hover {
-      text-decoration: underline;
-    }
-  `}
-`;
+export const Link = styled.a``;

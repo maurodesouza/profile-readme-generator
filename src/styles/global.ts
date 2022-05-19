@@ -77,6 +77,14 @@ const GlobalStyles = createGlobalStyle`
         background: ${theme.colors.border};
       }
     }
+
+    a {
+      color: ${theme.colors.primary};
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   `}
 `;
 

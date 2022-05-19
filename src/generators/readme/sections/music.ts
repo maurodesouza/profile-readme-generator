@@ -22,21 +22,27 @@ type GenerateMusicSectionArgs = {
   styles: Styles;
 };
 
+const ALTS = {
+  recently: 'Spotify recently played',
+  currently: 'Widget with the current Spotify song',
+};
+
 const generateMusicSection = ({
   content,
   styles,
 }: GenerateMusicSectionArgs) => {
-  const { type, recently } = content;
+  const { type, ...rest } = content;
   const { align } = styles;
 
-  const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, recently);
+  const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, rest[type]);
+  const alt = ALTS[type];
 
   return `
-   <div align="${align}">
-      <a href="${spotifyAccountUrl}">
-        <img src="${imageUrl}" alt="Spotify recently played" />
-      </a>
-   </div>
+    <div align="${align}">
+      ${spotifyAccountUrl ? `<a href="${spotifyAccountUrl}">` : ''}
+        <img src="${imageUrl}" alt="${alt}" />
+      ${spotifyAccountUrl ? `</a>` : ''}
+    </div>
   `;
 };
 

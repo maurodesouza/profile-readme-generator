@@ -7,6 +7,21 @@ const musicSectionConfig = {
         user: '',
         count: 5,
       },
+
+      currently: {
+        project: 'itstommi',
+
+        itstommi: {
+          url: '',
+          props: {
+            theme: 'dark',
+          },
+        },
+
+        novatorem: {
+          url: '',
+        },
+      },
     },
 
     styles: {

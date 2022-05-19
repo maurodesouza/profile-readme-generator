@@ -24,27 +24,29 @@ type MusicSectionProps = {
   styles: Styles;
 };
 
+const ALTS = {
+  recently: 'Spotify recently played',
+  currently: 'Widget with the current Spotify song',
+};
+
 const MusicSection = ({ content, styles }: MusicSectionProps) => {
-  const { type, recently } = content;
+  const { type, ...rest } = content;
 
-  const contents = {
-    currently: () => <>Comming soon</>,
-    recently: () => {
-      const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, recently);
+  const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, rest[type]);
+  const alt = ALTS[type];
 
-      return (
-        <a href={spotifyAccountUrl}>
-          <img src={imageUrl} alt="Spotify recently played" />
-        </a>
-      );
-    },
-  };
-
-  const Content = contents[type];
+  const Wrapper = ({ children }: { children: React.ReactNode }) =>
+    spotifyAccountUrl ? (
+      <a href={spotifyAccountUrl}>{children}</a>
+    ) : (
+      <>{children}</>
+    );
 
   return (
     <S.Container {...styles}>
-      <Content />
+      <Wrapper>
+        <img src={imageUrl} alt={alt} />
+      </Wrapper>
     </S.Container>
   );
 };

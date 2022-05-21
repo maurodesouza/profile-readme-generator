@@ -1,16 +1,16 @@
 import { objectToQueryParams } from './objectToQueryParams';
 
-const postsUrl: Record<string, string> = {
+const activitiesUrl: Record<string, string> = {
   medium: 'https://github-read-medium-git-main.pahlevikun.vercel.app/latest',
 };
 
-const getPostsUrl = (
-  origin: keyof typeof postsUrl,
+const getActivitiesUrl = (
+  origin: keyof typeof activitiesUrl,
   props: Record<string, unknown> = {}
 ) => {
-  const postUrl = postsUrl[origin];
+  const postUrl = activitiesUrl[origin];
 
   return `${postUrl}?${objectToQueryParams(props)}`;
 };
 
-export { getPostsUrl };
+export { getActivitiesUrl };

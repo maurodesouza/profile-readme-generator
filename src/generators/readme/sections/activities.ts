@@ -1,7 +1,7 @@
-import { getPostsUrl } from 'utils';
+import { getActivitiesUrl } from 'utils';
 
 type Content = {
-  type: Parameters<typeof getPostsUrl>[0];
+  type: Parameters<typeof getActivitiesUrl>[0];
   [key: string]: unknown;
 };
 
@@ -9,19 +9,19 @@ type Styles = {
   align: 'left' | 'center' | 'right';
 };
 
-type GeneratePostsSectionArgs = {
+type GenerateActivitiesSectionArgs = {
   content: Content;
   styles: Styles;
 };
 
-const generatePostsSection = ({
+const generateActivitiesSection = ({
   content,
   styles,
-}: GeneratePostsSectionArgs) => {
+}: GenerateActivitiesSectionArgs) => {
   const { type, ...rest } = content;
   const { align } = styles;
 
-  const url = getPostsUrl(type, rest);
+  const url = getActivitiesUrl(type, rest);
   const alt = `Layout with last ${type} posts`;
 
   return `
@@ -31,4 +31,4 @@ const generatePostsSection = ({
   `;
 };
 
-export { generatePostsSection };
+export { generateActivitiesSection };

@@ -50,8 +50,8 @@ const contents = [
   },
   {
     icon: FileText,
-    sectionType: Sections.POSTS,
-    name: 'My posts',
+    sectionType: Sections.ACTIVITIES,
+    name: 'My activities',
   },
   {
     icon: Music,

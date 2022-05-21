@@ -10,5 +10,5 @@ export * from './getSocialImgUrl';
 export * from './getProfileViewsUrl';
 export * from './getStatsUrl';
 export * from './getPanelSideEvent';
-export * from './getPostsUrl';
+export * from './getActivitiesUrl';
 export * from './getMusicUrl';

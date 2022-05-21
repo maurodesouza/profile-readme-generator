@@ -3,7 +3,7 @@ import { GroupFields } from 'components';
 import { groups } from './fields';
 import * as S from './styles';
 
-const PostsEditPanel = () => {
+const ActivitiesEditPanel = () => {
   return (
     <S.Container>
       {groups.map(group => (
@@ -13,4 +13,4 @@ const PostsEditPanel = () => {
   );
 };
 
-export { PostsEditPanel };
+export { ActivitiesEditPanel };

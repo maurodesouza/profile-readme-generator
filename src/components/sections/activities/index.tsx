@@ -1,9 +1,9 @@
-import { getPostsUrl } from 'utils';
+import { getActivitiesUrl } from 'utils';
 
 import * as S from './styles';
 
 type Content = {
-  type: Parameters<typeof getPostsUrl>[0];
+  type: Parameters<typeof getActivitiesUrl>[0];
   [key: string]: unknown;
 };
 
@@ -11,15 +11,15 @@ type Styles = {
   align: 'left' | 'center' | 'right';
 };
 
-type PostSectionProps = {
+type ActivitiesSectionProps = {
   id: string;
   content: Content;
   styles: Styles;
 };
 
-const PostSection = ({ content, styles }: PostSectionProps) => {
+const ActivitiesSection = ({ content, styles }: ActivitiesSectionProps) => {
   const { type, ...rest } = content;
-  const url = getPostsUrl(type, rest);
+  const url = getActivitiesUrl(type, rest);
 
   return (
     <S.Container {...styles}>
@@ -28,4 +28,4 @@ const PostSection = ({ content, styles }: PostSectionProps) => {
   );
 };
 
-export { PostSection };
+export { ActivitiesSection };

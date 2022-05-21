@@ -1,4 +1,4 @@
-const postsSectionConfig = {
+const activitiesSectionConfig = {
   props: {
     content: {
       type: 'medium',
@@ -11,4 +11,4 @@ const postsSectionConfig = {
   },
 };
 
-export { postsSectionConfig };
+export { activitiesSectionConfig };

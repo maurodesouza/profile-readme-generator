@@ -13,7 +13,7 @@ const objectToQueryParams = (
     return `${query}${key}=${value}&`;
   }, '');
 
-  return result;
+  return result.slice(0, -1);
 };
 
 export { objectToQueryParams };

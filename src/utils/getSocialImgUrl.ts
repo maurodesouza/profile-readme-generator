@@ -6,7 +6,7 @@ const getSocialImgUrl = (
   props: Record<string, unknown>
 ) => {
   const baseIconUrl =
-    'https://raw.githubusercontent.com/maurodesouza/a/master/icons/social';
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social';
   const baseBagdeUrl = 'https://img.shields.io/static/v1';
 
   const { icon, ...badgeProps } = props;

@@ -1,4 +1,4 @@
-import { getDeepObjectProperty } from './getDeepObjectProperty';
+import { getDeepObjectProperty } from '../getDeepObjectProperty';
 
 const operators = {
   equal: '===',
@@ -12,7 +12,7 @@ type checkDeepObjectValueArgs<T> = {
 };
 
 const checkDeepObjectValue = <T extends Record<string, unknown>>({
-  obj = {} as T,
+  obj,
   path,
   be,
   value,

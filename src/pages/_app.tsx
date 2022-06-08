@@ -48,7 +48,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
         {/* Open Graph */}
 
-        <meta property="og:type" content="page" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:image" content="/assets/app.png" />
         <meta property="og:site_name" content={title} />

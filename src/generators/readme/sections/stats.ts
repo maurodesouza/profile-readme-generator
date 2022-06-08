@@ -30,7 +30,7 @@ const generateStatsSection = (
       const url = getStatsUrl(graph as Graphs);
 
       const { height = 150, ...rest } = { ...props };
-      const usernameQuery = `username=${settings.user.github}`;
+      const usernameQuery = `&username=${settings.user.github}`;
 
       const fullUrl = `${url}?${objectToQueryParams(
         rest as Obj

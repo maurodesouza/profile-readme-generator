@@ -58,7 +58,7 @@ const StatsSection = ({
         const { height = '', ...rest } = { ...props };
         const fullUrl = `${url}?${objectToQueryParams(
           rest as Obj
-        )}username=${github}`;
+        )}&username=${github}`;
 
         return (
           <img

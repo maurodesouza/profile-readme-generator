@@ -1,4 +1,5 @@
 import { MouseEvent, useEffect } from 'react';
+import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
@@ -24,8 +25,52 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, []);
 
+  const title = 'Profile Readme Generator';
+  const description =
+    'Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!';
+
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>{title}</title>
+
+        <link rel="shortcut icon" href="/assets/icon-16.png" />
+        <link rel="apple-touch-icon" href="/assets/icon-180.png" />
+        <link rel="manifest" href="/manifest.json" />
+
+        <meta name="author" content="Mauro de Souza" />
+        <meta name="robots" content="index,nofollow" />
+        <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="github, github profile, github profile readme, readme generator, profile readme generator"
+        />
+
+        {/* Open Graph */}
+
+        <meta property="og:type" content="page" />
+        <meta property="og:title" content={title} />
+        <meta property="og:image" content="/assets/app.png" />
+        <meta property="og:site_name" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+          property="og:url"
+          content="https://profile-readme-generator.com"
+        />
+
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="/assets/app.png" />
+        <meta
+          name="twitter:site"
+          content="https://profile-readme-generator.com"
+        />
+        <meta
+          name="twitter:creator"
+          content="https://github.com/maurodesouza"
+        />
+      </Head>
+
       <SettingsProvider>
         <CanvasProvider>
           <Component {...pageProps} />

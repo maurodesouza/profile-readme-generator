@@ -4,6 +4,8 @@ export const Container = styled.footer`
   ${({ theme }) => css`
     margin-top: auto;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-shrink: 0;
     padding: ${theme.spacings.xlarge};
     border-radius: ${theme.border.radius};
@@ -11,6 +13,40 @@ export const Container = styled.footer`
     border-color: ${theme.colors.border};
     border-style: solid;
     height: 9rem;
+    gap: ${theme.spacings.xlarge};
+  `}
+`;
+
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    display: grid;
+    grid: 'image project' 'image mention';
+    height: 100%;
+    column-gap: ${theme.spacings.small};
+  `}
+`;
+
+export const Image = styled.img`
+  grid-area: image;
+  align-self: center;
+`;
+
+export const Project = styled.strong`
+  grid-area: project;
+  align-self: end;
+`;
+
+export const Mention = styled.small`
+  grid-area: mention;
+  align-self: start;
+`;
+
+export const Nav = styled.nav`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: ${theme.spacings.medium};
   `}
 `;
 
@@ -25,7 +61,6 @@ export const GenerateLink = styled.a`
     height: 3.2rem;
     font-weight: ${theme.font.weights.bold};
     padding: 0 ${theme.spacings.xlarge};
-    margin-left: auto;
     transition: filter 0.3s;
 
     &:hover {

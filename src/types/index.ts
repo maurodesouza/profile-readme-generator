@@ -6,3 +6,4 @@ export * from './inputs';
 export * from './context-menus';
 export * from './settings';
 export * from './helpers';
+export * from './modals';

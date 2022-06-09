@@ -1,0 +1,3 @@
+const modals = {};
+
+export { modals };

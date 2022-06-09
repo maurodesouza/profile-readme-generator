@@ -50,6 +50,16 @@ export const Nav = styled.nav`
   `}
 `;
 
+export const NavItem = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+
+    &:hover {
+      text-decoration: underline;
+    }
+  `}
+`;
+
 export const GenerateLink = styled.a`
   ${({ theme }) => css`
     border: none;

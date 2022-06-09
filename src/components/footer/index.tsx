@@ -1,5 +1,7 @@
-import * as S from './styles';
 import Link from 'next/link';
+
+import { navItems } from './nav';
+import * as S from './styles';
 
 const Footer = () => {
   return (
@@ -23,21 +25,11 @@ const Footer = () => {
       </S.Wrapper>
 
       <S.Nav>
-        <a
-          href="https://github.com/maurodesouza/profile-readme-generator"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Github
-        </a>
-        <a>Improve your skills</a>
-        <a
-          href="https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Donate
-        </a>
+        {navItems.map((item, i) => (
+          <S.NavItem key={i} {...item.props}>
+            {item.label}
+          </S.NavItem>
+        ))}
       </S.Nav>
 
       <Link href="/result" passHref>

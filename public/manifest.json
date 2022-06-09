@@ -29,6 +29,11 @@
       "src": "/assets/icon-180.png",
       "type": "image/png",
       "sizes": "180x180"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ]
 }

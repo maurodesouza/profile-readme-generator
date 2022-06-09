@@ -1,1 +1,3 @@
-export enum Modals {}
+export enum Modals {
+  IMPROVE_SKILLS = 'improve-skills',
+}

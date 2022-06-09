@@ -14,4 +14,7 @@ export enum Events {
 
   PANEL_RIGHT_OPEN = 'panel.right.open',
   PANEL_LEFT_OPEN = 'panel.left.open',
+
+  MODAL_OPEN = 'modal.open',
+  MODAL_CLOSE = 'modal.close',
 }

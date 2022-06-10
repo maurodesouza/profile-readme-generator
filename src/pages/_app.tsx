@@ -38,6 +38,11 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" href="/assets/icon-180.png" />
         <link rel="manifest" href="/manifest.json" />
 
+        <meta
+          name="google-site-verification"
+          content="nH_oO8Fxc76PZpqDg9y4loKj8DNPDL84Zz0zAKgAaSA"
+        />
+
         <meta name="author" content="Mauro de Souza" />
         <meta name="robots" content="index,nofollow" />
         <meta name="description" content={description} />

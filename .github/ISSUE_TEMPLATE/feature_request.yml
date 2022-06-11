@@ -1,0 +1,34 @@
+name: "🚀 Feature Request"
+description: "Suggest an idea 💡 for this project"
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <h3>Thanks for taking the time to suggest a new feature!</h3>
+
+        Before starting to fill in the form, I have already made sure that:
+
+        - This idea is related to the profile readme generator and not related to some external resource the app uses;
+        - I already checked to see if there is already an issue related to my feature/enhancement;
+
+  - type: textarea
+    attributes:
+      label: What would you like to be added/improved?
+      description: A clear and concise description of what would you like to be added/improved.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context you can provide about the feature/enhancement here.
+

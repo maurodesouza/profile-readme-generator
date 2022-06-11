@@ -5,6 +5,7 @@ import { events, config } from 'app';
 import { Sections, CanvasSection, Events } from 'types';
 
 import { deepChangeObjectProperty } from 'utils';
+import { usePersistedState } from 'hooks';
 
 type HandleAddSectionArgs = CustomEvent<Sections>;
 type HandleEditSectionArgs = CustomEvent<{
@@ -25,8 +26,11 @@ type CanvasProviderProps = {
 const CanvasContext = createContext<CanvasContextData>({} as CanvasContextData);
 
 const CanvasProvider = ({ children }: CanvasProviderProps) => {
-  const [sections, setSections] = useState<CanvasSection[]>([]);
   const [currentSection, setCurrentSection] = useState<CanvasSection>();
+  const [sections, setSections] = usePersistedState<CanvasSection[]>(
+    'canvas.sections',
+    []
+  );
 
   const handleAddSection = (event: HandleAddSectionArgs) => {
     const sectionType = event.detail;

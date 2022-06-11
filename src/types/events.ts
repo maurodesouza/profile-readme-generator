@@ -4,6 +4,7 @@ export enum Events {
   CANVAS_EDIT_SECTION = 'canvas.section.edit',
   CANVAS_SET_CURRENT_SECTION = 'canvas.section.current',
   CANVAS_REORDER_SECTIONS = 'canvas.section.reorder',
+  CANVAS_DUPLICATE_SECTION = 'canvas.section.duplicate',
 
   RESULT_SHOW_CONTENT = 'result.canvas.show',
 

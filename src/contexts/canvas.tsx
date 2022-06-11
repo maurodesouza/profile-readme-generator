@@ -89,12 +89,32 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(sectionsReorded);
   };
 
+  const handleDuplicateSection = (event: CustomEvent<string>) => {
+    const id = event.detail;
+
+    const newSections = sections.reduce((arr, section) => {
+      if (section.id === id) {
+        const duplicate = {
+          ...section,
+          id: uuid(),
+        };
+
+        return [...arr, section, duplicate];
+      }
+
+      return [...arr, section];
+    }, [] as CanvasSection[]);
+
+    setSections(newSections);
+  };
+
   useEffect(() => {
     events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
     events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
     events.on(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
     events.on(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
     events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
+    events.on(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
 
     return () => {
       events.off(Events.CANVAS_ADD_SECTION, handleAddSection);
@@ -102,6 +122,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       events.off(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
       events.off(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
       events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
+      events.off(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
     };
   }, [sections, currentSection]);
 

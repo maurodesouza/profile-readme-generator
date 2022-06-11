@@ -30,6 +30,10 @@ class CanvasHandleEvents extends BaseEventHandle {
     });
   };
 
+  duplicate = (sectionId: string) => {
+    this.emit(Events.CANVAS_DUPLICATE_SECTION, sectionId);
+  };
+
   reorder = (order: string[]) => {
     this.emit(Events.CANVAS_REORDER_SECTIONS, order);
   };

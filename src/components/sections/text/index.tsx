@@ -20,7 +20,7 @@ const TextSection = ({ content, styles }: TextSectionProps) => {
   return (
     <S.Container>
       <S.Text {...rest} {...styles}>
-        {text}
+        {text.trim()}
       </S.Text>
     </S.Container>
   );

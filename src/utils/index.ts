@@ -1,4 +1,5 @@
 export * from './debounce';
+export * from './storage';
 export * from './deepChangeObjectProperty';
 export * from './getDeepObjectProperty';
 export * from './objectToQueryParams';

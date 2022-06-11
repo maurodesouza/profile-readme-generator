@@ -1,0 +1,26 @@
+name: ci
+on: [pull_request]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Linting
+        run: yarn lint
+
+      - name: Test
+        run: yarn test --coverage=false
+
+      - name: Build
+        run: yarn build

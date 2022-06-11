@@ -2,11 +2,11 @@ const textSectionConfig = {
   props: {
     content: {
       text: 'Hello World!!',
-      as: 'h1',
+      as: 'p',
     },
 
     styles: {
-      align: 'center',
+      align: 'left',
     },
   },
 };

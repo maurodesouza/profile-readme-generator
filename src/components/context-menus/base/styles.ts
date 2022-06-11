@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-width: ${theme.border.width};
     border-color: ${theme.colors.border};
     border-style: solid;
-    max-height: 10rem;
+    max-height: 12rem;
     overflow: auto;
 
     &::-webkit-scrollbar {

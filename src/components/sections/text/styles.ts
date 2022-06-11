@@ -50,6 +50,7 @@ export const Text = styled.p<TextProps>`
   ${({ theme, as = 'h1', align = 'center' }) => css`
     width: 100%;
     text-align: ${align};
+    white-space: pre-line;
 
     ${textModifiers[as]};
 

@@ -16,7 +16,9 @@ const generateTextSection = ({ content, styles }: GenerateTextSectionArgs) => {
   const { text, as: tag } = content;
   const { align } = styles;
 
-  return `<${tag} align="${align}">${text}</${tag}>`;
+  const formatedText = text.trim().replace(/\n/g, '<br>');
+
+  return `<${tag} align="${align}">${formatedText}</${tag}>`;
 };
 
 export { generateTextSection };

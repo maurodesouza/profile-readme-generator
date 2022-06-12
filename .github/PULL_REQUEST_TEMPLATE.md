@@ -6,6 +6,7 @@
   commits if your PR already received reviews or comments.
 
   Before submitting a Pull Request, please ensure you've done the following:
+  - 📖 Read the Contributing Guide: https://github.com/maurodesouza/profile-readme-generator/blob/main/.github/CONTRIBUTING.md#commiting
   - 👷‍♀️ Create small PRs. In most cases this will be possible.
   - 🔗 Provide issue number with link.
   - 📝 Use descriptive commit messages.

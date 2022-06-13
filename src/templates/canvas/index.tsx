@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { events } from 'app';
-import { Canvas, Footer, Panel, Sticky } from 'components';
+import { Canvas, Footer, Panel, Sticky, BuildingModile } from 'components';
 
 import { PanelsEnum } from 'types';
 import * as S from './styles';
@@ -12,18 +12,20 @@ const CanvasTemplate = () => {
   }, []);
 
   return (
-    <S.Container>
-      <Panel side="left" />
+    <BuildingModile>
+      <S.Container>
+        <Panel side="left" />
 
-      <Sticky>
-        <S.Wrapper>
-          <Canvas />
-          <Footer />
-        </S.Wrapper>
-      </Sticky>
+        <Sticky>
+          <S.Wrapper>
+            <Canvas />
+            <Footer />
+          </S.Wrapper>
+        </Sticky>
 
-      <Panel side="right" />
-    </S.Container>
+        <Panel side="right" />
+      </S.Container>
+    </BuildingModile>
   );
 };
 

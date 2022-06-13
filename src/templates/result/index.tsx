@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { events } from 'app';
-import { ReadmeResult, Sticky, Panel } from 'components';
+import { ReadmeResult, Sticky, Panel, BuildingModile } from 'components';
 
 import { PanelsEnum } from 'types';
 import * as S from './styles';
@@ -12,17 +12,19 @@ const ResultTemplate = () => {
   }, []);
 
   return (
-    <S.Container>
-      <Panel side="left" />
+    <BuildingModile>
+      <S.Container>
+        <Panel side="left" />
 
-      <Sticky>
-        <S.Wrapper>
-          <ReadmeResult />
-        </S.Wrapper>
-      </Sticky>
+        <Sticky>
+          <S.Wrapper>
+            <ReadmeResult />
+          </S.Wrapper>
+        </Sticky>
 
-      <div></div>
-    </S.Container>
+        <div />
+      </S.Container>
+    </BuildingModile>
   );
 };
 

@@ -4034,6 +4034,11 @@ styled-jsx@5.0.0:
   resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-5.0.0.tgz#816b4b92e07b1786c6b7111821750e0ba4d26e77"
   integrity sha512-qUqsWoBquEdERe10EW8vLp3jT25s/ssG1/qX5gZ4wu15OZpmSMFI2v+fWlRhLfykA5rFtlJ1ME8A8pm/peV4WA==
 
+styled-media-query@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/styled-media-query/-/styled-media-query-2.1.2.tgz#d59e8d91bc4bcff210dc511bdcecedf16eb2c5b7"
+  integrity sha512-ds24iBxOrfIhdHP+e23y6kj1gbosgWu+tgAuxvMrYmnp6Sju/LjuY8lfkiVnn6P7mcdhtwpC2Z43o+apT9UdJg==
+
 supports-color@^5.3.0, supports-color@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"

@@ -59,6 +59,8 @@ Beautify your github profile with this amazing tool, creating the readme your wa
   <i>Loved the tool? Please consider <a href="https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS">donating</a> 💸 to help it improve!</i>
 </p>
 
+https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-b349-be490b3a00ff.mp4
+
 ## :rocket: Main Technologies ##
 
 <a href="https://nextjs.org">

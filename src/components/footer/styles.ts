@@ -23,6 +23,7 @@ export const Wrapper = styled.div`
     grid: 'image project' 'image mention';
     height: 100%;
     column-gap: ${theme.spacings.small};
+    flex-shrink: 0;
   `}
 `;
 
@@ -45,8 +46,9 @@ export const Nav = styled.nav`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    justify-content: right;
-    gap: ${theme.spacings.medium};
+    flex-wrap: wrap;
+    column-gap: ${theme.spacings.medium};
+    row-gap: ${theme.spacings.xsmall};
   `}
 `;
 
@@ -68,9 +70,11 @@ export const GenerateLink = styled.a`
     background: ${theme.colors.secondary};
     color: ${theme.colors.text};
     border-radius: ${theme.border.radius};
+    width: 100%;
+    max-width: 16.5rem;
     height: 3.2rem;
     font-weight: ${theme.font.weights.bold};
-    padding: 0 ${theme.spacings.xlarge};
+    padding: 0 ${theme.spacings.medium};
     transition: filter 0.3s;
 
     &:hover {

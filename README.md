@@ -93,6 +93,7 @@ Beautify your github profile with this amazing tool, creating the readme your wa
   ###
 
   * [Styled Icons (Feather Icons)](https://styled-icons.js.org)
+  * [Styled Media Query](https://github.com/morajabi/styled-media-query)
   * [Framer Motion](https://framer.com/motion/)
   * [HTML Prettify](https://github.com/Dmc0125/html-prettify)
   * [Prismjs](https://prismjs.com)

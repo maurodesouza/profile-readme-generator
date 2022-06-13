@@ -7,10 +7,12 @@ import { ThemeProvider } from 'styled-components';
 import { ContextMenu, Modal } from 'components';
 import { CanvasProvider, SettingsProvider } from 'contexts';
 
-import { events } from 'app';
+import { config, events } from 'app';
 import { theme, GlobalStyles } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const appUrl = config.general.urls.app;
+
   const handlePreventRightClick = (e: MouseEvent) => {
     e.preventDefault();
 
@@ -58,18 +60,12 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta property="og:image" content="/assets/app.png" />
         <meta property="og:site_name" content={title} />
         <meta property="og:description" content={description} />
-        <meta
-          property="og:url"
-          content="https://profile-readme-generator.com"
-        />
+        <meta property="og:url" content={appUrl} />
 
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="/assets/app.png" />
-        <meta
-          name="twitter:site"
-          content="https://profile-readme-generator.com"
-        />
+        <meta name="twitter:site" content={appUrl} />
         <meta
           name="twitter:creator"
           content="https://github.com/maurodesouza"

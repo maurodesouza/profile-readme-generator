@@ -13,15 +13,15 @@ const fields = [
         props: {
           options: [
             {
-              label: 'Esquerda',
+              label: 'Left',
               value: 'left',
             },
             {
-              label: 'Centro',
+              label: 'Center',
               value: 'center',
             },
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
           ],

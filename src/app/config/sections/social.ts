@@ -47,7 +47,7 @@ const socialsSectionConfig = {
     },
 
     styles: {
-      align: 'center',
+      align: 'left',
       spacing: 12,
     },
   },

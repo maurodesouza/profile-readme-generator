@@ -29,7 +29,7 @@ const techsSectionConfig = {
     },
 
     styles: {
-      align: 'center',
+      align: 'left',
       spacing: 12,
     },
   },

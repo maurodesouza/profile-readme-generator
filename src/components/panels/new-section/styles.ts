@@ -3,8 +3,27 @@ import styled, { css } from 'styled-components';
 export const Container = styled.div`
   ${({ theme }) => css`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: ${theme.spacings.medium};
+    overflow-y: scroll;
+    align-items: start;
+    align-content: start;
+    height: 100%;
+    width: calc(100% + ${theme.spacings.medium});
+    padding-right: ${theme.spacings.xsmall};
+
+    &::-webkit-scrollbar {
+      width: 0.8rem;
+      overflow: hidden;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${theme.colors.border};
+    }
   `}
 `;
 

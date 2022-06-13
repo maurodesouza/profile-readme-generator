@@ -30,6 +30,13 @@ const navItems: NavItem[] = [
       rel: 'noreferrer',
     },
   },
+  {
+    label: 'Share',
+    props: {
+      as: 'button',
+      onClick: () => events.modal.open(Modals.SHARE),
+    },
+  },
 ];
 
 export { navItems };

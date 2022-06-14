@@ -7,10 +7,10 @@ const RECENTLY_BASE_URL =
   'https://spotify-recently-played-readme.vercel.app/api';
 
 const getMusicUrl = (type: string, props: Obj = {}) => {
-  const { user = '' } = props;
+  const user = props.user as string | undefined;
 
   if (type === 'recently') {
-    const spotifyAccountUrl = `${SPOTIFY_PROFILE_BASE_URL}/${user}`;
+    const spotifyAccountUrl = user && `${SPOTIFY_PROFILE_BASE_URL}/${user}`;
     const imageUrl = `${RECENTLY_BASE_URL}?${objectToQueryParams(props)}`;
 
     return { spotifyAccountUrl, imageUrl };

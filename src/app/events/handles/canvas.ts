@@ -23,6 +23,10 @@ class CanvasHandleEvents extends BaseEventHandle {
     this.emit(Events.CANVAS_REMOVE_SECTION, sectionId);
   };
 
+  clear = () => {
+    this.emit(Events.CANVAS_CLEAR_SECTIONS);
+  };
+
   edit = ({ path, ...rest }: HandleEditArgs) => {
     this.emit(Events.CANVAS_EDIT_SECTION, {
       ...rest,

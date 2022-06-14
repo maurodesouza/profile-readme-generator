@@ -25,3 +25,33 @@ export const Container = styled.div`
     }
   `}
 `;
+
+export const ClearButton = styled.button`
+  ${({ theme }) => css`
+    width: 3rem;
+    height: 6rem;
+    position: absolute;
+    display: grid;
+    place-items: center;
+    background: ${theme.colors.bg};
+    color: ${theme.colors.text};
+
+    top: ${theme.spacings.medium};
+    left: 0;
+    transform: translateX(-50%);
+    transition: 0.3s;
+
+    border-color: ${theme.colors.border};
+    border-width: ${theme.border.width};
+    border-style: solid;
+    border-radius: 10rem;
+
+    * {
+      cursor: pointer;
+    }
+
+    &:hover {
+      color: ${theme.colors.error};
+    }
+  `}
+`;

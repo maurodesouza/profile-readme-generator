@@ -112,6 +112,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(newSections);
   };
 
+  const handleClearCanvas = () => setSections([]);
+
   useEffect(() => {
     events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
     events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
@@ -119,6 +121,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     events.on(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
     events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
     events.on(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
+    events.on(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
 
     return () => {
       events.off(Events.CANVAS_ADD_SECTION, handleAddSection);
@@ -127,6 +130,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       events.off(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
       events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
       events.off(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
+      events.off(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
     };
   }, [sections, currentSection]);
 

@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  overflow: auto;
-`;
+export const Container = styled.div``;
 
 export const Sticky = styled.div`
   ${({ theme }) => css`

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { api } from 'services';
 
 import { navItems } from './nav';
 import * as S from './styles';
@@ -33,7 +34,9 @@ const Footer = () => {
       </S.Nav>
 
       <Link href="/result" passHref>
-        <S.GenerateLink>Generate README</S.GenerateLink>
+        <S.GenerateLink onClick={() => api.put('generated-readmes')}>
+          Generate README
+        </S.GenerateLink>
       </Link>
     </S.Container>
   );

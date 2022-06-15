@@ -3,7 +3,7 @@ import { objectToQueryParams } from '../objectToQueryParams';
 
 const { mediumBaseUrl } = generalConfig.urls.sections.activities;
 
-const activitiesUrl: Record<string, string> = {
+const activitiesUrl = {
   medium: mediumBaseUrl,
 };
 

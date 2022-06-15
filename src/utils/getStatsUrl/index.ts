@@ -3,7 +3,7 @@ import { general as generalConfig } from 'app/config/general';
 const { imageBaseUrl } = generalConfig.urls.sections.stats;
 
 const urls = {
-  stats: `${imageBaseUrl}`,
+  stats: imageBaseUrl,
   languages: `${imageBaseUrl}/top-langs`,
 };
 

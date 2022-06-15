@@ -1,7 +1,10 @@
+import { general as generalConfig } from 'app/config/general';
 import { objectToQueryParams } from './objectToQueryParams';
 
+const { mediumBaseUrl } = generalConfig.urls.sections.activities;
+
 const activitiesUrl: Record<string, string> = {
-  medium: 'https://github-read-medium-git-main.pahlevikun.vercel.app/latest',
+  medium: mediumBaseUrl,
 };
 
 const getActivitiesUrl = (

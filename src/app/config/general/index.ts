@@ -28,6 +28,11 @@ const general = {
         badgeBaseUrl: 'https://visitor-badge.laobi.icu/badge',
         imageBaseUrl: 'https://profile-counter.glitch.me',
       },
+
+      activities: {
+        mediumBaseUrl:
+          'https://github-read-medium-git-main.pahlevikun.vercel.app/latest',
+      },
     },
   },
 

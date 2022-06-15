@@ -5,7 +5,7 @@ type StatsType = Parameters<typeof getStatsUrl>[0];
 
 const { imageBaseUrl } = generalConfig.urls.sections.stats;
 
-describe('UTILS - Get tech icon url', () => {
+describe('UTILS - Get stats url', () => {
   it('should return the correct url for the stats type', () => {
     const inputs = [
       {

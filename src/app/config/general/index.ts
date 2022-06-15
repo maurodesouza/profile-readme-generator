@@ -9,6 +9,10 @@ const general = {
             'https://spotify-recently-played-readme.vercel.app/api',
         },
       },
+
+      techs: {
+        iconBaseUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons',
+      },
     },
   },
 

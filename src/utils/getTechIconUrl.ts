@@ -1,7 +1,8 @@
-const getTechIconUrl = (tech: string, icon: string) => {
-  const baseUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons';
+import { general as generalConfig } from 'app/config/general';
 
-  return `${baseUrl}/${tech}/${tech}-${icon}.svg`;
-};
+const { iconBaseUrl } = generalConfig.urls.sections.techs;
+
+const getTechIconUrl = (tech: string, icon: string) =>
+  `${iconBaseUrl}/${tech}/${tech}-${icon}.svg`;
 
 export { getTechIconUrl };

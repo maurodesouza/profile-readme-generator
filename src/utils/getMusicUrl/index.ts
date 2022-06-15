@@ -1,5 +1,5 @@
 import { general as generalConfig } from 'app/config/general';
-import { objectToQueryParams } from './objectToQueryParams';
+import { objectToQueryParams } from '../objectToQueryParams';
 
 type Obj = Record<string, unknown>;
 
@@ -7,11 +7,12 @@ const { profileBaseUrl, recentlyPlayedBaseUrl } =
   generalConfig.urls.sections.music.spotify;
 
 const getMusicUrl = (type: string, props: Obj = {}) => {
-  const user = props.user as string | undefined;
-
   if (type === 'recently') {
-    const spotifyAccountUrl = user && `${profileBaseUrl}/${user}`;
-    const imageUrl = `${recentlyPlayedBaseUrl}?${objectToQueryParams(props)}`;
+    const { user, ...rest } = props;
+    const username = user as string | undefined;
+
+    const spotifyAccountUrl = username && `${profileBaseUrl}/${username}`;
+    const imageUrl = `${recentlyPlayedBaseUrl}?${objectToQueryParams(rest)}`;
 
     return { spotifyAccountUrl, imageUrl };
   }

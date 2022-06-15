@@ -1,17 +1,17 @@
+import { general as generalConfig } from 'app/config/general';
 import { objectToQueryParams } from './objectToQueryParams';
 
 type Obj = Record<string, unknown>;
 
-const SPOTIFY_PROFILE_BASE_URL = 'https://open.spotify.com/user';
-const RECENTLY_BASE_URL =
-  'https://spotify-recently-played-readme.vercel.app/api';
+const { profileBaseUrl, recentlyPlayedBaseUrl } =
+  generalConfig.urls.sections.music.spotify;
 
 const getMusicUrl = (type: string, props: Obj = {}) => {
   const user = props.user as string | undefined;
 
   if (type === 'recently') {
-    const spotifyAccountUrl = user && `${SPOTIFY_PROFILE_BASE_URL}/${user}`;
-    const imageUrl = `${RECENTLY_BASE_URL}?${objectToQueryParams(props)}`;
+    const spotifyAccountUrl = user && `${profileBaseUrl}/${user}`;
+    const imageUrl = `${recentlyPlayedBaseUrl}?${objectToQueryParams(props)}`;
 
     return { spotifyAccountUrl, imageUrl };
   }

@@ -1,6 +1,15 @@
 const general = {
   urls: {
     app: 'https://profile-readme-generator.com',
+    sections: {
+      music: {
+        spotify: {
+          profileBaseUrl: 'https://open.spotify.com/user',
+          recentlyPlayedBaseUrl:
+            'https://spotify-recently-played-readme.vercel.app/api',
+        },
+      },
+    },
   },
 
   storage: {

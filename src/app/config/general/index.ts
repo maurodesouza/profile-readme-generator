@@ -23,6 +23,11 @@ const general = {
           'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social',
         badgeBaseUrl: 'https://img.shields.io/static/v1',
       },
+
+      profileViews: {
+        badgeBaseUrl: 'https://visitor-badge.laobi.icu/badge',
+        imageBaseUrl: 'https://profile-counter.glitch.me',
+      },
     },
   },
 

@@ -13,6 +13,10 @@ const general = {
       techs: {
         iconBaseUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons',
       },
+
+      stats: {
+        imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
+      },
     },
   },
 

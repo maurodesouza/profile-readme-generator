@@ -10,52 +10,54 @@ import {
   Music,
 } from '@styled-icons/feather';
 
+import { events } from 'app';
 import { Sections } from 'types';
 
 const contents = [
   {
     icon: Type,
-    sectionType: Sections.TEXT,
+    onClick: () => events.canvas.add(Sections.TEXT),
     name: 'Text',
   },
   {
     icon: PieChart,
-    sectionType: Sections.STATS,
+    onClick: () => events.canvas.add(Sections.STATS),
+
     name: 'Stats',
   },
   {
     icon: Share2,
-    sectionType: Sections.TECHS,
+    onClick: () => events.canvas.add(Sections.TECHS),
     name: 'Techs',
   },
   {
     icon: Github,
-    sectionType: Sections.PROFILE_VIEWS,
+    onClick: () => events.canvas.add(Sections.PROFILE_VIEWS),
     name: 'Profile views',
   },
   {
     icon: Image,
-    sectionType: Sections.IMAGE,
+    onClick: () => events.canvas.add(Sections.IMAGE),
     name: 'Image',
   },
   {
     icon: MessageSquare,
-    sectionType: Sections.SOCIALS,
+    onClick: () => events.canvas.add(Sections.SOCIALS),
     name: 'Social media',
   },
   {
     icon: Activity,
-    sectionType: Sections.SNAKE,
+    onClick: () => events.canvas.add(Sections.SNAKE),
     name: 'Snake',
   },
   {
     icon: FileText,
-    sectionType: Sections.ACTIVITIES,
+    onClick: () => events.canvas.add(Sections.ACTIVITIES),
     name: 'My activities',
   },
   {
     icon: Music,
-    sectionType: Sections.MUSIC,
+    onClick: () => events.canvas.add(Sections.MUSIC),
     name: 'Music',
   },
 ];

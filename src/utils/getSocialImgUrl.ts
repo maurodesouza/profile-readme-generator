@@ -1,17 +1,16 @@
+import { general as generalConfig } from 'app/config/general';
 import { objectToQueryParams } from './objectToQueryParams';
+
+const { badgeBaseUrl, iconBaseUrl } = generalConfig.urls.sections.socials;
 
 const getSocialImgUrl = (
   type: 'icon' | 'badge',
   social: string,
   props: Record<string, unknown>
 ) => {
-  const baseIconUrl =
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social';
-  const baseBagdeUrl = 'https://img.shields.io/static/v1';
-
   const { icon, ...badgeProps } = props;
 
-  if (type === 'icon') return `${baseIconUrl}/${social}/${icon}.svg`;
+  if (type === 'icon') return `${iconBaseUrl}/${social}/${icon}.svg`;
 
   const capitalizedSocial = social.charAt(0).toUpperCase() + social.slice(1); // Capitalize
 
@@ -25,7 +24,7 @@ const getSocialImgUrl = (
     style = 'for-the-badge',
   } = badgeProps;
 
-  return `${baseBagdeUrl}?${objectToQueryParams(
+  return `${badgeBaseUrl}?${objectToQueryParams(
     {
       message,
       logo,

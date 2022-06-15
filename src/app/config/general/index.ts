@@ -17,6 +17,12 @@ const general = {
       stats: {
         imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
       },
+
+      socials: {
+        iconBaseUrl:
+          'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social',
+        badgeBaseUrl: 'https://img.shields.io/static/v1',
+      },
     },
   },
 

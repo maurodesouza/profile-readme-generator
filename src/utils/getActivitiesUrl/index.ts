@@ -1,5 +1,5 @@
 import { general as generalConfig } from 'app/config/general';
-import { objectToQueryParams } from './objectToQueryParams';
+import { objectToQueryParams } from '../objectToQueryParams';
 
 const { mediumBaseUrl } = generalConfig.urls.sections.activities;
 

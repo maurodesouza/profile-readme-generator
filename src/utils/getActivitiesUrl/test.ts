@@ -4,7 +4,7 @@ import { getActivitiesUrl } from '.';
 const { mediumBaseUrl } = generalConfig.urls.sections.activities;
 
 describe('UTILS - Get activities url', () => {
-  it('should return the correct url for the stats type', () => {
+  it('should return the correct url for the activity type', () => {
     const inputs = [
       {
         props: {

@@ -42,7 +42,7 @@ const groups = [
         props: {
           options: [
             {
-              label: 'Direita',
+              label: 'Right',
               value: 'right',
             },
             {

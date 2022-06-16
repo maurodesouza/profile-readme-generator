@@ -7,7 +7,7 @@ import { sectionMap, BaseSection } from 'components';
 import { events } from 'app';
 import { useCanvas } from 'hooks';
 
-import { ContextMenus } from 'types';
+import { ContextMenus, Modals } from 'types';
 import * as S from './styles';
 
 const Canvas = () => {
@@ -22,7 +22,7 @@ const Canvas = () => {
   return (
     <S.Container onContextMenu={handleOpenContextMenu}>
       {!!sections.length && (
-        <S.ClearButton onClick={events.canvas.clear}>
+        <S.ClearButton onClick={() => events.modal.open(Modals.CONFIRM)}>
           <TrashIcon size={16} />
         </S.ClearButton>
       )}

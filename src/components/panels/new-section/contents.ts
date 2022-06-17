@@ -8,6 +8,7 @@ import {
   Activity,
   FileText,
   Music,
+  Star,
 } from '@styled-icons/feather';
 
 import { events } from 'app';
@@ -56,7 +57,7 @@ const contents = [
     name: 'Snake',
   },
   {
-    icon: FileText,
+    icon: Star,
     onClick: () => events.canvas.add(Sections.ACTIVITIES),
     name: 'My activities',
   },

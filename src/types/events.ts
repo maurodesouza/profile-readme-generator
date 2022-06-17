@@ -7,6 +7,9 @@ export enum Events {
   CANVAS_DUPLICATE_SECTION = 'canvas.section.duplicate',
   CANVAS_CLEAR_SECTIONS = 'canvas.clear',
 
+  TEMPLATE_USE = 'template.use',
+  TEMPLATE_PREVIEW = 'template.preview',
+
   RESULT_SHOW_CONTENT = 'result.canvas.show',
 
   SETTINGS_EDIT = 'settings.edit',

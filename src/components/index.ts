@@ -11,7 +11,6 @@ export * from './group-fields';
 export * from './edit-social-item';
 export * from './footer';
 export * from './context-menus';
-export * from './alert-box';
 export * from './building-modile';
 export * from './modals';
 export { Tree } from './tree';

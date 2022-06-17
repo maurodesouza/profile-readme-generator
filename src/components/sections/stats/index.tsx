@@ -1,11 +1,8 @@
-import { useEffect } from 'react';
-import { AlertBox } from 'components';
-import { useSettings } from 'hooks';
+import { GuardSection } from '../guard';
 
-import { events } from 'app';
+import { useSettings } from 'hooks';
 import { getStatsUrl, objectToQueryParams } from 'utils';
 
-import { CanvasStatesEnum } from 'types';
 import * as S from './styles';
 
 type Obj = Record<string, unknown>;
@@ -36,42 +33,30 @@ const StatsSection = ({
   const { graphs } = content;
   const { github } = settings.user;
 
-  useEffect(() => {
-    const state = github ? CanvasStatesEnum.DEFAULT : CanvasStatesEnum.ALERT;
+  return (
+    <GuardSection sectionId={id}>
+      <S.Container {...containerStyles}>
+        {Object.entries(graphs).map(([graph, props]) => {
+          const url = getStatsUrl(graph as Graphs);
 
-    setTimeout(() => {
-      events.canvas.edit({
-        id,
-        path: 'state',
-        value: state,
-      });
-    });
-  }, [github]);
+          if (!graph) return null;
 
-  return github ? (
-    <S.Container {...containerStyles}>
-      {Object.entries(graphs).map(([graph, props]) => {
-        const url = getStatsUrl(graph as Graphs);
+          const { height = '', ...rest } = { ...props };
+          const fullUrl = `${url}?${objectToQueryParams(
+            rest as Obj
+          )}&username=${github}`;
 
-        if (!graph) return null;
-
-        const { height = '', ...rest } = { ...props };
-        const fullUrl = `${url}?${objectToQueryParams(
-          rest as Obj
-        )}&username=${github}`;
-
-        return (
-          <img
-            height={height || 150}
-            key={graph}
-            src={fullUrl}
-            alt={`${graph} graph`}
-          />
-        );
-      })}
-    </S.Container>
-  ) : (
-    <AlertBox />
+          return (
+            <img
+              height={height || 150}
+              key={graph}
+              src={fullUrl}
+              alt={`${graph} graph`}
+            />
+          );
+        })}
+      </S.Container>
+    </GuardSection>
   );
 };
 

@@ -4,6 +4,7 @@ import { ValueOf } from './helpers';
 enum OtherPanels {
   NEW_SECTION = 'new-section',
   GENERATED_FILES = 'generated-files',
+  TEMPLATES = 'templates',
 }
 
 export type PanelSide = 'right' | 'left';

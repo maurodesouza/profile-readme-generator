@@ -12,6 +12,7 @@ const CanvasTemplate = () => {
   useEffect(() => {
     api.put('visits');
 
+    events.panel.open('right', PanelsEnum.TEMPLATES);
     events.panel.open('left', PanelsEnum.NEW_SECTION);
   }, []);
 

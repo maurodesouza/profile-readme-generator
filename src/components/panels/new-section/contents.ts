@@ -11,9 +11,14 @@ import {
 } from '@styled-icons/feather';
 
 import { events } from 'app';
-import { Sections } from 'types';
+import { PanelsEnum, Sections } from 'types';
 
 const contents = [
+  {
+    icon: FileText,
+    onClick: () => events.panel.open('right', PanelsEnum.TEMPLATES),
+    name: 'Templates',
+  },
   {
     icon: Type,
     onClick: () => events.canvas.add(Sections.TEXT),

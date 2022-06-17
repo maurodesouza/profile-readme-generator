@@ -11,13 +11,13 @@ const statsSectionConfig = {
           count_private: true,
           disable_animations: false,
           theme: 'dracula',
-          locale: 'pt-br',
+          locale: 'en',
           hide_border: false,
         },
 
         languages: {
           height: 150,
-          locale: 'pt-br',
+          locale: 'en',
           hide_title: false,
           layout: 'compact',
           card_width: 320,

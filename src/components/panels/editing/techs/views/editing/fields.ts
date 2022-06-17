@@ -27,6 +27,11 @@ const fields = [
           ],
         },
       },
+      {
+        type: Inputs.SWITCH,
+        path: 'styles.clear',
+        label: 'Clear float',
+      },
     ],
   },
   {

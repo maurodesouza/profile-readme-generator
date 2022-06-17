@@ -5,6 +5,7 @@ import { CanvasStatesEnum } from 'types';
 
 type ContainerProps = {
   float: 'none' | 'left' | 'right';
+  clear: boolean;
 };
 
 const marginMap = {
@@ -20,7 +21,9 @@ const containerModifiers = {
 };
 
 export const Container = styled(Reorder.Item)<ContainerProps>`
-  ${({ theme, float }) => css`
+  ${({ theme, float, clear }) => css`
+    clear: ${clear ? 'both' : 'none'};
+
     ${float !== 'none' && containerModifiers.float(float)};
 
     & + & {

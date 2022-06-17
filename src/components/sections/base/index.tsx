@@ -25,7 +25,7 @@ const BaseSection = ({
   };
 
   const { props } = React.Children.only(children) as React.ReactPortal;
-  const { float = 'none' } = props.styles || {};
+  const { float = 'none', clear = false } = props.styles || {};
 
   const isInAlert = props.state === CanvasStatesEnum.ALERT;
 
@@ -49,6 +49,7 @@ const BaseSection = ({
       value={id}
       drag={!previewMode}
       float={float}
+      clear={clear}
     >
       <S.Wrapper state={wrapperState}>{children}</S.Wrapper>
     </S.Container>

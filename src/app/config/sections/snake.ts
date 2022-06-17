@@ -1,5 +1,7 @@
 const snakeSectionConfig = {
-  props: {},
+  props: {
+    styles: {},
+  },
 };
 
 export { snakeSectionConfig };

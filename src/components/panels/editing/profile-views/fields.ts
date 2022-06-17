@@ -57,6 +57,11 @@ const groups = [
         },
       },
       {
+        type: Inputs.SWITCH,
+        path: 'styles.clear',
+        label: 'Clear float',
+      },
+      {
         type: Inputs.SELECT,
         path: 'styles.float',
         label: 'Float',

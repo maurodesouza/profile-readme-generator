@@ -14,9 +14,11 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     gap: ${theme.spacings.xlarge};
+    overflow: auto;
+    width: 100%;
+    height: calc(100vh - ${theme.spacings.xlarge} * 2);
   `}
 `;

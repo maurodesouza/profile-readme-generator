@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from 'react';
 
-import { events } from 'app';
+import { events, config } from 'app';
 import { deepChangeObjectProperty } from 'utils';
 
 import { Events, Settings } from 'types';
+import { useCanvas } from 'hooks';
 
 type HandleEditSettingsArgs = CustomEvent<{
   path: string;
@@ -18,9 +19,8 @@ type SettingsProviderProps = {
   children: React.ReactNode;
 };
 
-const INITIAL_SETTINGS = {
-  user: {},
-};
+const { preview: PREVIEW_SETTINGS, initial: INITIAL_SETTINGS } =
+  config.general.settings;
 
 const SettingsContext = createContext<SettingsContextData>(
   {} as SettingsContextData
@@ -28,6 +28,7 @@ const SettingsContext = createContext<SettingsContextData>(
 
 const SettingsProvider = ({ children }: SettingsProviderProps) => {
   const [settings, setSettings] = useState<Settings>(INITIAL_SETTINGS);
+  const { previewMode } = useCanvas();
 
   const handleEdit = (event: HandleEditSettingsArgs) => {
     const { path, value } = event.detail;
@@ -50,7 +51,11 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   }, [settings]);
 
   return (
-    <SettingsContext.Provider value={{ settings }}>
+    <SettingsContext.Provider
+      value={{
+        settings: { ...settings, ...(previewMode && PREVIEW_SETTINGS) },
+      }}
+    >
       {children}
     </SettingsContext.Provider>
   );

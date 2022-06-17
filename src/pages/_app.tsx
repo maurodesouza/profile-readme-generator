@@ -72,16 +72,16 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
-      <SettingsProvider>
-        <CanvasProvider>
+      <CanvasProvider>
+        <SettingsProvider>
           <Component {...pageProps} />
 
           <ContextMenu />
           <Modal />
 
           <GlobalStyles />
-        </CanvasProvider>
-      </SettingsProvider>
+        </SettingsProvider>
+      </CanvasProvider>
     </ThemeProvider>
   );
 };

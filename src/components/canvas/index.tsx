@@ -1,30 +1,49 @@
 import { MouseEvent } from 'react';
 import { Reorder } from 'framer-motion';
 
-import { Trash as TrashIcon } from '@styled-icons/feather';
-import { sectionMap, BaseSection } from 'components';
+import {
+  Trash as TrashIcon,
+  Check as CheckIcon,
+  X as CloseIcon,
+} from '@styled-icons/feather';
 
-import { events } from 'app';
+import { sectionMap, BaseSection } from 'components';
 import { useCanvas } from 'hooks';
 
+import { events } from 'app';
 import { ContextMenus } from 'types';
+
 import * as S from './styles';
 
 const Canvas = () => {
-  const { sections, currentSection } = useCanvas();
+  const { sections, currentSection, previewMode } = useCanvas();
 
   const sectionIds = sections.map(section => section.id);
 
   const handleOpenContextMenu = (e: MouseEvent) => {
-    events.contextmenu.open(ContextMenus.SECTION, e);
+    !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
   };
 
   return (
     <S.Container onContextMenu={handleOpenContextMenu}>
-      {!!sections.length && (
-        <S.ClearButton onClick={events.canvas.clear}>
-          <TrashIcon size={16} />
-        </S.ClearButton>
+      {!!sections.length && !previewMode && (
+        <S.Wrapper>
+          <S.Button onClick={events.canvas.clear} variant="warn">
+            <TrashIcon size={16} />
+          </S.Button>
+        </S.Wrapper>
+      )}
+
+      {previewMode && (
+        <S.Wrapper>
+          <S.Button onClick={events.template.use} variant="success">
+            <CheckIcon size={16} />
+          </S.Button>
+
+          <S.Button onClick={() => events.template.preview()} variant="warn">
+            <CloseIcon size={16} />
+          </S.Button>
+        </S.Wrapper>
       )}
 
       <Reorder.Group
@@ -36,7 +55,12 @@ const Canvas = () => {
           const Section = sectionMap[type];
 
           return (
-            <BaseSection key={id} id={id} selected={id === currentSection?.id}>
+            <BaseSection
+              key={id}
+              id={id}
+              selected={id === currentSection?.id}
+              previewMode={previewMode}
+            >
               <Section id={id} {...props} />
             </BaseSection>
           );

@@ -43,6 +43,19 @@ const wrapperModifiers = {
     border-color: ${theme.colors.primary};
   `,
 
+  [CanvasStatesEnum.PREVIEW]: () => css`
+    border-color: transparent;
+    cursor: default;
+
+    * {
+      cursor: default;
+    }
+
+    &:hover {
+      border-color: transparent;
+    }
+  `,
+
   [CanvasStatesEnum.ALERT]: (theme: DefaultTheme) => css`
     border-color: ${theme.colors.tertiary};
     border-style: dashed;

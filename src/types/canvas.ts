@@ -8,6 +8,7 @@ export type CanvasSection = {
 
 export enum CanvasStatesEnum {
   DEFAULT = 'default',
+  PREVIEW = 'preview',
   ALERT = 'alert',
   SELECTED = 'selected',
 }

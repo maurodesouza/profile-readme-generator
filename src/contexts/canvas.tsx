@@ -17,6 +17,7 @@ type HandleEditSectionArgs = CustomEvent<{
 type CanvasContextData = {
   sections: CanvasSection[];
   currentSection?: CanvasSection;
+  previewMode: boolean;
 };
 
 type CanvasProviderProps = {
@@ -26,11 +27,13 @@ type CanvasProviderProps = {
 const CanvasContext = createContext<CanvasContextData>({} as CanvasContextData);
 
 const CanvasProvider = ({ children }: CanvasProviderProps) => {
-  const [currentSection, setCurrentSection] = useState<CanvasSection>();
   const [sections, setSections] = usePersistedState<CanvasSection[]>(
     'canvas.sections',
     []
   );
+
+  const [currentSection, setCurrentSection] = useState<CanvasSection>();
+  const [previewTemplate, setPreviewTemplate] = useState<CanvasSection[]>([]);
 
   const handleAddSection = (event: HandleAddSectionArgs) => {
     const sectionType = event.detail;
@@ -112,9 +115,22 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(newSections);
   };
 
+  const handleUseTemplate = () => {
+    setSections(previewTemplate);
+    setPreviewTemplate([]);
+  };
+
+  const handlePreviewTemplate = (event: CustomEvent<CanvasSection[]>) => {
+    const template = event.detail.map(section => ({ ...section, id: uuid() }));
+
+    setPreviewTemplate(template);
+  };
+
   const handleClearCanvas = () => setSections([]);
 
   useEffect(() => {
+    // Canvas events
+
     events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
     events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
     events.on(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
@@ -134,8 +150,25 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     };
   }, [sections, currentSection]);
 
+  useEffect(() => {
+    // Template events
+
+    events.on(Events.TEMPLATE_USE, handleUseTemplate);
+    events.on(Events.TEMPLATE_PREVIEW, handlePreviewTemplate);
+
+    return () => {
+      events.off(Events.TEMPLATE_USE, handleUseTemplate);
+      events.off(Events.TEMPLATE_PREVIEW, handlePreviewTemplate);
+    };
+  }, [previewTemplate]);
+
+  const previewMode = !!previewTemplate.length;
+  const canvas = previewMode ? previewTemplate : sections;
+
   return (
-    <CanvasContext.Provider value={{ sections, currentSection }}>
+    <CanvasContext.Provider
+      value={{ sections: canvas, currentSection, previewMode }}
+    >
       {children}
     </CanvasContext.Provider>
   );

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -26,13 +26,15 @@ export const Container = styled.div`
   `}
 `;
 
-export const ClearButton = styled.button`
+export const Wrapper = styled.div`
   ${({ theme }) => css`
     width: 3rem;
-    height: 6rem;
     position: absolute;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-block: ${theme.spacings.medium};
+    gap: ${theme.spacings.xsmall};
+
     background: ${theme.colors.bg};
     color: ${theme.colors.text};
 
@@ -46,12 +48,45 @@ export const ClearButton = styled.button`
     border-style: solid;
     border-radius: 10rem;
 
+    &:hover {
+      color: ${theme.colors.error};
+    }
+  `}
+`;
+
+type ButtonsProps = {
+  variant?: 'warn' | 'success';
+};
+
+const buttonModifiers = {
+  warn: (theme: DefaultTheme) => css`
+    &:hover {
+      color: ${theme.colors.error};
+    }
+  `,
+
+  success: (theme: DefaultTheme) => css`
+    &:hover {
+      color: ${theme.colors.secondary};
+    }
+  `,
+};
+
+export const Button = styled.button<ButtonsProps>`
+  ${({ theme, variant }) => css`
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding-block: 2px;
+
     * {
       cursor: pointer;
     }
 
     &:hover {
-      color: ${theme.colors.error};
+      color: ${theme.colors.primary};
     }
+
+    ${!!variant && buttonModifiers[variant](theme)}
   `}
 `;

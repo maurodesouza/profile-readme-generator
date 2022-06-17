@@ -9,11 +9,17 @@ type BaseSectionProps = {
   id: string;
   selected: boolean;
   children: React.ReactNode;
+  previewMode: boolean;
 };
 
-const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
+const BaseSection = ({
+  id,
+  children,
+  selected,
+  previewMode,
+}: BaseSectionProps) => {
   const handleSelectSection = () => {
-    if (isInAlert) return;
+    if (isInAlert || previewMode) return;
 
     events.canvas.currentSection(id);
   };
@@ -28,6 +34,7 @@ const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
 
     if (selected) state = CanvasStatesEnum.SELECTED;
     if (isInAlert) state = CanvasStatesEnum.ALERT;
+    if (previewMode) state = CanvasStatesEnum.PREVIEW;
 
     return state;
   };
@@ -40,6 +47,7 @@ const BaseSection = ({ id, children, selected }: BaseSectionProps) => {
       data-hasfloat={float !== 'none'}
       onClick={handleSelectSection}
       value={id}
+      drag={!previewMode}
       float={float}
     >
       <S.Wrapper state={wrapperState}>{children}</S.Wrapper>

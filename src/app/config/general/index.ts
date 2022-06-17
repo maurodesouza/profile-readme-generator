@@ -39,6 +39,18 @@ const general = {
   storage: {
     prefix: '@prg-ms',
   },
+
+  settings: {
+    initial: {
+      user: {},
+    },
+
+    preview: {
+      user: {
+        github: 'maurodesouza',
+      },
+    },
+  },
 };
 
 export { general };

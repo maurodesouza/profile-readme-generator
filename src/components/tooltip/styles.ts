@@ -25,6 +25,7 @@ export const Container = styled.span<ContainerProps>`
     left: ${x}px;
     padding: 4px 6px;
     border-radius: ${theme.border.radius};
+    transition: opacity 0.3s;
 
     opacity: ${open ? 1 : 0};
     pointer-events: ${open ? 'all' : 'none'};

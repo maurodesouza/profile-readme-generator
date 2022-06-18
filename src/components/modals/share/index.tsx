@@ -15,7 +15,7 @@ const ShareModal = () => {
   };
 
   return (
-    <BaseModal title="Share with your frieds!">
+    <BaseModal title="Share with your friends!">
       <S.Container>
         <p>
           This is amazing! I appreciate you for helping me by sharing my app,

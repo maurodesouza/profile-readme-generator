@@ -1,3 +1,4 @@
+export * from './helpers';
 export * from './sticky';
 export * from './canvas';
 export * from './sections';

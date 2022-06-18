@@ -7,7 +7,7 @@ import {
   X as CloseIcon,
 } from '@styled-icons/feather';
 
-import { sectionMap, BaseSection } from 'components';
+import { sectionMap, BaseSection, Tooltip } from 'components';
 import { useCanvas } from 'hooks';
 
 import { events } from 'app';
@@ -28,21 +28,27 @@ const Canvas = () => {
     <S.Container onContextMenu={handleOpenContextMenu}>
       {!!sections.length && !previewMode && (
         <S.Wrapper>
-          <S.Button onClick={events.canvas.clear} variant="warn">
-            <TrashIcon size={16} />
-          </S.Button>
+          <Tooltip position="left" content="Clear canvas" variant="danger">
+            <S.Button onClick={events.canvas.clear} variant="warn">
+              <TrashIcon size={16} />
+            </S.Button>
+          </Tooltip>
         </S.Wrapper>
       )}
 
       {previewMode && (
         <S.Wrapper>
-          <S.Button onClick={events.template.use} variant="success">
-            <CheckIcon size={16} />
-          </S.Button>
+          <Tooltip position="left" content="Use template" variant="success">
+            <S.Button onClick={events.template.use} variant="success">
+              <CheckIcon size={16} />
+            </S.Button>
+          </Tooltip>
 
-          <S.Button onClick={() => events.template.preview()} variant="warn">
-            <CloseIcon size={16} />
-          </S.Button>
+          <Tooltip position="left" content="Leave preview" variant="danger">
+            <S.Button onClick={() => events.template.preview()} variant="warn">
+              <CloseIcon size={16} />
+            </S.Button>
+          </Tooltip>
         </S.Wrapper>
       )}
 

@@ -12,7 +12,7 @@ const templates = [
       {
         type: 'text',
         props: {
-          content: { text: "My name is ... and i'm a ..., from ....", as: 'p' },
+          content: { text: "My name is ... and I'm a ..., from ....", as: 'p' },
           styles: { align: 'left' },
         },
       },

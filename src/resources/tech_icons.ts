@@ -129,7 +129,7 @@ const tech_icons = [
       'line-wordmark',
     ],
   },
-  { name: 'django', icons: ['original', 'plain', 'line'] },
+  { name: 'django', icons: ['plain', 'plain-wordmark'] },
   {
     name: 'docker',
     icons: ['original', 'original-wordmark', 'plain', 'plain-wordmark'],

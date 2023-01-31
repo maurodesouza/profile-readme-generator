@@ -16,13 +16,6 @@ const navItems: NavItem[] = [
     },
   },
   {
-    label: 'Improve your skills',
-    props: {
-      as: 'button',
-      onClick: () => events.modal.open(Modals.IMPROVE_SKILLS),
-    },
-  },
-  {
     label: 'Donate',
     props: {
       href: 'https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS',

@@ -14,16 +14,15 @@ const SectionContextMenu = ({ event }: SectionContextMenuProps) => {
   const canShow = () => {
     const range = 5;
 
-    const { nativeEvent } = event;
-    const elements = (nativeEvent as any).path;
-
     let sectionId = '';
+    let currentElement = event.target as HTMLElement;
     let currentIndex = 0;
 
     while (!sectionId && currentIndex < range) {
-      const section = elements[currentIndex] as HTMLElement;
-
-      sectionId = section.dataset.sectionid!;
+      sectionId = currentElement.getAttribute('data-sectionid') || '';
+      if (!sectionId && currentElement.parentElement) {
+        currentElement = currentElement.parentElement;
+      }
       currentIndex += 1;
     }
 

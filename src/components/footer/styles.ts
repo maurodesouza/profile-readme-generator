@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { media } from 'styles';
 
 export const Container = styled.footer`
   ${({ theme }) => css`
@@ -19,11 +20,15 @@ export const Container = styled.footer`
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    display: grid;
+    display: none;
     grid: 'image project' 'image mention';
     height: 100%;
     column-gap: ${theme.spacings.small};
     flex-shrink: 0;
+
+    ${media.greaterThan('desktop')`
+      display: grid;
+    `}
   `}
 `;
 
@@ -47,8 +52,12 @@ export const Nav = styled.nav`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    column-gap: ${theme.spacings.medium};
+    column-gap: calc(${theme.spacings.xlarge} * 2);
     row-gap: ${theme.spacings.xsmall};
+
+    ${media.greaterThan('desktop')`
+      column-gap: ${theme.spacings.medium};
+    `}
   `}
 `;
 

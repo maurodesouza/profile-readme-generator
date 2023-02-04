@@ -5,4 +5,6 @@ export const Container = styled.div`
   place-items: center;
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  width: 100%;
+`;

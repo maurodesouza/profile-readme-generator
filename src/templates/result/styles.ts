@@ -2,12 +2,13 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    display: grid;
+    display: flex;
     width: 100%;
     margin: 0 auto;
     max-width: 160rem;
-    grid-template-columns: 26rem 1fr 26rem;
     column-gap: ${theme.spacings.xlarge};
+    height: calc(100vh - ${theme.spacings.xlarge} * 2);
+    user-select: none;
   `}
 `;
 
@@ -19,6 +20,5 @@ export const Wrapper = styled.div`
     gap: ${theme.spacings.xlarge};
     overflow: auto;
     width: 100%;
-    height: calc(100vh - ${theme.spacings.xlarge} * 2);
   `}
 `;

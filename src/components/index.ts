@@ -1,5 +1,4 @@
 export * from './helpers';
-export * from './sticky';
 export * from './canvas';
 export * from './sections';
 export * from './readme-result';
@@ -12,7 +11,6 @@ export * from './group-fields';
 export * from './edit-social-item';
 export * from './footer';
 export * from './context-menus';
-export * from './building-modile';
 export * from './modals';
 export * from './tooltip';
 export { Tree } from './tree';

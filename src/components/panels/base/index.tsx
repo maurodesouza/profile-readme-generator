@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
 
-import { Sticky } from 'components';
 import { events } from 'app';
-
 import { PanelsEnumType, PanelSide } from 'types';
+
+import { useOutsideClick } from 'hooks';
 import { getPanelSideEvent } from 'utils';
 
 import { panels } from '../panels';
@@ -11,31 +12,57 @@ import * as S from './styles';
 
 type PanelProps = {
   side: PanelSide;
+  initialPanel?: PanelsEnumType;
 };
 
-const Panel = ({ side }: PanelProps) => {
-  const [panel, setPanel] = useState<PanelsEnumType>();
+const chevrons = {
+  left: ChevronLeft,
+  right: ChevronRight,
+};
+
+const Panel = ({ side, initialPanel }: PanelProps) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [panel, setPanel] = useState<PanelsEnumType | undefined>(initialPanel);
+
   const Panel = panels[panel!] || panels.default;
 
   const handleChangePanel = (event: CustomEvent<PanelsEnumType>) => {
     setPanel(event.detail);
+    setIsOpen(true);
   };
 
+  const handleClosePanel = () => setPanel(undefined);
+
   useEffect(() => {
-    const event = getPanelSideEvent(side);
-    events.on(event, handleChangePanel);
+    const { openEvent, closeEvent } = getPanelSideEvent(side);
+
+    events.on(openEvent, handleChangePanel);
+    events.on(closeEvent, handleClosePanel);
 
     return () => {
-      events.off(event, handleChangePanel);
+      events.off(openEvent, handleChangePanel);
+      events.off(closeEvent, handleClosePanel);
     };
   }, []);
 
+  useOutsideClick(containerRef, () => setIsOpen(false), isOpen);
+
+  const Chevron = chevrons[side];
+
   return (
-    <Sticky>
-      <S.Container>
-        <Panel />
-      </S.Container>
-    </Sticky>
+    <S.Container ref={containerRef} close={!isOpen}>
+      <S.Toggle close={!isOpen} side={side} onClick={() => setIsOpen(!isOpen)}>
+        <Chevron size={24} />
+      </S.Toggle>
+
+      <S.Wrapper side={side}>
+        <S.Box>
+          <Panel />
+        </S.Box>
+      </S.Wrapper>
+    </S.Container>
   );
 };
 

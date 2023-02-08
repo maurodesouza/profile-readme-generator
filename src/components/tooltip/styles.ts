@@ -23,7 +23,7 @@ export const Container = styled.span<ContainerProps>`
     position: absolute;
     top: ${y}px;
     left: ${x}px;
-    padding: 4px 6px;
+    padding: calc(${theme.spacings.xsmall} / 2) ${theme.spacings.xsmall};
     border-radius: ${theme.border.radius};
     transition: opacity 0.3s;
 

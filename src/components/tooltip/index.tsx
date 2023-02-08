@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Portal } from 'components';
+import { OnlyClientSide, Portal } from 'components';
 import { TooltipPositions, TooltipVariants } from 'types';
 
 import * as S from './styles';
@@ -16,22 +16,44 @@ type TooltipProps = {
 const Tooltip = ({
   children,
   position = 'top',
-  variant = 'info',
+  variant = 'default',
   content,
 }: TooltipProps) => {
+  const openTimetouRef = useRef<NodeJS.Timeout>();
+  const closeTimetouRef = useRef<NodeJS.Timeout>();
+
   const childrenRef = useRef<Element>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
 
-  const [childreRect, setChildreRect] = useState<DOMRect>({} as DOMRect);
-  const [tooltipRect, setTooltipRect] = useState<DOMRect>({} as DOMRect);
+  const [coordinate, setCoordinate] = useState({ x: 0, y: 0 });
 
   const [open, setOpen] = useState(false);
+  const [mount, setMount] = useState(false);
+
   const theme = useTheme();
 
-  const handleMouseEnter = () => setOpen(true);
-  const handleMouseLeave = () => setOpen(false);
+  const handleMouseLeave = () => {
+    setOpen(false);
+
+    closeTimetouRef.current = setTimeout(() => {
+      setMount(false);
+    }, 350);
+  };
+
+  const handleMouseEnter = () => {
+    clearTimeout(closeTimetouRef.current!);
+    setMount(true);
+
+    openTimetouRef.current = setTimeout(() => {
+      getPosition();
+      setOpen(true);
+    });
+  };
 
   const getPosition = () => {
+    const childreRect = childrenRef.current!.getBoundingClientRect();
+    const tooltipRect = tooltipRef.current!.getBoundingClientRect();
+
     const space = Number(theme.spacings.xsmall.replace(/\D/g, ''));
 
     const middleXTooltip = tooltipRect.width / 2;
@@ -57,10 +79,10 @@ const Tooltip = ({
       keyof typeof positionsX
     ];
 
-    return {
-      x: positionsX[x] ?? middleX,
-      y: positionsY[y] ?? middleY,
-    };
+    setCoordinate({
+      x: (positionsX[x] ?? middleX) || 0,
+      y: (positionsY[y] ?? middleY) || 0,
+    });
   };
 
   const childrenProps = {
@@ -70,28 +92,29 @@ const Tooltip = ({
   };
 
   useEffect(() => {
-    const childrenPositions = childrenRef.current!.getBoundingClientRect();
-    const tooltipPositions = tooltipRef.current!.getBoundingClientRect();
-
-    setChildreRect(childrenPositions);
-    setTooltipRect(tooltipPositions);
-  }, [content]);
+    return () => {
+      clearTimeout(openTimetouRef.current!);
+      clearTimeout(closeTimetouRef.current!);
+    };
+  }, []);
 
   return (
-    <>
+    <OnlyClientSide>
       {React.cloneElement(children, childrenProps)}
 
-      <Portal>
-        <S.Container
-          ref={tooltipRef}
-          open={open}
-          variant={variant}
-          {...getPosition()}
-        >
-          {content}
-        </S.Container>
-      </Portal>
-    </>
+      {mount && (
+        <Portal>
+          <S.Container
+            ref={tooltipRef}
+            open={open}
+            variant={variant}
+            {...coordinate}
+          >
+            {content}
+          </S.Container>
+        </Portal>
+      )}
+    </OnlyClientSide>
   );
 };
 

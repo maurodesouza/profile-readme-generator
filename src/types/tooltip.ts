@@ -13,4 +13,5 @@ export enum TooltipVariants {
   INFO = 'info',
   SUCCESS = 'success',
   DANGER = 'danger',
+  DEFAULT = 'default',
 }

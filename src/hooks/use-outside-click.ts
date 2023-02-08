@@ -8,8 +8,6 @@ const useOutsideClick = (
   opened: boolean
 ) => {
   const handleOutsideClick = (event: Event) => {
-    console.log(event.target);
-
     const refs = Array.isArray(els) ? els : [els];
 
     const outsideClick = refs.every(

@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${({ theme }) => css`
-    user-select: all;
     position: relative;
     width: 100%;
     padding: ${theme.spacings.xlarge};
@@ -85,6 +84,35 @@ export const Container = styled.div`
 
     pre {
       background: transparent;
+    }
+  `}
+`;
+
+export const Actions = styled.ul`
+  ${({ theme }) => css`
+    position: absolute;
+    top: ${theme.spacings.xlarge};
+    right: ${theme.spacings.xlarge};
+    display: flex;
+  `}
+`;
+
+export const Action = styled.button`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.xsmall};
+    border-radius: 10rem;
+    border-width: ${theme.border.width};
+    border-color: ${theme.colors.border};
+    border-style: solid;
+    display: grid;
+    place-items: center;
+
+    & * {
+      cursor: pointer;
+    }
+
+    &:hover {
+      filter: brightness(2);
     }
   `}
 `;

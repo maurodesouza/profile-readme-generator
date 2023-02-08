@@ -4,6 +4,9 @@ import primsjs from 'prismjs';
 import { events } from 'app';
 import { Events } from 'types';
 
+import { Tooltip } from 'components';
+
+import { actions } from './actions';
 import * as S from './styles';
 
 const ReadmeResult = () => {
@@ -27,6 +30,18 @@ const ReadmeResult = () => {
 
   return (
     <S.Container ref={containerRef}>
+      <S.Actions>
+        {actions.map(({ label, icon: Icon, action }, i) => (
+          <Tooltip key={i} content={label} position="top">
+            <li>
+              <S.Action onClick={() => action(content)}>
+                <Icon size={16} />
+              </S.Action>
+            </li>
+          </Tooltip>
+        ))}
+      </S.Actions>
+
       <pre className={`language-html`}>
         <code className={`language-html`}>{content}</code>
       </pre>

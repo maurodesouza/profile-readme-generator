@@ -16,7 +16,7 @@ type TooltipProps = {
 const Tooltip = ({
   children,
   position = 'top',
-  variant = 'info',
+  variant = 'default',
   content,
 }: TooltipProps) => {
   const openTimetouRef = useRef<NodeJS.Timeout>();

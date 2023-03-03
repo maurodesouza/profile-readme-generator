@@ -5,7 +5,7 @@ import { CanvasStatesEnum } from 'types';
 
 type ContainerProps = {
   float: 'none' | 'left' | 'right';
-  clear: boolean;
+  clear?: boolean;
 };
 
 const marginMap = {

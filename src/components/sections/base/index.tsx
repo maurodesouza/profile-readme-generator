@@ -25,7 +25,7 @@ const BaseSection = ({
   };
 
   const { props } = React.Children.only(children) as React.ReactPortal;
-  const { float = 'none', clear = false } = props.styles || {};
+  const { float = 'none', clear } = props.styles || {};
 
   const isInAlert = props.state === CanvasStatesEnum.ALERT;
 

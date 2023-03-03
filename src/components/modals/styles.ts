@@ -7,10 +7,13 @@ type ContainerProps = {
 const containerModifiers = {
   open: () => css`
     pointer-events: all;
-    opacity: 1;
 
     ${Overlay} {
-      pointer-events: all;
+      opacity: 1;
+    }
+
+    ${Content} {
+      opacity: 1;
     }
   `,
 };
@@ -24,8 +27,6 @@ export const Container = styled.div<ContainerProps>`
     display: grid;
     place-items: center;
     pointer-events: none;
-    opacity: 0;
-    transition: 0.3s;
 
     ${open && containerModifiers.open}
   `}
@@ -37,14 +38,17 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  pointer-events: none;
-  z-index: 0;
+  z-index: 40;
+  opacity: 0;
+  transition: 0.3s;
 `;
 
 export const Content = styled.div`
   position: relative;
-  z-index: 1;
-
   width: 100%;
   max-width: 48rem;
+
+  z-index: 50;
+  opacity: 0;
+  transition: 0.3s;
 `;

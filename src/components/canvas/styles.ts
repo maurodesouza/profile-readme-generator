@@ -1,7 +1,11 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-export const Container = styled.div`
-  ${({ theme }) => css`
+type ContainerProps = {
+  hasSection: boolean;
+};
+
+export const Container = styled.div<ContainerProps>`
+  ${({ theme, hasSection }) => css`
     padding: ${theme.spacings.xlarge};
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
@@ -10,6 +14,7 @@ export const Container = styled.div`
 
     overflow-y: scroll;
     padding-right: ${theme.spacings.small};
+    height: ${hasSection ? 'auto' : '100%'};
 
     &::-webkit-scrollbar {
       width: 0.8rem;

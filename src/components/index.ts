@@ -10,6 +10,7 @@ export * from './tech-icon-variants';
 export * from './group-fields';
 export * from './edit-social-item';
 export * from './footer';
+export * from './welcome';
 export * from './context-menus';
 export * from './modals';
 export * from './tooltip';

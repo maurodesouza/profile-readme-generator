@@ -7,7 +7,7 @@ import {
   X as CloseIcon,
 } from '@styled-icons/feather';
 
-import { sectionMap, BaseSection, Tooltip } from 'components';
+import { sectionMap, BaseSection, Tooltip, Welcome } from 'components';
 import { useCanvas } from 'hooks';
 
 import { events } from 'app';
@@ -19,13 +19,14 @@ const Canvas = () => {
   const { sections, currentSection, previewMode } = useCanvas();
 
   const sectionIds = sections.map(section => section.id);
+  const hasSection = !!sections.length;
 
   const handleOpenContextMenu = (e: MouseEvent) => {
     !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
   };
 
   return (
-    <S.Container onContextMenu={handleOpenContextMenu}>
+    <S.Container onContextMenu={handleOpenContextMenu} hasSection={hasSection}>
       {!!sections.length && !previewMode && (
         <S.Wrapper>
           <Tooltip position="left" content="Clear canvas" variant="danger">
@@ -52,26 +53,30 @@ const Canvas = () => {
         </S.Wrapper>
       )}
 
-      <Reorder.Group
-        axis="y"
-        values={sectionIds}
-        onReorder={events.canvas.reorder}
-      >
-        {sections.map(({ type, id, props }) => {
-          const Section = sectionMap[type];
+      {!!sections.length ? (
+        <Reorder.Group
+          axis="y"
+          values={sectionIds}
+          onReorder={events.canvas.reorder}
+        >
+          {sections.map(({ type, id, props }) => {
+            const Section = sectionMap[type];
 
-          return (
-            <BaseSection
-              key={id}
-              id={id}
-              selected={id === currentSection?.id}
-              previewMode={previewMode}
-            >
-              <Section id={id} {...props} />
-            </BaseSection>
-          );
-        })}
-      </Reorder.Group>
+            return (
+              <BaseSection
+                key={id}
+                id={id}
+                selected={id === currentSection?.id}
+                previewMode={previewMode}
+              >
+                <Section id={id} {...props} />
+              </BaseSection>
+            );
+          })}
+        </Reorder.Group>
+      ) : (
+        <Welcome />
+      )}
     </S.Container>
   );
 };

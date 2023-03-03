@@ -7,8 +7,14 @@ import {
   X as CloseIcon,
 } from '@styled-icons/feather';
 
-import { sectionMap, BaseSection, Tooltip, Welcome } from 'components';
 import { useCanvas } from 'hooks';
+import {
+  sectionMap,
+  BaseSection,
+  Tooltip,
+  Welcome,
+  OnlyClientSide,
+} from 'components';
 
 import { events } from 'app';
 import { ContextMenus } from 'types';
@@ -26,58 +32,66 @@ const Canvas = () => {
   };
 
   return (
-    <S.Container onContextMenu={handleOpenContextMenu} hasSection={hasSection}>
-      {!!sections.length && !previewMode && (
-        <S.Wrapper>
-          <Tooltip position="left" content="Clear canvas" variant="danger">
-            <S.Button onClick={events.canvas.clear} variant="warn">
-              <TrashIcon size={16} />
-            </S.Button>
-          </Tooltip>
-        </S.Wrapper>
-      )}
+    <OnlyClientSide>
+      <S.Container
+        onContextMenu={handleOpenContextMenu}
+        hasSection={hasSection}
+      >
+        {hasSection && !previewMode && (
+          <S.Wrapper>
+            <Tooltip position="left" content="Clear canvas" variant="danger">
+              <S.Button onClick={events.canvas.clear} variant="warn">
+                <TrashIcon size={16} />
+              </S.Button>
+            </Tooltip>
+          </S.Wrapper>
+        )}
 
-      {previewMode && (
-        <S.Wrapper>
-          <Tooltip position="left" content="Use template" variant="success">
-            <S.Button onClick={events.template.use} variant="success">
-              <CheckIcon size={16} />
-            </S.Button>
-          </Tooltip>
+        {previewMode && (
+          <S.Wrapper>
+            <Tooltip position="left" content="Use template" variant="success">
+              <S.Button onClick={events.template.use} variant="success">
+                <CheckIcon size={16} />
+              </S.Button>
+            </Tooltip>
 
-          <Tooltip position="left" content="Leave preview" variant="danger">
-            <S.Button onClick={() => events.template.preview()} variant="warn">
-              <CloseIcon size={16} />
-            </S.Button>
-          </Tooltip>
-        </S.Wrapper>
-      )}
-
-      {!!sections.length ? (
-        <Reorder.Group
-          axis="y"
-          values={sectionIds}
-          onReorder={events.canvas.reorder}
-        >
-          {sections.map(({ type, id, props }) => {
-            const Section = sectionMap[type];
-
-            return (
-              <BaseSection
-                key={id}
-                id={id}
-                selected={id === currentSection?.id}
-                previewMode={previewMode}
+            <Tooltip position="left" content="Leave preview" variant="danger">
+              <S.Button
+                onClick={() => events.template.preview()}
+                variant="warn"
               >
-                <Section id={id} {...props} />
-              </BaseSection>
-            );
-          })}
-        </Reorder.Group>
-      ) : (
-        <Welcome />
-      )}
-    </S.Container>
+                <CloseIcon size={16} />
+              </S.Button>
+            </Tooltip>
+          </S.Wrapper>
+        )}
+
+        {hasSection ? (
+          <Reorder.Group
+            axis="y"
+            values={sectionIds}
+            onReorder={events.canvas.reorder}
+          >
+            {sections.map(({ type, id, props }) => {
+              const Section = sectionMap[type];
+
+              return (
+                <BaseSection
+                  key={id}
+                  id={id}
+                  selected={id === currentSection?.id}
+                  previewMode={previewMode}
+                >
+                  <Section id={id} {...props} />
+                </BaseSection>
+              );
+            })}
+          </Reorder.Group>
+        ) : (
+          <Welcome />
+        )}
+      </S.Container>
+    </OnlyClientSide>
   );
 };
 

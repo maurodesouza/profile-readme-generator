@@ -1,29 +1,71 @@
-import { BaseSection } from './base';
-
-import { ActivitiesSection } from './activities';
-import { StatsSection } from './stats';
-import { TechsSection } from './techs';
-import { MusicSection } from './music';
-import { TextSection } from './text';
-import { SnakeSection } from './snake';
-
-import { ImageSection } from './image';
-import { SocialsSection } from './socials';
-import { ProfileViewsSection } from './profile-views';
+import dynamic from 'next/dynamic';
 
 import { Sections } from 'types';
+import { BaseSection } from './base';
 
 const sectionMap = {
-  [Sections.MUSIC]: MusicSection,
-  [Sections.ACTIVITIES]: ActivitiesSection,
-  [Sections.ACTIVITIES]: ActivitiesSection,
-  [Sections.SNAKE]: SnakeSection,
-  [Sections.STATS]: StatsSection,
-  [Sections.TECHS]: TechsSection,
-  [Sections.TEXT]: TextSection,
-  [Sections.PROFILE_VIEWS]: ProfileViewsSection,
-  [Sections.IMAGE]: ImageSection,
-  [Sections.SOCIALS]: SocialsSection,
+  [Sections.MUSIC]: dynamic(() =>
+    import('./music').then(
+      mod => mod.MusicSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.ACTIVITIES]: dynamic(() =>
+    import('./activities').then(
+      mod => mod.ActivitiesSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.SNAKE]: dynamic(() =>
+    import('./snake').then(
+      mod => mod.SnakeSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.STATS]: dynamic(() =>
+    import('./stats').then(
+      mod => mod.StatsSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.TEXT]: dynamic(() =>
+    import('./text').then(
+      mod => mod.TextSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.TECHS]: dynamic(() =>
+    import('./techs').then(
+      mod => mod.TechsSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.IMAGE]: dynamic(() =>
+    import('./image').then(
+      mod => mod.ImageSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.SOCIALS]: dynamic(() =>
+    import('./socials').then(
+      mod => mod.SocialsSection,
+      () => () => null
+    )
+  ),
+
+  [Sections.PROFILE_VIEWS]: dynamic(() =>
+    import('./profile-views').then(
+      mod => mod.ProfileViewsSection,
+      () => () => null
+    )
+  ),
 };
 
 export { BaseSection, sectionMap };

@@ -11,10 +11,10 @@ const Welcome = () => {
     <S.Container>
       <S.Header>
         <h1>Welcome To Profile Readme Generator</h1>
-        <h3>
+        <h2>
           <span>🚀</span> The best profile readme generator you will find
           <span>⚡</span>
-        </h3>
+        </h2>
       </S.Header>
 
       <S.Description>

@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Mauro de Souza",
+  "type": "module",
   "keywords": [
     "github",
     "readme",
@@ -32,13 +33,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@styled-icons/feather": "^10.34.0",
     "framer-motion": "^6.2.4",
     "html-prettify": "^1.0.5",
     "next": "^12.1.6",
+    "next-compose-plugins": "^2.2.1",
+    "next-pwa": "^5.6.0",
     "prismjs": "^1.27.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -48,6 +52,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.2.4",
     "@types/jest": "^28.1.1",
     "@types/node": "15.0.0",
     "@types/prismjs": "^1.26.0",

@@ -47,10 +47,11 @@ const App = ({ Component, pageProps }: AppProps) => {
 
         <meta name="author" content="Mauro de Souza" />
         <meta name="robots" content="index,nofollow" />
+        <meta name="theme-color" content="#58a6ff" />
         <meta name="description" content={description} />
         <meta
           name="keywords"
-          content="github, github profile, github profile readme, readme generator, profile readme generator"
+          content="github, github profile, github profile readme, readme generator, profile readme generator, github profile readme generator"
         />
 
         {/* Open Graph */}

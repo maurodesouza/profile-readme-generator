@@ -51,7 +51,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content={description} />
         <meta
           name="keywords"
-          content="github, github profile, github profile readme, readme generator, profile readme generator"
+          content="github, github profile, github profile readme, readme generator, profile readme generator, github profile readme generator"
         />
 
         {/* Open Graph */}

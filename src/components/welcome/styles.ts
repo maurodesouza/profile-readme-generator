@@ -21,6 +21,10 @@ export const Header = styled.div`
     flex-direction: column;
     gap: calc(${theme.spacings.xsmall} / 2);
 
+    h2 {
+      font-size: ${theme.font.sizes.medium};
+    }
+
     span {
       display: none;
     }

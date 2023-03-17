@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Mauro de Souza",
+  "type": "module",
   "keywords": [
     "github",
     "readme",

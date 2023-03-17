@@ -53,7 +53,12 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
 
   return (
     <S.Container ref={containerRef} close={!isOpen}>
-      <S.Toggle close={!isOpen} side={side} onClick={() => setIsOpen(!isOpen)}>
+      <S.Toggle
+        aria-label={`Toggle ${side} panel`}
+        close={!isOpen}
+        side={side}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <Chevron size={24} />
       </S.Toggle>
 

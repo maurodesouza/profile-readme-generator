@@ -40,7 +40,11 @@ const Canvas = () => {
         {hasSection && !previewMode && (
           <S.Wrapper>
             <Tooltip position="left" content="Clear canvas" variant="danger">
-              <S.Button onClick={events.canvas.clear} variant="warn">
+              <S.Button
+                aria-label="Clear canvas"
+                onClick={events.canvas.clear}
+                variant="warn"
+              >
                 <TrashIcon size={16} />
               </S.Button>
             </Tooltip>
@@ -50,13 +54,18 @@ const Canvas = () => {
         {previewMode && (
           <S.Wrapper>
             <Tooltip position="left" content="Use template" variant="success">
-              <S.Button onClick={events.template.use} variant="success">
+              <S.Button
+                aria-label="Use template"
+                onClick={events.template.use}
+                variant="success"
+              >
                 <CheckIcon size={16} />
               </S.Button>
             </Tooltip>
 
             <Tooltip position="left" content="Leave preview" variant="danger">
               <S.Button
+                aria-label="Leave preview"
                 onClick={() => events.template.preview()}
                 variant="warn"
               >

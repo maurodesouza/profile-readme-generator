@@ -49,6 +49,7 @@ export const Container = styled.span<ContainerProps>`
 
     opacity: ${open ? 1 : 0};
     pointer-events: ${open ? 'all' : 'none'};
+    z-index: 10;
 
     ${containerModifiers[variant] && containerModifiers[variant]!(theme)}
   `}

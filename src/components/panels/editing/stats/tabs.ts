@@ -1,5 +1,5 @@
 import { StyledIcon } from '@styled-icons/styled-icon';
-import { PieChart, TrendingUp } from '@styled-icons/feather';
+import { Layout, Settings } from '@styled-icons/feather';
 
 import { views } from './views';
 
@@ -11,14 +11,14 @@ type Tab = {
 
 const tabs: Tab[] = [
   {
-    label: 'Stats',
-    icon: PieChart,
-    view: 'stats',
+    label: 'Layout',
+    icon: Layout,
+    view: 'layout',
   },
   {
-    label: 'Languages',
-    icon: TrendingUp,
-    view: 'languages',
+    label: 'Config Stats',
+    icon: Settings,
+    view: 'config',
   },
 ];
 

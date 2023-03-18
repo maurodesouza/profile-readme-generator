@@ -26,6 +26,23 @@ const groups = [
         },
       },
       {
+        type: Inputs.SELECT,
+        path: 'styles.direction',
+        label: 'Direction',
+        props: {
+          options: [
+            {
+              label: 'Row',
+              value: 'row',
+            },
+            {
+              label: 'Column',
+              value: 'column',
+            },
+          ],
+        },
+      },
+      {
         type: Inputs.SWITCH,
         path: 'styles.clear',
         label: 'Clear float',

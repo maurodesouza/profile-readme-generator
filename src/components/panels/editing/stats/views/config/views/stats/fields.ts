@@ -1,10 +1,19 @@
-import { customTitleField, localeField, themeField } from '../@shared';
+import {
+  customTitleField,
+  showField,
+  localeField,
+  themeField,
+} from '../@shared';
 import { Inputs } from 'types';
 
 const groups = [
   {
     id: 1,
-    fields: [customTitleField('stats'), localeField('stats')],
+    fields: [
+      showField('stats'),
+      customTitleField('stats'),
+      localeField('stats'),
+    ],
   },
   {
     id: 2,
@@ -48,14 +57,23 @@ const groups = [
         path: 'content.graphs.stats.disable_animations',
         label: 'Disable animations',
         props: {
-          column: '1 / 3',
+          direction: 'column',
+        },
+      },
+      {
+        type: Inputs.TEXT,
+        path: 'content.graphs.stats.height',
+        label: 'Height',
+        props: {
+          type: 'number',
+          min: 0,
         },
       },
       themeField('stats'),
     ],
   },
   {
-    id: 3,
+    id: 4,
     label: 'Commits',
     fields: [
       {

@@ -1,10 +1,19 @@
-import { customTitleField, localeField, themeField } from '../@shared';
+import {
+  customTitleField,
+  showField,
+  localeField,
+  themeField,
+} from '../@shared';
 import { Inputs } from 'types';
 
 const groups = [
   {
     id: 1,
-    fields: [customTitleField('languages'), localeField('languages')],
+    fields: [
+      showField('languages'),
+      customTitleField('languages'),
+      localeField('languages'),
+    ],
   },
   {
     id: 2,

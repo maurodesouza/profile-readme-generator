@@ -13,6 +13,8 @@ const statsSectionConfig = {
           theme: 'dracula',
           locale: 'en',
           hide_border: false,
+          show: true,
+          order: 1,
         },
 
         languages: {
@@ -24,12 +26,27 @@ const statsSectionConfig = {
           langs_count: 5,
           theme: 'dracula',
           hide_border: false,
+          show: true,
+          order: 2,
+        },
+
+        streak: {
+          height: 150,
+          locale: 'en',
+          mode: 'daily',
+          theme: 'dracula',
+          hide_border: false,
+          border_radius: 5,
+          date_format: '',
+          show: false,
+          order: 3,
         },
       },
     },
 
     styles: {
       align: 'center',
+      direction: 'row',
     },
   },
 };

@@ -1,3 +1,8 @@
+type UserSettings = {
+  github?: string;
+  [key: string]: unknown;
+};
+
 export type Settings = {
-  user: Record<string, unknown>;
+  user: UserSettings;
 };

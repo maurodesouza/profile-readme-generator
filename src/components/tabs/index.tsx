@@ -2,20 +2,38 @@ import { AnimateSharedLayout } from 'framer-motion';
 import { StyledIcon } from '@styled-icons/styled-icon';
 
 import * as S from './styles';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 type Tab = {
-  icon: StyledIcon;
+  icon?: StyledIcon;
   label: string;
   view: string;
 };
 
 type PrePlayerTabsProps = {
+  id?: string;
   tabs: Tab[];
   currentTab: string;
   setCurrentTab: (tab: any) => void;
 };
 
-const Tabs = ({ tabs, currentTab, setCurrentTab }: PrePlayerTabsProps) => {
+const Tabs = ({
+  id = 'tab',
+  tabs,
+  currentTab,
+  setCurrentTab,
+}: PrePlayerTabsProps) => {
+  const router = useRouter();
+  const hasMatchWithSomeTab = (view: string) =>
+    tabs.some(tab => tab.view === view);
+
+  useEffect(() => {
+    const { [id]: view } = router.query;
+
+    if (hasMatchWithSomeTab(view as string)) setCurrentTab(view);
+  }, [router]);
+
   return (
     <S.Container>
       <AnimateSharedLayout>
@@ -30,7 +48,7 @@ const Tabs = ({ tabs, currentTab, setCurrentTab }: PrePlayerTabsProps) => {
                 onClick={() => setCurrentTab(view)}
               >
                 <S.Wrapper>
-                  <Icon size={20} />
+                  {Icon && <Icon size={20} />}
 
                   <S.Label>{label}</S.Label>
                 </S.Wrapper>

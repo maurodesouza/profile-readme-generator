@@ -1,33 +1,43 @@
-import { useState } from 'react';
-import { AnimateSharedLayout } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import Router from 'next/router';
 
-import { GroupFields, Tabs } from 'components';
-
+import { Tabs } from 'components';
 import { tabs, views } from './tabs';
-import { groups } from './fields';
 
 import * as S from './styles';
 
 type Views = keyof typeof views;
 
 const StatsEditPanel = () => {
-  const [currentTab, setCurrentTab] = useState<Views>('stats');
+  const [currentTab, setCurrentTab] = useState<Views>('layout');
 
-  const View = views[currentTab];
+  const View = views[currentTab] ?? React.Fragment;
+
+  useEffect(() => {
+    return () => {
+      const query = new URLSearchParams(window.location.search);
+
+      query.delete('tab');
+      query.delete('stats-tab');
+
+      Router.replace(
+        {
+          pathname: window.location.pathname,
+          query: query.toString(),
+        },
+        undefined,
+        {
+          shallow: true,
+        }
+      );
+    };
+  }, []);
 
   return (
     <S.Container>
-      {groups.map(group => (
-        <GroupFields key={group.id} {...group} />
-      ))}
-
       <Tabs tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab} />
 
-      <S.Content>
-        <AnimateSharedLayout>
-          <View />
-        </AnimateSharedLayout>
-      </S.Content>
+      <View />
     </S.Container>
   );
 };

@@ -9,12 +9,14 @@ type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof getStatsUrl>[0];
 
 type Content = {
-  graphs: Record<Graphs, Obj>;
-  from: Obj;
+  graphs: {
+    [key in Graphs]: Obj;
+  };
 };
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  direction: 'row' | 'column';
 };
 
 type StatsSectionProps = {
@@ -36,15 +38,13 @@ const StatsSection = ({
   return (
     <GuardSection sectionId={id}>
       <S.Container {...containerStyles}>
-        {Object.entries(graphs).map(([graph, props]) => {
-          const url = getStatsUrl(graph as Graphs);
+        {(Object.entries(graphs) as [Graphs, Obj][]).map(([graph, props]) => {
+          const url = getStatsUrl(graph as Graphs, github!);
 
-          if (!graph) return null;
+          const { height = '', show = false, ...rest } = { ...props };
+          if (!graph || !show) return null;
 
-          const { height = '', ...rest } = { ...props };
-          const fullUrl = `${url}?${objectToQueryParams(
-            rest as Obj
-          )}&username=${github}`;
+          const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;
 
           return (
             <img

@@ -1,9 +1,19 @@
-import { Languages } from './languages';
-import { Stats } from './stats';
+import dynamic from 'next/dynamic';
 
 const views = {
-  languages: Languages,
-  stats: Stats,
+  layout: dynamic(() =>
+    import('./layout').then(
+      mod => mod.Layout,
+      () => () => null
+    )
+  ),
+
+  config: dynamic(() =>
+    import('./config').then(
+      mod => mod.Config,
+      () => () => null
+    )
+  ),
 };
 
 export { views };

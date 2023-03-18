@@ -1,7 +1,7 @@
 import { themes } from 'resources';
 import { Inputs } from 'types';
 
-const themeField = (graph: 'stats' | 'languages') => ({
+const themeField = (graph: 'stats' | 'languages' | 'streak') => ({
   type: Inputs.SELECT,
   path: `content.graphs.${graph}.theme`,
   label: 'Theme',

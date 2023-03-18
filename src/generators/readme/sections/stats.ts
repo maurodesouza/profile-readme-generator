@@ -6,11 +6,11 @@ type Graphs = Parameters<typeof getStatsUrl>[0];
 
 type Content = {
   graphs: Record<Graphs, Obj>;
-  from: Obj;
 };
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
+  direction: 'row' | 'column';
 };
 
 type GenerateStatsSectionArgs = {
@@ -23,22 +23,25 @@ const generateStatsSection = (
   settings: Settings
 ) => {
   const { graphs } = content;
-  const { align } = styles;
+  const { align, direction } = styles;
+  const { github } = settings.user;
 
-  const imgsHtml = Object.entries(graphs)
-    .reduce((html, [graph, props]) => {
-      const url = getStatsUrl(graph as Graphs);
+  const imgsHtml = (Object.entries(graphs) as [Graphs, Obj][])
+    .filter(([, props]) => props.show)
+    .reduce((html, [graph, props], index, arr) => {
+      const url = getStatsUrl(graph as Graphs, github!);
 
       const { height = 150, ...rest } = { ...props };
-      const usernameQuery = `&username=${settings.user.github}`;
 
-      const fullUrl = `${url}?${objectToQueryParams(
-        rest as Obj
-      )}${usernameQuery}`;
+      Reflect.deleteProperty(rest, 'show');
+
+      const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;
+      const toAddBr = direction === 'column' && index + 1 !== arr.length;
 
       const img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
+      const br = toAddBr ? '<br>' : '';
 
-      return `${html} \n ${img}`;
+      return `${html} \n ${img} ${br}`;
     }, '')
     .trim();
 

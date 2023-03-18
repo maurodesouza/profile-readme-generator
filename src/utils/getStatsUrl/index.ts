@@ -1,12 +1,14 @@
 import { general as generalConfig } from 'app/config/general';
 
-const { imageBaseUrl } = generalConfig.urls.sections.stats;
+const { imageBaseUrl, streakBaseUrl } = generalConfig.urls.sections.stats;
 
-const urls = {
-  stats: imageBaseUrl,
-  languages: `${imageBaseUrl}/top-langs`,
-};
+const urls = (value: string) => ({
+  stats: `${imageBaseUrl}?username=${value}`,
+  languages: `${imageBaseUrl}/top-langs?username=${value}`,
+  streak: `${streakBaseUrl}?user=${value}`,
+});
 
-const getStatsUrl = (type: keyof typeof urls) => urls[type];
+const getStatsUrl = (type: keyof typeof urls, github: string) =>
+  `${urls(github)[type]}`;
 
 export { getStatsUrl };

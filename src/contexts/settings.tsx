@@ -1,10 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect } from 'react';
 
 import { events, config } from 'app';
 import { deepChangeObjectProperty } from 'utils';
 
 import { Events, Settings } from 'types';
-import { useCanvas } from 'hooks';
+import { useCanvas, usePersistedState } from 'hooks';
 
 type HandleEditSettingsArgs = CustomEvent<{
   path: string;
@@ -27,7 +27,11 @@ const SettingsContext = createContext<SettingsContextData>(
 );
 
 const SettingsProvider = ({ children }: SettingsProviderProps) => {
-  const [settings, setSettings] = useState<Settings>(INITIAL_SETTINGS);
+  const [settings, setSettings] = usePersistedState<Settings>(
+    'user.settings',
+    INITIAL_SETTINGS
+  );
+
   const { previewMode } = useCanvas();
 
   const handleEdit = (event: HandleEditSettingsArgs) => {

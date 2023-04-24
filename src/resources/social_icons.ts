@@ -286,6 +286,17 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'matrix',
+    icons: ['default'],
+    badge: {
+      message: 'Matrix',
+      color: '000000',
+      label: '',
+      logo: 'matrix',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

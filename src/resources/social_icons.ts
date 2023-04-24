@@ -275,6 +275,17 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'tutanota',
+    icons: ['default'],
+    badge: {
+      message: 'Tutanota',
+      color: '840010',
+      label: '',
+      logo: 'tutanota',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

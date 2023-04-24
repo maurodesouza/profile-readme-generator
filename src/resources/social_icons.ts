@@ -297,6 +297,17 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'ko-fi',
+    icons: ['default'],
+    badge: {
+      message: 'Ko-fi',
+      color: 'F16061',
+      label: '',
+      logo: 'ko-fi',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

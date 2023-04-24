@@ -319,6 +319,28 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'slack',
+    icons: ['default'],
+    badge: {
+      message: 'Slack',
+      color: '4A154B',
+      label: '',
+      logo: 'slack',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'tryhackme',
+    icons: ['default'],
+    badge: {
+      message: 'TryHackMe',
+      color: '88cc14',
+      label: '',
+      logo: 'tryhackme',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

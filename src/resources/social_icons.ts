@@ -308,6 +308,17 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'signal',
+    icons: ['default'],
+    badge: {
+      message: 'Signal',
+      color: '039BE5',
+      label: '',
+      logo: 'signal',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

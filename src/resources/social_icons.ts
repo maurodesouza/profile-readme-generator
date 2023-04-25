@@ -275,6 +275,72 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'tutanota',
+    icons: ['default'],
+    badge: {
+      message: 'Tutanota',
+      color: '840010',
+      label: '',
+      logo: 'tutanota',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'matrix',
+    icons: ['default'],
+    badge: {
+      message: 'Matrix',
+      color: '000000',
+      label: '',
+      logo: 'matrix',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'ko-fi',
+    icons: ['default'],
+    badge: {
+      message: 'Ko-fi',
+      color: 'F16061',
+      label: '',
+      logo: 'ko-fi',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'signal',
+    icons: ['default'],
+    badge: {
+      message: 'Signal',
+      color: '039BE5',
+      label: '',
+      logo: 'signal',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'slack',
+    icons: ['default'],
+    badge: {
+      message: 'Slack',
+      color: '4A154B',
+      label: '',
+      logo: 'slack',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'tryhackme',
+    icons: ['default'],
+    badge: {
+      message: 'TryHackMe',
+      color: '88cc14',
+      label: '',
+      logo: 'tryhackme',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

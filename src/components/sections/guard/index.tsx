@@ -1,15 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 
 import { events } from 'app';
 import { useCanvas, useSettings } from 'hooks';
 
 import { CanvasStatesEnum } from 'types';
-import { debounce } from 'utils';
-
 import * as S from './styles';
 
 const BASE_URL = 'https://api.github.com/users/';
-const DEBOUNCE_TIMEOUT = 500;
 
 type GuardSectionProps = {
   sectionId: string;
@@ -20,18 +17,25 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const { previewMode } = useCanvas();
   const { settings } = useSettings();
 
   const { github } = settings.user;
 
-  const handleCheckGithubUsername = async () => {
+  const handleCheckGithubUsername = async (event: FormEvent) => {
+    event.preventDefault();
+
     const { value = '' } = inputRef.current!;
 
     if (!value) return;
 
+    setIsLoading(true);
+
     const response = await fetch(`${BASE_URL}${value}`);
+
+    setIsLoading(false);
 
     if (!response.ok) {
       setError('User not found');
@@ -64,7 +68,7 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
       {github ? (
         <>{children}</>
       ) : (
-        <S.Container>
+        <S.Container onSubmit={handleCheckGithubUsername}>
           <S.AlertIcon size={24} />
 
           <S.Text>
@@ -78,7 +82,7 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
             ref={inputRef}
             label="Github username"
             placeholder="Your github username"
-            onChange={debounce(handleCheckGithubUsername, DEBOUNCE_TIMEOUT)}
+            disabled={isLoading}
           />
         </S.Container>
       )}

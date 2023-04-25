@@ -3,7 +3,7 @@ import { AlertCircle } from '@styled-icons/feather';
 
 import { SimpleInput } from 'components/inputs';
 
-export const Container = styled.div`
+export const Container = styled.form`
   ${({ theme }) => css`
     width: min(100%, 30rem);
     margin-inline: auto;

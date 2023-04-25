@@ -63,5 +63,10 @@ export const Input = styled.input<InputProps>`
     padding: 8px 12px;
 
     ${as === 'textarea' && inputModifiers.textarea(theme)};
+
+    &:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
   `}
 `;

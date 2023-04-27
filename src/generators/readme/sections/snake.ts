@@ -6,7 +6,7 @@ const generateSnakeSection = (
 ) => {
   const { github } = settings.user;
 
-  return `<img src="https://raw.githubusercontent.com/${github}/${github}/blob/output/snake.svg" alt="Snake animation"/>`;
+  return `<img src="https://raw.githubusercontent.com/${github}/${github}/output/snake.svg" alt="Snake animation"/>`;
 };
 
 export { generateSnakeSection };

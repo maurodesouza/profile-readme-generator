@@ -37,6 +37,9 @@ const deepChangeObjectProperty = <T extends Obj = Obj>({
       );
     }
 
+    if (nested[key] === undefined || typeof nested[key] !== 'object')
+      nested[key] = {};
+
     return nested[key] as T;
   }, objClone as Obj);
 

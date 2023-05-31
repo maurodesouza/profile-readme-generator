@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
 import {
@@ -14,15 +14,18 @@ import {
   Tooltip,
   Welcome,
   OnlyClientSide,
+  ErrorBoundary,
 } from 'components';
 
 import { events } from 'app';
 import { ContextMenus } from 'types';
 
 import * as S from './styles';
+import { CanvasErrorFallback } from './error';
 
 const Canvas = () => {
   const { sections, currentSection, previewMode } = useCanvas();
+  const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
@@ -35,7 +38,7 @@ const Canvas = () => {
     <OnlyClientSide>
       <S.Container
         onContextMenu={handleOpenContextMenu}
-        hasSection={hasSection}
+        fullHeight={hasError || !hasSection}
       >
         {hasSection && !previewMode && (
           <S.Wrapper>
@@ -51,54 +54,59 @@ const Canvas = () => {
           </S.Wrapper>
         )}
 
-        {previewMode && (
-          <S.Wrapper>
-            <Tooltip position="left" content="Use template" variant="success">
-              <S.Button
-                aria-label="Use template"
-                onClick={events.template.use}
-                variant="success"
-              >
-                <CheckIcon size={16} />
-              </S.Button>
-            </Tooltip>
-
-            <Tooltip position="left" content="Leave preview" variant="danger">
-              <S.Button
-                aria-label="Leave preview"
-                onClick={() => events.template.preview()}
-                variant="warn"
-              >
-                <CloseIcon size={16} />
-              </S.Button>
-            </Tooltip>
-          </S.Wrapper>
-        )}
-
-        {hasSection ? (
-          <Reorder.Group
-            axis="y"
-            values={sectionIds}
-            onReorder={events.canvas.reorder}
-          >
-            {sections.map(({ type, id, props }) => {
-              const Section = sectionMap[type];
-
-              return (
-                <BaseSection
-                  key={id}
-                  id={id}
-                  selected={id === currentSection?.id}
-                  previewMode={previewMode}
+        <ErrorBoundary
+          fallback={<CanvasErrorFallback />}
+          onChange={setHasError}
+        >
+          {previewMode && (
+            <S.Wrapper>
+              <Tooltip position="left" content="Use template" variant="success">
+                <S.Button
+                  aria-label="Use template"
+                  onClick={events.template.use}
+                  variant="success"
                 >
-                  <Section id={id} {...props} />
-                </BaseSection>
-              );
-            })}
-          </Reorder.Group>
-        ) : (
-          <Welcome />
-        )}
+                  <CheckIcon size={16} />
+                </S.Button>
+              </Tooltip>
+
+              <Tooltip position="left" content="Leave preview" variant="danger">
+                <S.Button
+                  aria-label="Leave preview"
+                  onClick={() => events.template.preview()}
+                  variant="warn"
+                >
+                  <CloseIcon size={16} />
+                </S.Button>
+              </Tooltip>
+            </S.Wrapper>
+          )}
+
+          {hasSection ? (
+            <Reorder.Group
+              axis="y"
+              values={sectionIds}
+              onReorder={events.canvas.reorder}
+            >
+              {sections.map(({ type, id, props }) => {
+                const Section = sectionMap[type];
+
+                return (
+                  <BaseSection
+                    key={id}
+                    id={id}
+                    selected={id === currentSection?.id}
+                    previewMode={previewMode}
+                  >
+                    <Section id={id} {...props} />
+                  </BaseSection>
+                );
+              })}
+            </Reorder.Group>
+          ) : (
+            <Welcome />
+          )}
+        </ErrorBoundary>
       </S.Container>
     </OnlyClientSide>
   );

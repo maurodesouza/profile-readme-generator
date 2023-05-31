@@ -23,10 +23,10 @@ const variants = createFramerMotionVariants({
     },
   },
 
-  icons_container: (height = 0) => ({
+  icons_container: {
     open: {
       marginTop: 12,
-      height,
+      height: 'auto',
       transition: { staggerChildren: 0.05, duration: 0.2 },
     },
 
@@ -38,7 +38,7 @@ const variants = createFramerMotionVariants({
         delay: 0.1,
       },
     },
-  }),
+  },
 });
 
 const animations = {

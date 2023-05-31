@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { motion, Reorder } from 'framer-motion';
 
-import { Trash } from '@styled-icons/feather';
+import { Edit2, Trash } from '@styled-icons/feather';
 
 export const Container = styled(Reorder.Item)`
   ${({ theme }) => css`
@@ -21,7 +21,8 @@ export const Content = styled.div`
   ${({ theme }) => css`
     display: grid;
     width: 100%;
-    grid: 'drag logo menu' 2rem ' drag logo show-more' 2rem / 2rem 4rem 1fr;
+    grid: 'drag logo menu menu' 2rem ' drag logo show-more edit' 2rem / 2rem 4rem 1fr 4rem;
+
     justify-content: start;
     column-gap: ${theme.spacings.medium};
     padding: ${theme.spacings.small};
@@ -66,8 +67,7 @@ export const Drag = styled.div`
 export const Logo = styled.img`
   display: block;
   grid-area: logo;
-
-  height: 100%;
+  align-self: center;
   width: 100%;
 `;
 
@@ -96,32 +96,24 @@ export const DeleteIcon = styled(Trash)`
   `}
 `;
 
-export const ShowMore = styled.span`
+export const EditIcon = styled(Edit2)`
   ${({ theme }) => css`
-    grid-area: show-more;
-    font-size: ${theme.font.sizes.xsmall};
-    cursor: pointer;
+    grid-area: edit;
     align-self: end;
-    justify-self: start;
+    justify-self: end;
+
+    cursor: pointer;
+
+    & * {
+      cursor: pointer;
+    }
 
     &:hover {
       color: ${theme.colors.primary};
-      text-decoration: underline;
     }
   `}
 `;
 
-export const Grow = styled(motion.div)``;
-
-export const Icons = styled.div`
-  ${({ theme }) => css`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: ${theme.spacings.xsmall};
-
-    img {
-      width: 60%;
-      height: 60%;
-    }
-  `}
+export const Grow = styled(motion.div)`
+  overflow: hidden;
 `;

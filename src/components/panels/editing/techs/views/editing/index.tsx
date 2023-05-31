@@ -5,18 +5,16 @@ import { GroupFields, TechIconVariants, TechIconVariantsRef } from 'components';
 import { useCanvas, useForceUpdate } from 'hooks';
 
 import { getDeepObjectProperty } from 'utils';
+import { events } from 'app';
 
 import { variants } from './animations';
-import * as S from './styles';
-import { events } from 'app';
 import { fields } from './fields';
 
-type Tech = {
-  icon: string;
-};
+import { EditableIcon } from 'types';
+import * as S from './styles';
 
-type Techs = {
-  [key: string]: Tech;
+type Icons = {
+  [key: string]: EditableIcon;
 };
 
 const Editing = () => {
@@ -25,24 +23,24 @@ const Editing = () => {
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
 
-  const selectedTechs = getDeepObjectProperty<Techs>(
+  const selectedIcons = getDeepObjectProperty<Icons>(
     currentSection,
-    'props.content.techs'
-  );
+    'props.content.icons'
+  )!;
 
-  const techs = Object.entries(selectedTechs);
-  const techs_names = techs.map(tech => tech[0]);
+  const icons = Object.entries(selectedIcons);
+  const icon_names = icons.map(icon => icon[0]);
 
-  const handleOnReOrder = (order: typeof techs_names) => {
-    const path = 'content.techs';
+  const handleOnReOrder = (order: typeof icon_names) => {
+    const path = 'content.icons';
 
     const value = order.reduce((obj, name) => {
-      const finded = techs.find(tech => tech[0] === name)!;
+      const finded = icons.find(icon => icon[0] === name)!;
 
       obj[finded[0]] = finded[1];
 
       return obj;
-    }, {} as Techs);
+    }, {} as Icons);
 
     events.canvas.edit({ path, value });
     setTimeout(forceUpdate, 200);
@@ -60,17 +58,12 @@ const Editing = () => {
       ))}
 
       <AnimatePresence>
-        <Reorder.Group
-          axis="y"
-          values={techs_names}
-          onReorder={handleOnReOrder}
-        >
-          {techs.map(([tech, props], index) => (
+        <Reorder.Group axis="y" values={icon_names} onReorder={handleOnReOrder}>
+          {icons.map(([name, props], index) => (
             <TechIconVariants
-              key={tech}
+              key={name}
               ref={ref => (techIconVariantsRefs.current[index] = ref!)}
               refs={techIconVariantsRefs.current}
-              tech={tech}
               {...props}
             />
           ))}

@@ -1,58 +1,137 @@
-import { useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
-import { DisplayBlock, SimpleInput } from 'components';
+import { DisplayBlock, SimpleInput, Select } from 'components';
 import { events } from 'app';
 
 import { useForceUpdate } from 'hooks';
-import { debounce, filterArrayByQueryMatch, getTechIconUrl } from 'utils';
+import { capitalize, debounce, filterArrayByQueryMatch } from 'utils';
 
 import { tech_icons } from 'resources';
+import { GroupIcons, Icon, IconProviders } from 'types';
 
 import * as S from './styles';
 
-type HandleAddTechArgs = {
-  icon: string;
-  name: string;
-  short_name?: string;
-};
+type Providers = IconProviders | 'all';
 
 const Adding = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [provider, setProvider] = useState<Providers>(IconProviders.DEVICONS);
+
+  const groupIcons = useMemo(() => {
+    const result: GroupIcons = {
+      [IconProviders.SIMPLE_ICONS]: [],
+      [IconProviders.SKILL_ICONS]: [],
+      [IconProviders.SHIELDS]: [],
+      [IconProviders.DEVICONS]: [],
+    };
+
+    for (const icon of tech_icons as Icon[]) {
+      for (const provider of icon.available_providers) {
+        result[provider]!.push(icon);
+      }
+    }
+
+    return result;
+  }, []);
+
+  function filterIconsByProviderAndName(value: string) {
+    const result: GroupIcons = {};
+
+    const filter = (provider: IconProviders) =>
+      filterArrayByQueryMatch(value, groupIcons[provider], ['name', 'alias']);
+
+    if (provider === 'all') {
+      (Object.keys(groupIcons) as IconProviders[]).forEach(
+        key => (result[key] = filter(key))
+      );
+    } else result[provider] = filter(provider);
+
+    return result;
+  }
+
   const forceUpdate = useForceUpdate();
 
-  const handleAddTech =
-    ({ icon, name, short_name }: HandleAddTechArgs) =>
-    () => {
-      const path = `content.techs.${name}`;
-      const value = { icon, short_name };
-
-      events.canvas.edit({ path, value });
+  const handleAddTech = (icon: Icon, provider: string) => () => {
+    const path = `content.icons.${icon.name}`;
+    const value = {
+      ...icon,
+      currentProvider: provider,
+      config: {},
     };
+
+    events.canvas.edit({ path, value });
+  };
 
   const { value = '' } = inputRef.current || {};
 
-  const filteredOptions = filterArrayByQueryMatch(value, tech_icons, [
-    'name',
-    'short_name',
-  ]);
+  const filteredOptions = filterIconsByProviderAndName(value);
 
   return (
     <>
-      <SimpleInput
-        ref={inputRef}
-        onInput={debounce(forceUpdate, 200)}
-        placeholder="Search..."
-      />
+      <S.Wrapper>
+        <SimpleInput
+          label="Search"
+          ref={inputRef}
+          onInput={debounce(forceUpdate, 200)}
+          placeholder="Icon..."
+        />
+
+        <Select
+          defaultValue={IconProviders.DEVICONS}
+          label="Provider"
+          onChange={value => setProvider(value as Providers)}
+          options={[
+            { value: 'all', label: 'all' },
+            ...Object.values(IconProviders).map(value => ({
+              label: value.replace('_', ' '),
+              value,
+            })),
+          ]}
+        />
+      </S.Wrapper>
 
       <S.Content>
-        {filteredOptions.map(({ icons: [icon], name, short_name }) => (
-          <DisplayBlock
-            key={name}
-            display={getTechIconUrl(name, icon)}
-            onClick={handleAddTech({ icon, name, short_name })}
-            label={short_name || name}
-          />
-        ))}
+        {(Object.entries(filteredOptions) as [IconProviders, Icon[]][]).map(
+          ([providerName, icons]) => {
+            if (provider !== 'all' && providerName !== provider) return null;
+
+            const isBadge = providerName === 'shields';
+
+            const imgWidth = isBadge ? '75%' : undefined;
+            const imgHeight = isBadge ? 'auto' : undefined;
+
+            return (
+              <React.Fragment key={providerName}>
+                {provider === 'all' && (
+                  <S.Divider>
+                    {providerName
+                      .split('_')
+                      .map(w => capitalize(w))
+                      .join(' ')}
+                  </S.Divider>
+                )}
+
+                {icons.map(icon => {
+                  const { name, shortname, providers } = icon;
+                  const url = providers[providerName]!.path;
+
+                  return (
+                    <DisplayBlock
+                      key={name}
+                      display={url
+                        .replace(/ /g, '')
+                        .replace(/(?<=badge\/)(.+)(?=-\w+\?)/, '')}
+                      onClick={handleAddTech(icon, providerName)}
+                      label={shortname ?? name}
+                      imgWidth={imgWidth}
+                      imgHeight={imgHeight}
+                    />
+                  );
+                })}
+              </React.Fragment>
+            );
+          }
+        )}
       </S.Content>
     </>
   );

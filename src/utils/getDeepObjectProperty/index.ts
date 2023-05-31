@@ -1,17 +1,13 @@
 type Obj = Record<string, unknown>;
 
-const getDeepObjectPropertyError = (path: string) => {
-  throw new Error(
-    `getDeepObjectProperty Error: path "${path}" don't exist in object`
-  );
-};
-
-const getDeepObjectProperty = <T>(obj: Obj = {}, path: string): T => {
+const getDeepObjectProperty = <T>(
+  obj: Obj = {},
+  path: string
+): T | undefined => {
   const paths = path.split('.');
 
-  const result = paths.reduce((nested, key) => {
-    if (nested === undefined || typeof nested !== 'object')
-      getDeepObjectPropertyError(path);
+  const result = paths.reduce<Obj | undefined>((nested, key) => {
+    if (nested === undefined || typeof nested !== 'object') return undefined;
 
     return nested[key] as Obj;
   }, obj);

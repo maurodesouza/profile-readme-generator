@@ -13,3 +13,4 @@ export * from './getPanelSideEvent';
 export * from './getActivitiesUrl';
 export * from './getMusicUrl';
 export * from './copyToClipboard';
+export * from './capitalize';

@@ -1,5 +1,23 @@
 import styled, { css } from 'styled-components';
 
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: ${theme.spacings.medium};
+  `}
+`;
+
+export const Divider = styled.strong`
+  ${({ theme }) => css`
+    grid-column: 1 / 4;
+    border-top-width: ${theme.border.width};
+    border-top-style: solid;
+    border-top-color: ${theme.colors.border};
+    padding: ${theme.spacings.medium} 0px;
+    margin-top: ${theme.spacings.medium};
+  `}
+`;
+
 export const Content = styled.div`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.medium};

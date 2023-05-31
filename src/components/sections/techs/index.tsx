@@ -1,16 +1,12 @@
-import { getTechIconUrl } from 'utils';
+import { EditableIcon } from 'types';
 import * as S from './styles';
 
 type TechStyles = {
   height: number;
 };
 
-type Tech = {
-  icon: string;
-};
-
 type Content = {
-  techs: Record<string, Tech>;
+  icons: Record<string, EditableIcon>;
   styles: TechStyles;
 };
 
@@ -28,19 +24,26 @@ const TechsSection = ({
   content,
   styles: containerStyles,
 }: TechsSectionProps) => {
-  const { techs, styles } = content;
+  const { icons, styles } = content;
   const { height } = styles;
 
   return (
     <S.Container {...containerStyles}>
-      {Object.entries(techs).map(([tech, { icon }]) => (
-        <img
-          key={tech}
-          height={height}
-          alt={`${tech} logo`}
-          src={getTechIconUrl(tech, icon)}
-        />
-      ))}
+      {Object.entries(icons).map(
+        ([name, { currentProvider, providers, config }]) => {
+          const provider = providers[currentProvider]!;
+
+          const path = provider?.variants
+            ? provider?.variants[
+                (config[currentProvider]?.variant ?? 0) as number
+              ]
+            : provider.path;
+
+          return (
+            <img key={name} height={height} alt={`${name} logo`} src={path} />
+          );
+        }
+      )}
     </S.Container>
   );
 };

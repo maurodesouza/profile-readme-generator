@@ -21,7 +21,7 @@ const Layout = () => {
   const selectedStats = getDeepObjectProperty<Stats>(
     currentSection,
     'props.content.graphs'
-  );
+  )!;
 
   const stats = Object.entries(selectedStats);
   const stats_types = stats.map(tech => tech[0]);

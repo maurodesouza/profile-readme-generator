@@ -52,12 +52,17 @@ describe('UTILS - Deep change object property', () => {
     });
   });
 
-  it('should throw an error when passing a wrong object path', () => {
+  it('should create the path when passing a nonexistent object path', () => {
     const inputs = ['wrong.path', 'prop1.wrong.path', 'prop4.key1.wrong.path'];
+    const value = 'some';
 
-    const fn = (path: string) => () =>
-      deepChangeObjectProperty({ obj: objInput, path, value: 'some' });
+    const fn = (path: string) =>
+      deepChangeObjectProperty({ obj: objInput, path, value });
 
-    inputs.forEach(path => expect(fn(path)).toThrowError());
+    inputs.forEach(path => {
+      const finded = getDeepObjectProperty(fn(path), path);
+
+      expect(finded).toBe(value);
+    });
   });
 });

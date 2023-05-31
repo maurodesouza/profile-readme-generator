@@ -12,7 +12,7 @@ type Views = keyof typeof views;
 const MusicEditPanel = () => {
   const { currentSection: obj } = useCanvas();
 
-  const currentView = getDeepObjectProperty<Views>(obj, 'props.content.type');
+  const currentView = getDeepObjectProperty<Views>(obj, 'props.content.type')!;
 
   const View = views[currentView];
 

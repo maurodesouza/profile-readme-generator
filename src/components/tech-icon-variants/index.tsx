@@ -1,75 +1,67 @@
-import {
-  useState,
-  useImperativeHandle,
-  forwardRef,
-  useRef,
-  useEffect,
-} from 'react';
-import { useDragControls, usePresence } from 'framer-motion';
+import { useState, useImperativeHandle, forwardRef, useEffect } from 'react';
 
+import { useDragControls, usePresence } from 'framer-motion';
 import { Menu } from '@styled-icons/feather';
 
 import { events } from 'app';
-import { DisplayBlock } from 'components';
 
-import { getTechIconUrl } from 'utils';
-import { tech_icons } from 'resources';
-
+import { EditableIcon } from 'types';
 import { variants, animations } from './animations';
+
+import { Providers } from './providers';
+import { Variants } from './variants';
+
 import * as S from './styles';
 
-type TechIconVariantsProps = {
-  tech: string;
-  icon: string;
-  short_name?: string;
+type TechIconVariantsProps = EditableIcon & {
   refs: TechIconVariantsRef[];
 };
 
 export type TechIconVariantsRef = {
-  closeVariants: () => void;
+  closeEditForm: () => void;
 };
 
 const TechIconVariants: React.ForwardRefRenderFunction<
   TechIconVariantsRef,
   TechIconVariantsProps
-> = ({ tech, icon, short_name, refs }, ref) => {
-  const iconContainerRef = useRef<HTMLDivElement>(null);
-
+> = (
+  {
+    name,
+    shortname,
+    refs,
+    providers,
+    available_providers,
+    currentProvider,
+    config,
+  },
+  ref
+) => {
   const dragControls = useDragControls();
   const [isPresent, safeToRemove] = usePresence();
 
-  const [isOpenVariants, setIsOpenVariants] = useState(false);
-
-  const getTechIcons = () => {
-    const finded = tech_icons.find(icon => icon.name === tech);
-
-    return finded?.icons || [];
-  };
-
-  const handleToggleVariants = () => {
-    if (!isOpenVariants) refs.forEach(item => item?.closeVariants());
-
-    setIsOpenVariants(!isOpenVariants);
-  };
-
-  const handleChangeTechIcon = (icon: string) => () => {
-    const path = `content.techs.${tech}.icon`;
-
-    events.canvas.edit({ path, value: icon });
-  };
+  const [isOpenEditForm, setIsOpenEditForm] = useState(false);
 
   const handleDeleteTech = () => {
-    const path = `content.techs.${tech}`;
+    const path = `content.icons.${name}`;
 
     events.canvas.edit({ path, value: undefined });
   };
 
-  const handleCloseVariants = () => setIsOpenVariants(false);
+  const handleToggleEditForm = () => {
+    if (!isOpenEditForm) handleCloseAllEditForms();
+
+    setIsOpenEditForm(!isOpenEditForm);
+  };
+
+  const handleCloseEditForm = () => setIsOpenEditForm(false);
+
+  const handleCloseAllEditForms = () =>
+    refs.forEach(item => item?.closeEditForm());
 
   useImperativeHandle(
     ref,
     () => ({
-      closeVariants: handleCloseVariants,
+      closeEditForm: handleCloseEditForm,
     }),
     []
   );
@@ -78,14 +70,18 @@ const TechIconVariants: React.ForwardRefRenderFunction<
     !isPresent && setTimeout(safeToRemove!, 1000);
   }, [isPresent]);
 
-  const icons = getTechIcons();
-  const hasIcons = icons.length > 1;
+  const provider = providers[currentProvider]!;
 
-  const height = iconContainerRef.current?.offsetHeight || 0;
+  const providerVariants = provider.variants || [];
+  const hasVariants = !!providerVariants.length;
+
+  const logo = hasVariants
+    ? providerVariants[(config[currentProvider]?.variant ?? 0) as number]
+    : provider!.path;
 
   return (
     <S.Container
-      value={tech}
+      value={name}
       variants={variants.container}
       dragListener={false}
       dragControls={dragControls}
@@ -95,7 +91,7 @@ const TechIconVariants: React.ForwardRefRenderFunction<
       <S.Content>
         <S.Drag
           onPointerDown={event => [
-            handleCloseVariants(),
+            handleCloseAllEditForms(),
             dragControls.start(event),
           ]}
         >
@@ -103,38 +99,36 @@ const TechIconVariants: React.ForwardRefRenderFunction<
         </S.Drag>
 
         <S.Logo
-          key={`${tech} ${icon}`}
-          alt={`${tech} ${icon} logo`}
-          src={getTechIconUrl(tech, icon)}
+          key={`${name}`}
+          alt={`${name} logo`}
+          src={logo.replace(/ /g, '').replace(/(?<=badge\/)(.+)(?=-\w+\?)/, '')}
         />
 
         <S.Wrapper>
-          <S.Name>{short_name || tech}</S.Name>
+          <S.Name>{shortname || name}</S.Name>
 
           <S.DeleteIcon size={16} onClick={handleDeleteTech} />
         </S.Wrapper>
 
-        {hasIcons && (
-          <S.ShowMore onClick={handleToggleVariants}>
-            {isOpenVariants ? 'Hide' : 'Show'} variants
-          </S.ShowMore>
-        )}
+        <Providers
+          icon={name}
+          current={currentProvider}
+          available={available_providers}
+        />
+
+        {hasVariants && <S.EditIcon size={16} onClick={handleToggleEditForm} />}
       </S.Content>
 
       <S.Grow
         initial={false}
-        animate={isOpenVariants ? 'open' : 'closed'}
-        variants={variants.icons_container(height)}
+        animate={isOpenEditForm && hasVariants ? 'open' : 'closed'}
+        variants={variants.icons_container}
       >
-        <S.Icons ref={iconContainerRef}>
-          {icons.map(icon => (
-            <DisplayBlock
-              key={`${tech} ${icon}`}
-              display={getTechIconUrl(tech, icon)}
-              onClick={handleChangeTechIcon(icon)}
-            />
-          ))}
-        </S.Icons>
+        <Variants
+          icon={name}
+          provider={currentProvider}
+          variants={providers[currentProvider]?.variants}
+        />
       </S.Grow>
     </S.Container>
   );

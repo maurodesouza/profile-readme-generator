@@ -5,8 +5,12 @@ const filterArrayByQueryMatch = <T extends Record<string, unknown> | string>(
 ) => {
   const normalizedQuery = query.toLowerCase();
 
-  const check = (value: unknown) =>
-    String(value).toLowerCase().includes(normalizedQuery);
+  const check = (value: unknown): boolean => {
+    if (Array.isArray(value))
+      return !!filterArrayByQueryMatch<string>(query, value).length;
+
+    return String(value).toLowerCase().includes(normalizedQuery);
+  };
 
   return arr.filter(item => {
     if (typeof item === 'string') return check(item);

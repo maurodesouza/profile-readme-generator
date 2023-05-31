@@ -15,12 +15,13 @@ type SelectOption = {
 };
 
 type SelectProps = {
-  path: string;
+  path?: string;
   label: string;
   defaultValue: unknown;
   placeholder?: string;
   clearable?: boolean;
   options?: SelectOption[];
+  onChange?: (value: string) => void;
 };
 
 const Select = ({
@@ -28,6 +29,7 @@ const Select = ({
   path,
   defaultValue,
   options = [],
+  onChange,
   ...rest
 }: SelectProps) => {
   const defaultPlaceholder = 'Chose an option';
@@ -53,7 +55,9 @@ const Select = ({
     setIsDropdownOpen(false);
 
     const value = option?.value || '';
-    events.canvas.edit({ path, value });
+
+    if (onChange) onChange(value);
+    else events.canvas.edit({ path: path!, value });
   };
 
   const handleBlur = (event: FocusEvent) => {

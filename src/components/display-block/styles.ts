@@ -42,7 +42,14 @@ export const Wrapper = styled.div`
   `}
 `;
 
-export const Image = styled.img`
-  width: 40%;
-  height: 40%;
+type ImageProps = {
+  imgWidth: string;
+  imgHeight: string;
+};
+
+export const Image = styled.img<ImageProps>`
+  ${({ imgWidth, imgHeight }) => css`
+    width: ${imgWidth};
+    height: ${imgHeight};
+  `}
 `;

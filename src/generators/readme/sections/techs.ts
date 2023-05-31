@@ -1,15 +1,11 @@
-import { getTechIconUrl } from 'utils';
+import { EditableIcon } from 'types';
 
 type TechStyles = {
   height: number;
 };
 
-type Tech = {
-  icon: string;
-};
-
 type Content = {
-  techs: Record<string, Tech>;
+  icons: Record<string, EditableIcon>;
   styles: TechStyles;
 };
 
@@ -27,20 +23,31 @@ const generateTechsSection = ({
   content,
   styles: sectionStyles,
 }: GenerateTechsSectionArgs) => {
-  const { techs, styles } = content;
+  const { icons, styles } = content;
 
   const { align, spacing } = sectionStyles;
   const { height = 40 } = styles;
 
-  const imgsHtml = Object.entries(techs)
-    .reduce((html, [tech, { icon }]) => {
-      const url = getTechIconUrl(tech, icon);
-      const width = Number(height) + Number(spacing);
+  const imgsHtml = Object.entries(icons)
+    .reduce(
+      (html, [icon, { providers, currentProvider, config }], index, arr) => {
+        const isLast = index === arr.length - 1;
+        const provider = providers[currentProvider]!;
 
-      const img = `<img src="${url}" height="${height}" width="${width}" alt="${tech} logo" />`;
+        const providerVariants = provider.variants || [];
+        const hasVariants = !!providerVariants.length;
 
-      return `${html} \n ${img}`;
-    }, '')
+        const logo = hasVariants
+          ? providerVariants[(config[currentProvider]?.variant ?? 0) as number]
+          : provider!.path;
+
+        const space = `<img width="${spacing}"/>`;
+        const img = `<img src="${logo}" height="${height}" alt="${icon} logo" />`;
+
+        return `${html} \n ${img}` + (!isLast ? ` \n ${space}` : '');
+      },
+      ''
+    )
     .trim();
 
   return `

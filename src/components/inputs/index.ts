@@ -11,4 +11,4 @@ const inputMap = {
   [Inputs.SELECT]: Select,
 };
 
-export { SimpleInput, inputMap };
+export { SimpleInput, Select, inputMap };

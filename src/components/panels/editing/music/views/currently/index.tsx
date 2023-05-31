@@ -16,7 +16,7 @@ const Currently = () => {
   const project = getDeepObjectProperty<Projects>(
     obj,
     'props.content.currently.project'
-  );
+  )!;
 
   const links = projects_links[project];
 

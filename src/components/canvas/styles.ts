@@ -1,11 +1,11 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
 type ContainerProps = {
-  hasSection: boolean;
+  fullHeight: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, hasSection }) => css`
+  ${({ theme, fullHeight }) => css`
     padding: ${theme.spacings.xlarge};
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
@@ -14,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
 
     overflow-y: scroll;
     padding-right: ${theme.spacings.small};
-    height: ${hasSection ? 'auto' : '100%'};
+    height: ${fullHeight ? '100%' : 'auto'};
 
     &::-webkit-scrollbar {
       width: 0.8rem;

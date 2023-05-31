@@ -29,7 +29,7 @@ const Editing = () => {
   const selectedSocials = getDeepObjectProperty<Socials>(
     currentSection,
     'props.content.socials'
-  );
+  )!;
 
   const socials = Object.entries(selectedSocials);
   const socials_names = socials.map(social => social[0]);

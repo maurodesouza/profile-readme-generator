@@ -62,11 +62,11 @@ describe('UTILS - Get deep object property', () => {
     });
   });
 
-  it('should throw an error when passing a wrong object path', () => {
+  it('should return undefined when passing a wrong object path', () => {
     const inputs = ['wrong.path', 'prop1.wrong.path', 'prop4.key1.wrong.path'];
 
-    const fn = (path: string) => () => getDeepObjectProperty(objInput, path);
+    const fn = (path: string) => getDeepObjectProperty(objInput, path);
 
-    inputs.forEach(path => expect(fn(path)).toThrowError());
+    inputs.forEach(path => expect(fn(path)).toBeUndefined());
   });
 });

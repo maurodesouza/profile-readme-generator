@@ -38,7 +38,6 @@
   },
   "dependencies": {
     "@styled-icons/feather": "^10.34.0",
-    "@vercel/analytics": "^0.1.11",
     "framer-motion": "^6.2.4",
     "html-prettify": "^1.0.5",
     "next": "^12.1.6",

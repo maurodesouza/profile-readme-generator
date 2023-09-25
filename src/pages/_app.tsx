@@ -2,7 +2,6 @@ import { MouseEvent, useEffect } from 'react';
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';
-import { Analytics } from '@vercel/analytics/react';
 
 import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, SettingsProvider } from 'contexts';
@@ -85,8 +84,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           <GlobalStyles />
         </SettingsProvider>
       </CanvasProvider>
-
-      <Analytics />
     </ThemeProvider>
   );
 };

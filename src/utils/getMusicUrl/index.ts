@@ -8,7 +8,9 @@ const { profileBaseUrl, recentlyPlayedBaseUrl } =
 
 const getMusicUrl = (type: string, props: Obj = {}) => {
   if (type === 'recently') {
-    const spotifyAccountUrl = props.user && `${profileBaseUrl}/${props.user}`;
+    const spotifyAccountUrl = (props.user &&
+      `${profileBaseUrl}/${props.user}`) as string | undefined;
+
     const imageUrl = `${recentlyPlayedBaseUrl}?${objectToQueryParams(props)}`;
 
     return { spotifyAccountUrl, imageUrl };

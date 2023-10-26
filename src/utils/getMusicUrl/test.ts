@@ -28,7 +28,7 @@ describe('UTILS - Get music url', () => {
 
         expect: {
           profileUrl: `${profileBaseUrl}/test`,
-          imgUrl: `${recentlyPlayedBaseUrl}?foo=some&here=bla`,
+          imgUrl: `${recentlyPlayedBaseUrl}?user=test&foo=some&here=bla`,
         },
       },
     ];

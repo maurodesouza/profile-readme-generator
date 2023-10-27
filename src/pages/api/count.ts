@@ -44,7 +44,7 @@ const handles = {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (environment !== 'production') return res.status(StatusCode.OK).json({});
+  if (environment) return res.status(StatusCode.OK).json({});
 
   const allowedMethods = [HTTPMethods.GET, HTTPMethods.PUT];
 

@@ -10,7 +10,7 @@ const objectToQueryParams = (
     )
       return query;
 
-    return `${query}${key}=${value}&`;
+    return `${query}${key}=${encodeURI(String(value))}&`;
   }, '');
 
   return result.slice(0, -1);

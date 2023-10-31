@@ -27,14 +27,23 @@ const ReadmeResult = () => {
       events.off(Events.RESULT_SHOW_CONTENT, handleShowContent);
     };
   }, []);
+  const [labelVal, setlabelVal] = useState('Copy')
+
+  // updates the copy label when user copies the content
+  const updateLable = ()=>{
+    setlabelVal('Copied!')
+    setTimeout(() => {
+      setlabelVal('Copy')
+    }, 3000);
+  }
 
   return (
     <S.Container ref={containerRef}>
       <S.Actions>
-        {actions.map(({ label, icon: Icon, action }, i) => (
-          <Tooltip key={i} content={label} position="top">
+        {actions.map(({ icon: Icon, action}, i) => (
+          <Tooltip key={i} content={labelVal} position="top">
             <li>
-              <S.Action onClick={() => action(content)}>
+              <S.Action onClick={() => { action(content); updateLable()}}>
                 <Icon size={16} />
               </S.Action>
             </li>

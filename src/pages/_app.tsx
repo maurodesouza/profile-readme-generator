@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 
 import { ThemeProvider } from 'styled-components';
-import { CanvasProvider, SettingsProvider } from 'contexts';
+import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config, events } from 'app';
 import { ContextMenu, Modal } from 'components';
@@ -74,6 +74,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
+      <ExtensionsProvider>
       <CanvasProvider>
         <SettingsProvider>
           <Component {...pageProps} />
@@ -84,6 +85,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <GlobalStyles />
         </SettingsProvider>
       </CanvasProvider>
+      </ExtensionsProvider>
     </ThemeProvider>
   );
 };

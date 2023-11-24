@@ -4,3 +4,4 @@ export type Extension = {
   presentation: Record<string, object>;
 };
 
+export type ExtensionsGroup = Record<string, Record<string, object>>;

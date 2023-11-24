@@ -14,3 +14,4 @@ export * from './getActivitiesUrl';
 export * from './getMusicUrl';
 export * from './copyToClipboard';
 export * from './capitalize';
+export * from './toArray';

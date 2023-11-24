@@ -89,11 +89,11 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   const handleReorderSections = (event: CustomEvent<string[]>) => {
     const order = event.detail;
 
-    const sectionsReorded = order.map(
+    const sectionsReordered = order.map(
       sectionId => sections.find(section => section.id === sectionId)!
     );
 
-    setSections(sectionsReorded);
+    setSections(sectionsReordered);
   };
 
   const handleDuplicateSection = (event: CustomEvent<string>) => {

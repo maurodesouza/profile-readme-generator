@@ -9,6 +9,7 @@ import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 import { config, events } from 'app';
 import { ContextMenu, Modal } from 'components';
 
+import { Features } from 'features';
 import { theme, GlobalStyles } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -75,16 +76,17 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
 
       <ExtensionsProvider>
-      <CanvasProvider>
-        <SettingsProvider>
-          <Component {...pageProps} />
+        <CanvasProvider>
+          <SettingsProvider>
+            <Component {...pageProps} />
 
-          <ContextMenu />
-          <Modal />
+            <ContextMenu />
+            <Modal />
+            <Features />
 
-          <GlobalStyles />
-        </SettingsProvider>
-      </CanvasProvider>
+            <GlobalStyles />
+          </SettingsProvider>
+        </CanvasProvider>
       </ExtensionsProvider>
     </ThemeProvider>
   );

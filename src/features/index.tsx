@@ -8,6 +8,7 @@ const Features = () => {
     import('./socials');
     import('./snake');
     import('./profile-views');
+    import('./music');
   }, []);
 
   return null;

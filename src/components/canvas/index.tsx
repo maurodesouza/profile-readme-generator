@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
 import {
@@ -7,9 +7,8 @@ import {
   X as CloseIcon,
 } from '@styled-icons/feather';
 
-import { useCanvas } from 'hooks';
+import { useCanvas, useExtensions } from 'hooks';
 import {
-  sectionMap,
   BaseSection,
   Tooltip,
   Welcome,
@@ -24,11 +23,14 @@ import * as S from './styles';
 import { CanvasErrorFallback } from './error';
 
 const Canvas = () => {
+  const { extensions } = useExtensions();
   const { sections, currentSection, previewMode } = useCanvas();
   const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
+
+  const sectionsData = useMemo(() => extensions.sections ?? {}, [extensions]);
 
   const handleOpenContextMenu = (e: MouseEvent) => {
     !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
@@ -89,7 +91,11 @@ const Canvas = () => {
               onReorder={events.canvas.reorder}
             >
               {sections.map(({ type, id, props }) => {
-                const Section = sectionMap[type];
+                const section = sectionsData[type] as any;
+
+                if (!section) return null;
+
+                const Component = section.component;
 
                 return (
                   <BaseSection
@@ -98,7 +104,7 @@ const Canvas = () => {
                     selected={id === currentSection?.id}
                     previewMode={previewMode}
                   >
-                    <Section id={id} {...props} />
+                    <Component id={id} {...props} />
                   </BaseSection>
                 );
               })}

@@ -6,6 +6,7 @@ const Features = () => {
     import('./techs');
     import('./stats');
     import('./socials');
+    import('./snake');
   }, []);
 
   return null;

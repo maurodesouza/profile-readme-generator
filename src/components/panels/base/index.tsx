@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
 
 import { events } from 'app';
 import { PanelsEnumType, PanelSide } from 'types';
 
-import { useOutsideClick } from 'hooks';
+import { useExtensions, useOutsideClick } from 'hooks';
 import { getPanelSideEvent } from 'utils';
 
 import { panels } from '../panels';
@@ -26,7 +26,17 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [panel, setPanel] = useState<PanelsEnumType | undefined>(initialPanel);
 
-  const Panel = panels[panel!] || panels.default;
+  const { extensions } = useExtensions();
+
+  const allPanels = useMemo(
+    () => ({
+      ...panels,
+      ...(extensions.panels ?? {}),
+    }),
+    [extensions]
+  );
+
+  const Panel = allPanels[panel!] || allPanels.default;
 
   const handleChangePanel = (event: CustomEvent<PanelsEnumType>) => {
     setPanel(event.detail);

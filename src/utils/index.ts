@@ -15,3 +15,4 @@ export * from './getMusicUrl';
 export * from './copyToClipboard';
 export * from './capitalize';
 export * from './toArray';
+export * from './parseToReadme';

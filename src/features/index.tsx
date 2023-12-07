@@ -9,6 +9,7 @@ const Features = () => {
     import('./snake');
     import('./profile-views');
     import('./music');
+    import('./image');
   }, []);
 
   return null;

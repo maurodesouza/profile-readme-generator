@@ -10,6 +10,7 @@ const Features = () => {
     import('./profile-views');
     import('./music');
     import('./image');
+    import('./activities');
   }, []);
 
   return null;

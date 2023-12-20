@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 import { events } from 'app';
 
 import { Events, Extension, ExtensionsGroup } from 'types';
@@ -16,14 +16,17 @@ const ExtensionsContext = createContext<ExtensionsContextData>(
 );
 
 const ExtensionsProvider = ({ children }: SettingsProviderProps) => {
-  const [extensions, setExtensions] = useState<ExtensionsGroup>({});
+  const registersRef = useRef<Record<string, Extension>>({});
 
+  const [extensions, setExtensions] = useState<ExtensionsGroup>({});
   const [registers, setRegisters] = useState<Record<string, Extension>>({});
 
   const handleRegisterExtension = (event: CustomEvent<Extension[]>) => {
     const newRegisters = event.detail.reduce((registers, extension) => {
       return { ...registers, [extension.id]: extension };
-    }, registers);
+    }, registersRef.current);
+
+    registersRef.current = newRegisters;
 
     const extensions = Object.values(newRegisters).reduce((obj, extension) => {
       Object.entries(extension.presentation).forEach(([key, item]) => {

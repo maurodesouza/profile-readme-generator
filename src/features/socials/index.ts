@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { MessageSquare } from '@styled-icons/feather';
 
-import { SocialsEditPanel } from './panel';
-import { SocialsSection } from './section';
 import { socialsSectionParser } from './parser';
 import { defaultSocialsSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: SocialsSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.SocialsSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: socialsSectionParser,
     },
     defaultConfig: defaultSocialsSectionConfig,
   },
 
-  panels: SocialsEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.SocialsEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Activity } from '@styled-icons/feather';
 
-import { SnakePanel } from './panel';
-import { SnakeSection } from './section';
 import { snakeSectionParser, snakeWorkflowParser } from './parser';
 import { defaultSnakeSectionConfig } from './default-config';
 
@@ -20,7 +19,12 @@ const feature = {
   },
 
   sections: {
-    component: SnakeSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.SnakeSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: snakeSectionParser,
       workflow: snakeWorkflowParser,
@@ -28,7 +32,12 @@ const feature = {
     defaultConfig: defaultSnakeSectionConfig,
   },
 
-  panels: SnakePanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.SnakePanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

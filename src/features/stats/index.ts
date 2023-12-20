@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { PieChart } from '@styled-icons/feather';
 
-import { StatsEditPanel } from './panel';
-import { StatsSection } from './section';
 import { statsSectionParser } from './parser';
 import { defaultStatsSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: StatsSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.StatsSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: statsSectionParser,
     },
     defaultConfig: defaultStatsSectionConfig,
   },
 
-  panels: StatsEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.StatsEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

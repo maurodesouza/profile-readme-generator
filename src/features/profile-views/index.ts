@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Github } from '@styled-icons/feather';
 
-import { ProfileViewsPanel } from './panel';
-import { ProfileViewsSection } from './section';
 import { profileViewsSectionParser } from './parser';
 import { defaultProfileViewsSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: ProfileViewsSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.ProfileViewsSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: profileViewsSectionParser,
     },
     defaultConfig: defaultProfileViewsSectionConfig,
   },
 
-  panels: ProfileViewsPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.ProfileViewsPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

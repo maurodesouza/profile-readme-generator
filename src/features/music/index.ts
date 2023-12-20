@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Music } from '@styled-icons/feather';
 
-import { MusicEditPanel } from './panel';
-import { MusicSection } from './section';
 import { musicSectionParser } from './parser';
 import { defaultMusicSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: MusicSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.MusicSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: musicSectionParser,
     },
     defaultConfig: defaultMusicSectionConfig,
   },
 
-  panels: MusicEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.MusicEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

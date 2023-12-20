@@ -1,7 +1,7 @@
+import dynamic from 'next/dynamic';
+
 import { Image } from '@styled-icons/feather';
 
-import { ImageEditPanel } from './panel';
-import { ImageSection } from './section';
 import { imageSectionParser } from './parser';
 import { defaultImageSectionConfig } from './default-config';
 
@@ -20,14 +20,23 @@ const feature = {
   },
 
   sections: {
-    component: ImageSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.ImageSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: imageSectionParser,
     },
     defaultConfig: defaultImageSectionConfig,
   },
-
-  panels: ImageEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.ImageEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

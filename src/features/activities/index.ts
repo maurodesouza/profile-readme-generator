@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Star } from '@styled-icons/feather';
 
-import { ActivitiesEditPanel } from './panel';
-import { ActivitiesSection } from './section';
 import { activitiesSectionParser } from './parser';
 import { defaultActivitiesSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: ActivitiesSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.ActivitiesSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: activitiesSectionParser,
     },
     defaultConfig: defaultActivitiesSectionConfig,
   },
 
-  panels: ActivitiesEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.ActivitiesEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

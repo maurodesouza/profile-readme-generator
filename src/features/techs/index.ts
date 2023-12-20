@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Share2 } from '@styled-icons/feather';
 
-import { TechsEditPanel } from './panel';
-import { TechsSection } from './section';
 import { techsSectionParser } from './parser';
 import { defaultTechsSectionConfig } from './default-config';
 
@@ -20,14 +19,24 @@ const feature = {
   },
 
   sections: {
-    component: TechsSection,
+    component: dynamic(() =>
+      import('./section').then(
+        mod => mod.TechsSection,
+        () => () => null
+      )
+    ),
     parser: {
       readme: techsSectionParser,
     },
     defaultConfig: defaultTechsSectionConfig,
   },
 
-  panels: TechsEditPanel,
+  panels: dynamic(() =>
+    import('./panel').then(
+      mod => mod.TechsEditPanel,
+      () => () => null
+    )
+  ),
 };
 
 events.extensions.register(feature);

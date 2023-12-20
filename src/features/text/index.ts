@@ -1,7 +1,6 @@
+import dynamic from 'next/dynamic';
 import { Type } from '@styled-icons/feather';
 
-import { TextEditPanel } from './panel';
-import { TextSection } from './section';
 import { textSectionParser } from './parser';
 import { defaultTextSectionConfig } from './default-config';
 
@@ -19,14 +18,24 @@ const feature = {
     },
 
     sections: {
-      component: TextSection,
+      component: dynamic(() =>
+        import('./section').then(
+          mod => mod.TextSection,
+          () => () => null
+        )
+      ),
       parser: {
         readme: textSectionParser,
       },
       defaultConfig: defaultTextSectionConfig,
     },
 
-    panels: TextEditPanel,
+    panels: dynamic(() =>
+      import('./panel').then(
+        mod => mod.TextEditPanel,
+        () => () => null
+      )
+    ),
   },
 };
 

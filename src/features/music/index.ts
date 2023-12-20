@@ -5,38 +5,38 @@ import { musicSectionParser } from './parser';
 import { defaultMusicSectionConfig } from './default-config';
 
 import { events } from 'app';
-import { Sections } from 'types';
+import { PanelsEnum, Sections } from 'types';
 
 const feature = {
   id: Sections.MUSIC,
 
   presentation: {
-    'new-section': {
+    [PanelsEnum.NEW_SECTION]: {
       icon: Music,
       onClick: () => events.canvas.add(Sections.MUSIC),
       name: 'Music',
     },
-  },
 
-  sections: {
-    component: dynamic(() =>
-      import('./section').then(
-        mod => mod.MusicSection,
+    sections: {
+      component: dynamic(() =>
+        import('./section').then(
+          mod => mod.MusicSection,
+          () => () => null
+        )
+      ),
+      parser: {
+        readme: musicSectionParser,
+      },
+      defaultConfig: defaultMusicSectionConfig,
+    },
+
+    panels: dynamic(() =>
+      import('./panel').then(
+        mod => mod.MusicEditPanel,
         () => () => null
       )
     ),
-    parser: {
-      readme: musicSectionParser,
-    },
-    defaultConfig: defaultMusicSectionConfig,
   },
-
-  panels: dynamic(() =>
-    import('./panel').then(
-      mod => mod.MusicEditPanel,
-      () => () => null
-    )
-  ),
 };
 
 events.extensions.register(feature);

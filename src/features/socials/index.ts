@@ -5,38 +5,38 @@ import { socialsSectionParser } from './parser';
 import { defaultSocialsSectionConfig } from './default-config';
 
 import { events } from 'app';
-import { Sections } from 'types';
+import { PanelsEnum, Sections } from 'types';
 
 const feature = {
   id: Sections.SOCIALS,
 
   presentation: {
-    'new-section': {
+    [PanelsEnum.NEW_SECTION]: {
       icon: MessageSquare,
       onClick: () => events.canvas.add(Sections.SOCIALS),
       name: 'Social Media',
     },
-  },
 
-  sections: {
-    component: dynamic(() =>
-      import('./section').then(
-        mod => mod.SocialsSection,
+    sections: {
+      component: dynamic(() =>
+        import('./section').then(
+          mod => mod.SocialsSection,
+          () => () => null
+        )
+      ),
+      parser: {
+        readme: socialsSectionParser,
+      },
+      defaultConfig: defaultSocialsSectionConfig,
+    },
+
+    panels: dynamic(() =>
+      import('./panel').then(
+        mod => mod.SocialsEditPanel,
         () => () => null
       )
     ),
-    parser: {
-      readme: socialsSectionParser,
-    },
-    defaultConfig: defaultSocialsSectionConfig,
   },
-
-  panels: dynamic(() =>
-    import('./panel').then(
-      mod => mod.SocialsEditPanel,
-      () => () => null
-    )
-  ),
 };
 
 events.extensions.register(feature);

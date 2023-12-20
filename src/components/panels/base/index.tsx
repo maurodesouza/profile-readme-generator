@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
 
 import { events } from 'app';
@@ -36,7 +36,7 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
     [extensions]
   );
 
-  const Panel = allPanels[panel!] || allPanels.default;
+  const Panel = allPanels[panel!] || React.Fragment;
 
   const handleChangePanel = (event: CustomEvent<PanelsEnumType>) => {
     setPanel(event.detail);

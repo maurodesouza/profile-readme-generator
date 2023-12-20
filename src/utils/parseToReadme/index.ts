@@ -1,9 +1,11 @@
 import htmlPrettify from 'html-prettify';
+
+import { File } from 'components/tree';
 import { CanvasSection, CanvasStatesEnum, Settings } from 'types';
 
 const parseToReadme = (
   template: CanvasSection[],
-  parsers,
+  parsers: Record<string, any>,
   settings: Settings
 ) => {
   const readme = template.reduce((readme, section) => {
@@ -29,10 +31,10 @@ const parseToReadme = (
 
     if (!generator?.parser?.workflow) return workflows;
 
-    const workflow = generator.parser.workflow();
+    const workflow = generator.parser.workflow() as File;
 
     return [...workflows, workflow];
-  }, []);
+  }, [] as File[]);
 
   const readmeFormatted = readme.replace(/(###)/g, '\n$1');
 

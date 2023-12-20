@@ -30,4 +30,4 @@ const feature = {
   panels: ImageEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

@@ -30,4 +30,4 @@ const feature = {
   panels: SocialsEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

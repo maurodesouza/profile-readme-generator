@@ -30,4 +30,4 @@ const feature = {
   panels: StatsEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

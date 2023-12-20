@@ -30,4 +30,4 @@ const feature = {
   panels: TechsEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

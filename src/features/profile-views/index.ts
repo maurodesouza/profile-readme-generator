@@ -30,4 +30,4 @@ const feature = {
   panels: ProfileViewsPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

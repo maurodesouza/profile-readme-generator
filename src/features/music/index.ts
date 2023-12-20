@@ -30,4 +30,4 @@ const feature = {
   panels: MusicEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

@@ -31,4 +31,4 @@ const feature = {
   panels: SnakePanel,
 };
 
-export default feature;
+events.extensions.register(feature);

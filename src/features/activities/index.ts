@@ -30,4 +30,4 @@ const feature = {
   panels: ActivitiesEditPanel,
 };
 
-export default feature;
+events.extensions.register(feature);

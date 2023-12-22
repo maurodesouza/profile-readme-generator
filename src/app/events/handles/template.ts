@@ -2,7 +2,7 @@ import { CanvasSection, Events } from 'types';
 
 import { BaseEventHandle } from './base';
 
-class TemaplateHandleEvents extends BaseEventHandle {
+class TemplateHandleEvents extends BaseEventHandle {
   constructor() {
     super();
 
@@ -18,4 +18,4 @@ class TemaplateHandleEvents extends BaseEventHandle {
   }
 }
 
-export { TemaplateHandleEvents };
+export { TemplateHandleEvents };

@@ -3,7 +3,7 @@ import { ContextMenus, Events } from 'types';
 
 import { BaseEventHandle } from './base';
 
-class ContextMenuHanldeEvents extends BaseEventHandle {
+class ContextMenuHandleEvents extends BaseEventHandle {
   constructor() {
     super();
   }
@@ -17,4 +17,4 @@ class ContextMenuHanldeEvents extends BaseEventHandle {
   }
 }
 
-export { ContextMenuHanldeEvents };
+export { ContextMenuHandleEvents };

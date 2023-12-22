@@ -29,4 +29,8 @@ export enum Events {
 
   MODAL_OPEN = 'modal.open',
   MODAL_CLOSE = 'modal.close',
+
+  // Extensions
+
+  REGISTER_EXTENSION = 'extensions.register',
 }

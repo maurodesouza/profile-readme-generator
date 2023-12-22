@@ -1,24 +1,22 @@
 import { useEffect } from 'react';
-import { readmeGenerator, workflowsGenerator } from 'generators';
 
 import { Tree } from 'components';
+import { useCanvas, useExtensions, useSettings } from 'hooks';
 
-import { useCanvas, useSettings } from 'hooks';
 import { events } from 'app';
+import { parseToReadme } from 'utils';
 
 import * as S from './styles';
 
 const PanelGeneratedFiles = () => {
   const { sections } = useCanvas();
   const { settings } = useSettings();
+  const { extensions } = useExtensions();
 
-  const readme = readmeGenerator(sections, settings);
-  const workflows = workflowsGenerator(sections);
-
-  const tree = [workflows, readme];
+  const tree = parseToReadme(sections, extensions.sections, settings);
 
   useEffect(() => {
-    const content = readme.files[0].content;
+    const content = tree[1].files[0].content;
 
     window.setTimeout(() => events.result.show(content), 0);
   }, []);

@@ -4,11 +4,12 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 
 import { ThemeProvider } from 'styled-components';
-import { CanvasProvider, SettingsProvider } from 'contexts';
+import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config, events } from 'app';
 import { ContextMenu, Modal } from 'components';
 
+import { Features } from 'features';
 import { theme, GlobalStyles } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -74,16 +75,19 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
-      <CanvasProvider>
-        <SettingsProvider>
-          <Component {...pageProps} />
+      <ExtensionsProvider>
+        <CanvasProvider>
+          <SettingsProvider>
+            <Component {...pageProps} />
 
-          <ContextMenu />
-          <Modal />
+            <ContextMenu />
+            <Modal />
+            <Features />
 
-          <GlobalStyles />
-        </SettingsProvider>
-      </CanvasProvider>
+            <GlobalStyles />
+          </SettingsProvider>
+        </CanvasProvider>
+      </ExtensionsProvider>
     </ThemeProvider>
   );
 };

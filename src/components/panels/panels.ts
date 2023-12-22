@@ -1,11 +1,13 @@
-import { PanelsEnum } from 'types';
-import { editingPanels } from './editing';
+import { PanelsEnum, PanelsEnumType } from 'types';
 
 import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
 
-const panels = {
-  ...editingPanels,
+type Panels = {
+  [key in PanelsEnumType]?: ComponentType;
+};
 
+const panels: Panels = {
   [PanelsEnum.GENERATED_FILES]: dynamic(() =>
     import('./generated-files').then(
       mod => mod.PanelGeneratedFiles,

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
 
-const views = {
+const views: Record<string, ComponentType> = {
   languages: dynamic(() =>
     import('./languages').then(
       mod => mod.Languages,

@@ -1,25 +1,38 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+
+import { useRouter } from 'next/router';
 import { AnimateSharedLayout } from 'framer-motion';
 
-import { Tabs } from 'components';
-import { tabs, views } from './tabs';
+import { Select } from 'components';
+import { views } from './views';
 
+import { capitalize } from 'utils';
 import * as S from './styles';
 
 type Views = keyof typeof views;
 
 const Config = () => {
-  const [currentTab, setCurrentTab] = useState<Views>('stats');
+  const router = useRouter();
+  const viewNames = useMemo(() => Object.keys(views), []);
 
-  const View = views[currentTab];
+  const view = router.query['config-view'] as string;
+  const hasMatch = viewNames.includes(view);
+  const initialView = hasMatch ? view : viewNames[0];
+
+  const [currentTab, setCurrentTab] = useState(initialView);
+
+  const View = views[currentTab as Views];
 
   return (
     <>
-      <Tabs
-        id="stats-tab"
-        tabs={tabs}
-        setCurrentTab={setCurrentTab}
-        currentTab={currentTab}
+      <Select
+        label="Select the stats to config"
+        defaultValue={currentTab}
+        onChange={setCurrentTab}
+        options={viewNames.map(view => ({
+          label: capitalize(view),
+          value: view,
+        }))}
       />
 
       <S.Content>

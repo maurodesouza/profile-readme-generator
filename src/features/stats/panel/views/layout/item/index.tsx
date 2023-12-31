@@ -29,7 +29,7 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
     const query = getQueries();
 
     query.set('tab', 'config');
-    query.set('stats-tab', stats);
+    query.set('config-view', stats);
 
     Router.replace(
       {

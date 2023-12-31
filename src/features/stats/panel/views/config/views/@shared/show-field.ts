@@ -1,6 +1,7 @@
 import { Inputs } from 'types';
+import { views } from '..';
 
-const showField = (graph: 'stats' | 'languages' | 'streak') => ({
+const showField = (graph: keyof typeof views) => ({
   type: Inputs.SWITCH,
   path: `content.graphs.${graph}.show`,
   label: 'Show',

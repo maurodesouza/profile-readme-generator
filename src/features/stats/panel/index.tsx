@@ -18,7 +18,7 @@ const StatsEditPanel = () => {
       const query = new URLSearchParams(window.location.search);
 
       query.delete('tab');
-      query.delete('stats-tab');
+      query.delete('config-view');
 
       Router.replace(
         {

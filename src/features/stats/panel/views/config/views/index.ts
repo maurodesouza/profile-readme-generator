@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
 
-const views = {
+const views: Record<string, ComponentType> = {
   languages: dynamic(() =>
     import('./languages').then(
       mod => mod.Languages,
@@ -18,6 +19,13 @@ const views = {
   streak: dynamic(() =>
     import('./streak').then(
       mod => mod.Streak,
+      () => () => null
+    )
+  ),
+
+  trophy: dynamic(() =>
+    import('./trophy').then(
+      mod => mod.Trophy,
       () => () => null
     )
   ),

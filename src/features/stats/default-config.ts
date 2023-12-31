@@ -41,6 +41,18 @@ const defaultStatsSectionConfig = {
           show: false,
           order: 3,
         },
+
+        trophy: {
+          theme: 'dracula',
+          column: -1,
+          row: 1,
+          'margin-w': 8,
+          'margin-h': 8,
+          'no-bg': false,
+          'no-frame': false,
+          show: false,
+          order: 4,
+        },
       },
     },
 

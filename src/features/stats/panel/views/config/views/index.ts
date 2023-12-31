@@ -22,6 +22,13 @@ const views: Record<string, ComponentType> = {
       () => () => null
     )
   ),
+
+  trophy: dynamic(() =>
+    import('./trophy').then(
+      mod => mod.Trophy,
+      () => () => null
+    )
+  ),
 };
 
 export { views };

@@ -80,6 +80,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   const handleRemoveSection = (event: CustomEvent<string>) => {
     setSections(state => state.filter(item => item.id !== event.detail));
+
+    if (event.detail === currentSection?.id) events.panel.close('right');
   };
 
   const handleSetCurrentSection = (event: CustomEvent<string>) => {

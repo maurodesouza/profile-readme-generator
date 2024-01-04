@@ -1,6 +1,6 @@
 import { Inputs } from 'types';
 
-const customTitleField = (graph: 'stats' | 'languages') => ({
+const customTitleField = (graph: 'stats' | 'languages' | 'activity-graph') => ({
   type: Inputs.TEXT,
   path: `content.graphs.${graph}.custom_title`,
   label: 'Custom title',

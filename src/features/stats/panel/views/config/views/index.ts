@@ -29,6 +29,13 @@ const views: Record<string, ComponentType> = {
       () => () => null
     )
   ),
+
+  'activity-graph': dynamic(() =>
+    import('./activity-graph').then(
+      mod => mod.ActivityGraph,
+      () => () => null
+    )
+  ),
 };
 
 export { views };

@@ -53,6 +53,15 @@ const defaultStatsSectionConfig = {
           show: false,
           order: 4,
         },
+
+        'activity-graph': {
+          height: 300,
+          radius: 16,
+          theme: 'react',
+          area: true,
+          order: 5,
+          show: false,
+        },
       },
     },
 

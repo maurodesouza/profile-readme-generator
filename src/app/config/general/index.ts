@@ -18,6 +18,8 @@ const general = {
         imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
         streakBaseUrl: 'https://streak-stats.demolab.com',
         trophiBaseUrl: 'https://github-profile-trophy.vercel.app',
+        activityGraphBaseUrl:
+          'https://github-readme-activity-graph.vercel.app/graph',
       },
 
       socials: {

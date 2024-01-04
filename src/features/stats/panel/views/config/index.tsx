@@ -30,7 +30,7 @@ const Config = () => {
         defaultValue={currentTab}
         onChange={setCurrentTab}
         options={viewNames.map(view => ({
-          label: capitalize(view),
+          label: view.split('-').map(capitalize).join(' '),
           value: view,
         }))}
       />

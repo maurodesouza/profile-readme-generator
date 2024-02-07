@@ -18,6 +18,7 @@ type CanvasContextData = {
   sections: CanvasSection[];
   currentSection?: CanvasSection;
   previewMode: boolean;
+  lightTheme: boolean;
 };
 
 type CanvasProviderProps = {
@@ -32,6 +33,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     []
   );
 
+  const [lightTheme, setLightTheme] = useState(false);
   const [currentSection, setCurrentSection] = useState<CanvasSection>();
   const [previewTemplate, setPreviewTemplate] = useState<CanvasSection[]>([]);
 
@@ -135,6 +137,10 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   const handleClearCanvas = () => setSections([]);
 
+  const handleSwitchTheme = () => {
+    setLightTheme(!lightTheme);
+  };
+
   useEffect(() => {
     // Canvas events
 
@@ -144,6 +150,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
     events.on(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
     events.on(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
+    events.on(Events.CANVAS_SWITCH_THEME, handleSwitchTheme);
 
     return () => {
       events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
@@ -152,8 +159,9 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
       events.off(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
       events.off(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
+      events.off(Events.CANVAS_SWITCH_THEME, handleSwitchTheme);
     };
-  }, [sections, currentSection]);
+  }, [sections, currentSection, lightTheme]);
 
   useEffect(() => {
     // Canvas events
@@ -182,7 +190,12 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   return (
     <CanvasContext.Provider
-      value={{ sections: canvas, currentSection, previewMode }}
+      value={{
+        sections: canvas,
+        currentSection,
+        previewMode,
+        lightTheme: lightTheme,
+      }}
     >
       {children}
     </CanvasContext.Provider>

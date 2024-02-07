@@ -45,6 +45,10 @@ class CanvasHandleEvents extends BaseEventHandle {
   currentSection = (sectionId: string) => {
     this.emit(Events.CANVAS_SET_CURRENT_SECTION, sectionId);
   };
+
+  switchTheme = (theme: boolean) => {
+    this.emit(Events.CANVAS_SWITCH_THEME, theme);
+  };
 }
 
 export { CanvasHandleEvents };

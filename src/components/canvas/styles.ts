@@ -2,10 +2,15 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 type ContainerProps = {
   fullHeight: boolean;
+  isLightTheme: boolean;
+};
+
+type WrapperProps = {
+  isLeftAligned: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, fullHeight }) => css`
+  ${({ theme, fullHeight, isLightTheme }) => css`
     padding: ${theme.spacings.xlarge};
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
@@ -15,6 +20,10 @@ export const Container = styled.div<ContainerProps>`
     overflow-y: scroll;
     padding-right: ${theme.spacings.small};
     height: ${fullHeight ? '100%' : 'auto'};
+
+    background: ${isLightTheme && '#eee'};
+    color: ${isLightTheme && theme.colors.bg};
+    transition: color 0.25s linear, background 0.25s linear;
 
     &::-webkit-scrollbar {
       width: 0.8rem;
@@ -31,8 +40,8 @@ export const Container = styled.div<ContainerProps>`
   `}
 `;
 
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ theme, isLeftAligned }) => css`
     width: 3rem;
     position: absolute;
     display: flex;
@@ -44,7 +53,7 @@ export const Wrapper = styled.div`
     color: ${theme.colors.text};
 
     top: ${theme.spacings.medium};
-    left: 0;
+    left: ${isLeftAligned ? '0%' : '100%'};
     transform: translateX(-50%);
     transition: 0.3s;
 
@@ -73,6 +82,12 @@ const buttonModifiers = {
   success: (theme: DefaultTheme) => css`
     &:hover {
       color: ${theme.colors.secondary};
+    }
+  `,
+
+  info: (theme: DefaultTheme) => css`
+    &:hover {
+      color: ${theme.colors.primary};
     }
   `,
 };

@@ -4,6 +4,8 @@ import { Reorder } from 'framer-motion';
 import {
   Trash as TrashIcon,
   Check as CheckIcon,
+  Moon as MoonIcon,
+  Sun as SunIcon,
   X as CloseIcon,
 } from '@styled-icons/feather';
 
@@ -24,7 +26,7 @@ import { CanvasErrorFallback } from './error';
 
 const Canvas = () => {
   const { extensions } = useExtensions();
-  const { sections, currentSection, previewMode } = useCanvas();
+  const { sections, currentSection, previewMode, lightTheme } = useCanvas();
   const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
@@ -41,9 +43,26 @@ const Canvas = () => {
       <S.Container
         onContextMenu={handleOpenContextMenu}
         fullHeight={hasError || !hasSection}
+        isLightTheme={lightTheme}
       >
+        <S.Wrapper isLeftAligned={false}>
+          <Tooltip
+            position="right"
+            content={`Preview: ${lightTheme ? 'dark' : 'light'} mode`}
+            variant="info"
+          >
+            <S.Button
+              aria-label={`Preview: ${lightTheme ? 'dark' : 'light'} mode`}
+              onClick={() => events.canvas.switchTheme(lightTheme)}
+              variant="success"
+            >
+              {lightTheme ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+            </S.Button>
+          </Tooltip>
+        </S.Wrapper>
+
         {hasSection && !previewMode && (
-          <S.Wrapper>
+          <S.Wrapper isLeftAligned={true}>
             <Tooltip position="left" content="Clear canvas" variant="danger">
               <S.Button
                 aria-label="Clear canvas"
@@ -61,7 +80,7 @@ const Canvas = () => {
           onChange={setHasError}
         >
           {previewMode && (
-            <S.Wrapper>
+            <S.Wrapper isLeftAligned={true}>
               <Tooltip position="left" content="Use template" variant="success">
                 <S.Button
                   aria-label="Use template"

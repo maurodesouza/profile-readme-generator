@@ -11,10 +11,20 @@ import * as S from './styles';
 
 const ReadmeResult = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [labelVal, setLabelVal] = useState('Copy');
   const [content, setContent] = useState('');
 
   const handleShowContent = (event: CustomEvent<string>) =>
     setContent(event.detail);
+
+  const handleUpdateLabel = () => {
+    setLabelVal('Copied!');
+
+    setTimeout(() => {
+      setLabelVal('Copy');
+    }, 3000);
+  };
 
   useEffect(() => {
     primsjs.highlightAllUnder(containerRef.current!);
@@ -27,23 +37,19 @@ const ReadmeResult = () => {
       events.off(Events.RESULT_SHOW_CONTENT, handleShowContent);
     };
   }, []);
-  const [labelVal, setlabelVal] = useState('Copy')
-
-  // updates the copy label when user copies the content
-  const updateLable = ()=>{
-    setlabelVal('Copied!')
-    setTimeout(() => {
-      setlabelVal('Copy')
-    }, 3000);
-  }
 
   return (
     <S.Container ref={containerRef}>
       <S.Actions>
-        {actions.map(({ icon: Icon, action}, i) => (
+        {actions.map(({ icon: Icon, action }, i) => (
           <Tooltip key={i} content={labelVal} position="top">
             <li>
-              <S.Action onClick={() => { action(content); updateLable()}}>
+              <S.Action
+                onClick={() => {
+                  action(content);
+                  handleUpdateLabel();
+                }}
+              >
                 <Icon size={16} />
               </S.Action>
             </li>

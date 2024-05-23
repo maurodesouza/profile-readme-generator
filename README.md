@@ -1,13 +1,9 @@
 <div align="center" id="top">
   <img src="https://profile-readme-generator.com/assets/app.png" width="900" alt="Profile Readme Generator" />
 
-  <a href="https://profile-readme-generator.com">Demo</a>
+  <a href="https://profile-readme-generator.com">Hey, This is Mahesh!</a>
 </div>
 
-<div align="center">
-  <h1>Profile Readme Generator</h1>
-  <h3>The best profile readme generator you will find!</h3>
-</div>
 
 <p align="center">
   <a href="https://github.com/maurodesouza/profile-readme-generator/fork" target="_blank">
@@ -50,17 +46,13 @@
 
 ## :dart: About ##
 
-Are you tired of manually editing your GitHub profile or missing out on the amazing features you can add to it? 😩 Configuring GitHub actions can also be a hassle, right? Say no more! 💪
-
-**Introducing a tool that lets you beautify your GitHub profile with a customized README, easily and in no time!** ✨ You can include whatever content you want, wherever you want it (*within the limitations of markdown, of course*). 📝
-
-**With this amazing tool, creating your own README has never been so simple and fast.** ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
-
-**Don't miss out on the opportunity to enhance your GitHub profile.** Give it a try and see for yourself how easy and convenient it is! 😉
+Greetings! I'm Mahesh, as an electrifying embodiment of intellect and innovation, this electrical engineering student is a paragon of unquenchable curiosity and fervor for the IT sphere. 
+Driven by an insatiable passion for the digital frontier, they are ceaselessly pursuing mastery of modern innovative technologies. 
+An architect of the future, they are ceaselessly coding their journey into the heart of the digital revolution.                           
 
 
 <p align="center">
-<i>Loved the tool? Please consider <a href="https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS">donating 💸</a> to support its continuous<br/> improvement and development!</i>
+<i>Loved the tool? Please consider following me on LinkedIn<a href="https://www.linkedin.com/in/imaheshno1/"> Following</a> to support its continuous<br/> improvement and development!</i>
 </p>
 
 https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-b349-be490b3a00ff.mp4

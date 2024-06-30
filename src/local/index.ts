@@ -1,6 +1,6 @@
 import { getStorageItem as getItem, setStorageItem as setItem } from 'utils';
 
-function parse(e) {
+function update(e) {
   try {
     const {
       target: { result },
@@ -20,7 +20,7 @@ export function restore({ target }) {
   const [file] = target.files;
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = parse;
+  reader.onload = update;
   reader.readAsText(file);
 }
 

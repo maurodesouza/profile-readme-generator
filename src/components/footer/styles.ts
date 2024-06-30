@@ -91,3 +91,16 @@ export const GenerateLink = styled.a`
     }
   `}
 `;
+
+export const NavRestoreInput = styled.input<{}>`
+  display: none;
+`;
+export const NavFileButton = styled(GenerateLink)`
+  width: auto;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  color: #FFFFFFAA;
+  background-color: hsla(${({ $hue }) => $hue}, 60%, 40%, 0.8);
+`;

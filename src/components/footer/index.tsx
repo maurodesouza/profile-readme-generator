@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import Link from 'next/link';
 import { api } from 'services';
 import { backup, restore } from 'local';

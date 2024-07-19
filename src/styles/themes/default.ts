@@ -28,11 +28,11 @@ const defaultTheme = {
 
   colors: {
     primary: '#3311FF',
-    secondary: '#4411BB',
-    success: '#11AA00',
+    secondary: '#DD3322',
+    success: '#119900',
     tertiary: '#221144',
-    border: '#111144',
-    text: '#BBAAFF',
+    border: '#221144DD',
+    text: '#AA99FF',
     bg: '#0D1117',
     error: '#FF1155',
   },

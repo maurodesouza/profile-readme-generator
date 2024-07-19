@@ -120,7 +120,7 @@ export const NavRestoreButton = styled.label`
     display: grid;
     place-items: center;
     background: ${theme.colors.secondary};
-    color: ${theme.colors.text};
+    color: black;
     border-radius: ${theme.border.radius};
     width: 100%;
     max-width: 16.5rem;

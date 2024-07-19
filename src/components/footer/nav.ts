@@ -1,3 +1,4 @@
+// @ts-ignore
 import { events } from 'app';
 import { Modals } from 'types';
 

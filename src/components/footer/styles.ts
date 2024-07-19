@@ -1,3 +1,4 @@
+// @ts-ignore
 import styled, { css } from 'styled-components';
 import { media } from 'styles';
 
@@ -92,8 +93,17 @@ export const GenerateLink = styled.a`
   `}
 `;
 
-export const NavRestoreInput = styled.input<{}>`
+export const NavRestoreInput = styled.input`
   display: none;
+`;
+export const NavBackupButton = styled.button`
+  width: auto;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  color: #FFFFFFAA;
+  background-color: red;
 `;
 export const NavFileButton = styled(GenerateLink)`
   width: auto;

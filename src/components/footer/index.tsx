@@ -11,7 +11,6 @@ const Footer = () => {
   return (
     <S.Container>
       <S.NavBackupButton
-        href=""
         download={`backup-${Math.ceil(Date.now() / 1e6).toString()}.json`}
         onClick={backup}
         rel="noreferrer"

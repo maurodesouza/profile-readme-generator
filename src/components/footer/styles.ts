@@ -1,4 +1,3 @@
-// @ts-ignore
 import styled, { css } from 'styled-components';
 import { media } from 'styles';
 

@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, []);
 
-  const title = 'Profile Readme Generator';
+  const title = 'Profile Readme Maker';
   const description =
     'Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!';
 

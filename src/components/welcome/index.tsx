@@ -1,5 +1,5 @@
 import { events } from 'app';
-import { CanvasSection, Modals } from 'types';
+import { CanvasSection } from 'types';
 
 import { templates } from 'resources';
 import * as S from './styles';
@@ -10,9 +10,8 @@ const Welcome = () => {
   return (
     <S.Container>
       <S.Header>
-        <h1>Welcome To Profile Readme Generator</h1>
+        <h1>GitHub profile readme maker</h1>
         <h2>
-          <span>🚀</span> The best profile readme generator you will find
           <span>⚡</span>
         </h2>
       </S.Header>
@@ -45,17 +44,13 @@ const Welcome = () => {
 
       <S.Footer>
         <p>
-          If you like it, give the{' '}
           <a
-            href="https://github.com/maurodesouza/profile-readme-generator"
+            href="https://github.com/metaory/profile-readme-maker"
             target="_blank"
             rel="noreferrer"
           >
-            project repository
+            github.com/metaory/profile-readme-maker
           </a>{' '}
-          a star on Github and{' '}
-          <button onClick={() => events.modal.open(Modals.SHARE)}>share</button>{' '}
-          with your friends!! I will be happy with it! ❤
         </p>
       </S.Footer>
     </S.Container>

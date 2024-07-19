@@ -96,13 +96,13 @@ export const GenerateLink = styled.a`
 export const NavRestoreInput = styled.input`
   display: none;
 `;
-export const NavBackupButton = styled.button`
+export const NavBackupButton = styled.a`
   width: auto;
   &:hover {
     cursor: pointer;
     text-decoration: none;
   }
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: red;
 `;
 export const NavRestoreButton = styled.label`
@@ -111,6 +111,6 @@ export const NavRestoreButton = styled.label`
     cursor: pointer;
     text-decoration: none;
   }
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: green;
 `;

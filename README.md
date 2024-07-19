@@ -1,41 +1,41 @@
 <div align="center" id="top">
-  <img src="https://profile-readme-generator.com/assets/app.png" width="900" alt="Profile Readme Generator" />
+  <img src="https://profile-readme-maker.vercel.app/assets/app.png" width="900" alt="Profile Readme maker" />
 
-  <a href="https://profile-readme-generator.com">Demo</a>
+  <a href="https://profile-readme-maker.vercel.app">Demo</a>
 </div>
 
 <div align="center">
-  <h1>Profile Readme Generator</h1>
-  <h3>The best profile readme generator you will find!</h3>
+  <h1>Profile Readme maker</h1>
+  <h3>The best profile readme maker you will find!</h3>
 </div>
 
 <p align="center">
-  <a href="https://github.com/maurodesouza/profile-readme-generator/fork" target="_blank">
-    <img src="https://img.shields.io/github/forks/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project forks"/>
+  <a href="https://github.com/metaory/profile-readme-maker/fork" target="_blank">
+    <img src="https://img.shields.io/github/forks/metaory/profile-readme-maker?" alt="Badge showing the total of project forks"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/stargazers" target="_blank">
-    <img src="https://img.shields.io/github/stars/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project stars"/>
+  <a href="https://github.com/metaory/profile-readme-maker/stargazers" target="_blank">
+    <img src="https://img.shields.io/github/stars/metaory/profile-readme-maker?" alt="Badge showing the total of project stars"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/commits/main" target="_blank">
-    <img src="https://img.shields.io/github/commit-activity/m/maurodesouza/profile-readme-generator?" alt="Badge showing average commit frequency per month"/>
+  <a href="https://github.com/metaory/profile-readme-maker.vercel.appmits/main" target="_blank">
+    <img src="https://img.shields.io/github/commit-activity/m/metaory/profile-readme-maker?" alt="Badge showing average commit frequency per month"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/commits/main" target="_blank">
-    <img src="https://img.shields.io/github/last-commit/maurodesouza/profile-readme-generator?" alt="Badge showing when the last commit was made"/>
+  <a href="https://github.com/metaory/profile-readme-maker.vercel.appmits/main" target="_blank">
+    <img src="https://img.shields.io/github/last-commit/metaory/profile-readme-maker?" alt="Badge showing when the last commit was made"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/issues" target="_blank">
-    <img src="https://img.shields.io/github/issues/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project issues"/>
+  <a href="https://github.com/metaory/profile-readme-maker/issues" target="_blank">
+    <img src="https://img.shields.io/github/issues/metaory/profile-readme-maker?" alt="Badge showing the total of project issues"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/pulls" target="_blank">
-    <img src="https://img.shields.io/github/issues-pr/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project pull-requests"/>
+  <a href="https://github.com/metaory/profile-readme-maker/pulls" target="_blank">
+    <img src="https://img.shields.io/github/issues-pr/metaory/profile-readme-maker?" alt="Badge showing the total of project pull-requests"/>
   </a>
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/blob/master/LICENSE.md" target="_blank">
-    <img alt="Badge showing project license type" src="https://img.shields.io/github/license/maurodesouza/profile-readme-generator?color=f85149">
+  <a href="https://github.com/metaory/profile-readme-maker/blob/master/LICENSE.md" target="_blank">
+    <img alt="Badge showing project license type" src="https://img.shields.io/github/license/metaory/profile-readme-maker?color=f85149">
   </a>
 </p>
 
@@ -45,7 +45,7 @@
   <a href="#rocket-main-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="https://github.com/maurodesouza/profile-readme-generator/blob/main/.github/CONTRIBUTING.md">Contributing</a>
+  <a href="https://github.com/metaory/profile-readme-maker/blob/main/.github/CONTRIBUTING.md">Contributing</a>
 </p>
 
 ## :dart: About ##
@@ -68,11 +68,11 @@ https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-
 ## :rocket: Main Technologies ##
 
 <a href="https://nextjs.org">
-  <img width="50" title="NextJs" alt="Next Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/next-logo.svg">
+  <img width="50" title="NextJs" alt="Next Logo" src="https://raw.githubusercontent.com/metaory/metaory/master/assets/next-logo.svg">
 </a> &#xa0; &#xa0;
 
 <a href="https://www.typescriptlang.org">
-  <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
+  <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/metaory/metaory/master/assets/typescript-logo.svg">
 </a> &#xa0; &#xa0;
 
 <a href="https://styled-components.com">
@@ -80,7 +80,7 @@ https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-
 </a> &#xa0; &#xa0;
 
 <a href="https://jestjs.io">
-  <img width="50" title="Jest" alt="Jest Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/jest-logo.svg">
+  <img width="50" title="Jest" alt="Jest Logo" src="https://raw.githubusercontent.com/metaory/metaory/master/assets/jest-logo.svg">
 </a> &#xa0; &#xa0;
 
 <a href="https://eslint.org">
@@ -116,10 +116,10 @@ Before starting :checkered_flag:, make sure you have [Git](https://git-scm.com) 
 
 ```bash
 # Clone this project
-$ git clone https://github.com/maurodesouza/profile-readme-generator
+$ git clone https://github.com/metaory/profile-readme-maker
 
 # Access
-$ cd profile-readme-generator
+$ cd profile-readme-maker
 
 # Install dependencies
 $ yarn
@@ -143,10 +143,9 @@ $ yarn dev
 This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/maurodesouza" target="_blank">Mauro de Souza</a>
+Made with :heart: by <a href="https://github.com/metaory" target="_blank">metaory</a>, <a href="https://github.com/maurodesouza" target="_blank">Mauro de Souza</a>
 
 &#xa0;
 
 <a href="#top">Back to top</a>
 
-*Readme created with [Simple Readme](https://marketplace.visualstudio.com/items?itemName=maurodesouza.vscode-simple-readme)*

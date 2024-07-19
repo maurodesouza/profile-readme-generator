@@ -1,10 +1,10 @@
 {
-  "name": "profile-readme-generator",
-  "displayName": "Profile Readme Generator",
+  "name": "profile-readme-maker",
+  "displayName": "Profile Readme maker",
   "description": "Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Mauro de Souza",
+  "author": "Metaory, Mauro de Souza",
   "type": "module",
   "keywords": [
     "github",
@@ -17,16 +17,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/maurodesouza/profile-readme-generator.git"
+    "url": "https://github.com/metaory/profile-readme-maker.git"
   },
   "bugs": {
-    "url": "https://github.com/maurodesouza/profile-readme-generator/issues"
+    "url": "https://github.com/metaory/profile-readme-maker/issues"
   },
-  "funding": {
-    "type": "paypal",
-    "url": "https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS"
-  },
-  "homepage": "https://profile-readme-generator.com",
+  "homepage": "https://profile-readme-maker.vercel.app",
   "private": true,
   "scripts": {
     "dev": "next",

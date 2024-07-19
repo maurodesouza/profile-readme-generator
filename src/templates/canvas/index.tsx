@@ -13,10 +13,10 @@ const CanvasTemplate = () => {
   }, []);
 
   return (
-    <S.Container>
+    <S.Container suppressHydrationWarning={true}>
       <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
-      <S.Wrapper>
+      <S.Wrapper suppressHydrationWarning={true}>
         <Canvas />
         <Footer />
       </S.Wrapper>

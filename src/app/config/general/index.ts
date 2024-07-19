@@ -1,6 +1,6 @@
 const general = {
   urls: {
-    app: 'https://profile-readme-generator.com',
+    app: 'https://profile-readme-maker.vercel.app',
     sections: {
       music: {
         spotify: {

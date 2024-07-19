@@ -42,14 +42,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" href="/assets/icon-180.png" />
         <link rel="manifest" href="/manifest.json" />
 
-        <meta
-          name="google-site-verification"
-          content="nH_oO8Fxc76PZpqDg9y4loKj8DNPDL84Zz0zAKgAaSA"
-        />
-
-        <meta name="author" content="Mauro de Souza" />
+        <meta name="author" content="Metaory, Mauro de Souza" />
         <meta name="robots" content="index,nofollow" />
-        <meta name="theme-color" content="#58a6ff" />
+        <meta name="theme-color" content="#3311FF" />
         <meta name="description" content={description} />
         <meta
           name="keywords"
@@ -71,7 +66,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="twitter:site" content={appUrl} />
         <meta
           name="twitter:creator"
-          content="https://github.com/maurodesouza"
+          content="https://github.com/metaory"
         />
       </Head>
 

@@ -102,15 +102,15 @@ export const NavBackupButton = styled.button`
     cursor: pointer;
     text-decoration: none;
   }
-  color: #FFFFFFAA;
+  color: #FFFFFF;
   background-color: red;
 `;
-export const NavFileButton = styled(GenerateLink)`
+export const NavRestoreButton = styled.label`
   width: auto;
   &:hover {
     cursor: pointer;
     text-decoration: none;
   }
-  color: #FFFFFFAA;
-  background-color: hsla(${({ $hue }) => $hue}, 60%, 40%, 0.8);
+  color: #FFFFFF;
+  background-color: green;
 `;

@@ -10,17 +10,15 @@ import * as S from './styles';
 const Footer = () => {
   return (
     <S.Container>
-      <S.NavFileButton
-        as="a"
-        $hue="260"
+      <S.NavBackupButton
         href=""
-        download={`backup-${parseInt(Date.now() / 1e6)}.json`}
+        download={`backup-${Math.ceil(Date.now() / 1e6).toString()}.json`}
         onClick={backup}
         rel="noreferrer"
         target="_blank"
-      >Backup</S.NavFileButton>
+      >Backup</S.NavBackupButton>
 
-      <S.NavFileButton as="label" htmlFor="restore" $hue="240">Restore</S.NavFileButton>
+      <S.NavRestoreButton htmlFor="restore">Restore</S.NavRestoreButton>
       <S.NavRestoreInput type="file" id="restore" onChange={restore} />
 
       <Link href="/result" passHref>

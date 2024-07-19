@@ -64,10 +64,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content="/assets/app.png" />
         <meta name="twitter:site" content={appUrl} />
-        <meta
-          name="twitter:creator"
-          content="https://github.com/metaory"
-        />
+        <meta name="twitter:creator" content="https://github.com/metaory" />
       </Head>
 
       <ExtensionsProvider>

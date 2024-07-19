@@ -21,7 +21,7 @@ const Footer = () => {
       >Backup</S.NavFileButton>
 
       <S.NavFileButton as="label" htmlFor="restore" $hue="240">Restore</S.NavFileButton>
-      <S.NavRestoreInput type="file" id="restore" onChange={restore}/>
+      <S.NavRestoreInput type="file" id="restore" onChange={restore} />
 
       <Link href="/result" passHref>
         <S.GenerateLink onClick={() => api.put('generated-readmes')}>

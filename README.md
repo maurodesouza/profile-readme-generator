@@ -1,4 +1,4 @@
-# UPDATE
+# UPDATED
 
 Fork of [maurodesouza](https://github.com/maurodesouza/profile-readme-generator)
 
@@ -9,6 +9,15 @@ Fork of [maurodesouza](https://github.com/maurodesouza/profile-readme-generator)
 
 ##### https://profile-readme-maker.vercel.app
 
+---
+
+<div align="center">
+  <img src="https://profile-readme-maker.vercel.app/assets/app.png" width="900" alt="Profile Readme maker" />
+
+  <a href="https://profile-readme-maker.vercel.app">Demo</a>
+</div>
+
+---
 
 ```
             _.------.                        .----.__
@@ -195,7 +204,7 @@ hah '-'                        /     \
  / /\/ /\
 / /\ \/) \
 \ `'\ `' /
- `--'`--' seal
+ `--'`--'
 
     ________
    /_______/\
@@ -427,14 +436,7 @@ ___     /   ____/
 
 ```
 
-
 ---
-
-<div align="center" id="top">
-  <img src="https://profile-readme-maker.vercel.app/assets/app.png" width="900" alt="Profile Readme maker" />
-
-  <a href="https://profile-readme-maker.vercel.app">Demo</a>
-</div>
 
 <div align="center">
   <h1>GitHub Profile Readme maker</h1>

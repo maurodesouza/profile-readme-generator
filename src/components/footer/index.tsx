@@ -16,7 +16,9 @@ const Footer = () => {
         onClick={backup}
         rel="noreferrer"
         target="_blank"
-      >Backup</S.NavBackupButton>
+      >
+        Backup
+      </S.NavBackupButton>
 
       <S.NavRestoreButton htmlFor="restore">Restore</S.NavRestoreButton>
       <S.NavRestoreInput type="file" id="restore" onChange={restore} />

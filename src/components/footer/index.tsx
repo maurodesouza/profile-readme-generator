@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { api } from 'services';
 import { backup, restore } from 'local';
 
-import { navItems } from './nav';
+// import { navItems } from './nav';
 import * as S from './styles';
 
 const Footer = () => {

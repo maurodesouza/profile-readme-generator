@@ -65,14 +65,56 @@ export const Nav = styled.nav`
 export const NavItem = styled.a`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
+j `}
+`;
+
+export const GenerateLink = styled.a`
+  ${({ theme }) => css`
+    border: none;
+    display: grid;
+    place-items: center;
+    background: ${theme.colors.success};
+    color: black;
+    border-radius: ${theme.border.radius};
+    width: 100%;
+    max-width: 16.5rem;
+    height: 3.2rem;
+    font-weight: ${theme.font.weights.bold};
+    padding: 0 ${theme.spacings.medium};
+    transition: filter 0.3s;
 
     &:hover {
-      text-decoration: underline;
+      filter: brightness(1.3);
+      text-decoration: none;
     }
   `}
 `;
 
-export const GenerateLink = styled.a`
+export const NavRestoreInput = styled.input`
+  display: none;
+`;
+export const NavBackupButton = styled.a`
+  ${({ theme }) => css`
+    border: none;
+    display: grid;
+    place-items: center;
+    background: ${theme.colors.primary};
+    color: white;
+    border-radius: ${theme.border.radius};
+    width: 100%;
+    max-width: 16.5rem;
+    height: 3.2rem;
+    font-weight: ${theme.font.weights.bold};
+    padding: 0 ${theme.spacings.medium};
+    transition: filter 0.3s;
+
+    &:hover {
+      filter: brightness(1.3);
+      text-decoration: none;
+    }
+  `}
+`;
+export const NavRestoreButton = styled.label`
   ${({ theme }) => css`
     border: none;
     display: grid;
@@ -89,28 +131,7 @@ export const GenerateLink = styled.a`
 
     &:hover {
       filter: brightness(1.3);
+      text-decoration: none;
     }
   `}
-`;
-
-export const NavRestoreInput = styled.input`
-  display: none;
-`;
-export const NavBackupButton = styled.a`
-  width: auto;
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-  }
-  color: #ffffff;
-  background-color: red;
-`;
-export const NavRestoreButton = styled.label`
-  width: auto;
-  &:hover {
-    cursor: pointer;
-    text-decoration: none;
-  }
-  color: #ffffff;
-  background-color: green;
 `;

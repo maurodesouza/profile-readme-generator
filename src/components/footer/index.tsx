@@ -24,7 +24,7 @@ const Footer = () => {
 
       <Link href="/result" passHref>
         <S.GenerateLink onClick={() => api.put('generated-readmes')}>
-          Generate README
+          Generate
         </S.GenerateLink>
       </Link>
     </S.Container>

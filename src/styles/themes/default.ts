@@ -27,13 +27,14 @@ const defaultTheme = {
   },
 
   colors: {
-    primary: '#58a6ff',
-    secondary: '#30a14e',
-    tertiary: '#f78166',
-    border: '#30363d',
-    text: '#c9d1d9',
-    bg: '#0d1117',
-    error: '#f85149',
+    primary: '#3311FF',
+    secondary: '#4411BB',
+    success: '#11AA00',
+    tertiary: '#221144',
+    border: '#111144',
+    text: '#BBAAFF',
+    bg: '#0D1117',
+    error: '#FF1155',
   },
 
   spacings: {

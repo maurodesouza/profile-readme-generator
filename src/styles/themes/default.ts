@@ -28,7 +28,7 @@ const defaultTheme = {
 
   colors: {
     primary: '#3311FF',
-    secondary: '#DD3322',
+    secondary: '#EE3322',
     success: '#119900',
     tertiary: '#221144',
     border: '#221144DD',

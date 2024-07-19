@@ -11,6 +11,9 @@ importers:
       '@styled-icons/feather':
         specifier: ^10.34.0
         version: 10.47.0(react@17.0.2)(styled-components@5.3.11(react-dom@17.0.2(react@17.0.2))(react-is@18.3.1)(react@17.0.2))
+      '@styled-icons/styled-icon':
+        specifier: ^10.7.1
+        version: 10.7.1(react@17.0.2)(styled-components@5.3.11(react-dom@17.0.2(react@17.0.2))(react-is@18.3.1)(react@17.0.2))
       framer-motion:
         specifier: ^6.2.4
         version: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)

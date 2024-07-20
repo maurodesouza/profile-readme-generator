@@ -439,7 +439,7 @@ ___     /   ____/
 ---
 
 <div align="center">
-  <h1>GitHub Profile Readme maker</h1>
+  <h1>GitHub Profile Readme Maker</h1>
 </div>
 
 <p align="center">
@@ -485,16 +485,11 @@ ___     /   ____/
 
 Are you tired of manually editing your GitHub profile or missing out on the amazing features you can add to it? 😩 Configuring GitHub actions can also be a hassle, right? Say no more! 💪
 
-**Introducing a tool that lets you beautify your GitHub profile with a customized README, easily and in no time!** ✨ You can include whatever content you want, wherever you want it (*within the limitations of markdown, of course*). 📝
+**Introducing a tool that lets you beautify your GitHub profile with a customized README, easily and in no time!** ✨ 
 
-**With this amazing tool, creating your own README has never been so simple and fast.** ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
-
-**Don't miss out on the opportunity to enhance your GitHub profile.** Give it a try and see for yourself how easy and convenient it is! 😉
+*With this tool, creating your README has never been so simpler* ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
 
 
-<p align="center">
-<i>Loved the tool? Please consider <a href="https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS">donating 💸</a> to support its continuous<br/> improvement and development!</i>
-</p>
 
 https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-b349-be490b3a00ff.mp4
 
@@ -555,10 +550,10 @@ $ git clone https://github.com/metaory/profile-readme-maker
 $ cd profile-readme-maker
 
 # Install dependencies
-$ yarn
+$ pnpm
 
 # Run the project
-$ yarn dev
+$ npm run dev
 
 # The server will initialize in the <http://localhost:3000>
 ```

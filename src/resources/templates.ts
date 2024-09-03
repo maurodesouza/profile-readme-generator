@@ -256,10 +256,10 @@ const templates = [
                     path: 'https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white&style=for-the-badge',
                   },
                   devicons: {
-                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg',
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
                     variants: [
-                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg',
-                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original-wordmark.svg',
                     ],
                   },
                 },
@@ -847,9 +847,9 @@ const templates = [
                     path: 'https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white&style=for-the-badge',
                   },
                   devicons: {
-                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
                     variants: [
-                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
                     ],
                   },
                 },
@@ -991,9 +991,9 @@ const templates = [
                     path: 'https://img.shields.io/badge/Amazon AWS-232F3E?logo=amazonaws&logoColor=white&style=for-the-badge',
                   },
                   devicons: {
-                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
                     variants: [
-                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-line-wordmark.svg',
                       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
                       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
                     ],

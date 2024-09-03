@@ -5992,9 +5992,9 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
         ],
       },
     },

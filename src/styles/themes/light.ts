@@ -1,5 +1,5 @@
-const defaultTheme = {
-  NAME: 'dark',
+const lightTheme = {
+  NAME: 'light',
 
   grid: {
     container: '104rem',
@@ -29,12 +29,12 @@ const defaultTheme = {
   },
 
   colors: {
-    primary: '#58a6ff',
-    secondary: '#30a14e',
+    primary: '#1f75d7',
+    secondary: '#3dd264',
     tertiary: '#f78166',
     border: '#30363d',
-    text: '#c9d1d9',
-    bg: '#0d1117',
+    text: '#0d1117', // #0d1117  #c9d1d9
+    bg: '#eee',
     error: '#f85149',
   },
 
@@ -45,6 +45,6 @@ const defaultTheme = {
     large: '2.0rem',
     xlarge: '2.4rem',
   },
-};
+}
 
-export { defaultTheme };
+export { lightTheme };

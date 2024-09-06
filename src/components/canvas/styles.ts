@@ -2,15 +2,10 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 type ContainerProps = {
   fullHeight: boolean;
-  isLightTheme: boolean;
-};
-
-type WrapperProps = {
-  isLeftAligned: boolean;
 };
 
 export const Container = styled.div<ContainerProps>`
-  ${({ theme, fullHeight, isLightTheme }) => css`
+  ${({ theme, fullHeight }) => css`
     padding: ${theme.spacings.xlarge};
     border-radius: ${theme.border.radius};
     border-width: ${theme.border.width};
@@ -21,9 +16,7 @@ export const Container = styled.div<ContainerProps>`
     padding-right: ${theme.spacings.small};
     height: ${fullHeight ? '100%' : 'auto'};
 
-    background: ${isLightTheme && '#eee'};
-    color: ${isLightTheme && theme.colors.bg};
-    transition: color 0.25s linear, background 0.25s linear;
+    border: 2px solid ${theme.colors.border};
 
     &::-webkit-scrollbar {
       width: 0.8rem;
@@ -40,8 +33,8 @@ export const Container = styled.div<ContainerProps>`
   `}
 `;
 
-export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isLeftAligned }) => css`
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
     width: 3rem;
     position: absolute;
     display: flex;
@@ -53,7 +46,7 @@ export const Wrapper = styled.div<WrapperProps>`
     color: ${theme.colors.text};
 
     top: ${theme.spacings.medium};
-    left: ${isLeftAligned ? '0%' : '100%'};
+    left: 0;
     transform: translateX(-50%);
     transition: 0.3s;
 

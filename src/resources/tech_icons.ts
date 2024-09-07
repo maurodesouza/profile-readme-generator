@@ -1312,8 +1312,8 @@ const tech_icons = [
         variants: [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original-wordmark.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line-wordmark.svg',
         ],
       },
     },
@@ -2487,8 +2487,8 @@ const tech_icons = [
         variants: [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-plain-wordmark.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line-wordmark.svg',
         ],
       },
     },
@@ -3889,8 +3889,8 @@ const tech_icons = [
         variants: [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-original-wordmark.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line-wordmark.svg',
         ],
       },
     },

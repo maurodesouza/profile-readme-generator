@@ -7729,8 +7729,8 @@ const tech_icons = [
         variants: [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original-wordmark.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line.svg',
-		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line-wordmark.svg',
+		      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line.svg',
+		      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line-wordmark.svg',
         ],
       },
     },

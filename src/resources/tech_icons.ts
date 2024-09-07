@@ -7725,10 +7725,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Zend-0679EA?logo=zend&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original-wordmark.svg',
+		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line.svg',
+		  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line-wordmark.svg',
         ],
       },
     },

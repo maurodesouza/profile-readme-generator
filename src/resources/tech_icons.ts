@@ -5921,7 +5921,7 @@ const tech_icons = [
     available_providers: ['simple_icons', 'shields', 'devicons'],
     providers: {
       simple_icons: {
-        path: 'https://cdn.simpleicons.org/rstudio/75AADB',
+        path: 'https://cdn.simpleicons.org/rstudioide/75AADB',
       },
       shields: {
         path: 'https://img.shields.io/badge/RStudio-75AADB?logo=rstudio&logoColor=black&style=for-the-badge',

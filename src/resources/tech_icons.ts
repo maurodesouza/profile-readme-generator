@@ -3885,12 +3885,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Laravel-FF2D20?logo=laravel&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-original.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-original.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-original-wordmark.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/laravel-line-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line-wordmark.svg',
         ],
       },
     },

@@ -1308,10 +1308,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/CodePen-000000?logo=codepen&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codepen/codepen-line-wordmark.svg',
         ],
       },
     },
@@ -2481,10 +2483,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Gatling-FF9E2A?logo=gatling&logoColor=black&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatling/gatling-line-wordmark.svg',
         ],
       },
     },
@@ -2506,9 +2510,8 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Gatsby-663399?logo=gatsby&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-plain.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-original-wordmark.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gatsby/gatsby-plain-wordmark.svg',
@@ -2851,10 +2854,10 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Gradle-02303A?logo=gradle&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original-wordmark.svg',
         ],
       },
     },
@@ -3434,10 +3437,10 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Jasmine-8A4182?logo=jasmine&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jasmine/jasmine-original-wordmark.svg',
         ],
       },
     },
@@ -3882,10 +3885,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Laravel-FF2D20?logo=laravel&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line-wordmark.svg',
         ],
       },
     },
@@ -7725,10 +7730,12 @@ const tech_icons = [
         path: 'https://img.shields.io/badge/Zend-0679EA?logo=zend&logoColor=white&style=for-the-badge',
       },
       devicons: {
-        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain.svg',
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original.svg',
         variants: [
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain.svg',
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-plain-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zend/zend-line-wordmark.svg',
         ],
       },
     },

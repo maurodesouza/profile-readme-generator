@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect } from 'react';
+import React, { MouseEvent, useEffect, useState, useRef } from 'react';
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';
@@ -10,10 +10,14 @@ import { config, events } from 'app';
 import { ContextMenu, Modal } from 'components';
 
 import { Features } from 'features';
-import { theme, GlobalStyles } from 'styles';
+import { themes, GlobalStyles } from 'styles';
+import { Events } from 'types';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
+
+  const [currTheme, setCurrTheme] = useState(themes['dark']);
+  const isTransition = useRef(false);
 
   const handlePreventRightClick = (e: MouseEvent) => {
     e.preventDefault();
@@ -21,11 +25,26 @@ const App = ({ Component, pageProps }: AppProps) => {
     events.contextmenu.close();
   };
 
+  const handleSetTheme = async(e: CustomEvent) => {
+    document.querySelectorAll(`ul`).forEach(el => el.classList.add('no-animate'));
+    if(!isTransition.current) {
+      isTransition.current = true;
+      setCurrTheme(themes[e.detail]);
+      document.body.animate([{}], { duration: 450, iterations: 1, direction: 'alternate'}); 
+      Promise.all(document.body.getAnimations().map((animation) => animation.finished)).then(async() => {
+        return new Promise((resolve) => 
+          resolve(document.querySelectorAll(`ul`).forEach(el => el.classList.remove('no-animate')))
+        ).then(() => isTransition.current = false)
+      });
+  }}
+
   useEffect(() => {
     events.on('contextmenu', handlePreventRightClick);
+    events.on(Events.APP_SET_THEME, handleSetTheme);
 
     return () => {
       events.on('contextmenu', handlePreventRightClick);
+      events.off(Events.APP_SET_THEME, handleSetTheme);
     };
   }, []);
 
@@ -34,7 +53,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     'Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!';
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={currTheme}>
       <Head>
         <title>{title}</title>
 

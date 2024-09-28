@@ -1,3 +1,4 @@
+import { AppHandleEvents } from './app';
 import { CanvasHandleEvents } from './canvas';
 import { ContextMenuHandleEvents } from './context-menu';
 import { SettingsHandleEvents } from './settings';
@@ -8,6 +9,7 @@ import { TemplateHandleEvents } from './template';
 import { ExtensionsHandleEvents } from './extensions';
 
 class Handles {
+  app = new AppHandleEvents();
   canvas = new CanvasHandleEvents();
   contextmenu = new ContextMenuHandleEvents();
   settings = new SettingsHandleEvents();

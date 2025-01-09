@@ -341,6 +341,17 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'leetcode',
+    icons: ['default'],
+    badge: {
+      message: 'Leetcode',
+      color: '88cc14',
+      label: '',
+      logo: 'leetcode',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

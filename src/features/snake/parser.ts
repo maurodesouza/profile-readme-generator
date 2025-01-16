@@ -18,7 +18,7 @@ on:
 
   push:
     branches:
-    - master
+    - main
 
 jobs:
   generate:

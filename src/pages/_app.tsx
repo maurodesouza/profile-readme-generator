@@ -47,6 +47,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="nH_oO8Fxc76PZpqDg9y4loKj8DNPDL84Zz0zAKgAaSA"
         />
 
+        <meta
+          name="ezoic-site-verification"
+          content="Dg8elSjcV3Klaq5f7PSaPVXXnstRgH"
+        />
+
         <meta name="author" content="Mauro de Souza" />
         <meta name="robots" content="index,nofollow" />
         <meta name="theme-color" content="#58a6ff" />

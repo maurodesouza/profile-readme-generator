@@ -1,0 +1,76 @@
+#Ads.txt profile-readme-generator.com
+
+# 35
+themediagrid.com, 4M5PGT, DIRECT, 35d5010d7789b49d
+themediagrid.com, Q19AKF, DIRECT, 35d5010d7789b49d
+sonobi.com, 192ecdea01, RESELLER, d1a215d9eb5aee9e
+google.com, pub-6644558441501035, DIRECT, f08c47fec0942fa0
+google.com, pub-1175987143200523, RESELLER, f08c47fec0942fa0
+adingo.jp, 24483, RESELLER
+# 36
+sharethrough.com, PmzCMtAd, DIRECT, d53b998a7bd4ecd2
+google.com, pub-9508156287817487, RESELLER, f08c47fec0942fa0
+improvedigital.com, 2483, RESELLER
+# 10048
+sonobi.com, f4e5b5299c, DIRECT, d1a215d9eb5aee9e
+# 10050
+criteo.com, B-062427, DIRECT, 9fac4a4a87c2a44f
+themediagrid.com, 2RT75Y, DIRECT, 35d5010d7789b49d
+# 10063
+rubiconproject.com, 21152, DIRECT, 0bfd66d529a55807
+rubiconproject.com, 21150, DIRECT, 0bfd66d529a55807
+# 10081
+appnexus.com, 3153, RESELLER, f5ab79cb980f11d1
+# 11290
+amxrtb.com, 105199335, DIRECT
+appnexus.com, 12290, RESELLER
+lijit.com, 260380, RESELLER
+pubmatic.com, 158355, RESELLER
+openx.com, 559680764, RESELLER
+# 11291
+appnexus.com, 13099, RESELLER
+freewheel.tv, 20393, RESELLER
+freewheel.tv, 24377, RESELLER
+onetag.com, 62499636face9dc, DIRECT
+onetag.com, 62499636face9dc-OB, DIRECT
+pubmatic.com, 161593, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 11006, RESELLER, 0bfd66d529a55807
+smartadserver.com, 4111, RESELLER
+# 11307
+media.net, 8CUBCB617, DIRECT
+openx.com, 537100188, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 159463, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 19396, Reseller, 0bfd66d529a55807
+onetag.com, 5d49f482552c9b6, Reseller
+pubmatic.com, 164187, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 26144, RESELLER, 0bfd66d529a55807
+amxrtb.com, 105199734, RESELLER
+openx.com, 559911747, RESELLER, 6a698e2ec38604c6
+yieldmo.com, 3377199372461613093, RESELLER
+onetag.com, 87f58fe90234d0e, RESELLER
+# 11309
+pubmatic.com, 156557, RESELLER
+rubiconproject.com, 18694, RESELLER, 0bfd66d529a55807
+openx.com, 540274407, RESELLER, 6a698e2ec38604c6
+33across.com, 0013300001kQj2HAAS, RESELLER, bbea06d9c4d2853c
+smaato.com, 1100047713, RESELLER, 07bcf65f187117b4
+smartadserver.com, 4342, RESELLER
+improvedigital.com, 2309, RESELLER
+sharethrough.com, b18911a2, DIRECT, d53b998a7bd4ecd2
+sharethrough.com, zhQZ2Tfv, DIRECT, d53b998a7bd4ecd2
+# 11313
+smilewanted.com, 2864, DIRECT
+# 11314
+adyoulike.com, ad8c19559e1f2d3424eb0be801d8e184, DIRECT
+# 11315
+rubiconproject.com, 17070, RESELLER, 0bfd66d529a55807
+pubmatic.com, 160648, RESELLER, 5d62403b186f2ace
+openx.com, 558228330, RESELLER, 6a698e2ec38604c6
+contextweb.com, 561118, RESELLER, 89ff185a4c4e857c
+appnexus.com, 7911, RESELLER
+video.unrulymedia.com, 3463482822, RESELLER
+smartadserver.com, 4524, RESELLER, 060d053dcf45cbf3
+smartyads.com, 217, RESELLER, fd2bde0ff2e62c5d
+yieldmo.com, 2723393041019642186, DIRECT
+yieldmo.com, 2834292204858450860, DIRECT
+yieldmo.com, 2676856567361380607, DIRECT

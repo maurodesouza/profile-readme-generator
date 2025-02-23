@@ -6,6 +6,7 @@ export enum Events {
   CANVAS_REORDER_SECTIONS = 'canvas.section.reorder',
   CANVAS_DUPLICATE_SECTION = 'canvas.section.duplicate',
   CANVAS_CLEAR_SECTIONS = 'canvas.clear',
+  APP_SET_THEME = 'app.set.theme',
 
   TEMPLATE_USE = 'template.use',
   TEMPLATE_PREVIEW = 'template.preview',

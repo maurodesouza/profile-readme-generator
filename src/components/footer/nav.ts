@@ -30,6 +30,15 @@ const navItems: NavItem[] = [
       onClick: () => events.modal.open(Modals.SHARE),
     },
   },
+
+  {
+    label: 'Privacy Policy',
+    props: {
+      href: '/privacy-policy',
+      target: '_blank',
+      rel: 'noreferrer',
+    },
+  },
 ];
 
 export { navItems };

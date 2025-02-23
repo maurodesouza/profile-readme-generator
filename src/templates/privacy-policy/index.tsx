@@ -498,6 +498,87 @@ const PrivacyPolicyTemplate = () => {
         changes. Changes to this Privacy Policy are effective when they are
         posted on this page.
       </p>
+      <h2>Ezoic Services</h2>
+      <p>
+        This website uses the services of Ezoic Inc. (“Ezoic”), including to
+        manage third-party interest-based advertising. Ezoic may employ a
+        variety of technologies on this website, including tools to serve
+        content, display advertisements and enable advertising to visitors of
+        this website, which may utilize first and third-party cookies.
+      </p>
+      <p>
+        A cookie is a small text file sent to your device by a web server that
+        enables the website to remember information about your browsing
+        activity. First-party cookies are created by the site you are visiting,
+        while third-party cookies are set by domains other than the one
+        you&quot;re visiting. Ezoic and our partners may place third-party
+        cookies, tags, beacons, pixels, and similar technologies to monitor
+        interactions with advertisements and optimize ad targeting. Please note
+        that disabling cookies may limit access to certain content and features
+        on the website, and rejecting cookies does not eliminate advertisements
+        but will result in non-personalized advertising. You can find more
+        information about cookies and how to manage them{' '}
+        <a href="https://allaboutcookies.org/" target="_blank" rel="noreferrer">
+          here
+        </a>
+      </p>
+      <p>
+        The following information may be collected, used, and stored in a cookie
+        when serving personalized ads:
+      </p>
+      <ul>
+        <li>
+          <strong>IP address</strong>
+        </li>
+        <li>
+          <strong>Operating system type and version</strong>
+        </li>
+        <li>
+          <strong>Device type</strong>
+        </li>
+        <li>
+          <strong>Language preferences</strong>
+        </li>
+        <li>
+          <strong>Web browser type</strong>
+        </li>
+        <li>
+          <strong>Email (in a hashed or encrypted form)</strong>
+        </li>
+      </ul>
+
+      <p>
+        Ezoic and its partners may use this data in combination with information
+        that has been independently collected to deliver targeted advertisements
+        across various platforms and websites. Ezoic&quot;s partners may also
+        gather additional data, such as unique IDs, advertising IDs, geolocation
+        data, usage data, device information, traffic data, referral sources,
+        and interactions between users and websites or advertisements, to create
+        audience segments for targeted advertising across different devices,
+        browsers, and apps. You can find more information about interest-based
+        advertising and how to manage them{' '}
+        <a href="https://youradchoices.com/" target="_blank" rel="noreferrer">
+          here
+        </a>
+        .
+      </p>
+      <p>
+        You can view Ezoic&quot;s privacy policy{' '}
+        <a href="https://ezoic.com/privacy/" target="_blank" rel="noreferrer">
+          here
+        </a>
+        , or for additional information about Ezoic&quot;s advertising and other
+        partners, you can view Ezoic&quot;s advertising partners{' '}
+        <a
+          href="https://www.ezoic.com/privacy-policy/advertising-partners/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          here
+        </a>
+        .
+      </p>
+
       <h2>Contact Us</h2>
       <p>
         If you have any questions about this Privacy Policy, You can contact us:

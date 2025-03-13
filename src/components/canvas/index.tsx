@@ -1,9 +1,12 @@
 import { MouseEvent, useMemo, useState } from 'react';
+import { useTheme } from 'styled-components';
 import { Reorder } from 'framer-motion';
 
 import {
   Trash as TrashIcon,
   Check as CheckIcon,
+  Moon as MoonIcon,
+  Sun as SunIcon,
   X as CloseIcon,
 } from '@styled-icons/feather';
 
@@ -27,6 +30,8 @@ const Canvas = () => {
   const { sections, currentSection, previewMode } = useCanvas();
   const [hasError, setHasError] = useState(false);
 
+  const currentTheme = useTheme();
+
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
 
@@ -36,25 +41,49 @@ const Canvas = () => {
     !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
   };
 
+  const getNextThemeName = (themeName: string) => {
+    if(themeName === 'dark') return 'light';
+    return 'dark';
+  }
+
+  const handleSetTheme  = () => {
+    events.app.theme(getNextThemeName(currentTheme.NAME));
+  }
+
   return (
     <OnlyClientSide>
       <S.Container
         onContextMenu={handleOpenContextMenu}
         fullHeight={hasError || !hasSection}
       >
-        {hasSection && !previewMode && (
-          <S.Wrapper>
-            <Tooltip position="left" content="Clear canvas" variant="danger">
-              <S.Button
-                aria-label="Clear canvas"
-                onClick={events.canvas.clear}
-                variant="warn"
-              >
-                <TrashIcon size={16} />
-              </S.Button>
-            </Tooltip>
-          </S.Wrapper>
-        )}
+        <S.Wrapper>
+          <Tooltip
+            position="left"
+            content={`Preview: ${getNextThemeName(currentTheme.NAME)} mode`}
+            variant="info"
+          >
+            <S.Button
+              aria-label={`Preview: ${getNextThemeName(currentTheme.NAME)} mode`}
+              onClick={() => handleSetTheme()}
+            >
+              {getNextThemeName(currentTheme.NAME) === 'dark' ? <MoonIcon size={16} /> : <SunIcon size={16} />}
+            </S.Button>
+          </Tooltip>
+          
+          {hasSection && !previewMode && (
+            
+              <Tooltip position="left" content="Clear canvas" variant="danger">
+                <S.Button
+                  aria-label="Clear canvas"
+                  onClick={events.canvas.clear}
+                  variant="warn"
+                >
+                  <TrashIcon size={16} />
+                </S.Button>
+              </Tooltip>
+            
+          )}
+        </S.Wrapper>
 
         <ErrorBoundary
           fallback={<CanvasErrorFallback />}

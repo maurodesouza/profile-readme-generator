@@ -182,7 +182,11 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   return (
     <CanvasContext.Provider
-      value={{ sections: canvas, currentSection, previewMode }}
+      value={{
+        sections: canvas,
+        currentSection,
+        previewMode,
+      }}
     >
       {children}
     </CanvasContext.Provider>

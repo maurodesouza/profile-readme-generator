@@ -3,7 +3,11 @@ import { Settings } from 'types';
 const pacmanSectionParser = (_: Record<string, unknown>, settings: Settings) => {
   const { github } = settings.user;
 
-  return `<img src="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg" alt="Pacman animation"/>`;
+  return `<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">
+    <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">
+</picture>`;
 };
 
 const pacmanWorkflowParser = () => {

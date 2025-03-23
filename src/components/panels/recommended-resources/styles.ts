@@ -9,16 +9,25 @@ export const Container = styled.div`
   `}
 `;
 
-export const Header = styled.div``;
+export const Header = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacings.medium};
+  `}
+`;
+
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacings.xsmall};
+  `}
+`;
 
 export const Title = styled.h2``;
 
-export const Text = styled.p`
-  ${({ theme }) => css`
-    margin-top: ${theme.spacings.medium};
-    margin-bottom: ${theme.spacings.xsmall};
-  `}
-`;
+export const Text = styled.p``;
 
 export const Small = styled.small`
   font-style: italic;

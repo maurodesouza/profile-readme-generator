@@ -9,14 +9,17 @@ const PanelRecommendedResources = () => {
       <S.Header>
         <S.Title>Level Up Your README</S.Title>
 
-        <S.Text>
-          Anyone can use templates — but when you know what you’re doing, it
-          shows.
-          <br />
-          <br />
-          👉 Explore resources that will upgrade your skills — and your README.
-          Start now.
-        </S.Text>
+        <S.Wrapper>
+          <p>
+            Anyone can use templates — but when you know what you’re doing, it
+            shows.
+          </p>
+
+          <p>
+            👉 Explore resources that will upgrade your skills — and your
+            README. Start now.
+          </p>
+        </S.Wrapper>
       </S.Header>
 
       <S.Content>

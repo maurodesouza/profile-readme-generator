@@ -12,6 +12,7 @@ const ResultTemplate = () => {
         <ReadmeResult />
       </S.Wrapper>
 
+      <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
       <div />
     </S.Container>
   );

@@ -28,6 +28,13 @@ const panels: Panels = {
       () => () => null
     )
   ),
+
+  [PanelsEnum.RECOMMENDED_RESOURCES]: dynamic(() =>
+    import('./recommended-resources').then(
+      mod => mod.PanelRecommendedResources,
+      () => () => null
+    )
+  ),
 };
 
 export { panels };

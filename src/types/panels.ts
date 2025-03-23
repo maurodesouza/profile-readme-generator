@@ -5,6 +5,7 @@ enum OtherPanels {
   NEW_SECTION = 'new-section',
   GENERATED_FILES = 'generated-files',
   TEMPLATES = 'templates',
+  RECOMMENDED_RESOURCES = 'recommended-resources',
 }
 
 export type PanelSide = 'right' | 'left';

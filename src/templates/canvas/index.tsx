@@ -21,7 +21,7 @@ const CanvasTemplate = () => {
         <Footer />
       </S.Wrapper>
 
-      <Panel initialPanel={PanelsEnum.TEMPLATES} side="right" />
+      <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
     </S.Container>
   );
 };

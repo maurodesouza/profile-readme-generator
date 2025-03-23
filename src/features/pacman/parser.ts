@@ -1,6 +1,9 @@
 import { Settings } from 'types';
 
-const pacmanSectionParser = (_: Record<string, unknown>, settings: Settings) => {
+const pacmanSectionParser = (
+  _: Record<string, unknown>,
+  settings: Settings
+) => {
   const { github } = settings.user;
 
   return `<picture>

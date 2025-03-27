@@ -16,6 +16,8 @@ export const Container = styled.div<ContainerProps>`
     padding-right: ${theme.spacings.small};
     height: ${fullHeight ? '100%' : 'auto'};
 
+    border: 2px solid ${theme.colors.border};
+
     &::-webkit-scrollbar {
       width: 0.8rem;
       overflow: hidden;
@@ -73,6 +75,12 @@ const buttonModifiers = {
   success: (theme: DefaultTheme) => css`
     &:hover {
       color: ${theme.colors.secondary};
+    }
+  `,
+
+  info: (theme: DefaultTheme) => css`
+    &:hover {
+      color: ${theme.colors.primary};
     }
   `,
 };

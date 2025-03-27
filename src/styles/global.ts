@@ -15,11 +15,21 @@ const GlobalStyles = createGlobalStyle`
 
   html {
     font-size: 10px;
+    transition: background-color .45s linear !important;
+  }
+
+  ul.no-animate li {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 
   ul,
   li {
     list-style: none;
+    transition: 0 all linear;
   }
 
   a {

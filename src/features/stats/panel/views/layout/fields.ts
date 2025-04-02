@@ -5,6 +5,15 @@ const groups = [
     id: 1,
     fields: [
       {
+        type: Inputs.TEXT,
+        // path is where i get stuck
+        path: 'githib.username',
+        label: 'GitHub Username',
+        props: {
+          placeholder: 'Your username',
+        },
+      },
+      {
         type: Inputs.SELECT,
         path: 'styles.align',
         label: 'Align',

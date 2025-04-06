@@ -1,5 +1,6 @@
 import * as S from './styles';
 import { getItems } from './items';
+import { ResourceItem } from 'components/resource-item';
 
 const PanelRecommendedResources = () => {
   const items = getItems();
@@ -24,16 +25,7 @@ const PanelRecommendedResources = () => {
 
       <S.Content>
         {items.map(item => (
-          <S.Card key={item.name}>
-            <S.Image src={item.image} />
-
-            <S.Name>{item.name}</S.Name>
-            <S.Description>{item.description}</S.Description>
-
-            <S.SeeMore href={item.link} target="_blank">
-              Get the book
-            </S.SeeMore>
-          </S.Card>
+          <ResourceItem key={item.name} {...item} />
         ))}
       </S.Content>
 

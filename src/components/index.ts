@@ -1,4 +1,5 @@
 export * from './helpers';
+export * from './resource-item';
 export * from './canvas';
 export * from './sections';
 export * from './readme-result';

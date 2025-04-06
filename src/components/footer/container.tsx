@@ -13,6 +13,7 @@ export const Container = styled.footer`
     border-color: ${theme.colors.border};
     border-style: solid;
     height: 9rem;
+    width: 100%;
     gap: ${theme.spacings.xlarge};
   `}
 `;

@@ -13,6 +13,14 @@ const getItems = () => [
     link: 'https://amzn.to/41Sg2RG',
     linkLabel: 'Get the book',
   },
+  {
+    image: '/assets/books-image.webp',
+    name: 'Explore More Books',
+    description:
+      'Browse the full list of curated titles to boost your coding skills.',
+    link: '/resources/books',
+    linkLabel: 'More books',
+  },
 ];
 
 export { getItems };

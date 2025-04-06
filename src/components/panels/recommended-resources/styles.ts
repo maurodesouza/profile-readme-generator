@@ -29,10 +29,6 @@ export const Title = styled.h2``;
 
 export const Text = styled.p``;
 
-export const Small = styled.small`
-  font-style: italic;
-`;
-
 export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;

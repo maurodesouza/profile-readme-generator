@@ -1,6 +1,7 @@
+import { ResourceItem, AffiliateWarning } from 'components';
+
 import * as S from './styles';
 import { getItems } from './items';
-import { ResourceItem } from 'components/resource-item';
 
 const PanelRecommendedResources = () => {
   const items = getItems();
@@ -29,11 +30,7 @@ const PanelRecommendedResources = () => {
         ))}
       </S.Content>
 
-      <S.Small>
-        💡 This panel contains affiliate links. If you find something useful and
-        make a purchase, I may earn a small commission ☕. Thanks for the
-        support ❤
-      </S.Small>
+      <AffiliateWarning />
     </S.Container>
   );
 };

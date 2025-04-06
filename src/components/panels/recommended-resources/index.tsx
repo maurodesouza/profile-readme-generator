@@ -1,3 +1,5 @@
+import { ResourceItem, AffiliateWarning } from 'components';
+
 import * as S from './styles';
 import { getItems } from './items';
 
@@ -24,24 +26,11 @@ const PanelRecommendedResources = () => {
 
       <S.Content>
         {items.map(item => (
-          <S.Card key={item.name}>
-            <S.Image src={item.image} />
-
-            <S.Name>{item.name}</S.Name>
-            <S.Description>{item.description}</S.Description>
-
-            <S.SeeMore href={item.link} target="_blank">
-              Get the book
-            </S.SeeMore>
-          </S.Card>
+          <ResourceItem key={item.name} {...item} />
         ))}
       </S.Content>
 
-      <S.Small>
-        💡 This panel contains affiliate links. If you find something useful and
-        make a purchase, I may earn a small commission ☕. Thanks for the
-        support ❤
-      </S.Small>
+      <AffiliateWarning />
     </S.Container>
   );
 };

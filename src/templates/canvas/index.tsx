@@ -18,7 +18,11 @@ const CanvasTemplate = () => {
 
       <S.Wrapper>
         <Canvas />
-        <Footer />
+        <Footer.Container>
+          <Footer.Owner />
+          <Footer.Navs />
+          <Footer.GenericLink href="/result" label="Generate README" />
+        </Footer.Container>
       </S.Wrapper>
 
       <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import * as S from './styles';
 
 type ResourceItemProps = {
@@ -6,9 +7,12 @@ type ResourceItemProps = {
   description: string;
   link: string;
   linkLabel: string;
+  linkTarget?: string;
 };
 
 const ResourceItem = (props: ResourceItemProps) => {
+  const { linkTarget = '_blank' } = props;
+
   return (
     <S.Container key={props.name}>
       <S.Image src={props.image} />
@@ -16,9 +20,15 @@ const ResourceItem = (props: ResourceItemProps) => {
       <S.Name>{props.name}</S.Name>
       <S.Description>{props.description}</S.Description>
 
-      <S.SeeMore href={props.link} target="_blank">
-        {props.linkLabel}
-      </S.SeeMore>
+      {linkTarget === '_blank' ? (
+        <S.SeeMore href={props.link} target="_blank">
+          {props.linkLabel}
+        </S.SeeMore>
+      ) : (
+        <Link href={props.link} passHref>
+          <S.SeeMore>{props.linkLabel}</S.SeeMore>
+        </Link>
+      )}
     </S.Container>
   );
 };

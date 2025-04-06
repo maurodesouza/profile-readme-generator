@@ -88,6 +88,17 @@ const social_icons = [
     },
   },
   {
+    name: 'gitlab',
+    icons: ['default'],
+    badge: {
+      message: 'GitLab',
+      color: 'FC6D26',
+      label: '',
+      logo: 'gitlab',
+      logoColor: 'white',
+    },
+  },
+  {
     name: 'gmail',
     icons: ['default'],
     badge: {
@@ -117,6 +128,17 @@ const social_icons = [
       color: 'E4405F',
       label: '',
       logo: 'instagram',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'itch',
+    icons: ['default'],
+    badge: {
+      message: 'itch.io',
+      color: '000000',
+      label: '',
+      logo: 'itch',
       logoColor: 'white',
     },
   },

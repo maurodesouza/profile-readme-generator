@@ -20,6 +20,7 @@ const getItems = () => [
       'Browse the full list of curated titles to boost your coding skills.',
     link: '/resources/books',
     linkLabel: 'More books',
+    linkTarget: '_self',
   },
 ];
 

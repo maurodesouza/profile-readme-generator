@@ -21,7 +21,7 @@ const CanvasTemplate = () => {
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
-          <Footer.GenerateReadme />
+          <Footer.GenericLink href="/result" label="Generate README" />
         </Footer.Container>
       </S.Wrapper>
 

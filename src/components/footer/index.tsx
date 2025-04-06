@@ -1,13 +1,13 @@
 import { Container } from './container';
 import { FooterOwner } from './owner';
 import { FooterNavs } from './navs';
-import { FooterGenerateReadmeButton } from './generate-readme-button';
+import { FooterGenericLink } from './generic-link';
 
 const Footer = {
   Container,
   Owner: FooterOwner,
   Navs: FooterNavs,
-  GenerateReadme: FooterGenerateReadmeButton,
+  GenericLink: FooterGenericLink,
 };
 
 export { Footer };

@@ -5,6 +5,7 @@ type ResourceItemProps = {
   image: string;
   description: string;
   link: string;
+  linkLabel: string;
 };
 
 const ResourceItem = (props: ResourceItemProps) => {
@@ -16,7 +17,7 @@ const ResourceItem = (props: ResourceItemProps) => {
       <S.Description>{props.description}</S.Description>
 
       <S.SeeMore href={props.link} target="_blank">
-        Get the book
+        {props.linkLabel}
       </S.SeeMore>
     </S.Container>
   );

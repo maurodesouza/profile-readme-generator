@@ -37,7 +37,11 @@ const RecommendedResourcesTemplate = (
 
           <S.Resources>
             {(resources ?? []).map(resource => (
-              <ResourceItem key={resource.name} {...resource} />
+              <ResourceItem
+                key={resource.name}
+                {...resource}
+                linkLabel="Get the book"
+              />
             ))}
           </S.Resources>
         </S.Content>

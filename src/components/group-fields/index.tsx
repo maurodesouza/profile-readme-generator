@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight } from '@styled-icons/feather';
 
 import { inputMap } from 'components';
-import { useCanvas } from 'hooks';
+import { useCanvas, useSettings } from 'hooks';
 
 import { events } from 'app';
 import { Inputs } from 'types';
@@ -31,7 +31,7 @@ type GroupFieldsProps = {
   label?: string;
   columns?: number;
   conditions?: Conditions;
-  context?: 'canvas';
+  context?: 'canvas' | 'settings';
 };
 
 const GroupFields = ({
@@ -43,7 +43,10 @@ const GroupFields = ({
   context = 'canvas',
 }: GroupFieldsProps) => {
   const [isOpenAccordion, setIsOpenAccordion] = useState(false);
-  const { currentSection: obj } = useCanvas();
+  const { currentSection } = useCanvas();
+  const { settings } = useSettings();
+
+  const obj = context === 'canvas' ? currentSection : { props: settings };
 
   const handleOpenAccordion = () => {
     hasAccordion && setIsOpenAccordion(!isOpenAccordion);

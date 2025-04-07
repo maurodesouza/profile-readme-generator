@@ -1,22 +1,21 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { events } from 'app';
 import * as S from './styles';
 
 type SwitchProps = {
   label: string;
-  path: string;
   defaultValue: unknown;
   direction?: 'column' | 'row';
+  onChange?: (value: boolean) => void;
 };
 
-const Switch = ({ label, path, defaultValue, ...rest }: SwitchProps) => {
+const Switch = ({ label, defaultValue, onChange, ...rest }: SwitchProps) => {
   const [checked, setChecked] = useState(!!defaultValue);
 
   const handleUpdate = (event: ChangeEvent<HTMLInputElement>) => {
     const { checked: value } = event.target;
 
-    events.canvas.edit({ path, value });
+    onChange?.(!!value);
     setChecked(!!value);
   };
 

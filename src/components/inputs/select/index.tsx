@@ -2,8 +2,6 @@ import { FocusEvent, useEffect, useRef, useState } from 'react';
 import { X as CloseIcon } from '@styled-icons/feather';
 
 import { useForceUpdate } from 'hooks';
-
-import { events } from 'app';
 import { debounce, filterArrayByQueryMatch } from 'utils';
 
 import * as S from './styles';
@@ -15,7 +13,6 @@ type SelectOption = {
 };
 
 type SelectProps = {
-  path?: string;
   label: string;
   defaultValue: unknown;
   placeholder?: string;
@@ -26,7 +23,6 @@ type SelectProps = {
 
 const Select = ({
   label,
-  path,
   defaultValue,
   options = [],
   onChange,
@@ -56,8 +52,7 @@ const Select = ({
 
     const value = option?.value || '';
 
-    if (onChange) onChange(value);
-    else events.canvas.edit({ path: path!, value });
+    onChange?.(value);
   };
 
   const handleBlur = (event: FocusEvent) => {

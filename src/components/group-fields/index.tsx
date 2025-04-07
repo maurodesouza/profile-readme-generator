@@ -4,8 +4,9 @@ import { ChevronRight } from '@styled-icons/feather';
 import { inputMap } from 'components';
 import { useCanvas } from 'hooks';
 
-import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
+import { events } from 'app';
 import { Inputs } from 'types';
+import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';
 import * as S from './styles';
@@ -30,6 +31,7 @@ type GroupFieldsProps = {
   label?: string;
   columns?: number;
   conditions?: Conditions;
+  context?: 'canvas';
 };
 
 const GroupFields = ({
@@ -38,6 +40,7 @@ const GroupFields = ({
   fields,
   conditions,
   accordion = false,
+  context = 'canvas',
 }: GroupFieldsProps) => {
   const [isOpenAccordion, setIsOpenAccordion] = useState(false);
   const { currentSection: obj } = useCanvas();
@@ -54,6 +57,10 @@ const GroupFields = ({
 
   const accordioState = isOpenAccordion ? 'open' : 'closed';
   const animationState = hasAccordion ? accordioState : 'default';
+
+  const onChange = (value: string | boolean, path: string) => {
+    events[context].edit({ value, path });
+  };
 
   return canRender ? (
     <S.Container>
@@ -100,8 +107,8 @@ const GroupFields = ({
               >
                 <Input
                   label={field.label}
-                  path={field.path}
                   defaultValue={defaultValue}
+                  onChange={value => onChange(value, field.path)}
                   {...rest}
                 />
               </S.Field>

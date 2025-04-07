@@ -60,7 +60,7 @@ export const Wrapper = styled.div`
 `;
 
 type ButtonsProps = {
-  variant?: 'warn' | 'success';
+  variant?: 'warn' | 'success' | 'info';
 };
 
 const buttonModifiers = {
@@ -73,6 +73,12 @@ const buttonModifiers = {
   success: (theme: DefaultTheme) => css`
     &:hover {
       color: ${theme.colors.secondary};
+    }
+  `,
+
+  info: (theme: DefaultTheme) => css`
+    &:hover {
+      color: ${theme.colors.primary};
     }
   `,
 };

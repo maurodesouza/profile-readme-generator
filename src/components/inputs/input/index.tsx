@@ -1,21 +1,19 @@
 import { useRef } from 'react';
 
-import { SimpleInput, SimpleInputProps } from '../simple-input';
-import { events } from 'app';
-
 import { debounce } from 'utils';
+import { SimpleInput, SimpleInputProps } from '../simple-input';
 
-type InputProps = SimpleInputProps & {
-  path: string;
+type InputProps = Omit<SimpleInputProps, 'onChange'> & {
+  onChange?: (value: string) => void;
 };
 
-const Input = ({ label, path, defaultValue, ...rest }: InputProps) => {
+const Input = ({ label, defaultValue, onChange, ...rest }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleUpdate = () => {
     const { value } = inputRef.current!;
 
-    events.canvas.edit({ path, value });
+    onChange?.(value);
   };
 
   return (

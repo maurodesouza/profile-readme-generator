@@ -35,6 +35,13 @@ const panels: Panels = {
       () => () => null
     )
   ),
+
+  [PanelsEnum.USER_SETTINGS]: dynamic(() =>
+    import('./user-settings').then(
+      mod => mod.PanelUserSettings,
+      () => () => null
+    )
+  ),
 };
 
 export { panels };

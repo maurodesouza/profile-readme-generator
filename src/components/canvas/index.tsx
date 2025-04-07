@@ -5,6 +5,7 @@ import {
   Trash as TrashIcon,
   Check as CheckIcon,
   X as CloseIcon,
+  Settings,
 } from '@styled-icons/feather';
 
 import { useCanvas, useExtensions } from 'hooks';
@@ -17,7 +18,7 @@ import {
 } from 'components';
 
 import { events } from 'app';
-import { ContextMenus } from 'types';
+import { ContextMenus, PanelsEnum } from 'types';
 
 import * as S from './styles';
 import { CanvasErrorFallback } from './error';
@@ -51,6 +52,22 @@ const Canvas = () => {
                 variant="warn"
               >
                 <TrashIcon size={16} />
+              </S.Button>
+            </Tooltip>
+
+            <Tooltip
+              position="left"
+              content="Open settings panel"
+              variant="info"
+            >
+              <S.Button
+                aria-label="Open settings panel"
+                onClick={() =>
+                  events.panel.open('right', PanelsEnum.USER_SETTINGS)
+                }
+                variant="info"
+              >
+                <Settings size={16} />
               </S.Button>
             </Tooltip>
           </S.Wrapper>

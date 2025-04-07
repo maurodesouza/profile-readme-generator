@@ -55,8 +55,8 @@ const GroupFields = ({
 
   const hasAccordion = !!label && accordion;
 
-  const accordioState = isOpenAccordion ? 'open' : 'closed';
-  const animationState = hasAccordion ? accordioState : 'default';
+  const accordionState = isOpenAccordion ? 'open' : 'closed';
+  const animationState = hasAccordion ? accordionState : 'default';
 
   const onChange = (value: string | boolean, path: string) => {
     events[context].edit({ value, path });

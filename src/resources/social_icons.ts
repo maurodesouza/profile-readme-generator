@@ -276,6 +276,17 @@ const social_icons = [
     },
   },
   {
+    name: 'wechat',
+    icons: ['default'],
+    badge: {
+      message: 'WeChat',
+      color: '7BB32A',
+      label: '',
+      logo: 'wechat',
+      logoColor: 'white',
+    },
+  },
+  {
     name: 'whatsapp',
     icons: ['default'],
     badge: {

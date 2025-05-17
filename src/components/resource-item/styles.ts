@@ -32,7 +32,7 @@ export const Description = styled.p`
   align-self: start;
 `;
 
-export const SeeMore = styled.a`
+export const SeeMore = styled.span`
   grid-area: see-more;
   justify-self: end;
   align-self: center;

@@ -25,9 +25,11 @@ const ResourceItem = (props: ResourceItemProps) => {
           {props.linkLabel}
         </S.SeeMore>
       ) : (
-        <Link href={props.link} passHref>
-          <S.SeeMore>{props.linkLabel}</S.SeeMore>
-        </Link>
+        <S.SeeMore>
+          <Link href={props.link} passHref>
+            {props.linkLabel}
+          </Link>
+        </S.SeeMore>
       )}
     </S.Container>
   );

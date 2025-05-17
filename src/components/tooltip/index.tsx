@@ -47,7 +47,7 @@ const Tooltip = ({
     openTimeoutRef.current = setTimeout(() => {
       getPosition();
       setOpen(true);
-    });
+    }, 100);
   };
 
   const getPosition = () => {

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { useRouter } from 'next/router';
-import { AnimateSharedLayout } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 import { Select } from 'components';
 import { views } from './views';
@@ -36,9 +36,9 @@ const Config = () => {
       />
 
       <S.Content>
-        <AnimateSharedLayout>
+        <AnimatePresence>
           <View />
-        </AnimateSharedLayout>
+        </AnimatePresence>
       </S.Content>
     </>
   );

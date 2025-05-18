@@ -12,7 +12,7 @@ import { config, events } from 'app';
 import { ContextMenu, Modal } from 'components';
 
 import { Features } from 'features';
-import { theme, GlobalStyles } from 'styles';
+import { theme } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
@@ -90,8 +90,6 @@ const App = ({ Component, pageProps }: AppProps) => {
             <ContextMenu />
             <Modal />
             <Features />
-
-            <GlobalStyles />
           </SettingsProvider>
         </CanvasProvider>
       </ExtensionsProvider>

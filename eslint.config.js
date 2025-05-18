@@ -32,12 +32,13 @@ export default defineConfig([
 
   {
     rules: {
-      'react/react-in-jsx-scope': 'off',
+      'no-unused-vars': 'off',
       'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+
+      '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-expressions': 'warn',
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
 ]);

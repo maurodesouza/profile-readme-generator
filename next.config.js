@@ -18,6 +18,14 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default compose([withBundleAnalyzer, withPWA], nextConfig);

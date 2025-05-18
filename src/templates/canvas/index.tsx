@@ -5,28 +5,27 @@ import { Canvas, Footer, Panel } from 'components';
 import { api } from 'services';
 import { PanelsEnum } from 'types';
 
-import * as S from './styles';
-
 const CanvasTemplate = () => {
   useEffect(() => {
     api.put('visits');
   }, []);
 
   return (
-    <S.Container>
+    <div className="flex gap-x-xl h-screen p-lg">
       <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
-      <S.Wrapper>
+      <div className="flex flex-col gap-xl w-full h-full relative flex-1">
         <Canvas />
+
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
           <Footer.GenericLink href="/result" label="Generate README" />
         </Footer.Container>
-      </S.Wrapper>
+      </div>
 
       <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
-    </S.Container>
+    </div>
   );
 };
 

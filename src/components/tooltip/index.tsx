@@ -76,7 +76,7 @@ const Tooltip = ({
 
     const [y, x] = position.replace(/^(right|left)$/, '-$1').split(/-/) as [
       keyof typeof positionsY,
-      keyof typeof positionsX
+      keyof typeof positionsX,
     ];
 
     setCoordinate({

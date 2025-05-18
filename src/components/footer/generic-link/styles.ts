@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.a`
+export const Button = styled.span`
   ${({ theme }) => css`
     border: none;
     display: grid;
@@ -14,6 +14,7 @@ export const Button = styled.a`
     font-weight: ${theme.font.weights.bold};
     padding: 0 ${theme.spacings.medium};
     transition: filter 0.3s;
+    cursor: pointer;
 
     &:hover {
       filter: brightness(1.3);

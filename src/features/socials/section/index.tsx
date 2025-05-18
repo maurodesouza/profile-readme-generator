@@ -45,7 +45,7 @@ const SocialsSection = ({
       {Object.entries(socials).map(([social, { link, ...rest }]) => {
         const props = { ...rest, style };
 
-        const Wrapper = !!link ? S.A : ({ children }: any) => <>{children}</>;
+        const Wrapper = link ? S.A : ({ children }: any) => <>{children}</>;
 
         return (
           <Wrapper href={link} key={social} target="_blank">

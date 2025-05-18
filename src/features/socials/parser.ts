@@ -56,7 +56,7 @@ const socialsSectionParser = ({
       const widthAttr = type === 'icon' ? ` width="${widthValue}"` : '';
 
       const img = `<img src="${url}"${widthAttr} height="${height}" alt="${social} logo" />`;
-      const finalHtml = !!link ? wrapperHtmlInLink(link, img) : img;
+      const finalHtml = link ? wrapperHtmlInLink(link, img) : img;
 
       return `${html}\n${finalHtml}`;
     }, '')

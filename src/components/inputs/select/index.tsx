@@ -109,7 +109,7 @@ const Select = ({
         open={isDropdownOpen}
         openToUp={isToUpDropdown}
       >
-        {!!filteredOptions.length ? (
+        {filteredOptions.length ? (
           filteredOptions.map(option => (
             <S.Option key={option.value} onClick={handleSelect(option)}>
               {option.label}

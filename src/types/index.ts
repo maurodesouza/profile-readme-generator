@@ -11,3 +11,4 @@ export * from './tooltip';
 export * from './icon';
 export * from './api';
 export * from './extensions';
+export * from './post-metadata';

@@ -1,3 +1,5 @@
+import 'styles/global.css';
+
 import { MouseEvent, useEffect } from 'react';
 import Head from 'next/head';
 

@@ -38,12 +38,14 @@
   },
   "dependencies": {
     "@styled-icons/feather": "^10.47.0",
+    "@tailwindcss/postcss": "^4.1.7",
     "framer-motion": "^12.12.1",
     "gray-matter": "^4.0.3",
     "html-prettify": "^1.0.7",
     "next": "^15.3.2",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.6.0",
+    "postcss": "^8.5.3",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -51,6 +53,7 @@
     "react-share": "^5.2.2",
     "styled-components": "^6.1.18",
     "styled-media-query": "^2.1.2",
+    "tailwindcss": "^4.1.7",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { AnimateSharedLayout } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { StyledIcon } from '@styled-icons/styled-icon';
 
 import * as S from './styles';
@@ -36,7 +36,7 @@ const Tabs = ({
 
   return (
     <S.Container>
-      <AnimateSharedLayout>
+      <AnimatePresence>
         <S.Tabs>
           {tabs.map(({ label, icon: Icon, view }) => {
             const active = view === currentTab;
@@ -58,7 +58,7 @@ const Tabs = ({
             );
           })}
         </S.Tabs>
-      </AnimateSharedLayout>
+      </AnimatePresence>
     </S.Container>
   );
 };

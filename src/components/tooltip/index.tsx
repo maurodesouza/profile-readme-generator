@@ -19,8 +19,8 @@ const Tooltip = ({
   variant = 'default',
   content,
 }: TooltipProps) => {
-  const openTimetouRef = useRef<NodeJS.Timeout>();
-  const closeTimetouRef = useRef<NodeJS.Timeout>();
+  const openTimeoutRef = useRef<NodeJS.Timeout>();
+  const closeTimeoutRef = useRef<NodeJS.Timeout>();
 
   const childrenRef = useRef<Element>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -35,23 +35,23 @@ const Tooltip = ({
   const handleMouseLeave = () => {
     setOpen(false);
 
-    closeTimetouRef.current = setTimeout(() => {
+    closeTimeoutRef.current = setTimeout(() => {
       setMount(false);
     }, 350);
   };
 
   const handleMouseEnter = () => {
-    clearTimeout(closeTimetouRef.current!);
+    clearTimeout(closeTimeoutRef.current!);
     setMount(true);
 
-    openTimetouRef.current = setTimeout(() => {
+    openTimeoutRef.current = setTimeout(() => {
       getPosition();
       setOpen(true);
-    });
+    }, 100);
   };
 
   const getPosition = () => {
-    const childreRect = childrenRef.current!.getBoundingClientRect();
+    const childrenRect = childrenRef.current!.getBoundingClientRect();
     const tooltipRect = tooltipRef.current!.getBoundingClientRect();
 
     const space = Number(theme.spacings.xsmall.replace(/\D/g, ''));
@@ -59,24 +59,24 @@ const Tooltip = ({
     const middleXTooltip = tooltipRect.width / 2;
     const middleYTooltip = tooltipRect.height / 2;
 
-    const middleXChildren = childreRect.left + childreRect.width / 2;
-    const middleYChildren = childreRect.top + childreRect.height / 2;
+    const middleXChildren = childrenRect.left + childrenRect.width / 2;
+    const middleYChildren = childrenRect.top + childrenRect.height / 2;
 
     const middleX = middleXChildren - middleXTooltip;
     const middleY = middleYChildren - middleYTooltip;
 
-    const topChildren = childreRect.top - tooltipRect.height - space;
-    const bottomChildren = childreRect.top + childreRect.height + space;
+    const topChildren = childrenRect.top - tooltipRect.height - space;
+    const bottomChildren = childrenRect.top + childrenRect.height + space;
 
-    const rightChildren = childreRect.left - tooltipRect.width - space;
-    const leftChildren = childreRect.left + childreRect.width + space;
+    const rightChildren = childrenRect.left - tooltipRect.width - space;
+    const leftChildren = childrenRect.left + childrenRect.width + space;
 
     const positionsX = { right: rightChildren, left: leftChildren };
     const positionsY = { top: topChildren, bottom: bottomChildren };
 
     const [y, x] = position.replace(/^(right|left)$/, '-$1').split(/-/) as [
       keyof typeof positionsY,
-      keyof typeof positionsX
+      keyof typeof positionsX,
     ];
 
     setCoordinate({
@@ -93,8 +93,8 @@ const Tooltip = ({
 
   useEffect(() => {
     return () => {
-      clearTimeout(openTimetouRef.current!);
-      clearTimeout(closeTimetouRef.current!);
+      clearTimeout(openTimeoutRef.current!);
+      clearTimeout(closeTimeoutRef.current!);
     };
   }, []);
 

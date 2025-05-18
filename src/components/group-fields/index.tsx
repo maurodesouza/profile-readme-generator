@@ -52,7 +52,7 @@ const GroupFields = ({
     hasAccordion && setIsOpenAccordion(!isOpenAccordion);
   };
 
-  const canRender = !!conditions
+  const canRender = conditions
     ? checkDeepObjectValue({ obj, ...conditions })
     : true;
 
@@ -93,7 +93,7 @@ const GroupFields = ({
             const Input = inputMap[field.type];
             const { column, ...rest } = field?.props ?? {};
 
-            const canRender = !!field.conditions
+            const canRender = field.conditions
               ? checkDeepObjectValue({ obj, ...field.conditions })
               : true;
 

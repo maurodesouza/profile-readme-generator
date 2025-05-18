@@ -128,7 +128,10 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   };
 
   const handlePreviewTemplate = (event: CustomEvent<CanvasSection[]>) => {
-    const template = event.detail.map(section => ({ ...section, id: uuid() }));
+    const template = event.detail.map(section => ({
+      ...section,
+      id: uuid(),
+    }));
 
     setPreviewTemplate(template);
   };

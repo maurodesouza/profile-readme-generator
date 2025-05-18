@@ -21,13 +21,15 @@ const ResourceItem = (props: ResourceItemProps) => {
       <S.Description>{props.description}</S.Description>
 
       {linkTarget === '_blank' ? (
-        <S.SeeMore href={props.link} target="_blank">
+        <S.SeeMore as="a" href={props.link} target="_blank">
           {props.linkLabel}
         </S.SeeMore>
       ) : (
-        <Link href={props.link} passHref>
-          <S.SeeMore>{props.linkLabel}</S.SeeMore>
-        </Link>
+        <S.SeeMore>
+          <Link href={props.link} passHref>
+            {props.linkLabel}
+          </Link>
+        </S.SeeMore>
       )}
     </S.Container>
   );

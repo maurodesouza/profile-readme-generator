@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { recommended_resources } from 'resources';
 import { AffiliateWarning, Footer, ResourceItem } from 'components';
 
-import * as S from './styles';
-
 type RecommendedResourcesTemplateProps = {
   resourceId: keyof typeof recommended_resources;
 };
@@ -23,11 +21,12 @@ const RecommendedResourcesTemplate = (
   }, []);
 
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Content>
+    <div className="flex p-lg h-screen">
+      <div className="flex flex-col flex-1 gap-xl items-center mx-auto max-w-centered-content">
+        <div className="flex flex-col h-full p-xl pr-sm box-border overflow-auto scrollbar">
           <h1>Recommended Resources for Developers</h1>
-          <p>
+
+          <p className="py-lg">
             Here you&apos;ll find a hand-picked selection of books and tools
             that are frequently recommended by experienced developers and
             educators. These resources cover essential topics like clean code,
@@ -35,7 +34,7 @@ const RecommendedResourcesTemplate = (
             you need to level up as a developer.
           </p>
 
-          <S.Resources>
+          <div className="grid grid-cols-2 gap-xl">
             {(resources ?? []).map(resource => (
               <ResourceItem
                 key={resource.name}
@@ -43,8 +42,8 @@ const RecommendedResourcesTemplate = (
                 linkLabel="Get the book"
               />
             ))}
-          </S.Resources>
-        </S.Content>
+          </div>
+        </div>
 
         <AffiliateWarning />
 
@@ -53,8 +52,8 @@ const RecommendedResourcesTemplate = (
           <Footer.Navs />
           <Footer.GenericLink href="/" label="Try Generator" />
         </Footer.Container>
-      </S.Wrapper>
-    </S.Container>
+      </div>
+    </div>
   );
 };
 

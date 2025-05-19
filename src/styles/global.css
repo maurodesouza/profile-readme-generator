@@ -76,6 +76,10 @@
   --tone-foreground-context: var(--tone-300);
 }
 
+.box-border {
+  @apply rounded-md border border-ring-inner;
+}
+
 @theme inline {
   /* Spacings */
 
@@ -101,7 +105,8 @@
 
   /* Border */
 
-  --radius: 6px;
+
+  --radius-md: 6px;
 
   /* Base color tokens */
 

@@ -1,19 +1,17 @@
 import { ReadmeResult, Panel } from 'components';
-
 import { PanelsEnum } from 'types';
-import * as S from './styles';
 
 const ResultTemplate = () => {
   return (
-    <S.Container>
+    <div className="flex gap-x-xl h-screen p-lg max-w-grid-container mx-auto">
       <Panel initialPanel={PanelsEnum.GENERATED_FILES} side="left" />
 
-      <S.Wrapper>
+      <div className="flex flex-col w-full gap-xl overflow-auto">
         <ReadmeResult />
-      </S.Wrapper>
+      </div>
 
       <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
-    </S.Container>
+    </div>
   );
 };
 

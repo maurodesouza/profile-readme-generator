@@ -11,7 +11,7 @@ const CanvasTemplate = () => {
   }, []);
 
   return (
-    <div className="flex gap-x-xl h-screen p-lg">
+    <div className="flex gap-x-xl h-screen p-lg max-w-grid-container mx-auto">
       <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
       <div className="flex flex-col gap-xl w-full h-full relative flex-1">

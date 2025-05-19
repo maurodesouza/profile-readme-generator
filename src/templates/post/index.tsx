@@ -1,6 +1,4 @@
 import { Footer, Markdown, Panel } from 'components';
-
-import * as S from './styles';
 import { PanelsEnum } from 'types';
 
 type PostTemplateProps = {
@@ -11,23 +9,23 @@ const PostTemplate = (props: PostTemplateProps) => {
   const { content } = props;
 
   return (
-    <S.Container>
+    <div className="flex gap-x-xl h-screen p-lg max-w-page">
       <Panel side="left" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
 
-      <S.Wrapper>
-        <S.Content>
+      <div className="flex flex-col items-center gap-xl w-full h-full flex-1">
+        <div className="flex flex-col h-full w-full p-lg pr-sm overflow-auto scrollbar box-border [&_p]:my-lg">
           <Markdown>{content}</Markdown>
-        </S.Content>
+        </div>
 
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
           <Footer.GenericLink href="/" label="Try Generator" />
         </Footer.Container>
-      </S.Wrapper>
+      </div>
 
       <Panel side="right" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
-    </S.Container>
+    </div>
   );
 };
 

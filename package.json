@@ -51,6 +51,7 @@
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
     "react-share": "^5.2.2",
+    "react-twc": "^1.4.2",
     "styled-components": "^6.1.18",
     "styled-media-query": "^2.1.2",
     "tailwindcss": "^4.1.7",

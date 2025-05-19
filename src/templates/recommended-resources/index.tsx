@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { recommended_resources } from 'resources';
+import { Page } from 'components/ui/primitives/atoms/page';
 import { AffiliateWarning, Footer, ResourceItem } from 'components';
+
+import { recommended_resources } from 'resources';
 
 type RecommendedResourcesTemplateProps = {
   resourceId: keyof typeof recommended_resources;
@@ -21,7 +23,7 @@ const RecommendedResourcesTemplate = (
   }, []);
 
   return (
-    <div className="flex p-lg h-screen">
+    <Page.Container>
       <div className="flex flex-col flex-1 gap-xl items-center mx-auto max-w-centered-content">
         <div className="flex flex-col h-full p-xl pr-sm box-border overflow-auto scrollbar">
           <h1>Recommended Resources for Developers</h1>
@@ -53,7 +55,7 @@ const RecommendedResourcesTemplate = (
           <Footer.GenericLink href="/" label="Try Generator" />
         </Footer.Container>
       </div>
-    </div>
+    </Page.Container>
   );
 };
 

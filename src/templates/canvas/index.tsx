@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { Canvas, Footer, Panel } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
 
 import { api } from 'services';
 import { PanelsEnum } from 'types';
@@ -11,7 +12,7 @@ const CanvasTemplate = () => {
   }, []);
 
   return (
-    <div className="flex gap-x-xl h-screen p-lg max-w-page mx-auto">
+    <Page.Container>
       <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
       <div className="flex flex-col gap-xl w-full h-full relative flex-1">
@@ -25,7 +26,7 @@ const CanvasTemplate = () => {
       </div>
 
       <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
-    </div>
+    </Page.Container>
   );
 };
 

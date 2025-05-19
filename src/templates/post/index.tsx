@@ -1,4 +1,5 @@
 import { Footer, Markdown, Panel } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
 import { PanelsEnum } from 'types';
 
 type PostTemplateProps = {
@@ -9,7 +10,7 @@ const PostTemplate = (props: PostTemplateProps) => {
   const { content } = props;
 
   return (
-    <div className="flex gap-x-xl h-screen p-lg max-w-page">
+    <Page.Container>
       <Panel side="left" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
 
       <div className="flex flex-col items-center gap-xl w-full h-full flex-1">
@@ -25,7 +26,7 @@ const PostTemplate = (props: PostTemplateProps) => {
       </div>
 
       <Panel side="right" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
-    </div>
+    </Page.Container>
   );
 };
 

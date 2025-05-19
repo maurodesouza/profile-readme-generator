@@ -1,6 +1,8 @@
+import { Page } from 'components/ui/primitives/atoms/page';
+
 const PrivacyPolicyTemplate = () => {
   return (
-    <div className="h-screen p-lg">
+    <Page.Container>
       <div className="flex flex-col h-full gap-md max-w-centered-content mx-auto box-border overflow-auto scrollbar p-lg">
         <h1>Privacy Policy</h1>
         <p>Last updated: February 23, 2025</p>
@@ -596,7 +598,7 @@ const PrivacyPolicyTemplate = () => {
           <li>By email: mauro.mds.dev@gmail.com</li>
         </ul>
       </div>
-    </div>
+    </Page.Container>
   );
 };
 

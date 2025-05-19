@@ -74,8 +74,6 @@
 
   --tone-foreground-contrast: var(--tone-contrast);
   --tone-foreground-context: var(--tone-300);
-
-  --testing: red;
 }
 
 @theme inline {
@@ -117,8 +115,6 @@
   --color-foreground-max: hsla(var(--foreground-max));
 
   /* Tone color tokens */
-
-  --color-test: var(--testing);
 
   --color-tone-contrast-100: hsla(var(--tone-contrast-100));
   --color-tone-contrast-200: hsla(var(--tone-contrast-200));

@@ -4,7 +4,7 @@
 /* Base color classes */
 .base-1 {
   --background-default: 216 28% 7%;
-  --background-support: 216 28% 30%
+  --background-support: 216 28% 30%;
 
   --foreground-min: 210 17% 50%;
   --foreground: 210 17% 82%;

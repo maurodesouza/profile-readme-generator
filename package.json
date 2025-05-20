@@ -39,6 +39,7 @@
   "dependencies": {
     "@styled-icons/feather": "^10.47.0",
     "@tailwindcss/postcss": "^4.1.7",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",
     "gray-matter": "^4.0.3",
     "html-prettify": "^1.0.7",
@@ -54,6 +55,7 @@
     "react-twc": "^1.4.2",
     "styled-components": "^6.1.18",
     "styled-media-query": "^2.1.2",
+    "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "uuid": "^11.1.0"
   },

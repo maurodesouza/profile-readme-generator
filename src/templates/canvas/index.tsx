@@ -15,7 +15,7 @@ const CanvasTemplate = () => {
     <Page.Container>
       <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
-      <div className="flex flex-col gap-xl w-full h-full relative flex-1">
+      <Page.Wrapper>
         <Canvas />
 
         <Footer.Container>
@@ -23,7 +23,7 @@ const CanvasTemplate = () => {
           <Footer.Navs />
           <Footer.GenericLink href="/result" label="Generate README" />
         </Footer.Container>
-      </div>
+      </Page.Wrapper>
 
       <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
     </Page.Container>

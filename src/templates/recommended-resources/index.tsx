@@ -24,8 +24,8 @@ const RecommendedResourcesTemplate = (
 
   return (
     <Page.Container>
-      <div className="flex flex-col flex-1 gap-xl items-center mx-auto max-w-centered-content">
-        <div className="flex flex-col h-full p-xl pr-sm box-border overflow-auto scrollbar">
+      <Page.Wrapper centered>
+        <Page.Content>
           <h1>Recommended Resources for Developers</h1>
 
           <p className="py-lg">
@@ -45,7 +45,7 @@ const RecommendedResourcesTemplate = (
               />
             ))}
           </div>
-        </div>
+        </Page.Content>
 
         <AffiliateWarning />
 
@@ -54,7 +54,7 @@ const RecommendedResourcesTemplate = (
           <Footer.Navs />
           <Footer.GenericLink href="/" label="Try Generator" />
         </Footer.Container>
-      </div>
+      </Page.Wrapper>
     </Page.Container>
   );
 };

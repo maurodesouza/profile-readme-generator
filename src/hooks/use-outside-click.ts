@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react';
 
-type Ref = RefObject<Node | undefined>;
+type Ref = RefObject<Node | null | undefined>;
 
 const useOutsideClick = (
   els: Ref | Ref[],

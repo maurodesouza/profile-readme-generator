@@ -81,6 +81,13 @@
 }
 
 @theme inline {
+  /* Breakpoints */
+
+  --breakpoint-desktop: 144rem;
+  --breakpoint-laptop: 117rem;
+  --breakpoint-tablet: 76.8rem;
+  --breakpoint-mobile: 45rem;
+
   /* Spacings */
 
   --spacing-xs: 0.8rem;

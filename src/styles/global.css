@@ -92,6 +92,7 @@
   --spacing-border: 1px;
 
   --spacing-page: 188rem;
+  --spacing-panel: 30rem;
   --spacing-centered-content: 110rem;
 
   /* Font */
@@ -105,7 +106,6 @@
   --text-xl: 2.4rem;
 
   /* Border */
-
 
   --radius-md: 6px;
 

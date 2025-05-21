@@ -1,0 +1,216 @@
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
+
+import { events } from 'app';
+import { panels } from 'components/panels/panels';
+import { useExtensions, useOutsideClick } from 'hooks';
+
+import { PanelsEnumType, PanelSide } from 'types';
+import { cn, getPanelSideEvent } from 'utils';
+
+type PanelContextState = {
+  isOpen: boolean;
+  side: PanelSide;
+  panel?: PanelsEnumType;
+};
+
+const PanelContext = createContext<PanelContextState>({} as PanelContextState);
+
+type PanelProviderProps = {
+  side: PanelSide;
+  initialPanel?: PanelsEnumType;
+};
+
+function usePanel() {
+  const context = useContext(PanelContext);
+
+  if (!context)
+    throw Error(
+      'You need to be inside the PanelContext component to use the usePanel hook.'
+    );
+
+  return context;
+}
+
+function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [panel, setPanel] = useState<PanelsEnumType | undefined>(
+    props.initialPanel
+  );
+
+  function handleChangePanel(event: CustomEvent<PanelsEnumType>) {
+    setPanel(event.detail);
+    setIsOpen(true);
+  }
+
+  function handleClosePanel() {
+    setPanel(undefined);
+  }
+
+  useEffect(() => {
+    const { openEvent, closeEvent } = getPanelSideEvent(props.side);
+
+    events.on(openEvent, handleChangePanel);
+    events.on(closeEvent, handleClosePanel);
+
+    return () => {
+      events.off(openEvent, handleChangePanel);
+      events.off(closeEvent, handleClosePanel);
+    };
+  }, []);
+
+  return (
+    <PanelContext.Provider
+      value={{
+        side: props.side,
+        panel,
+        isOpen,
+      }}
+      {...props}
+    />
+  );
+}
+
+function PanelContainer(props: React.PropsWithChildren) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { isOpen, side } = usePanel();
+
+  useOutsideClick(containerRef, () => events.panel.close(side), isOpen);
+
+  return (
+    <div
+      className={cn(
+        'w-0 max-w-0 h-full relative laptop:w-full laptop:max-w-panel'
+      )}
+      ref={containerRef}
+      {...props}
+    />
+  );
+}
+
+function PanelWrapper(props: React.PropsWithChildren) {
+  const { isOpen, side } = usePanel();
+
+  return (
+    <div
+      className={cn(
+        isOpen
+          ? `shadow-panel-${side}`
+          : 'max-lg:border-none max-lg:-z-10 max-lg:shadow-none',
+        `absolute top-0 ${side}-0 w-panel h-full bg-background-default p-md rounded-md box-border z-10 laptop:shadow-none`
+      )}
+      {...props}
+    />
+  );
+}
+
+function PanelContent(props: React.PropsWithChildren) {
+  const { isOpen } = usePanel();
+
+  return (
+    <div
+      className={cn(
+        'w-full h-full',
+        !isOpen && 'max-lg:opacity-0 max-lg:overflow-hidden'
+      )}
+      {...props}
+    />
+  );
+}
+
+function PanelRender() {
+  const { panel } = usePanel();
+  const { extensions } = useExtensions();
+
+  const allPanels = useMemo(
+    () => ({
+      ...panels,
+      ...(extensions.panels ?? {}),
+    }),
+    [extensions]
+  );
+
+  const Panel = allPanels[panel!] || React.Fragment;
+
+  return <Panel />;
+}
+
+const oppositeSideMap = {
+  left: 'right',
+  right: 'left',
+};
+
+const percentageMap = {
+  left: '70%',
+  right: '-70%',
+};
+
+const chevrons = {
+  left: ChevronLeft,
+  right: ChevronRight,
+};
+
+function PanelToggle() {
+  const { side, isOpen } = usePanel();
+
+  const opposite = oppositeSideMap[side];
+  const percentage = percentageMap[side];
+
+  const firstLetter = opposite.at(0);
+
+  const Chevron = chevrons[side];
+
+  return (
+    <button
+      aria-label={`Toggle ${side} panel`}
+      className={cn(
+        `absolute grid place-items-center top-md -${opposite}-panel bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] translate-x-[${percentage}] z-20 laptop:hidden`,
+        isOpen &&
+          `-${opposite}-[5px] rotate-x-180 rotate-y-180 p${firstLetter}-0 border-${firstLetter}-0 border-t${firstLetter}-none border-b${firstLetter}-none`
+      )}
+    >
+      <Chevron />
+    </button>
+  );
+}
+
+type FullPanelTemplateProps = PanelProviderProps;
+
+function FullPanelTemplate(props: FullPanelTemplateProps) {
+  return (
+    <PanelProvider {...props}>
+      <PanelContainer>
+        <PanelToggle />
+
+        <PanelWrapper>
+          <PanelContent>
+            <PanelRender />
+          </PanelContent>
+        </PanelWrapper>
+      </PanelContainer>
+    </PanelProvider>
+  );
+}
+
+export const Panel = {
+  Template: {
+    Full: FullPanelTemplate,
+  },
+
+  Provider: PanelProvider,
+
+  Container: PanelContainer,
+  Wrapper: PanelWrapper,
+  Content: PanelContent,
+
+  Render: PanelRender,
+  Toggle: PanelToggle,
+};

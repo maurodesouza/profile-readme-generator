@@ -1,5 +1,7 @@
-import { Footer, Markdown, Panel } from 'components';
+import { Footer, Markdown } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
+import { Panel } from 'components/ui/primitives/atoms/panel';
+
 import { PanelsEnum } from 'types';
 
 type PostTemplateProps = {
@@ -11,7 +13,10 @@ const PostTemplate = (props: PostTemplateProps) => {
 
   return (
     <Page.Container>
-      <Panel side="left" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
+      <Panel.Template.Full
+        side="left"
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+      />
 
       <Page.Wrapper>
         <Page.Content>
@@ -25,7 +30,10 @@ const PostTemplate = (props: PostTemplateProps) => {
         </Footer.Container>
       </Page.Wrapper>
 
-      <Panel side="right" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
+      <Panel.Template.Full
+        side="right"
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+      />
     </Page.Container>
   );
 };

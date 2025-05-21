@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
-import { Canvas, Footer, Panel } from 'components';
+import { Canvas, Footer } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
 import { api } from 'services';
 import { PanelsEnum } from 'types';
@@ -13,7 +14,7 @@ const CanvasTemplate = () => {
 
   return (
     <Page.Container>
-      <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
+      <Panel.Template.Full initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
       <Page.Wrapper>
         <Canvas />
@@ -25,7 +26,10 @@ const CanvasTemplate = () => {
         </Footer.Container>
       </Page.Wrapper>
 
-      <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
+      <Panel.Template.Full
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+        side="right"
+      />
     </Page.Container>
   );
 };

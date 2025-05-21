@@ -10,7 +10,7 @@ import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
 
 import { events } from 'app';
 import { panels } from 'components/panels/panels';
-import { useExtensions, useOutsideClick } from 'hooks';
+import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
 
 import { PanelsEnumType, PanelSide } from 'types';
 import { cn, getPanelSideEvent } from 'utils';
@@ -81,9 +81,24 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
 function PanelContainer(props: React.PropsWithChildren) {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const breakpoint = useMemo(() => {
+    if (typeof getComputedStyle === 'undefined') return '0px';
+
+    const styles = getComputedStyle(document.documentElement);
+    return styles.getPropertyValue('--breakpoint-laptop');
+  }, []);
+
+  const [isLessThanLaptop] = useMediaQuery(`(max-width: ${breakpoint})`);
+
   const { isOpen, side } = usePanel();
 
-  useOutsideClick(containerRef, () => events.panel.close(side), isOpen);
+  useOutsideClick(
+    containerRef,
+    () => {
+      events.panel.close(side);
+    },
+    isLessThanLaptop && isOpen
+  );
 
   return (
     <div

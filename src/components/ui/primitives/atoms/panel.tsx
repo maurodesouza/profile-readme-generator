@@ -143,11 +143,6 @@ function PanelRender() {
   return <Panel />;
 }
 
-const oppositeSideMap = {
-  left: 'right',
-  right: 'left',
-};
-
 const percentageMap = {
   left: '70%',
   right: '-70%',
@@ -161,20 +156,34 @@ const chevrons = {
 function PanelToggle() {
   const { side, isOpen } = usePanel();
 
-  const opposite = oppositeSideMap[side];
   const percentage = percentageMap[side];
-
-  const firstLetter = opposite.at(0);
+  const isLeft = side === 'left';
 
   const Chevron = chevrons[side];
+
+  function getBorderClasses() {
+    if (isLeft) return 'pr-0 !border-r-0 !rounded-tr-none !rounded-br-none';
+
+    return 'pl-0 !border-l-0 !rounded-tl-none !rounded-bl-none';
+  }
+
+  function getPositionClasses() {
+    if (isOpen) return isLeft ? '-right-panel' : '-left-panel';
+
+    return isLeft ? 'right-[-5px]' : 'left-[-5px]';
+  }
 
   return (
     <button
       aria-label={`Toggle ${side} panel`}
+      style={{
+        transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
+      }}
       className={cn(
-        `absolute grid place-items-center top-md -${opposite}-panel bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] translate-x-[${percentage}] z-20 laptop:hidden`,
-        isOpen &&
-          `-${opposite}-[5px] rotate-x-180 rotate-y-180 p${firstLetter}-0 border-${firstLetter}-0 border-t${firstLetter}-none border-b${firstLetter}-none`
+        `absolute grid place-items-center top-md bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] z-20 [&_*]:cursor-pointer laptop:hidden`,
+
+        getPositionClasses(),
+        !isOpen && getBorderClasses()
       )}
     >
       <Chevron />

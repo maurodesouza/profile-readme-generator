@@ -102,10 +102,11 @@ function PanelWrapper(props: React.PropsWithChildren) {
   return (
     <div
       className={cn(
+        `absolute top-0 w-panel h-full bg-background-default p-md rounded-md box-border z-10 laptop:shadow-none`,
+        side === 'left' ? 'left-0' : 'right-0',
         isOpen
           ? `shadow-panel-${side}`
-          : 'max-lg:border-none max-lg:-z-10 max-lg:shadow-none',
-        `absolute top-0 ${side}-0 w-panel h-full bg-background-default p-md rounded-md box-border z-10 laptop:shadow-none`
+          : 'max-laptop:border-none max-laptop:-z-10 max-laptop:shadow-none'
       )}
       {...props}
     />
@@ -119,7 +120,7 @@ function PanelContent(props: React.PropsWithChildren) {
     <div
       className={cn(
         'w-full h-full',
-        !isOpen && 'max-lg:opacity-0 max-lg:overflow-hidden'
+        !isOpen && 'max-laptop:opacity-0 max-laptop:overflow-hidden'
       )}
       {...props}
     />

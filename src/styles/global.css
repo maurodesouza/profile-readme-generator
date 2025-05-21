@@ -116,6 +116,11 @@
 
   --radius-md: 6px;
 
+  /* Shadow */
+
+  --shadow-panel-left: 5px 0 20px 5px hsla(var(--background-default));
+  --shadow-panel-right: -5px 0 20px 5px hsla(var(--background-default));
+
   /* Base color tokens */
 
   --color-background-default: hsla(var(--background-default));

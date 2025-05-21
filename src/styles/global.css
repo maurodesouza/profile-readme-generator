@@ -83,10 +83,10 @@
 @theme inline {
   /* Breakpoints */
 
-  --breakpoint-desktop: 144rem;
-  --breakpoint-laptop: 117rem;
-  --breakpoint-tablet: 76.8rem;
-  --breakpoint-mobile: 45rem;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-laptop: 1170px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 450px;
 
   /* Spacings */
 

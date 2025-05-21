@@ -187,7 +187,7 @@ function PanelToggle() {
         !isOpen && getBorderClasses()
       )}
     >
-      <Chevron />
+      <Chevron size={24} />
     </button>
   );
 }

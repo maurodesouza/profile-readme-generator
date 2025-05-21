@@ -1,6 +1,6 @@
 import { twc, TwcComponentProps } from 'react-twc';
 
-export const Container = twc.div`flex gap-x-xl h-screen p-lg max-w-page mx-auto`;
+export const Container = twc.div`flex gap-x-xl h-screen p-xl max-w-page mx-auto`;
 
 type DivProps = TwcComponentProps<'div'> & { centered?: boolean };
 

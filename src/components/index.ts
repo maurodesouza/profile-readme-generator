@@ -4,7 +4,6 @@ export * from './affiliate-warning';
 export * from './canvas';
 export * from './sections';
 export * from './readme-result';
-export * from './panels';
 export * from './inputs';
 export * from './tabs';
 export * from './display-block';

@@ -81,6 +81,8 @@
 }
 
 @theme inline {
+  --default-transition-duration: 300ms;
+
   /* Breakpoints */
 
   --breakpoint-desktop: 1440px;

@@ -11,9 +11,21 @@ const getPanelSideEvent = (side: PanelSide) => {
     left: Events.PANEL_LEFT_CLEAR,
   };
 
+  const panelOpenEvents = {
+    right: Events.PANEL_RIGHT_OPEN,
+    left: Events.PANEL_LEFT_OPEN,
+  };
+
+  const panelCloseEvents = {
+    right: Events.PANEL_RIGHT_CLOSE,
+    left: Events.PANEL_LEFT_CLOSE,
+  };
+
   return {
     showEvent: panelShowEvents[side],
     clearEvent: panelClearEvents[side],
+    openEvent: panelOpenEvents[side],
+    closeEvent: panelCloseEvents[side],
   };
 };
 

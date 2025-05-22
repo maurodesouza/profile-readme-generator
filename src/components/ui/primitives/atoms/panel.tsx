@@ -54,15 +54,29 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
     setPanel(undefined);
   }
 
+  function onOpenPanel() {
+    setIsOpen(true);
+  }
+
+  function onClosePanel() {
+    setIsOpen(false);
+  }
+
   useEffect(() => {
-    const { showEvent, clearEvent } = getPanelSideEvent(props.side);
+    const { showEvent, clearEvent, openEvent, closeEvent } = getPanelSideEvent(
+      props.side
+    );
 
     events.on(showEvent, onShowPanel);
     events.on(clearEvent, onClearPanel);
+    events.on(openEvent, onOpenPanel);
+    events.on(closeEvent, onClosePanel);
 
     return () => {
       events.off(showEvent, onShowPanel);
       events.off(clearEvent, onClearPanel);
+      events.off(openEvent, onOpenPanel);
+      events.off(closeEvent, onClosePanel);
     };
   }, []);
 

@@ -19,6 +19,26 @@ class PanelHandleEvents extends BaseEventHandle {
 
     this.emit(clearEvent);
   }
+
+  /**
+   * Use it to open the panel on mobile
+   * @param side
+   */
+  open(side: PanelSide) {
+    const { openEvent } = getPanelSideEvent(side);
+
+    this.emit(openEvent);
+  }
+
+  /**
+   * Use it to close the panel on mobile
+   * @param side
+   */
+  close(side: PanelSide) {
+    const { closeEvent } = getPanelSideEvent(side);
+
+    this.emit(closeEvent);
+  }
 }
 
 export { PanelHandleEvents };

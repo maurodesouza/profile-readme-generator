@@ -217,13 +217,13 @@ function PanelToggle() {
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}
       className={cn(
-        `absolute grid place-items-center top-md bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] z-20 [&_*]:cursor-pointer laptop:hidden`,
+        'absolute grid place-items-center top-md !bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] z-20 laptop:hidden',
 
         getPositionClasses(),
         !isOpen && getBorderClasses()
       )}
     >
-      <Chevron size={24} />
+      <Chevron size={24} className="!cursor-pointer" />
     </button>
   );
 }

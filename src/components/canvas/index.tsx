@@ -2,22 +2,16 @@ import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
 import {
-  Trash as TrashIcon,
-  Check as CheckIcon,
-  X as CloseIcon,
-  Settings,
-} from '@styled-icons/feather';
-
-import { useCanvas, useExtensions } from 'hooks';
-import {
   BaseSection,
   Tooltip,
   Welcome,
   OnlyClientSide,
   ErrorBoundary,
 } from 'components';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { events } from 'app';
+import { useCanvas, useExtensions } from 'hooks';
 import { ContextMenus, PanelsEnum } from 'types';
 
 import * as S from './styles';
@@ -51,7 +45,7 @@ const Canvas = () => {
                 onClick={events.canvas.clear}
                 variant="warn"
               >
-                <TrashIcon size={16} />
+                <Icon name="trash" />
               </S.Button>
             </Tooltip>
 
@@ -67,7 +61,7 @@ const Canvas = () => {
                 }
                 variant="info"
               >
-                <Settings size={16} />
+                <Icon name="settings" />
               </S.Button>
             </Tooltip>
           </S.Wrapper>
@@ -85,7 +79,7 @@ const Canvas = () => {
                   onClick={events.template.use}
                   variant="success"
                 >
-                  <CheckIcon size={16} />
+                  <Icon name="check" />
                 </S.Button>
               </Tooltip>
 
@@ -95,7 +89,7 @@ const Canvas = () => {
                   onClick={() => events.template.preview()}
                   variant="warn"
                 >
-                  <CloseIcon size={16} />
+                  <Icon name="x" />
                 </S.Button>
               </Tooltip>
             </S.Wrapper>

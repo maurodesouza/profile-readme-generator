@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 import { motion, Reorder } from 'framer-motion';
 
-import { Trash, Edit2 } from '@styled-icons/feather';
-
 export const Container = styled(Reorder.Item)`
   ${({ theme }) => css`
     width: 100%;
@@ -82,9 +80,11 @@ export const Name = styled.strong`
   margin-right: auto;
 `;
 
-export const DeleteIcon = styled(Trash)`
+export const DeleteButton = styled.button`
   ${({ theme }) => css`
     cursor: pointer;
+    display: grid;
+    place-items: center;
 
     & * {
       cursor: pointer;
@@ -96,11 +96,13 @@ export const DeleteIcon = styled(Trash)`
   `}
 `;
 
-export const EditIcon = styled(Edit2)`
+export const EditButton = styled.button`
   ${({ theme }) => css`
     grid-area: edit;
     align-self: end;
     justify-self: end;
+    display: grid;
+    place-items: center;
 
     cursor: pointer;
 

@@ -1,8 +1,9 @@
 import { useDragControls } from 'framer-motion';
-import { Menu, Eye, EyeOff, Settings } from '@styled-icons/feather';
 
 import Router from 'next/router';
+
 import { Tooltip } from 'components';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { variants, animations } from './animations';
 import { events } from 'app';
@@ -44,7 +45,7 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
   };
 
   const label = isShowing ? 'Hide' : 'Show';
-  const Icon = isShowing ? Eye : EyeOff;
+  const eyeIcon = isShowing ? 'eye' : 'eye-off';
 
   return (
     <S.Container
@@ -57,7 +58,7 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
     >
       <S.Content>
         <S.Drag onPointerDown={event => [dragControls.start(event)]}>
-          <Menu />
+          <Icon name="menu" size={20} />
         </S.Drag>
 
         <S.Wrapper>
@@ -67,13 +68,13 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
         <S.Actions>
           <Tooltip content={label} position="right" variant="info">
             <S.Button onClick={handleChangeDisplay}>
-              <Icon size={16} />
+              <Icon name={eyeIcon} />
             </S.Button>
           </Tooltip>
 
           <Tooltip content="Configure" position="right" variant="info">
             <S.Button onClick={handleConfigure}>
-              <Settings size={16} />
+              <Icon name="settings" />
             </S.Button>
           </Tooltip>
         </S.Actions>

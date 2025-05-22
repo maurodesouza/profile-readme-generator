@@ -1,10 +1,8 @@
-import { StyledIcon } from '@styled-icons/styled-icon';
-import { Plus, Edit2 } from '@styled-icons/feather';
-
 import { views } from './views';
+import { IconName } from 'lucide-react/dynamic';
 
 type Tab = {
-  icon: StyledIcon;
+  icon: IconName;
   label: string;
   view: keyof typeof views;
 };
@@ -12,12 +10,12 @@ type Tab = {
 const tabs: Tab[] = [
   {
     label: 'Add',
-    icon: Plus,
+    icon: 'plus',
     view: 'adding',
   },
   {
     label: 'Edit',
-    icon: Edit2,
+    icon: 'edit-2',
     view: 'editing',
   },
 ];

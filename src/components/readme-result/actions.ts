@@ -1,10 +1,16 @@
-import { Copy } from '@styled-icons/feather';
+import { IconName } from 'lucide-react/dynamic';
 import { copyToClipboard } from 'utils';
 
-const actions = [
+type Action = {
+  label: string;
+  icon: IconName;
+  action: (content: string) => void;
+};
+
+const actions: Action[] = [
   {
     label: 'Copy',
-    icon: Copy,
+    icon: 'copy',
     action: (content: string) => copyToClipboard(content),
   },
 ];

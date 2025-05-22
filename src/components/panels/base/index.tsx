@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
+import { IconName } from 'lucide-react/dynamic';
 
 import { events } from 'app';
 import { PanelsEnumType, PanelSide } from 'types';
+
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { useExtensions, useOutsideClick } from 'hooks';
 import { getPanelSideEvent } from 'utils';
@@ -16,8 +18,8 @@ type PanelProps = {
 };
 
 const chevrons = {
-  left: ChevronLeft,
-  right: ChevronRight,
+  left: 'chevron-left',
+  right: 'chevron-right',
 };
 
 const Panel = ({ side, initialPanel }: PanelProps) => {
@@ -59,7 +61,7 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
 
   useOutsideClick(containerRef, () => setIsOpen(false), isOpen);
 
-  const Chevron = chevrons[side];
+  const icon = chevrons[side] as IconName;
 
   return (
     <S.Container ref={containerRef} close={!isOpen}>
@@ -69,7 +71,7 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
         side={side}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Chevron size={24} />
+        <Icon name={icon} size={24} />
       </S.Toggle>
 
       <S.Wrapper side={side}>

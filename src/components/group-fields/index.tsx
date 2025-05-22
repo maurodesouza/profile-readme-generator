@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ChevronRight } from '@styled-icons/feather';
 
 import { inputMap } from 'components';
 import { useCanvas, useSettings } from 'hooks';
@@ -10,6 +9,7 @@ import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';
 import * as S from './styles';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 type Conditions = {
   path: string;
@@ -75,7 +75,7 @@ const GroupFields = ({
               animate={animationState}
               variants={variants.icon}
             >
-              <ChevronRight size={18} />
+              <Icon name="chevron-right" size={18} />
             </S.WrapperIcon>
           )}
 

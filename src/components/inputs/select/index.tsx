@@ -1,10 +1,10 @@
 import { FocusEvent, useEffect, useRef, useState } from 'react';
-import { X as CloseIcon } from '@styled-icons/feather';
 
 import { useForceUpdate } from 'hooks';
 import { debounce, filterArrayByQueryMatch } from 'utils';
 
 import * as S from './styles';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 type SelectOption = {
   label: string;
@@ -101,7 +101,7 @@ const Select = ({
       />
 
       <S.Wrapper show={canShowClearButton} onClick={handleSelect()}>
-        <CloseIcon size={20} />
+        <Icon name="x" size={20} />
       </S.Wrapper>
 
       <S.Dropdown

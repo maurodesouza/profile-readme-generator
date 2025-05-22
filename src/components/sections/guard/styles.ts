@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { AlertCircle } from '@styled-icons/feather';
 
 import { SimpleInput } from 'components/inputs';
 
@@ -14,10 +13,12 @@ export const Container = styled.form`
   `}
 `;
 
-export const AlertIcon = styled(AlertCircle)`
+export const AlertWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.tertiary};
     grid-area: icon;
+    display: grid;
+    place-items: center;
   `}
 `;
 

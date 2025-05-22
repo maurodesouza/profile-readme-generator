@@ -1,4 +1,5 @@
-import { File as FileIcon } from '@styled-icons/feather';
+import { Icon } from 'components/ui/primitives/atoms/icon';
+
 import { events } from 'app';
 
 import { File as FileType } from '..';
@@ -11,7 +12,7 @@ const File = ({ file, content }: FileProps) => {
 
   return (
     <S.Container onClick={handleClick}>
-      <FileIcon />
+      <Icon name="file" size={20} />
       {file}
     </S.Container>
   );

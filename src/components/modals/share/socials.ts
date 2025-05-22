@@ -1,5 +1,3 @@
-import { Linkedin, Facebook, Twitter } from '@styled-icons/feather';
-
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,17 +7,17 @@ import {
 const socials = [
   {
     id: 1,
-    icon: Linkedin,
+    icon: 'linkedin',
     share: LinkedinShareButton,
   },
   {
     id: 2,
-    icon: Twitter,
+    icon: 'twitter',
     share: TwitterShareButton,
   },
   {
     id: 3,
-    icon: Facebook,
+    icon: 'facebook',
     share: FacebookShareButton,
   },
 ];

@@ -45,24 +45,24 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
     props.initialPanel
   );
 
-  function handleChangePanel(event: CustomEvent<PanelsEnumType>) {
+  function onShowPanel(event: CustomEvent<PanelsEnumType>) {
     setPanel(event.detail);
     setIsOpen(true);
   }
 
-  function handleClosePanel() {
+  function onClearPanel() {
     setPanel(undefined);
   }
 
   useEffect(() => {
-    const { openEvent, closeEvent } = getPanelSideEvent(props.side);
+    const { showEvent, clearEvent } = getPanelSideEvent(props.side);
 
-    events.on(openEvent, handleChangePanel);
-    events.on(closeEvent, handleClosePanel);
+    events.on(showEvent, onShowPanel);
+    events.on(clearEvent, onClearPanel);
 
     return () => {
-      events.off(openEvent, handleChangePanel);
-      events.off(closeEvent, handleClosePanel);
+      events.off(showEvent, onShowPanel);
+      events.off(clearEvent, onClearPanel);
     };
   }, []);
 
@@ -95,7 +95,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   useOutsideClick(
     containerRef,
     () => {
-      events.panel.close(side);
+      events.panel.clear(side);
     },
     isLessThanLaptop && isOpen
   );

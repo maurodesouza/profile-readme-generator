@@ -46,14 +46,14 @@ const Panel = ({ side, initialPanel }: PanelProps) => {
   const handleClosePanel = () => setPanel(undefined);
 
   useEffect(() => {
-    const { openEvent, closeEvent } = getPanelSideEvent(side);
+    const { showEvent, clearEvent } = getPanelSideEvent(side);
 
-    events.on(openEvent, handleChangePanel);
-    events.on(closeEvent, handleClosePanel);
+    events.on(showEvent, handleChangePanel);
+    events.on(clearEvent, handleClosePanel);
 
     return () => {
-      events.off(openEvent, handleChangePanel);
-      events.off(closeEvent, handleClosePanel);
+      events.off(showEvent, handleChangePanel);
+      events.off(clearEvent, handleClosePanel);
     };
   }, []);
 

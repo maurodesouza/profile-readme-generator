@@ -19,11 +19,11 @@ export enum Events {
 
   // Panels
 
-  PANEL_RIGHT_OPEN = 'panel.right.open',
-  PANEL_LEFT_OPEN = 'panel.left.open',
+  PANEL_RIGHT_SHOW = 'panel.right.show',
+  PANEL_LEFT_SHOW = 'panel.left.show',
 
-  PANEL_RIGHT_CLOSE = 'panel.right.close',
-  PANEL_LEFT_CLOSE = 'panel.left.close',
+  PANEL_RIGHT_CLEAR = 'panel.right.clear',
+  PANEL_LEFT_CLEAR = 'panel.left.clear',
 
   // Modal
 

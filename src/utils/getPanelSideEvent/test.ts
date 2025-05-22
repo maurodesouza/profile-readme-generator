@@ -2,8 +2,8 @@ import { Events, PanelSide } from 'types';
 import { getPanelSideEvent } from '.';
 
 type Expected = {
-  open: Events;
-  close: Events;
+  show: Events;
+  clear: Events;
 };
 
 type Input = {
@@ -16,15 +16,15 @@ describe('UTILS - Get panel side event', () => {
     {
       input: 'right',
       expected: {
-        open: Events.PANEL_RIGHT_OPEN,
-        close: Events.PANEL_RIGHT_CLOSE,
+        show: Events.PANEL_RIGHT_SHOW,
+        clear: Events.PANEL_RIGHT_CLEAR,
       },
     },
     {
       input: 'left',
       expected: {
-        open: Events.PANEL_LEFT_OPEN,
-        close: Events.PANEL_LEFT_CLOSE,
+        show: Events.PANEL_LEFT_SHOW,
+        clear: Events.PANEL_LEFT_CLEAR,
       },
     },
   ];
@@ -33,8 +33,8 @@ describe('UTILS - Get panel side event', () => {
     inputs.forEach(input => {
       const result = getPanelSideEvent(input.input);
 
-      expect(result.openEvent).toBe(input.expected.open);
-      expect(result.closeEvent).toBe(input.expected.close);
+      expect(result.showEvent).toBe(input.expected.show);
+      expect(result.clearEvent).toBe(input.expected.clear);
     });
   });
 });

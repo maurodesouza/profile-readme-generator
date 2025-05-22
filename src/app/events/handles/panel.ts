@@ -8,16 +8,16 @@ class PanelHandleEvents extends BaseEventHandle {
     super();
   }
 
-  open(side: PanelSide, panel: PanelsEnumType) {
-    const { openEvent } = getPanelSideEvent(side);
+  show(side: PanelSide, panel: PanelsEnumType) {
+    const { showEvent } = getPanelSideEvent(side);
 
-    this.emit(openEvent, panel);
+    this.emit(showEvent, panel);
   }
 
-  close(side: PanelSide) {
-    const { closeEvent } = getPanelSideEvent(side);
+  clear(side: PanelSide) {
+    const { clearEvent } = getPanelSideEvent(side);
 
-    this.emit(closeEvent);
+    this.emit(clearEvent);
   }
 }
 

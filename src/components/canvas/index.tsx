@@ -63,7 +63,7 @@ const Canvas = () => {
               <S.Button
                 aria-label="Open settings panel"
                 onClick={() =>
-                  events.panel.open('right', PanelsEnum.USER_SETTINGS)
+                  events.panel.show('right', PanelsEnum.USER_SETTINGS)
                 }
                 variant="info"
               >

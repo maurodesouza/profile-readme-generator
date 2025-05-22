@@ -1,16 +1,14 @@
-import { FileText, Zap } from '@styled-icons/feather';
-
 import { events } from 'app';
 import { PanelsEnum } from 'types';
 
 const contents = [
   {
-    icon: FileText,
+    icon: 'file-text',
     onClick: () => events.panel.open('right', PanelsEnum.TEMPLATES),
     name: 'Templates',
   },
   {
-    icon: Zap,
+    icon: 'zap',
     onClick: () => events.panel.open('right', PanelsEnum.RECOMMENDED_RESOURCES),
     name: 'Level Up',
   },

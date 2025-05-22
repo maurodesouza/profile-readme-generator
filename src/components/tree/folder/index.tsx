@@ -1,4 +1,4 @@
-import { Folder as FolderIcon } from '@styled-icons/feather';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { File } from '../file';
 import { Label } from '../label';
@@ -14,7 +14,7 @@ const Folder = ({ name, files }: FolderProps) => {
   return hasFiles ? (
     <S.Container>
       <Label>
-        <FolderIcon />
+        <Icon name="folder" size={20} />
         {name}
       </Label>
 

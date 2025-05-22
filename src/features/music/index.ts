@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { Music } from '@styled-icons/feather';
 
 import { musicSectionParser } from './parser';
 import { defaultMusicSectionConfig } from './default-config';
@@ -12,7 +11,7 @@ const feature = {
 
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
-      icon: Music,
+      icon: 'music',
       onClick: () => events.canvas.add(Sections.MUSIC),
       name: 'Music',
     },

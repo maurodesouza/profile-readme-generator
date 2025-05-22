@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { Type } from '@styled-icons/feather';
 
 import { textSectionParser } from './parser';
 import { defaultTextSectionConfig } from './default-config';
@@ -12,7 +11,7 @@ const feature = {
 
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
-      icon: Type,
+      icon: 'type',
       onClick: () => events.canvas.add(Sections.TEXT),
       name: 'Text',
     },

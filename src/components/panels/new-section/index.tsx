@@ -1,3 +1,7 @@
+import { IconName } from 'lucide-react/dynamic';
+
+import { Icon } from 'components/ui/primitives/atoms/icon';
+
 import { useExtensions } from 'hooks';
 import { PanelsEnum } from 'types';
 
@@ -13,19 +17,19 @@ const PanelNewSection = () => {
 
   return (
     <S.Container>
-      {contents.map(({ icon: Icon, name, ...rest }) => (
+      {contents.map(({ icon, name, ...rest }) => (
         <S.Wrapper key={name} {...rest}>
           <S.Block>
-            <Icon size={48} />
+            <Icon name={icon as IconName} size={48} />
             {name}
           </S.Block>
         </S.Wrapper>
       ))}
 
-      {items.map(({ icon: Icon, name, ...rest }) => (
+      {items.map(({ icon, name, ...rest }) => (
         <S.Wrapper key={name} {...rest}>
           <S.Block>
-            <Icon size={48} />
+            <Icon name={icon as IconName} size={48} />
             {name}
           </S.Block>
         </S.Wrapper>

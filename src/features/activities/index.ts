@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { Star } from '@styled-icons/feather';
 
 import { activitiesSectionParser } from './parser';
 import { defaultActivitiesSectionConfig } from './default-config';
@@ -12,7 +11,7 @@ const feature = {
 
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
-      icon: Star,
+      icon: 'activity',
       onClick: () => events.canvas.add(Sections.ACTIVITIES),
       name: 'My activities',
     },

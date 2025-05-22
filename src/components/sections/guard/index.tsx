@@ -5,6 +5,7 @@ import { useCanvas, useSettings } from 'hooks';
 
 import { CanvasStatesEnum } from 'types';
 import * as S from './styles';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 const BASE_URL = 'https://api.github.com/users/';
 
@@ -69,7 +70,9 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
         <>{children}</>
       ) : (
         <S.Container onSubmit={handleCheckGithubUsername}>
-          <S.AlertIcon size={24} />
+          <S.AlertWrapper>
+            <Icon name="alert-circle" size={24} />
+          </S.AlertWrapper>
 
           <S.Text>
             To use this section, please tell us your

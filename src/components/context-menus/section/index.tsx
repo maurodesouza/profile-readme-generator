@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { IconName } from 'lucide-react/dynamic';
 
 import { events } from 'app';
 import { DefaultContextMenuProps } from '../base';
 
 import { actions } from './actions';
 import * as S from './styles';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 type SectionContextMenuProps = DefaultContextMenuProps;
 
@@ -36,7 +38,7 @@ const SectionContextMenu = ({ event }: SectionContextMenuProps) => {
 
   return (
     <S.Container>
-      {actions.map(({ label, icon: Icon, action, ...rest }) => (
+      {actions.map(({ label, icon, action, ...rest }) => (
         <S.Action
           key={label}
           onClick={() => [
@@ -48,7 +50,7 @@ const SectionContextMenu = ({ event }: SectionContextMenuProps) => {
           {label}
 
           <S.WrapperIcon>
-            <Icon size={16} />
+            <Icon name={icon as IconName} />
           </S.WrapperIcon>
         </S.Action>
       ))}

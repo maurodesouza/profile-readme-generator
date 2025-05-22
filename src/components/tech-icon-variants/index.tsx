@@ -1,7 +1,8 @@
 import { useState, useImperativeHandle, forwardRef, useEffect } from 'react';
 
 import { useDragControls, usePresence } from 'framer-motion';
-import { Menu } from '@styled-icons/feather';
+
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { events } from 'app';
 
@@ -95,7 +96,7 @@ const TechIconVariants: React.ForwardRefRenderFunction<
             dragControls.start(event),
           ]}
         >
-          <Menu />
+          <Icon name="menu" size={20} />
         </S.Drag>
 
         <S.Logo
@@ -107,7 +108,9 @@ const TechIconVariants: React.ForwardRefRenderFunction<
         <S.Wrapper>
           <S.Name>{shortname || name}</S.Name>
 
-          <S.DeleteIcon size={16} onClick={handleDeleteTech} />
+          <S.DeleteButton onClick={handleDeleteTech}>
+            <Icon name="trash" />
+          </S.DeleteButton>
         </S.Wrapper>
 
         <Providers
@@ -116,7 +119,11 @@ const TechIconVariants: React.ForwardRefRenderFunction<
           available={available_providers}
         />
 
-        {hasVariants && <S.EditIcon size={16} onClick={handleToggleEditForm} />}
+        {hasVariants && (
+          <S.EditButton onClick={handleToggleEditForm}>
+            <Icon name="edit-2" />
+          </S.EditButton>
+        )}
       </S.Content>
 
       <S.Grow

@@ -1,12 +1,11 @@
 import { IconName } from 'lucide-react/dynamic';
 
-import { Icon } from 'components/ui/primitives/atoms/icon';
+import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { useExtensions } from 'hooks';
 import { PanelsEnum } from 'types';
 
 import { contents } from './contents';
-import * as S from './styles';
 
 const PanelNewSection = () => {
   const { extensions } = useExtensions();
@@ -16,25 +15,18 @@ const PanelNewSection = () => {
   ) as typeof contents;
 
   return (
-    <S.Container>
-      {contents.map(({ icon, name, ...rest }) => (
-        <S.Wrapper key={name} {...rest}>
-          <S.Block>
-            <Icon name={icon as IconName} size={48} />
-            {name}
-          </S.Block>
-        </S.Wrapper>
+    <div className="h-full w-[calc(100%_+_var(--spacing-md))] grid grid-cols-2 items-start content-start gap-md pr-xs overflow-y-scroll scrollbar">
+      {[...contents, ...items].map(({ icon, name, ...rest }) => (
+        <button key={name} {...rest}>
+          <DisplayBlock.Container>
+            <DisplayBlock.Content>
+              <DisplayBlock.Icon name={icon as IconName} size={48} />
+              <DisplayBlock.Label>{name}</DisplayBlock.Label>
+            </DisplayBlock.Content>
+          </DisplayBlock.Container>
+        </button>
       ))}
-
-      {items.map(({ icon, name, ...rest }) => (
-        <S.Wrapper key={name} {...rest}>
-          <S.Block>
-            <Icon name={icon as IconName} size={48} />
-            {name}
-          </S.Block>
-        </S.Wrapper>
-      ))}
-    </S.Container>
+    </div>
   );
 };
 

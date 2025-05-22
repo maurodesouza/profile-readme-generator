@@ -191,6 +191,12 @@ function PanelToggle() {
 
   const Chevron = chevrons[side];
 
+  function togglePanel() {
+    const method = isOpen ? 'close' : 'open';
+
+    events.panel[method](side);
+  }
+
   function getBorderClasses() {
     if (isLeft) return 'pr-0 !border-r-0 !rounded-tr-none !rounded-br-none';
 
@@ -205,6 +211,7 @@ function PanelToggle() {
 
   return (
     <button
+      onClick={togglePanel}
       aria-label={`Toggle ${side} panel`}
       style={{
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',

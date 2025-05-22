@@ -6,7 +6,8 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { ChevronLeft, ChevronRight } from '@styled-icons/feather';
+
+import { Icon } from './icon';
 
 import { events } from 'app';
 import { panels } from 'components/panels/panels';
@@ -178,18 +179,11 @@ const percentageMap = {
   right: '-70%',
 };
 
-const chevrons = {
-  left: ChevronLeft,
-  right: ChevronRight,
-};
-
 function PanelToggle() {
   const { side, isOpen } = usePanel();
 
   const percentage = percentageMap[side];
   const isLeft = side === 'left';
-
-  const Chevron = chevrons[side];
 
   function togglePanel() {
     const method = isOpen ? 'close' : 'open';
@@ -223,7 +217,7 @@ function PanelToggle() {
         !isOpen && getBorderClasses()
       )}
     >
-      <Chevron size={24} className="!cursor-pointer" />
+      <Icon name={`chevron-${side}`} size={24} className="!cursor-pointer" />
     </button>
   );
 }

@@ -56,6 +56,7 @@
     "styled-components": "^6.1.18",
     "styled-media-query": "^2.1.2",
     "tailwind-merge": "^3.3.0",
+    "tailwind-variants": "^1.0.0",
     "tailwindcss": "^4.1.7",
     "uuid": "^11.1.0"
   },

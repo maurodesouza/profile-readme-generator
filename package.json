@@ -37,7 +37,6 @@
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
-    "@styled-icons/feather": "^10.47.0",
     "framer-motion": "^12.12.1",
     "gray-matter": "^4.0.3",
     "html-prettify": "^1.0.7",

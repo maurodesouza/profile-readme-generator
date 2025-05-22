@@ -189,6 +189,11 @@ button {
   cursor: pointer;
 }
 
+a *,
+button * {
+  cursor: pointer;
+}
+
 input,
 textarea {
   cursor: text;

@@ -6,8 +6,6 @@ import { useCanvas, useExtensions, useSettings } from 'hooks';
 import { events } from 'app';
 import { parseToReadme } from 'utils';
 
-import * as S from './styles';
-
 const PanelGeneratedFiles = () => {
   const { sections } = useCanvas();
   const { settings } = useSettings();
@@ -22,9 +20,9 @@ const PanelGeneratedFiles = () => {
   }, []);
 
   return (
-    <S.Container>
+    <div>
       <Tree tree={tree} />
-    </S.Container>
+    </div>
   );
 };
 

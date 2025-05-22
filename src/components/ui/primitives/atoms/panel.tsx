@@ -109,7 +109,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   useOutsideClick(
     containerRef,
     () => {
-      events.panel.clear(side);
+      events.panel.close(side);
     },
     isLessThanLaptop && isOpen
   );

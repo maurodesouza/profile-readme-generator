@@ -8,6 +8,7 @@ import { Tooltip } from 'components';
 
 import { actions } from './actions';
 import * as S from './styles';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 const ReadmeResult = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ const ReadmeResult = () => {
   return (
     <S.Container ref={containerRef}>
       <S.Actions>
-        {actions.map(({ icon: Icon, action }, i) => (
+        {actions.map(({ icon, action }, i) => (
           <Tooltip key={i} content={labelVal} position="top">
             <li>
               <S.Action
@@ -50,7 +51,7 @@ const ReadmeResult = () => {
                   handleUpdateLabel();
                 }}
               >
-                <Icon size={16} />
+                <Icon name={icon} />
               </S.Action>
             </li>
           </Tooltip>

@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
-import { Share2 } from '@styled-icons/feather';
+
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { techsSectionParser } from './parser';
 import { defaultTechsSectionConfig } from './default-config';
@@ -12,7 +13,7 @@ const feature = {
 
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
-      icon: Share2,
+      icon: 'cpu',
       onClick: () => events.canvas.add(Sections.TECHS),
       name: 'Techs',
     },

@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { Gitlab } from '@styled-icons/feather';
 
 import { pacmanSectionParser, pacmanWorkflowParser } from './parser';
 import { defaultPacmanSectionConfig } from './default-config';
@@ -12,7 +11,7 @@ const feature = {
 
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
-      icon: Gitlab,
+      icon: 'ghost',
       onClick: () => events.canvas.add(Sections.PACMAN),
       name: 'Pacman',
     },

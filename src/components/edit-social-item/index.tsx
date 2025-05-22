@@ -1,11 +1,10 @@
 import { useState, useImperativeHandle, forwardRef, useEffect } from 'react';
 import { useDragControls, usePresence } from 'framer-motion';
 
-import { Menu } from '@styled-icons/feather';
+import { GroupFields } from 'components';
+import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { events } from 'app';
-import { GroupFields } from 'components';
-
 import { getSocialImgUrl } from 'utils';
 import { variants, animations } from './animations';
 
@@ -77,7 +76,7 @@ const EditSocialItem: React.ForwardRefRenderFunction<
             dragControls.start(event),
           ]}
         >
-          <Menu />
+          <Icon name="menu" size={20} />
         </S.Drag>
 
         <S.Logo
@@ -89,10 +88,14 @@ const EditSocialItem: React.ForwardRefRenderFunction<
         <S.Wrapper>
           <S.Name>{short_name || social}</S.Name>
 
-          <S.DeleteIcon size={16} onClick={handleDeleteSocial} />
+          <S.DeleteButton onClick={handleDeleteSocial}>
+            <Icon name="trash" />
+          </S.DeleteButton>
         </S.Wrapper>
 
-        <S.EditIcon size={16} onClick={handleToggleEditForm} />
+        <S.EditButton onClick={handleToggleEditForm}>
+          <Icon name="edit-2" />
+        </S.EditButton>
       </S.Content>
 
       <S.Grow

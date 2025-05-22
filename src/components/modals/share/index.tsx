@@ -1,4 +1,7 @@
-import { Copy as CopyIcon } from '@styled-icons/feather';
+import { IconName } from 'lucide-react/dynamic';
+
+import { Icon } from 'components/ui/primitives/atoms/icon';
+
 import { config } from 'app';
 
 import { SimpleInput } from 'components';
@@ -23,10 +26,10 @@ const ShareModal = () => {
         </p>
 
         <S.Socials>
-          {socials.map(({ id, icon: Icon, share: Share }) => (
+          {socials.map(({ id, icon, share: Share }) => (
             <S.Social key={id}>
               <Share url={shareUrl}>
-                <Icon size={32} />
+                <Icon name={icon as IconName} size={32} />
               </Share>
             </S.Social>
           ))}
@@ -36,7 +39,7 @@ const ShareModal = () => {
           <SimpleInput defaultValue={shareUrl} disabled />
 
           <S.CopyButton onClick={handleCopyToClipboard}>
-            <CopyIcon size={16} />
+            <Icon name="copy" />
           </S.CopyButton>
         </S.Footer>
       </S.Container>

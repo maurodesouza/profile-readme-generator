@@ -1,12 +1,14 @@
 import { AnimatePresence } from 'framer-motion';
-import { StyledIcon } from '@styled-icons/styled-icon';
+import { IconName } from 'lucide-react/dynamic';
 
-import * as S from './styles';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import { Icon } from 'components/ui/primitives/atoms/icon';
+import * as S from './styles';
+
 type Tab = {
-  icon?: StyledIcon;
+  icon?: IconName;
   label: string;
   view: string;
 };
@@ -38,7 +40,7 @@ const Tabs = ({
     <S.Container>
       <AnimatePresence>
         <S.Tabs>
-          {tabs.map(({ label, icon: Icon, view }) => {
+          {tabs.map(({ label, icon, view }) => {
             const active = view === currentTab;
 
             return (
@@ -48,7 +50,7 @@ const Tabs = ({
                 onClick={() => setCurrentTab(view)}
               >
                 <S.Wrapper>
-                  {Icon && <Icon size={20} />}
+                  {icon && <Icon name={icon} size={20} />}
 
                   <S.Label>{label}</S.Label>
                 </S.Wrapper>

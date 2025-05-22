@@ -1,4 +1,5 @@
-import { X as CloseIcon } from '@styled-icons/feather';
+import { Icon } from 'components/ui/primitives/atoms/icon';
+
 import { events } from 'app';
 import * as S from './styles';
 
@@ -14,7 +15,7 @@ const BaseModal = ({ children, title }: BaseModalProps) => {
         {title && <S.Title>{title}</S.Title>}
 
         <S.CloseButton onClick={events.modal.close}>
-          <CloseIcon size={24} />
+          <Icon name="x" size={24} />
         </S.CloseButton>
       </S.Header>
 

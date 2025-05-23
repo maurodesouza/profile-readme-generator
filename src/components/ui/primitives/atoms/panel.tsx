@@ -14,7 +14,7 @@ import { panels } from 'components/panels/panels';
 import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
 
 import { PanelsEnumType, PanelSide } from 'types';
-import { cn, getPanelSideEvent } from 'utils';
+import { cn, getPanelSideEvent, twx } from 'utils';
 
 type PanelContextState = {
   isOpen: boolean;
@@ -157,6 +157,8 @@ function PanelContent(props: React.PropsWithChildren) {
   );
 }
 
+const Scrollable = twx.div`h-full w-[calc(100%_+_var(--spacing-md))] pr-xs overflow-y-scroll scrollbar`;
+
 function PanelRender() {
   const { panel } = usePanel();
   const { extensions } = useExtensions();
@@ -250,6 +252,7 @@ export const Panel = {
   Container: PanelContainer,
   Wrapper: PanelWrapper,
   Content: PanelContent,
+  Scrollable,
 
   Render: PanelRender,
   Toggle: PanelToggle,

@@ -14,7 +14,7 @@ import { panels } from 'components/panels/panels';
 import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
 
 import { PanelsEnumType, PanelSide } from 'types';
-import { cn, getPanelSideEvent, twx } from 'utils';
+import { cn, getPanelSideEvent, getThemeToken, twx } from 'utils';
 
 type PanelContextState = {
   isOpen: boolean;
@@ -97,10 +97,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const breakpoint = useMemo(() => {
-    if (typeof getComputedStyle === 'undefined') return '0px';
-
-    const styles = getComputedStyle(document.documentElement);
-    return styles.getPropertyValue('--breakpoint-laptop');
+    return getThemeToken('--breakpoint-laptop', { fallbackReturn: '0px' });
   }, []);
 
   const [isLessThanLaptop] = useMediaQuery(`(max-width: ${breakpoint})`);

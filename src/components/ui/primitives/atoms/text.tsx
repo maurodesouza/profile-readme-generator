@@ -5,7 +5,7 @@ import { tv, VariantProps } from 'tailwind-variants';
 import { twx } from 'utils';
 
 const headingVariants = tv({
-  base: 'font-semibold text-foreground-max',
+  base: 'font-semibold text-foreground',
   variants: {
     hierarchy: {
       h1: 'text-xl',

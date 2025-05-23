@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import primsjs from 'prismjs';
 
+import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
+
 import { events } from 'app';
 import { Events } from 'types';
 
-import { Tooltip } from 'components';
-
 import { actions } from './actions';
 import * as S from './styles';
-import { Icon } from 'components/ui/primitives/atoms/icon';
 
 const ReadmeResult = () => {
   const containerRef = useRef<HTMLDivElement>(null);

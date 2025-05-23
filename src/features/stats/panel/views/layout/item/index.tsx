@@ -1,8 +1,7 @@
+import Router from 'next/router';
 import { useDragControls } from 'framer-motion';
 
-import Router from 'next/router';
-
-import { Tooltip } from 'components';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 
 import { variants, animations } from './animations';

@@ -12,6 +12,5 @@ export * from './footer';
 export * from './welcome';
 export * from './context-menus';
 export * from './modals';
-export * from './tooltip';
 export * from './markdown';
 export { Tree } from './tree';

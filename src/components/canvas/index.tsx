@@ -1,8 +1,9 @@
 import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
+import { Welcome, OnlyClientSide } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
-import { Tooltip, Welcome, OnlyClientSide } from 'components';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
 import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 

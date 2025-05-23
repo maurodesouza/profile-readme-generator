@@ -34,7 +34,7 @@ type TooltipProps = Pick<VariantProps<typeof tooltipVariants>, 'tone'> & {
   content: string;
 };
 
-function Tooltip(props: TooltipProps) {
+export function Tooltip(props: TooltipProps) {
   const { children, position = 'top', content, ...rest } = props;
 
   const openTimeoutRef = useRef<NodeJS.Timeout>(undefined);
@@ -141,5 +141,3 @@ function Tooltip(props: TooltipProps) {
     </OnlyClientSide>
   );
 }
-
-export { Tooltip };

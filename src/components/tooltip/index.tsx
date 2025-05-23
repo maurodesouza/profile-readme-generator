@@ -1,24 +1,42 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTheme } from 'styled-components';
+import { tv, VariantProps } from 'tailwind-variants';
 
 import { OnlyClientSide, Portal } from 'components';
-import { TooltipPositions, TooltipVariants } from 'types';
+import { TooltipPositions } from 'types';
+import { getThemeToken } from 'utils';
 
-import * as S from './styles';
+const tooltipVariants = tv({
+  base: 'text-xs absolute rounded-md z-10 text-tone-foreground-contrast bg-tone-luminosity-300 border border-tone-ring-inner px-xs py-[calc(var(--spacing-xs)_/_2)]',
+  variants: {
+    tone: {
+      default: 'bg-background-default text-foreground border-ring-inner',
+      brand: 'tone palette-brand',
+      warning: 'tone palette-warning',
+      danger: 'tone palette-danger',
+      success: 'tone palette-success',
+    },
 
-type TooltipProps = {
+    open: {
+      true: 'opacity-100 pointer-events-auto',
+      false: 'opacity-0 pointer-events-none',
+    },
+  },
+
+  defaultVariants: {
+    open: false,
+    tone: 'default',
+  },
+});
+
+type TooltipProps = Pick<VariantProps<typeof tooltipVariants>, 'tone'> & {
   children: Parameters<typeof React.cloneElement>[0];
   position?: `${TooltipPositions}`;
-  variant?: `${TooltipVariants}`;
   content: string;
 };
 
-const Tooltip = ({
-  children,
-  position = 'top',
-  variant = 'default',
-  content,
-}: TooltipProps) => {
+function Tooltip(props: TooltipProps) {
+  const { children, position = 'top', content, ...rest } = props;
+
   const openTimeoutRef = useRef<NodeJS.Timeout>(undefined);
   const closeTimeoutRef = useRef<NodeJS.Timeout>(undefined);
 
@@ -30,17 +48,15 @@ const Tooltip = ({
   const [open, setOpen] = useState(false);
   const [mount, setMount] = useState(false);
 
-  const theme = useTheme();
-
-  const handleMouseLeave = () => {
+  function handleMouseLeave() {
     setOpen(false);
 
     closeTimeoutRef.current = setTimeout(() => {
       setMount(false);
     }, 350);
-  };
+  }
 
-  const handleMouseEnter = () => {
+  function handleMouseEnter() {
     clearTimeout(closeTimeoutRef.current!);
     setMount(true);
 
@@ -48,13 +64,16 @@ const Tooltip = ({
       getPosition();
       setOpen(true);
     }, 100);
-  };
+  }
 
-  const getPosition = () => {
+  function getPosition() {
     const childrenRect = childrenRef.current!.getBoundingClientRect();
     const tooltipRect = tooltipRef.current!.getBoundingClientRect();
 
-    const space = Number(theme.spacings.xsmall.replace(/\D/g, ''));
+    const space = getThemeToken('--spacing-xs', {
+      fallbackReturn: 0,
+      formatToNumber: true,
+    });
 
     const middleXTooltip = tooltipRect.width / 2;
     const middleYTooltip = tooltipRect.height / 2;
@@ -83,13 +102,7 @@ const Tooltip = ({
       x: (positionsX[x] ?? middleX) || 0,
       y: (positionsY[y] ?? middleY) || 0,
     });
-  };
-
-  const childrenProps = {
-    ref: childrenRef,
-    onMouseEnter: handleMouseEnter,
-    onMouseLeave: handleMouseLeave,
-  };
+  }
 
   useEffect(() => {
     return () => {
@@ -98,24 +111,35 @@ const Tooltip = ({
     };
   }, []);
 
+  const childrenProps = {
+    ref: childrenRef,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+  };
+
   return (
     <OnlyClientSide>
       {React.cloneElement(children, childrenProps)}
 
       {mount && (
         <Portal>
-          <S.Container
+          <div
             ref={tooltipRef}
-            open={open}
-            variant={variant}
-            {...coordinate}
+            style={{
+              top: coordinate.y,
+              left: coordinate.x,
+            }}
+            className={tooltipVariants({
+              ...rest,
+              open,
+            })}
           >
             {content}
-          </S.Container>
+          </div>
         </Portal>
       )}
     </OnlyClientSide>
   );
-};
+}
 
 export { Tooltip };

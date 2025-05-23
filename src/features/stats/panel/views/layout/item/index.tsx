@@ -66,13 +66,13 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
         </S.Wrapper>
 
         <S.Actions>
-          <Tooltip content={label} position="right" variant="info">
+          <Tooltip content={label} position="right" tone="brand">
             <S.Button onClick={handleChangeDisplay}>
               <Icon name={eyeIcon} />
             </S.Button>
           </Tooltip>
 
-          <Tooltip content="Configure" position="right" variant="info">
+          <Tooltip content="Configure" position="right" tone="brand">
             <S.Button onClick={handleConfigure}>
               <Icon name="settings" />
             </S.Button>

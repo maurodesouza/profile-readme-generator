@@ -36,7 +36,7 @@ const Canvas = () => {
       >
         {hasSection && !previewMode && (
           <S.Wrapper>
-            <Tooltip position="left" content="Clear canvas" variant="danger">
+            <Tooltip position="left" content="Clear canvas" tone="danger">
               <S.Button
                 aria-label="Clear canvas"
                 onClick={events.canvas.clear}
@@ -46,11 +46,7 @@ const Canvas = () => {
               </S.Button>
             </Tooltip>
 
-            <Tooltip
-              position="left"
-              content="Open settings panel"
-              variant="info"
-            >
+            <Tooltip position="left" content="Open settings panel" tone="brand">
               <S.Button
                 aria-label="Open settings panel"
                 onClick={() =>
@@ -70,7 +66,7 @@ const Canvas = () => {
         >
           {previewMode && (
             <S.Wrapper>
-              <Tooltip position="left" content="Use template" variant="success">
+              <Tooltip position="left" content="Use template" tone="success">
                 <S.Button
                   aria-label="Use template"
                   onClick={events.template.use}
@@ -80,7 +76,7 @@ const Canvas = () => {
                 </S.Button>
               </Tooltip>
 
-              <Tooltip position="left" content="Leave preview" variant="danger">
+              <Tooltip position="left" content="Leave preview" tone="danger">
                 <S.Button
                   aria-label="Leave preview"
                   onClick={() => events.template.preview()}

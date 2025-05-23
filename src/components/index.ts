@@ -2,7 +2,6 @@ export * from './helpers';
 export * from './resource-item';
 export * from './affiliate-warning';
 export * from './canvas';
-export * from './sections';
 export * from './readme-result';
 export * from './inputs';
 export * from './tabs';

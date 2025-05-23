@@ -2,8 +2,9 @@ import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Tooltip, Welcome, OnlyClientSide } from 'components';
+import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
 import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
-import { Tooltip, Welcome, OnlyClientSide, ErrorBoundary } from 'components';
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';

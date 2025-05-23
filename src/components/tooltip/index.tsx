@@ -19,8 +19,8 @@ const Tooltip = ({
   variant = 'default',
   content,
 }: TooltipProps) => {
-  const openTimeoutRef = useRef<NodeJS.Timeout>();
-  const closeTimeoutRef = useRef<NodeJS.Timeout>();
+  const openTimeoutRef = useRef<NodeJS.Timeout>(undefined);
+  const closeTimeoutRef = useRef<NodeJS.Timeout>(undefined);
 
   const childrenRef = useRef<Element>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);

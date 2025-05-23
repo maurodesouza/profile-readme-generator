@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import { Footer, ResourceItem } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
-import { AffiliateWarning, Footer, ResourceItem } from 'components';
+import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
 import { recommended_resources } from 'resources';
 

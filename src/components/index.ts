@@ -1,6 +1,5 @@
 export * from './helpers';
 export * from './resource-item';
-export * from './affiliate-warning';
 export * from './canvas';
 export * from './readme-result';
 export * from './inputs';

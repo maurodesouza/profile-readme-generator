@@ -1,13 +1,11 @@
-import * as S from './styles';
+import { Text } from 'components/ui/primitives/atoms/text';
 
-const AffiliateWarning = () => {
+export function AffiliateWarning() {
   return (
-    <S.Container>
+    <Text.Small>
       💡 This panel contains affiliate links. If you find something useful and
       make a purchase, I may earn a small commission ☕. Thanks for the support
       ❤
-    </S.Container>
+    </Text.Small>
   );
-};
-
-export { AffiliateWarning };
+}

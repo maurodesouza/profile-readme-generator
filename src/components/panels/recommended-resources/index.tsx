@@ -1,7 +1,9 @@
-import { ResourceItem, AffiliateWarning } from 'components';
+import { ResourceItem } from 'components';
 
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+
+import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
 import { getItems } from './items';
 

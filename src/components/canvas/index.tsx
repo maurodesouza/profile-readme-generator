@@ -1,14 +1,9 @@
 import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
-import {
-  BaseSection,
-  Tooltip,
-  Welcome,
-  OnlyClientSide,
-  ErrorBoundary,
-} from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
+import { Tooltip, Welcome, OnlyClientSide, ErrorBoundary } from 'components';
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
@@ -19,7 +14,8 @@ import { CanvasErrorFallback } from './error';
 
 const Canvas = () => {
   const { extensions } = useExtensions();
-  const { sections, currentSection, previewMode } = useCanvas();
+  const { sections, previewMode } = useCanvas();
+
   const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
@@ -109,14 +105,9 @@ const Canvas = () => {
                 const Component = section.component;
 
                 return (
-                  <BaseSection
-                    key={id}
-                    id={id}
-                    selected={id === currentSection?.id}
-                    previewMode={previewMode}
-                  >
+                  <CanvasSection key={id} id={id}>
                     <Component id={id} {...props} />
-                  </BaseSection>
+                  </CanvasSection>
                 );
               })}
             </Reorder.Group>

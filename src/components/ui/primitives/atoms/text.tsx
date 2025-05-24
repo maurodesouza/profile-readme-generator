@@ -34,7 +34,7 @@ function Heading(props: HeadingProps) {
   );
 }
 
-const Paragraph = twx.p`text-foreground text-sm`;
+const Paragraph = twx.p`text-foreground text-sm transition-all`;
 
 const Link = twx(
   NextLink

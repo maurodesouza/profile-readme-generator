@@ -3,7 +3,6 @@ export * from './resource-item';
 export * from './canvas';
 export * from './readme-result';
 export * from './inputs';
-export * from './display-block';
 export * from './tech-icon-variants';
 export * from './group-fields';
 export * from './edit-social-item';

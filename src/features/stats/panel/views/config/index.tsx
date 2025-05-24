@@ -7,7 +7,6 @@ import { Select } from 'components';
 import { views } from './views';
 
 import { capitalize } from 'utils';
-import * as S from './styles';
 
 type Views = keyof typeof views;
 
@@ -35,11 +34,11 @@ const Config = () => {
         }))}
       />
 
-      <S.Content>
+      <div className="flex flex-col mt-md">
         <AnimatePresence>
           <View />
         </AnimatePresence>
-      </S.Content>
+      </div>
     </>
   );
 };

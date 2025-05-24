@@ -8,13 +8,12 @@ import { events } from 'app';
 import { Item } from './item';
 
 import { groups } from './fields';
-import * as S from './styles';
 
 type Stats = {
   [key: string]: Stats;
 };
 
-const Layout = () => {
+export function Layout() {
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
 
@@ -26,7 +25,7 @@ const Layout = () => {
   const stats = Object.entries(selectedStats);
   const stats_types = stats.map(tech => tech[0]);
 
-  const handleOnReOrder = (order: typeof stats_types) => {
+  function onReorder(order: typeof stats_types) {
     const path = 'content.graphs';
 
     const value = order.reduce((obj, name) => {
@@ -39,27 +38,21 @@ const Layout = () => {
 
     events.canvas.edit({ path, value });
     setTimeout(forceUpdate, 200);
-  };
+  }
 
   return (
-    <S.Container>
+    <div>
       {groups.map(group => (
         <GroupFields key={group.id} {...group} />
       ))}
 
       <AnimatePresence>
-        <Reorder.Group
-          axis="y"
-          values={stats_types}
-          onReorder={handleOnReOrder}
-        >
+        <Reorder.Group axis="y" values={stats_types} onReorder={onReorder}>
           {stats.map(([stats, props]) => (
             <Item key={stats} stats={stats} isShowing={!!props.show} />
           ))}
         </Reorder.Group>
       </AnimatePresence>
-    </S.Container>
+    </div>
   );
-};
-
-export { Layout };
+}

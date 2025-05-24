@@ -40,6 +40,8 @@ const Link = twx(
   NextLink
 )`text-tone-foreground-context text-sm hover:underline`;
 
+const Clickable = twx.button`inline !text-tone-foreground-context text-sm hover:underline`;
+
 const Strong = twx.strong`font-semibold text-foreground text-sm`;
 
 const Small = twx.small`text-foreground text-xs italic`;
@@ -50,4 +52,6 @@ export const Text = {
   Strong,
   Heading,
   Paragraph,
+
+  Clickable,
 };

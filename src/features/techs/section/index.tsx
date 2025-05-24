@@ -40,7 +40,12 @@ const TechsSection = ({
             : provider.path;
 
           return (
-            <img key={name} height={height} alt={`${name} logo`} src={path} />
+            <img
+              style={{ height: `${height}px` }}
+              key={name}
+              alt={`${name} logo`}
+              src={path}
+            />
           );
         }
       )}

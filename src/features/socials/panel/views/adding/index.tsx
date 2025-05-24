@@ -1,25 +1,25 @@
 import { useRef } from 'react';
 
 import { DisplayBlock, SimpleInput } from 'components';
-import { events } from 'app';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
+import { events } from 'app';
 import { useForceUpdate } from 'hooks';
 import { debounce, filterArrayByQueryMatch, getSocialImgUrl } from 'utils';
 
 import { social_icons } from 'resources';
 
-import * as S from './styles';
-
-const Adding = () => {
+export function Adding() {
   const inputRef = useRef<HTMLInputElement>(null);
   const forceUpdate = useForceUpdate();
 
-  const handleAddSocial =
-    (name: string, value: Record<string, unknown>) => () => {
+  function handleAddSocial(name: string, value: Record<string, unknown>) {
+    return () => {
       const path = `content.socials.${name}`;
 
       events.canvas.edit({ path, value });
     };
+  }
 
   const { value = '' } = inputRef.current || {};
 
@@ -33,20 +33,21 @@ const Adding = () => {
         ref={inputRef}
         onInput={debounce(forceUpdate, 200)}
         placeholder="Search..."
+        className="mb-md"
       />
 
-      <S.Content>
-        {filteredOptions.map(({ icons: [icon], name, short_name, badge }) => (
-          <DisplayBlock
-            key={name}
-            display={getSocialImgUrl('icon', name, { icon })}
-            label={short_name || name}
-            onClick={handleAddSocial(name, { ...badge, short_name, icon })}
-          />
-        ))}
-      </S.Content>
+      <Panel.Scrollable>
+        <div className="h-full grid grid-cols-3 gap-xs items-start content-start">
+          {filteredOptions.map(({ icons: [icon], name, short_name, badge }) => (
+            <DisplayBlock
+              key={name}
+              display={getSocialImgUrl('icon', name, { icon })}
+              label={short_name || name}
+              onClick={handleAddSocial(name, { ...badge, short_name, icon })}
+            />
+          ))}
+        </div>
+      </Panel.Scrollable>
     </>
   );
-};
-
-export { Adding };
+}

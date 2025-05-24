@@ -1,16 +1,14 @@
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
+import { Panel } from 'components/ui/primitives/atoms/panel';
 import { EditSocialItem, EditSocialItemRef, GroupFields } from 'components';
-import { useCanvas, useForceUpdate } from 'hooks';
 
 import { events } from 'app';
 import { getDeepObjectProperty } from 'utils';
-
-import { variants } from './animations';
+import { useCanvas, useForceUpdate } from 'hooks';
 
 import { fields } from './fields';
-import * as S from './styles';
 
 type Social = {
   icon: string;
@@ -20,7 +18,7 @@ type Socials = {
   [key: string]: Social;
 };
 
-const Editing = () => {
+export function Editing() {
   const EditSocialItemRefs = useRef<EditSocialItemRef[]>([]);
 
   const forceUpdate = useForceUpdate();
@@ -34,7 +32,7 @@ const Editing = () => {
   const socials = Object.entries(selectedSocials);
   const socials_names = socials.map(social => social[0]);
 
-  const handleOnReOrder = (order: typeof socials_names) => {
+  function onReOrder(order: typeof socials_names) {
     const path = 'content.socials';
 
     const value = order.reduce((obj, name) => {
@@ -47,29 +45,22 @@ const Editing = () => {
 
     events.canvas.edit({ path, value });
     setTimeout(forceUpdate, 200);
-  };
+  }
 
   return (
-    <S.Container
-      initial="closed"
-      animate="open"
-      variants={variants.container}
-      layoutScroll
-    >
+    <Panel.Scrollable>
       {fields.map(field => (
         <GroupFields key={field.id} {...field} />
       ))}
 
       <AnimatePresence>
-        <Reorder.Group
-          axis="y"
-          values={socials_names}
-          onReorder={handleOnReOrder}
-        >
+        <Reorder.Group axis="y" values={socials_names} onReorder={onReOrder}>
           {socials.map(([social, props], index) => (
             <EditSocialItem
               key={social}
-              ref={ref => (EditSocialItemRefs.current[index] = ref!)}
+              ref={ref => {
+                EditSocialItemRefs.current[index] = ref!;
+              }}
               refs={EditSocialItemRefs.current}
               social={social}
               {...props}
@@ -77,8 +68,6 @@ const Editing = () => {
           ))}
         </Reorder.Group>
       </AnimatePresence>
-    </S.Container>
+    </Panel.Scrollable>
   );
-};
-
-export { Editing };
+}

@@ -81,6 +81,9 @@
 }
 
 @theme inline {
+  /* TODO: Change to use REM */
+
+  --spacing: 4px;
   --default-transition-duration: 300ms;
 
   /* Breakpoints */

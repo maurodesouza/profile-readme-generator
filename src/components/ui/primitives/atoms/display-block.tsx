@@ -9,6 +9,7 @@ const Content = twx.div`absolute inset-0 w-full flex flex-col items-center justi
 const Icon = twx(
   IconPure
 )`group-hover:text-tone-foreground-context transition-colors`;
+
 const Label = twx(
   Text.Paragraph
 )`group-hover:text-tone-foreground-context transition-colors`;

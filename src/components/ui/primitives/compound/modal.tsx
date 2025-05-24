@@ -1,4 +1,4 @@
-import React, { JSX, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { events } from 'app';
 import { Events, Renderable } from 'types';

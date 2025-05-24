@@ -9,7 +9,8 @@ import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config, events } from 'app';
-import { ContextMenu, Modal } from 'components';
+import { ContextMenu } from 'components';
+import { Modal } from 'components/ui/primitives/compound/modal';
 
 import { Features } from 'features';
 import { theme } from 'styles';

@@ -9,7 +9,7 @@ import { Text } from 'components/ui/primitives/atoms/text';
 
 import { cn } from 'utils';
 
-type Tab = {
+export type Tab = {
   icon?: IconName;
   label: string;
   view: string;
@@ -22,15 +22,14 @@ type PrePlayerTabsProps = {
   setCurrentTab: (tab: any) => void;
 };
 
-const Tabs = ({
-  id = 'tab',
-  tabs,
-  currentTab,
-  setCurrentTab,
-}: PrePlayerTabsProps) => {
+export function Tabs(props: PrePlayerTabsProps) {
+  const { id = 'tab', tabs, currentTab, setCurrentTab } = props;
+
   const router = useRouter();
-  const hasMatchWithSomeTab = (view: string) =>
-    tabs.some(tab => tab.view === view);
+
+  function hasMatchWithSomeTab(view: string) {
+    return tabs.some(tab => tab.view === view);
+  }
 
   useEffect(() => {
     const { [id]: view } = router.query;
@@ -75,6 +74,4 @@ const Tabs = ({
       </AnimatePresence>
     </div>
   );
-};
-
-export { Tabs };
+}

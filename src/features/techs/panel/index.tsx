@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Tabs } from 'components';
+
+import { Tabs } from 'components/ui/primitives/atoms/tabs';
 
 import { tabs, views } from './tabs';
 import * as S from './styles';

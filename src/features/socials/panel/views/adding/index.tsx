@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 
-import { DisplayBlock, SimpleInput } from 'components';
+import { SimpleInput } from 'components';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { events } from 'app';
 import { useForceUpdate } from 'hooks';
@@ -39,12 +40,25 @@ export function Adding() {
       <Panel.Scrollable>
         <div className="h-full grid grid-cols-3 gap-xs items-start content-start">
           {filteredOptions.map(({ icons: [icon], name, short_name, badge }) => (
-            <DisplayBlock
+            <button
               key={name}
-              display={getSocialImgUrl('icon', name, { icon })}
-              label={short_name || name}
               onClick={handleAddSocial(name, { ...badge, short_name, icon })}
-            />
+            >
+              <DisplayBlock.Container>
+                <DisplayBlock.Content>
+                  <img
+                    style={{
+                      width: '40%',
+                      height: '40%',
+                    }}
+                    src={getSocialImgUrl('icon', name, { icon })}
+                  />
+                  <DisplayBlock.Label className="text-xs">
+                    {short_name ?? name}
+                  </DisplayBlock.Label>
+                </DisplayBlock.Content>
+              </DisplayBlock.Container>
+            </button>
           ))}
         </div>
       </Panel.Scrollable>

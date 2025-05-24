@@ -10,8 +10,6 @@ export function Modal() {
   const [Modal, setModal] = useState<Renderable>();
 
   function onOpenModal(event: CustomEvent<Renderable>) {
-    console.log('event.', event.detail);
-
     setModal(event.detail);
   }
 
@@ -28,8 +26,6 @@ export function Modal() {
       events.off(Events.MODAL_CLOSE, onCloseModal);
     };
   }, []);
-
-  console.log('????', Modal);
 
   return (
     <Dialog.Provider open={!!Modal} onOpenChange={events.modal.close}>

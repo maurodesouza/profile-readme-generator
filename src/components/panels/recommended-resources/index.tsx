@@ -26,7 +26,7 @@ const PanelRecommendedResources = () => {
         </Text.Paragraph>
       </div>
 
-      <Panel.Scrollable>
+      <Panel.Scrollable className="space-y-md">
         {items.map(item => (
           <ResourceItem key={item.name} {...item} />
         ))}

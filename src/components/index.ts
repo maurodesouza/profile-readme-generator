@@ -12,4 +12,3 @@ export * from './welcome';
 export * from './context-menus';
 export * from './modals';
 export * from './markdown';
-export { Tree } from './tree';

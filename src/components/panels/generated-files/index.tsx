@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-import { Tree } from 'components';
-import { useCanvas, useExtensions, useSettings } from 'hooks';
+import { Tree } from 'components/ui/primitives/atoms/tree';
 
 import { events } from 'app';
 import { parseToReadme } from 'utils';
+import { useCanvas, useExtensions, useSettings } from 'hooks';
 
 const PanelGeneratedFiles = () => {
   const { sections } = useCanvas();

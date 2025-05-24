@@ -40,9 +40,9 @@ const Link = twx(
   NextLink
 )`text-tone-foreground-context text-sm hover:underline`;
 
-const Strong = twx.p`font-semibold text-foreground text-sm`;
+const Strong = twx.strong`font-semibold text-foreground text-sm`;
 
-const Small = twx.p`text-foreground text-xs italic`;
+const Small = twx.small`text-foreground text-xs italic`;
 
 export const Text = {
   Link,

@@ -1,65 +1,70 @@
 import { events } from 'app';
-import { CanvasSection, Modals } from 'types';
+
+import { Text } from 'components/ui/primitives/atoms/text';
+import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { templates } from 'resources';
-import * as S from './styles';
+import { CanvasSection, Modals } from 'types';
 
 const MAX_TEMPLATES_DISPLAY = 8;
 
-const Welcome = () => {
+export function Welcome() {
   return (
-    <S.Container>
-      <S.Header>
-        <h1>Welcome To Profile Readme Generator</h1>
-        <h2>
-          <span>🚀</span> The best profile readme generator you will find
-          <span>⚡</span>
-        </h2>
-      </S.Header>
+    <div className="flex flex-col items-center justify-between text-center pt-[calc(var(--spacing-xl)_*_3)]">
+      <div className="flex flex-col gap-xs mb-md">
+        <Text.Heading>Welcome To Profile Readme Generator</Text.Heading>
+        <Text.Heading as="h3">
+          <span className="hidden tablet:inline">🚀</span> The best profile
+          readme generator you will find
+          <span className="hidden tablet:inline">⚡</span>
+        </Text.Heading>
+      </div>
 
-      <S.Description>
+      <Text.Paragraph className="max-w-[46rem] mb-xl mt-md">
         You can create you readme manually by clicking on the options on the
         left or using one of the templates with some structure already made!
-      </S.Description>
+      </Text.Paragraph>
 
-      <S.Middle>
-        <S.Templates>
+      <div className="hidden w-full max-w-[60rem] flex-col gap-md pb-xl tablet:flex">
+        <div className="grid grid-cols-4 gap-md w-full items-start content-start">
           {templates
             .slice(0, MAX_TEMPLATES_DISPLAY)
             .map(({ template }, index) => (
-              <S.Wrapper
+              <button
                 key={index}
                 onClick={() =>
                   events.template.preview(template as CanvasSection[])
                 }
               >
-                <S.Block>{index + 1}</S.Block>
-              </S.Wrapper>
+                <DisplayBlock.Container>
+                  <DisplayBlock.Content>
+                    <DisplayBlock.Label className="text-xl">
+                      {index + 1}
+                    </DisplayBlock.Label>
+                  </DisplayBlock.Content>
+                </DisplayBlock.Container>
+              </button>
             ))}
-        </S.Templates>
+        </div>
 
-        <small>
-          <i>*Click to preview one of the templates options</i>
-        </small>
-      </S.Middle>
+        <Text.Small>*Click to preview one of the templates options</Text.Small>
+      </div>
 
-      <S.Footer>
-        <p>
-          If you like it, give the{' '}
-          <a
-            href="https://github.com/maurodesouza/profile-readme-generator"
-            target="_blank"
-            rel="noreferrer"
-          >
-            project repository
-          </a>{' '}
-          a star on Github and{' '}
-          <button onClick={() => events.modal.open(Modals.SHARE)}>share</button>{' '}
-          with your friends!! I will be happy with it! ❤
-        </p>
-      </S.Footer>
-    </S.Container>
+      <Text.Paragraph className="max-w-96 mt-auto">
+        If you like it, give the{' '}
+        <Text.Link
+          href="https://github.com/maurodesouza/profile-readme-generator"
+          target="_blank"
+          rel="noreferrer"
+        >
+          project repository
+        </Text.Link>{' '}
+        a star on Github and{' '}
+        <Text.Clickable onClick={() => events.modal.open(Modals.SHARE)}>
+          share
+        </Text.Clickable>{' '}
+        with your friends!! I will be happy with it! ❤
+      </Text.Paragraph>
+    </div>
   );
-};
-
-export { Welcome };
+}

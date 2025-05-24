@@ -45,7 +45,7 @@ export function ShareModal() {
         <SimpleInput defaultValue={shareUrl} disabled />
 
         <button
-          className="absolute top-1/2 right-md"
+          className="absolute top-0 right-md h-10 grid place-items-center hover:!text-tone-luminosity-300"
           onClick={handleCopyToClipboard}
         >
           <Icon name="copy" />

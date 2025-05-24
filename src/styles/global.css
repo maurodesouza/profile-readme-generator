@@ -77,7 +77,7 @@
 }
 
 .box-border {
-  @apply rounded-md border border-ring-inner;
+  @apply rounded-md border border-ring-inner transition-all;
 }
 
 @theme inline {

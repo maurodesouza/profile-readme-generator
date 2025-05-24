@@ -16,7 +16,7 @@ export function ShareModal() {
   }
 
   return (
-    <>
+    <Dialog.Content className="max-w-[48rem]">
       <Dialog.Header>
         <Dialog.Title>Share with your friends!</Dialog.Title>
 
@@ -51,6 +51,6 @@ export function ShareModal() {
           <Icon name="copy" />
         </button>
       </Dialog.Footer>
-    </>
+    </Dialog.Content>
   );
 }

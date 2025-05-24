@@ -29,9 +29,7 @@ export function Modal() {
 
   return (
     <Dialog.Provider open={!!Modal} onOpenChange={events.modal.close}>
-      <Dialog.Content>
-        <FlexibleRender render={Modal} />
-      </Dialog.Content>
+      <FlexibleRender render={Modal} />
     </Dialog.Provider>
   );
 }

@@ -1,50 +1,56 @@
 import { IconName } from 'lucide-react/dynamic';
 
+import { SimpleInput } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Text } from 'components/ui/primitives/atoms/text';
+import { Dialog } from 'components/ui/primitives/atoms/dialog';
 
 import { config } from 'app';
-
-import { SimpleInput } from 'components';
-import { BaseModal } from '../base';
-
 import { socials } from './socials';
-import * as S from './styles';
 
-const ShareModal = () => {
+export function ShareModal() {
   const shareUrl = config.general.urls.app;
 
-  const handleCopyToClipboard = async () => {
+  async function handleCopyToClipboard() {
     await navigator.clipboard.writeText(shareUrl);
-  };
+  }
 
   return (
-    <BaseModal title="Share with your friends!">
-      <S.Container>
-        <p>
-          This is amazing! I appreciate you for helping me by sharing my app,
-          thank you very much ❤
-        </p>
+    <>
+      <Dialog.Header>
+        <Dialog.Title>Share with your friends!</Dialog.Title>
 
-        <S.Socials>
-          {socials.map(({ id, icon, share: Share }) => (
-            <S.Social key={id}>
-              <Share url={shareUrl}>
-                <Icon name={icon as IconName} size={32} />
-              </Share>
-            </S.Social>
-          ))}
-        </S.Socials>
+        <Dialog.Close />
+      </Dialog.Header>
 
-        <S.Footer>
-          <SimpleInput defaultValue={shareUrl} disabled />
+      <Text.Paragraph>
+        This is amazing! I appreciate you for helping me by sharing my app,
+        thank you very much ❤
+      </Text.Paragraph>
 
-          <S.CopyButton onClick={handleCopyToClipboard}>
-            <Icon name="copy" />
-          </S.CopyButton>
-        </S.Footer>
-      </S.Container>
-    </BaseModal>
+      <div className="flex justify-center gap-lg my-xl">
+        {socials.map(({ id, icon, share: Share }) => (
+          <button
+            key={id}
+            className="box-border hover:!text-tone-luminosity-300 hover:!border-tone-luminosity-300 !rounded-full size-16"
+          >
+            <Share url={shareUrl}>
+              <Icon name={icon as IconName} size={32} />
+            </Share>
+          </button>
+        ))}
+      </div>
+
+      <Dialog.Footer className="relative">
+        <SimpleInput defaultValue={shareUrl} disabled />
+
+        <button
+          className="absolute top-1/2 right-md"
+          onClick={handleCopyToClipboard}
+        >
+          <Icon name="copy" />
+        </button>
+      </Dialog.Footer>
+    </>
   );
-};
-
-export { ShareModal };
+}

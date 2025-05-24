@@ -146,7 +146,7 @@ function PanelContent(props: React.PropsWithChildren) {
   return (
     <div
       className={cn(
-        'w-full h-full',
+        'w-full h-full flex flex-col',
         !isOpen && 'max-laptop:opacity-0 max-laptop:overflow-hidden'
       )}
       {...props}

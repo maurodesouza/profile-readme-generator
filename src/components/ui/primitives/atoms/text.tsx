@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import React, { JSX } from 'react';
 import NextLink from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
 
@@ -20,19 +20,22 @@ type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> &
     as?: Extract<keyof JSX.IntrinsicElements, 'h1' | 'h2' | 'h3'>;
   };
 
-function Heading(props: HeadingProps) {
-  const { as: Element = 'h1', className } = props;
+const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
+  function Heading(props, ref) {
+    const { as: Element = 'h1', className } = props;
 
-  return (
-    <Element
-      className={headingVariants({
-        hierarchy: Element,
-        className,
-      })}
-      {...props}
-    />
-  );
-}
+    return (
+      <Element
+        ref={ref}
+        className={headingVariants({
+          hierarchy: Element,
+          className,
+        })}
+        {...props}
+      />
+    );
+  }
+);
 
 const Paragraph = twx.p`text-foreground text-sm transition-all`;
 

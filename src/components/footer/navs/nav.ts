@@ -1,5 +1,6 @@
 import { events } from 'app';
-import { ShareModal } from 'components/modals/share';
+
+import { ShareModal } from 'components/ui/common/modals/share';
 
 type NavItem = {
   label: string;

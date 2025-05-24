@@ -9,5 +9,4 @@ export * from './group-fields';
 export * from './edit-social-item';
 export * from './footer';
 export * from './context-menus';
-export * from './modals';
 export * from './markdown';

@@ -1,7 +1,7 @@
 import { events } from 'app';
 
-import { ShareModal } from 'components/modals/share';
 import { Text } from 'components/ui/primitives/atoms/text';
+import { ShareModal } from 'components/ui/common/modals/share';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { templates } from 'resources';

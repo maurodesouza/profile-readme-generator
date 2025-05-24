@@ -1,5 +1,5 @@
 import { events } from 'app';
-import { Modals } from 'types';
+import { ShareModal } from 'components/modals/share';
 
 type NavItem = {
   label: string;
@@ -27,7 +27,7 @@ const navItems: NavItem[] = [
     label: 'Share',
     props: {
       as: 'button',
-      onClick: () => events.modal.open(Modals.SHARE),
+      onClick: () => events.modal.open(ShareModal),
     },
   },
 

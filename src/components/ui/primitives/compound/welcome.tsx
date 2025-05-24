@@ -1,10 +1,11 @@
 import { events } from 'app';
 
+import { ShareModal } from 'components/modals/share';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { templates } from 'resources';
-import { CanvasSection, Modals } from 'types';
+import { CanvasSection } from 'types';
 
 const MAX_TEMPLATES_DISPLAY = 8;
 
@@ -60,7 +61,7 @@ export function Welcome() {
           project repository
         </Text.Link>{' '}
         a star on Github and{' '}
-        <Text.Clickable onClick={() => events.modal.open(Modals.SHARE)}>
+        <Text.Clickable onClick={() => events.modal.open(ShareModal)}>
           share
         </Text.Clickable>{' '}
         with your friends!! I will be happy with it! ❤

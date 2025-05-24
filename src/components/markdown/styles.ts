@@ -16,6 +16,10 @@ export const Container = styled.div(
       border-radius: ${theme.border.radius};
     }
 
+    p {
+      margin-block: ${theme.spacings.large}
+    }
+
     code {
       line-break: normal;
     }

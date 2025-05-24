@@ -1,14 +1,13 @@
 import { MouseEvent, useMemo, useState } from 'react';
 import { Reorder } from 'framer-motion';
 
-import {
-  BaseSection,
-  Tooltip,
-  Welcome,
-  OnlyClientSide,
-  ErrorBoundary,
-} from 'components';
+import { OnlyClientSide } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
+import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
+
+import { Welcome } from 'components/ui/primitives/compound/welcome';
+import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
@@ -19,7 +18,8 @@ import { CanvasErrorFallback } from './error';
 
 const Canvas = () => {
   const { extensions } = useExtensions();
-  const { sections, currentSection, previewMode } = useCanvas();
+  const { sections, previewMode } = useCanvas();
+
   const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
@@ -39,7 +39,7 @@ const Canvas = () => {
       >
         {hasSection && !previewMode && (
           <S.Wrapper>
-            <Tooltip position="left" content="Clear canvas" variant="danger">
+            <Tooltip position="left" content="Clear canvas" tone="danger">
               <S.Button
                 aria-label="Clear canvas"
                 onClick={events.canvas.clear}
@@ -49,15 +49,11 @@ const Canvas = () => {
               </S.Button>
             </Tooltip>
 
-            <Tooltip
-              position="left"
-              content="Open settings panel"
-              variant="info"
-            >
+            <Tooltip position="left" content="Open settings panel" tone="brand">
               <S.Button
                 aria-label="Open settings panel"
                 onClick={() =>
-                  events.panel.open('right', PanelsEnum.USER_SETTINGS)
+                  events.panel.show('right', PanelsEnum.USER_SETTINGS)
                 }
                 variant="info"
               >
@@ -73,7 +69,7 @@ const Canvas = () => {
         >
           {previewMode && (
             <S.Wrapper>
-              <Tooltip position="left" content="Use template" variant="success">
+              <Tooltip position="left" content="Use template" tone="success">
                 <S.Button
                   aria-label="Use template"
                   onClick={events.template.use}
@@ -83,7 +79,7 @@ const Canvas = () => {
                 </S.Button>
               </Tooltip>
 
-              <Tooltip position="left" content="Leave preview" variant="danger">
+              <Tooltip position="left" content="Leave preview" tone="danger">
                 <S.Button
                   aria-label="Leave preview"
                   onClick={() => events.template.preview()}
@@ -109,14 +105,9 @@ const Canvas = () => {
                 const Component = section.component;
 
                 return (
-                  <BaseSection
-                    key={id}
-                    id={id}
-                    selected={id === currentSection?.id}
-                    previewMode={previewMode}
-                  >
+                  <CanvasSection key={id} id={id}>
                     <Component id={id} {...props} />
-                  </BaseSection>
+                  </CanvasSection>
                 );
               })}
             </Reorder.Group>

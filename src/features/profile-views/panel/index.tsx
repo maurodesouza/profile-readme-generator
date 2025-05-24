@@ -1,16 +1,13 @@
 import { GroupFields } from 'components';
 
 import { groups } from './fields';
-import * as S from './styles';
 
-const ProfileViewsPanel = () => {
+export function ProfileViewsPanel() {
   return (
-    <S.Container>
+    <div>
       {groups.map(group => (
         <GroupFields key={group.id} {...group} />
       ))}
-    </S.Container>
+    </div>
   );
-};
-
-export { ProfileViewsPanel };
+}

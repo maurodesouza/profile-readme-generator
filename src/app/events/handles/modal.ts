@@ -1,4 +1,4 @@
-import { Modals, Events } from 'types';
+import { Events, Renderable } from 'types';
 
 import { BaseEventHandle } from './base';
 
@@ -9,7 +9,7 @@ class ModalHandleEvents extends BaseEventHandle {
     this.close = this.close.bind(this);
   }
 
-  open(modal: Modals) {
+  open(modal: Renderable) {
     this.emit(Events.MODAL_OPEN, modal);
   }
 

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { Canvas, Footer, Panel } from 'components';
+import { Canvas, Footer } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
 import { api } from 'services';
 import { PanelsEnum } from 'types';
-
-import * as S from './styles';
 
 const CanvasTemplate = () => {
   useEffect(() => {
@@ -13,20 +13,24 @@ const CanvasTemplate = () => {
   }, []);
 
   return (
-    <S.Container>
-      <Panel initialPanel={PanelsEnum.NEW_SECTION} side="left" />
+    <Page.Container>
+      <Panel.Template.Full initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
-      <S.Wrapper>
+      <Page.Wrapper>
         <Canvas />
+
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
           <Footer.GenericLink href="/result" label="Generate README" />
         </Footer.Container>
-      </S.Wrapper>
+      </Page.Wrapper>
 
-      <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
-    </S.Container>
+      <Panel.Template.Full
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+        side="right"
+      />
+    </Page.Container>
   );
 };
 

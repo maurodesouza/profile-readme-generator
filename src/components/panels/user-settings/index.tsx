@@ -1,15 +1,13 @@
 import { GroupFields } from 'components';
-
 import { groups } from './fields';
-import * as S from './styles';
 
 const PanelUserSettings = () => {
   return (
-    <S.Container>
+    <div>
       {groups.map(group => (
         <GroupFields key={group.id} {...group} context="settings" />
       ))}
-    </S.Container>
+    </div>
   );
 };
 

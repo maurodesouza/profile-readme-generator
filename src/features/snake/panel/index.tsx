@@ -1,19 +1,13 @@
 import { GroupFields } from 'components';
 
 import { groups } from './fields';
-import * as S from './styles';
 
-const SnakePanel = () => {
+export function SnakePanel() {
   return (
-    <S.Container>
-      {' '}
-      <S.Container>
-        {groups.map(group => (
-          <GroupFields key={group.id} {...group} />
-        ))}
-      </S.Container>
-    </S.Container>
+    <div>
+      {groups.map(group => (
+        <GroupFields key={group.id} {...group} />
+      ))}
+    </div>
   );
-};
-
-export { SnakePanel };
+}

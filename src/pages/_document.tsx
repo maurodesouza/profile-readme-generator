@@ -1,4 +1,10 @@
-import Document, { DocumentContext } from 'next/document';
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
@@ -25,5 +31,17 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render(): import('react/jsx-runtime').JSX.Element {
+    return (
+      <Html>
+        <Head />
+        <body className="tone palette-brand base-1">
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

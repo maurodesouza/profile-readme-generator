@@ -8,10 +8,3 @@ export enum TooltipPositions {
   BOTTOM_LEFT = 'bottom-left',
   BOTTOM_RIGHT = 'bottom-right',
 }
-
-export enum TooltipVariants {
-  INFO = 'info',
-  SUCCESS = 'success',
-  DANGER = 'danger',
-  DEFAULT = 'default',
-}

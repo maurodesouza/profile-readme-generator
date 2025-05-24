@@ -1,3 +1,5 @@
+import 'styles/global.css';
+
 import { MouseEvent, useEffect } from 'react';
 import Head from 'next/head';
 
@@ -7,10 +9,11 @@ import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config, events } from 'app';
-import { ContextMenu, Modal } from 'components';
+import { ContextMenu } from 'components';
+import { Modal } from 'components/ui/primitives/compound/modal';
 
 import { Features } from 'features';
-import { theme, GlobalStyles } from 'styles';
+import { theme } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
@@ -88,8 +91,6 @@ const App = ({ Component, pageProps }: AppProps) => {
             <ContextMenu />
             <Modal />
             <Features />
-
-            <GlobalStyles />
           </SettingsProvider>
         </CanvasProvider>
       </ExtensionsProvider>

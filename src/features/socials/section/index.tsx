@@ -50,7 +50,7 @@ const SocialsSection = ({
         return (
           <Wrapper href={link} key={social} target="_blank">
             <img
-              height={height}
+              style={{ height: `${height}px` }}
               alt={`${social} logo`}
               src={getSocialImgUrl(type, social, props)}
             />

@@ -1,7 +1,7 @@
 import { events } from 'app';
-import { DisplayBlock } from 'components';
 
 import * as S from './styles';
+import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 type VariantsProps = {
   icon: string;
@@ -23,11 +23,13 @@ const Variants = ({ icon, provider, variants = [] }: VariantsProps) => {
       <S.Wrapper>
         {variants.map((path, index) => {
           return (
-            <DisplayBlock
-              key={path}
-              display={path}
-              onClick={handleChangeVariation(index)}
-            />
+            <button key={path} onClick={handleChangeVariation(index)}>
+              <DisplayBlock.Container>
+                <DisplayBlock.Content>
+                  <img src={path} />
+                </DisplayBlock.Content>
+              </DisplayBlock.Container>
+            </button>
           );
         })}
       </S.Wrapper>

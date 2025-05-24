@@ -1,30 +1,29 @@
 import { GroupFields } from 'components';
 
+import { Text } from 'components/ui/primitives/atoms/text';
+import { Callout } from 'components/ui/primitives/atoms/callout';
+
 import { groups } from './fields';
 import { info_links } from './content';
 
-import * as S from './styles';
-
-const Recently = () => {
+export function Recently() {
   return (
-    <S.Container>
-      <S.Info>
+    <div className="flex flex-col gap-sm">
+      <Callout tone="warning">
         Before start, you need to connect your Spotify account with the Vercel
         app.
-        <S.Links>
+        <div className="flex flex-col">
           {info_links.map(link => (
-            <S.Link key={link.label} href={link.link} target="_blank">
+            <Text.Link key={link.label} href={link.link} target="_blank">
               {link.label}
-            </S.Link>
+            </Text.Link>
           ))}
-        </S.Links>
-      </S.Info>
+        </div>
+      </Callout>
 
       {groups.map(group => (
         <GroupFields key={group.id} {...group} />
       ))}
-    </S.Container>
+    </div>
   );
-};
-
-export { Recently };
+}

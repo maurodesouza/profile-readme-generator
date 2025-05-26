@@ -30,6 +30,10 @@ const buttonVariants = tv({
         data-[tone=default]:!text-foreground data-[tone=default]:!border-ring-inner
         data-[tone=default]:hover:!bg-background-support data-[tone=default]:hover:!text-foreground data-[tone=default]:hover:!border-background-support
       `,
+      icon: `
+        !bg-transparent !text-foreground hover:!text-tone-foreground-context
+        data-[tone=default]:hover:!text-foreground-max
+      `,
     },
     size: {
       icon: 'size-8 justify-center',

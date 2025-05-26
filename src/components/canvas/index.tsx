@@ -1,4 +1,4 @@
-import { MouseEvent, useMemo, useState } from 'react';
+import { MouseEvent, useMemo } from 'react';
 import { Reorder } from 'framer-motion';
 
 import { OnlyClientSide } from 'components';
@@ -13,82 +13,84 @@ import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
 import { ContextMenus, PanelsEnum } from 'types';
 
-import * as S from './styles';
 import { CanvasErrorFallback } from './error';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
-const Canvas = () => {
+export function Canvas() {
   const { extensions } = useExtensions();
   const { sections, previewMode } = useCanvas();
-
-  const [hasError, setHasError] = useState(false);
 
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
 
   const sectionsData = useMemo(() => extensions.sections ?? {}, [extensions]);
 
-  const handleOpenContextMenu = (e: MouseEvent) => {
-    !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
-  };
+  function handleOpenContextMenu(e: MouseEvent) {
+    if (previewMode) return;
+
+    events.contextmenu.open(ContextMenus.SECTION, e);
+  }
 
   return (
     <OnlyClientSide>
-      <S.Container
-        onContextMenu={handleOpenContextMenu}
-        fullHeight={hasError || !hasSection}
-      >
+      <div className="h-full" onContextMenu={handleOpenContextMenu}>
         {hasSection && !previewMode && (
-          <S.Wrapper>
+          <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
             <Tooltip position="left" content="Clear canvas" tone="danger">
-              <S.Button
+              <Clickable.Button
                 aria-label="Clear canvas"
+                size="icon"
+                variant="icon"
+                tone="danger"
                 onClick={events.canvas.clear}
-                variant="warn"
               >
                 <Icon name="trash" />
-              </S.Button>
+              </Clickable.Button>
             </Tooltip>
 
             <Tooltip position="left" content="Open settings panel" tone="brand">
-              <S.Button
+              <Clickable.Button
                 aria-label="Open settings panel"
+                size="icon"
+                variant="icon"
+                tone="brand"
                 onClick={() =>
                   events.panel.show('right', PanelsEnum.USER_SETTINGS)
                 }
-                variant="info"
               >
                 <Icon name="settings" />
-              </S.Button>
+              </Clickable.Button>
             </Tooltip>
-          </S.Wrapper>
+          </div>
         )}
 
-        <ErrorBoundary
-          fallback={<CanvasErrorFallback />}
-          onChange={setHasError}
-        >
+        <ErrorBoundary fallback={<CanvasErrorFallback />}>
           {previewMode && (
-            <S.Wrapper>
+            <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
               <Tooltip position="left" content="Use template" tone="success">
-                <S.Button
+                <Clickable.Button
                   aria-label="Use template"
+                  size="icon"
+                  variant="icon"
+                  tone="success"
                   onClick={events.template.use}
-                  variant="success"
                 >
                   <Icon name="check" />
-                </S.Button>
+                </Clickable.Button>
               </Tooltip>
 
               <Tooltip position="left" content="Leave preview" tone="danger">
-                <S.Button
+                <Clickable.Button
                   aria-label="Leave preview"
+                  size="icon"
+                  variant="icon"
+                  tone="danger"
                   onClick={() => events.template.preview()}
-                  variant="warn"
                 >
                   <Icon name="x" />
-                </S.Button>
+                </Clickable.Button>
               </Tooltip>
-            </S.Wrapper>
+            </div>
           )}
 
           {hasSection ? (
@@ -99,7 +101,6 @@ const Canvas = () => {
             >
               {sections.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;
-
                 if (!section) return null;
 
                 const Component = section.component;
@@ -115,9 +116,7 @@ const Canvas = () => {
             <Welcome />
           )}
         </ErrorBoundary>
-      </S.Container>
+      </div>
     </OnlyClientSide>
   );
-};
-
-export { Canvas };
+}

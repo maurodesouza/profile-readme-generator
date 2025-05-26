@@ -1,25 +1,28 @@
-import * as S from './styles';
+import { Text } from 'components/ui/primitives/atoms/text';
 
-const FooterOwner = () => {
+export function FooterOwner() {
   return (
-    <S.Container>
-      <S.Image
+    <div className="hidden h-full shrink-0 gap-sm desktop:flex">
+      <img
+        className="size-8 self-center"
         src="/assets/icon-32.png"
         alt="A white circle with a dark file icon outlined in the center"
       />
-      <S.Project>Profile Readme Generator</S.Project>
-      <S.Mention>
-        Developed and maintained by{' '}
-        <a
-          href="https://github.com/maurodesouza"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Mauro de Souza
-        </a>
-      </S.Mention>
-    </S.Container>
-  );
-};
 
-export { FooterOwner };
+      <div className="flex flex-col h-full justify-center">
+        <Text.Strong>Profile Readme Generator</Text.Strong>
+        <Text.Small className="not-italic">
+          Developed and maintained by{' '}
+          <Text.Link
+            href="https://github.com/maurodesouza"
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs"
+          >
+            Mauro de Souza
+          </Text.Link>
+        </Text.Small>
+      </div>
+    </div>
+  );
+}

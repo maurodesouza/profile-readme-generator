@@ -1,16 +1,18 @@
-import * as S from './styles';
 import { navItems } from './nav';
+import { Text } from 'components/ui/primitives/atoms/text';
 
-const FooterNavs = () => {
+export function FooterNavs() {
   return (
-    <S.Container>
-      {navItems.map((item, i) => (
-        <S.Nav key={i} {...item.props}>
-          {item.label}
-        </S.Nav>
-      ))}
-    </S.Container>
-  );
-};
+    <nav className="flex items-center flex-wrap gap-x-xl gap-y-xs desktop:gap-x-md">
+      {navItems.map((item, i) => {
+        const El = 'href' in item.props ? Text.Link : Text.Clickable;
 
-export { FooterNavs };
+        return (
+          <El key={i} {...(item.props as any)}>
+            {item.label}
+          </El>
+        );
+      })}
+    </nav>
+  );
+}

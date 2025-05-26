@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import { Footer, ResourceItem } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
 import { recommended_resources } from 'resources';
@@ -53,7 +54,10 @@ const RecommendedResourcesTemplate = (
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
-          <Footer.GenericLink href="/" label="Try Generator" />
+
+          <Clickable.Link tone="brand" href="/">
+            Try Generator
+          </Clickable.Link>
         </Footer.Container>
       </Page.Wrapper>
     </Page.Container>

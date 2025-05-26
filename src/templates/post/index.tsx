@@ -1,6 +1,7 @@
 import { Footer, Markdown } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { PanelsEnum } from 'types';
 
@@ -26,7 +27,10 @@ const PostTemplate = (props: PostTemplateProps) => {
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
-          <Footer.GenericLink href="/" label="Try Generator" />
+
+          <Clickable.Link tone="brand" href="/">
+            Try Generator
+          </Clickable.Link>
         </Footer.Container>
       </Page.Wrapper>
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Canvas, Footer } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { api } from 'services';
 import { PanelsEnum } from 'types';
@@ -22,7 +23,10 @@ const CanvasTemplate = () => {
         <Footer.Container>
           <Footer.Owner />
           <Footer.Navs />
-          <Footer.GenericLink href="/result" label="Generate README" />
+
+          <Clickable.Link tone="success" href="/result">
+            Generate README
+          </Clickable.Link>
         </Footer.Container>
       </Page.Wrapper>
 

@@ -4,6 +4,7 @@ import { Reorder } from 'framer-motion';
 import { OnlyClientSide } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
 
 import { Welcome } from 'components/ui/primitives/compound/welcome';
@@ -14,7 +15,6 @@ import { useCanvas, useExtensions } from 'hooks';
 import { ContextMenus, PanelsEnum } from 'types';
 
 import { CanvasErrorFallback } from './error';
-import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 export function Canvas() {
   const { extensions } = useExtensions();

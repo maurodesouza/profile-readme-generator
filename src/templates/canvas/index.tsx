@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
-import { Canvas, Footer } from 'components';
+import { Canvas } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { PageFooter } from 'components/ui/common/page-footer';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { api } from 'services';
@@ -20,14 +21,14 @@ const CanvasTemplate = () => {
       <Page.Wrapper>
         <Canvas />
 
-        <Footer.Container>
-          <Footer.Owner />
-          <Footer.Navs />
+        <PageFooter.Container>
+          <PageFooter.Owner />
+          <PageFooter.Navs />
 
           <Clickable.Link tone="success" href="/result">
             Generate README
           </Clickable.Link>
-        </Footer.Container>
+        </PageFooter.Container>
       </Page.Wrapper>
 
       <Panel.Template.Full

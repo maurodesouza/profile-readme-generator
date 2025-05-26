@@ -1,6 +1,7 @@
-import { Footer, Markdown } from 'components';
+import { Markdown } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { PageFooter } from 'components/ui/common/page-footer';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { PanelsEnum } from 'types';
@@ -24,14 +25,14 @@ const PostTemplate = (props: PostTemplateProps) => {
           <Markdown>{content}</Markdown>
         </Page.Content>
 
-        <Footer.Container>
-          <Footer.Owner />
-          <Footer.Navs />
+        <PageFooter.Container>
+          <PageFooter.Owner />
+          <PageFooter.Navs />
 
           <Clickable.Link tone="brand" href="/">
             Try Generator
           </Clickable.Link>
-        </Footer.Container>
+        </PageFooter.Container>
       </Page.Wrapper>
 
       <Panel.Template.Full

@@ -2,10 +2,10 @@ import { Container } from './container';
 import { FooterOwner } from './owner';
 import { FooterNavs } from './navs';
 
-const Footer = {
+const PageFooter = {
   Container,
   Owner: FooterOwner,
   Navs: FooterNavs,
 };
 
-export { Footer };
+export { PageFooter };

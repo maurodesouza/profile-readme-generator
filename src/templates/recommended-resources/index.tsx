@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { Footer, ResourceItem } from 'components';
+import { ResourceItem } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
+import { PageFooter } from 'components/ui/common/page-footer';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
@@ -51,14 +52,14 @@ const RecommendedResourcesTemplate = (
 
         <AffiliateWarning />
 
-        <Footer.Container>
-          <Footer.Owner />
-          <Footer.Navs />
+        <PageFooter.Container>
+          <PageFooter.Owner />
+          <PageFooter.Navs />
 
           <Clickable.Link tone="brand" href="/">
             Try Generator
           </Clickable.Link>
-        </Footer.Container>
+        </PageFooter.Container>
       </Page.Wrapper>
     </Page.Container>
   );

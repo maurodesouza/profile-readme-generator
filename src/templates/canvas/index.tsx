@@ -19,7 +19,9 @@ const CanvasTemplate = () => {
       <Panel.Template.Full initialPanel={PanelsEnum.NEW_SECTION} side="left" />
 
       <Page.Wrapper>
-        <Canvas />
+        <Page.Content>
+          <Canvas />
+        </Page.Content>
 
         <PageFooter.Container>
           <PageFooter.Owner />

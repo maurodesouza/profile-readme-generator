@@ -6,5 +6,4 @@ export * from './inputs';
 export * from './tech-icon-variants';
 export * from './group-fields';
 export * from './edit-social-item';
-export * from './context-menus';
 export * from './markdown';

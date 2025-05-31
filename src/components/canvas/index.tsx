@@ -1,18 +1,20 @@
-import { MouseEvent, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Reorder } from 'framer-motion';
 
 import { OnlyClientSide } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
+import { ContextMenu } from 'components/ui/primitives/atoms/context-menu';
 import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
 
+import { SectionContextMenu } from 'components/context-menus/section';
 import { Welcome } from 'components/ui/primitives/compound/welcome';
 import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
-import { ContextMenus, PanelsEnum } from 'types';
+import { PanelsEnum } from 'types';
 
 import { CanvasErrorFallback } from './error';
 
@@ -25,15 +27,9 @@ export function Canvas() {
 
   const sectionsData = useMemo(() => extensions.sections ?? {}, [extensions]);
 
-  function handleOpenContextMenu(e: MouseEvent) {
-    if (previewMode) return;
-
-    events.contextmenu.open(ContextMenus.SECTION, e);
-  }
-
   return (
     <OnlyClientSide>
-      <div className="h-full" onContextMenu={handleOpenContextMenu}>
+      <div className="h-full">
         {hasSection && !previewMode && (
           <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
             <Tooltip position="left" content="Clear canvas" tone="danger">
@@ -106,9 +102,15 @@ export function Canvas() {
                 const Component = section.component;
 
                 return (
-                  <CanvasSection key={id} id={id}>
-                    <Component id={id} {...props} />
-                  </CanvasSection>
+                  <ContextMenu.Root key={id}>
+                    <ContextMenu.Trigger>
+                      <CanvasSection id={id}>
+                        <Component id={id} {...props} />
+                      </CanvasSection>
+                    </ContextMenu.Trigger>
+
+                    <SectionContextMenu id={id} />
+                  </ContextMenu.Root>
                 );
               })}
             </Reorder.Group>

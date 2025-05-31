@@ -15,8 +15,8 @@ const actions = [
     label: 'Delete',
     icon: 'trash',
     action: events.canvas.remove,
-    variant: 'danger',
+    tone: 'danger',
   },
-];
+] as const;
 
 export { actions };

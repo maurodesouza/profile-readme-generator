@@ -1,6 +1,5 @@
 import 'styles/global.css';
 
-import { MouseEvent, useEffect } from 'react';
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';
@@ -8,8 +7,7 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
-import { config, events } from 'app';
-import { ContextMenu } from 'components';
+import { config } from 'app';
 import { Modal } from 'components/ui/primitives/compound/modal';
 
 import { Features } from 'features';
@@ -17,20 +15,6 @@ import { theme } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
-
-  const handlePreventRightClick = (e: MouseEvent) => {
-    e.preventDefault();
-
-    events.contextmenu.close();
-  };
-
-  useEffect(() => {
-    events.on('contextmenu', handlePreventRightClick);
-
-    return () => {
-      events.on('contextmenu', handlePreventRightClick);
-    };
-  }, []);
 
   const title = 'Profile Readme Generator';
   const description =
@@ -88,7 +72,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           <SettingsProvider>
             <Component {...pageProps} />
 
-            <ContextMenu />
             <Modal />
             <Features />
           </SettingsProvider>

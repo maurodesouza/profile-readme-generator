@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { tv, VariantProps } from 'tailwind-variants';
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
 import { cn } from 'utils';
@@ -49,19 +50,38 @@ ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName;
 
 const ContextMenuGroup = ContextMenuPrimitive.Group;
 
+const contextMenuItemVariants = tv({
+  base: 'relative flex gap-sm cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-tone-luminosity-300 focus:text-tone-foreground-contrast data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+
+  variants: {
+    tone: {
+      default: 'focus:bg-background-support focus:text-foreground',
+      brand: 'tone palette-brand',
+      success: 'tone palette-success',
+      warning: 'tone palette-warning',
+      danger: 'tone palette-danger',
+    },
+
+    inset: {
+      true: 'pl-8',
+      false: '',
+    },
+  },
+
+  defaultVariants: {
+    inset: false,
+    tone: 'default',
+  },
+});
+
 const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> & {
-    inset?: boolean;
-  }
->(({ className, inset, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> &
+    VariantProps<typeof contextMenuItemVariants>
+>(({ ...props }, ref) => (
   <ContextMenuPrimitive.Item
     ref={ref}
-    className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-background-support focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
-      inset && 'pl-8',
-      className
-    )}
+    className={contextMenuItemVariants(props)}
     {...props}
   />
 ));

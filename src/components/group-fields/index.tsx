@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import { inputMap } from 'components';
-import { useCanvas, useSettings } from 'hooks';
 
 import { events } from 'app';
 import { Inputs } from 'types';
+import { useCanvas, useSettings } from 'hooks';
 import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';
-import * as S from './styles';
-import { Icon } from 'components/ui/primitives/atoms/icon';
+import { GroupFieldsLabel } from './label';
 
 type Conditions = {
   path: string;
@@ -34,61 +34,58 @@ type GroupFieldsProps = {
   context?: 'canvas' | 'settings';
 };
 
-const GroupFields = ({
-  label,
-  columns = 1,
-  fields,
-  conditions,
-  accordion = false,
-  context = 'canvas',
-}: GroupFieldsProps) => {
-  const [isOpenAccordion, setIsOpenAccordion] = useState(false);
+export function GroupFields(props: GroupFieldsProps) {
+  const {
+    label,
+    columns = 1,
+    fields,
+    conditions,
+    accordion = false,
+    context = 'canvas',
+  } = props;
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const { currentSection } = useCanvas();
   const { settings } = useSettings();
 
   const obj = context === 'canvas' ? currentSection : { props: settings };
 
-  const handleOpenAccordion = () => {
-    hasAccordion && setIsOpenAccordion(!isOpenAccordion);
-  };
+  function toggleExpansible() {
+    setIsExpanded(!isExpanded);
+  }
+
+  function onChange(value: string | boolean, path: string) {
+    events[context].edit({ value, path });
+  }
 
   const canRender = conditions
     ? checkDeepObjectValue({ obj, ...conditions })
     : true;
 
-  const hasAccordion = !!label && accordion;
+  const isExpansible = !!label && accordion;
 
-  const accordionState = isOpenAccordion ? 'open' : 'closed';
-  const animationState = hasAccordion ? accordionState : 'default';
-
-  const onChange = (value: string | boolean, path: string) => {
-    events[context].edit({ value, path });
-  };
+  const accordionState = isExpanded ? 'open' : 'closed';
+  const animationState = isExpansible ? accordionState : 'default';
 
   return canRender ? (
-    <S.Container>
-      {!!label && (
-        <S.Label hasAccordion={hasAccordion} onClick={handleOpenAccordion}>
-          {hasAccordion && (
-            <S.WrapperIcon
-              initial={false}
-              animate={animationState}
-              variants={variants.icon}
-            >
-              <Icon name="chevron-right" size={18} />
-            </S.WrapperIcon>
-          )}
+    <div className="mb-md">
+      <GroupFieldsLabel
+        label={label}
+        animationState={animationState}
+        expansible={isExpansible}
+        toggleExpansible={toggleExpansible}
+      />
 
-          {label}
-        </S.Label>
-      )}
-
-      <S.Grow
+      <motion.div
         initial={false}
         animate={animationState}
         variants={variants.fields_container}
       >
-        <S.Fields columns={columns}>
+        <div
+          className="grid gap-x-md gap-y-sm"
+          style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+        >
           {fields.map(field => {
             const Input = inputMap[field.type];
             const { column, ...rest } = field?.props ?? {};
@@ -103,10 +100,10 @@ const GroupFields = ({
             );
 
             return canRender ? (
-              <S.Field
+              <motion.div
                 key={field.path}
                 variants={variants.field}
-                column={column as string}
+                style={{ gridColumn: column as string }}
               >
                 <Input
                   label={field.label}
@@ -114,13 +111,11 @@ const GroupFields = ({
                   onChange={value => onChange(value, field.path)}
                   {...rest}
                 />
-              </S.Field>
+              </motion.div>
             ) : null;
           })}
-        </S.Fields>
-      </S.Grow>
-    </S.Container>
+        </div>
+      </motion.div>
+    </div>
   ) : null;
-};
-
-export { GroupFields };
+}

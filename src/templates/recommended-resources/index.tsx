@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { ResourceItem } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { PageFooter } from 'components/ui/common/page-footer';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
+import { ResourceItem } from 'components/ui/primitives/compound/resource-items';
 import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
 import { recommended_resources } from 'resources';

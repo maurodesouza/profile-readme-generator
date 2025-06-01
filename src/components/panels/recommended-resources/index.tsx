@@ -1,8 +1,6 @@
-import { ResourceItem } from 'components';
-
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
-
+import { ResourceItem } from 'components/ui/primitives/compound/resource-items';
 import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
 import { getItems } from './items';

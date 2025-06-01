@@ -224,6 +224,7 @@ body {
 
 .scrollbar::-webkit-scrollbar {
   width: 0.8rem;
+  height: 0.8rem;
 }
 
 .scrollbar::-webkit-scrollbar-track {

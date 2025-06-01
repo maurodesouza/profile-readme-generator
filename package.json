@@ -39,6 +39,7 @@
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.15",
     "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@tailwindcss/postcss": "^4.1.7",
     "clsx": "^2.1.1",
     "framer-motion": "^12.12.1",

@@ -8,12 +8,12 @@ import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { events } from 'app';
 import { variants, animations } from './animations';
 
-type EditSocialItemProps = {
+type ItemProps = {
   stats: string;
   isShowing: boolean;
 };
 
-export function Item(props: EditSocialItemProps) {
+export function Item(props: ItemProps) {
   const { isShowing, stats } = props;
   const dragControls = useDragControls();
 

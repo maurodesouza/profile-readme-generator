@@ -1,8 +1,12 @@
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
+import { GroupFields } from 'components';
 import { Panel } from 'components/ui/primitives/atoms/panel';
-import { GroupFields, TechIconVariants, TechIconVariantsRef } from 'components';
+import {
+  IconEditor,
+  IconEditorRef,
+} from 'components/ui/primitives/compound/icon-editor';
 
 import { events } from 'app';
 import { getDeepObjectProperty } from 'utils';
@@ -11,12 +15,15 @@ import { useCanvas, useForceUpdate } from 'hooks';
 import { fields } from './fields';
 import { EditableIcon } from 'types';
 
+import { Variants } from './variants';
+import { Providers } from './providers';
+
 type Icons = {
   [key: string]: EditableIcon;
 };
 
 export function Editing() {
-  const techIconVariantsRefs = useRef<TechIconVariantsRef[]>([]);
+  const iconEditorRefs = useRef<IconEditorRef[]>([]);
 
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
@@ -52,16 +59,63 @@ export function Editing() {
 
       <AnimatePresence>
         <Reorder.Group axis="y" values={icon_names} onReorder={onReOrder}>
-          {icons.map(([name, props], index) => (
-            <TechIconVariants
-              key={name}
-              ref={ref => {
-                techIconVariantsRefs.current[index] = ref!;
-              }}
-              refs={techIconVariantsRefs.current}
-              {...props}
-            />
-          ))}
+          {icons.map(([name, props], index) => {
+            const {
+              currentProvider,
+              providers,
+              available_providers,
+              config,
+              shortname,
+            } = props;
+
+            const provider = providers[currentProvider]!;
+
+            const providerVariants = provider.variants || [];
+            const hasVariants = !!providerVariants.length;
+
+            const logo = hasVariants
+              ? providerVariants[
+                  (config[currentProvider]?.variant ?? 0) as number
+                ]
+              : provider!.path;
+
+            return (
+              <IconEditor
+                key={name}
+                id={name}
+                label={shortname ?? name}
+                baseEditPath="content.icons"
+                img={{
+                  alt: `${name} logo`,
+                  url: logo
+                    .replace(/ /g, '')
+                    .replace(/(?<=badge\/)(.+)(?=-\w+\?)/, ''),
+                }}
+                slots={{
+                  supportingContent: () => (
+                    <Providers
+                      icon={name}
+                      current={currentProvider}
+                      available={available_providers}
+                    />
+                  ),
+                  expansibleContent: hasVariants
+                    ? () => (
+                        <Variants
+                          icon={name}
+                          provider={currentProvider}
+                          variants={providers[currentProvider]?.variants}
+                        />
+                      )
+                    : undefined,
+                }}
+                ref={ref => {
+                  iconEditorRefs.current[index] = ref!;
+                }}
+                refs={iconEditorRefs.current}
+              />
+            );
+          })}
         </Reorder.Group>
       </AnimatePresence>
     </Panel.Scrollable>

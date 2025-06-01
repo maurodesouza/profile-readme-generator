@@ -1,7 +1,7 @@
-import { Markdown } from 'components';
 import { Page } from 'components/ui/primitives/atoms/page';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { PageFooter } from 'components/ui/common/page-footer';
+import { Markdown } from 'components/ui/primitives/atoms/markdown';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { PanelsEnum } from 'types';

@@ -1,17 +1,22 @@
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
+import { GroupFields } from 'components';
+import {
+  IconEditor,
+  IconEditorRef,
+} from 'components/ui/primitives/compound/icon-editor';
 import { Panel } from 'components/ui/primitives/atoms/panel';
-import { EditSocialItem, EditSocialItemRef, GroupFields } from 'components';
 
 import { events } from 'app';
-import { getDeepObjectProperty } from 'utils';
 import { useCanvas, useForceUpdate } from 'hooks';
+import { getDeepObjectProperty, getSocialImgUrl } from 'utils';
 
-import { fields } from './fields';
+import { fields, getIconFields } from './fields';
 
 type Social = {
   icon: string;
+  short_name?: string;
 };
 
 type Socials = {
@@ -19,7 +24,7 @@ type Socials = {
 };
 
 export function Editing() {
-  const EditSocialItemRefs = useRef<EditSocialItemRef[]>([]);
+  const iconEditorRefs = useRef<IconEditorRef[]>([]);
 
   const forceUpdate = useForceUpdate();
   const { currentSection } = useCanvas();
@@ -55,17 +60,35 @@ export function Editing() {
 
       <AnimatePresence>
         <Reorder.Group axis="y" values={socials_names} onReorder={onReOrder}>
-          {socials.map(([social, props], index) => (
-            <EditSocialItem
-              key={social}
-              ref={ref => {
-                EditSocialItemRefs.current[index] = ref!;
-              }}
-              refs={EditSocialItemRefs.current}
-              social={social}
-              {...props}
-            />
-          ))}
+          {socials.map(([social, props], index) => {
+            const { icon, short_name } = props;
+
+            return (
+              <IconEditor
+                key={social}
+                id={social}
+                label={short_name ?? social}
+                baseEditPath="content.socials"
+                img={{
+                  alt: `${social} ${icon} logo`,
+                  url: getSocialImgUrl('icon', social, { icon }),
+                }}
+                slots={{
+                  expansibleContent: () => (
+                    <>
+                      {getIconFields(social).map(group => (
+                        <GroupFields key={group.id} {...group} />
+                      ))}
+                    </>
+                  ),
+                }}
+                ref={ref => {
+                  iconEditorRefs.current[index] = ref!;
+                }}
+                refs={iconEditorRefs.current}
+              />
+            );
+          })}
         </Reorder.Group>
       </AnimatePresence>
     </Panel.Scrollable>

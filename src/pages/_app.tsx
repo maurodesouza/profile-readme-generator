@@ -1,4 +1,5 @@
 import 'styles/global.css';
+import 'styles/prism-syntax-theme.css';
 
 import Head from 'next/head';
 

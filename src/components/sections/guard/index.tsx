@@ -1,20 +1,24 @@
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
 
 import { events } from 'app';
+import { CanvasStatesEnum } from 'types';
 import { useCanvas, useSettings } from 'hooks';
 
-import { CanvasStatesEnum } from 'types';
-import * as S from './styles';
+import { SimpleInput } from 'components/inputs';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Text } from 'components/ui/primitives/atoms/text';
 
 const BASE_URL = 'https://api.github.com/users/';
 
 type GuardSectionProps = {
   sectionId: string;
-  children: React.ReactNode;
 };
 
-const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
+export function GuardSection(
+  props: React.PropsWithChildren<GuardSectionProps>
+) {
+  const { sectionId, children } = props;
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [error, setError] = useState('');
@@ -25,7 +29,7 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
 
   const { github } = settings.user;
 
-  const handleCheckGithubUsername = async (event: FormEvent) => {
+  async function checkGithubUsername(event: FormEvent) {
     event.preventDefault();
 
     const { value = '' } = inputRef.current!;
@@ -48,7 +52,7 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
       path: 'user.github',
       value,
     });
-  };
+  }
 
   useEffect(() => {
     if (previewMode) return;
@@ -64,33 +68,44 @@ const GuardSection = ({ children, sectionId }: GuardSectionProps) => {
     });
   }, [github]);
 
+  const state = (() => {
+    if (!github) return { is: 'invalid' };
+
+    return { is: 'ok' };
+  })();
+
   return (
     <>
-      {github ? (
-        <>{children}</>
-      ) : (
-        <S.Container onSubmit={handleCheckGithubUsername}>
-          <S.AlertWrapper>
-            <Icon name="alert-circle" size={24} />
-          </S.AlertWrapper>
+      {state.is === 'ok' && <>{children}</>}
 
-          <S.Text>
-            To use this section, please tell us your
-            <br />
-            github username.
-          </S.Text>
+      {state.is === 'invalid' && (
+        <form
+          className="w-[min(100%,30rem)] flex flex-col gap-lg mx-auto"
+          onSubmit={checkGithubUsername}
+        >
+          <div className="flex gap-lg items-center">
+            <Icon
+              name="alert-circle"
+              size={24}
+              className="text-tone-luminosity-300"
+            />
 
-          <S.Input
+            <Text.Paragraph>
+              To use this section, please tell us your
+              <br />
+              github username.
+            </Text.Paragraph>
+          </div>
+
+          <SimpleInput
             error={error}
             ref={inputRef}
             label="Github username"
             placeholder="Your github username"
             disabled={isLoading}
           />
-        </S.Container>
+        </form>
       )}
     </>
   );
-};
-
-export { GuardSection };
+}

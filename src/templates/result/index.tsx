@@ -12,9 +12,11 @@ const ResultTemplate = () => {
         side="left"
       />
 
-      <div className="flex flex-col w-full gap-xl overflow-auto">
-        <ReadmeResult />
-      </div>
+      <Page.Wrapper>
+        <Page.Content>
+          <ReadmeResult />
+        </Page.Content>
+      </Page.Wrapper>
 
       <Panel.Template.Full
         initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}

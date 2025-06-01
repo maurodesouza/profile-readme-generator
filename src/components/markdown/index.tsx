@@ -1,16 +1,10 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { Options } from 'react-markdown';
 
-import * as S from './styles';
-
-const Markdown = (
-  props: React.PropsWithChildren<ReactMarkdown.ReactMarkdownOptions>
-) => {
+export function Markdown(props: React.PropsWithChildren<Options>) {
   return (
-    <S.Container>
+    <div className="markdown">
       <ReactMarkdown {...props} />
-    </S.Container>
+    </div>
   );
-};
-
-export { Markdown };
+}

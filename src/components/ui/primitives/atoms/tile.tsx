@@ -1,10 +1,31 @@
 import React from 'react';
-
-import { Icon } from './icon';
+import { Reorder, motion } from 'framer-motion';
 
 import { cn, twx } from 'utils';
-import { Reorder } from 'framer-motion';
+
+import { Icon } from './icon';
 import { Text } from './text';
+
+import { createFramerMotionVariants } from 'utils';
+
+const variants = createFramerMotionVariants({
+  expansible: {
+    open: {
+      marginTop: 12,
+      height: 'auto',
+      transition: { staggerChildren: 0.05, duration: 0.2 },
+    },
+
+    closed: {
+      marginTop: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+        delay: 0.1,
+      },
+    },
+  },
+});
 
 const Sortable = twx(Reorder.Item)`w-full flex flex-col [&+&]:mt-sm`;
 
@@ -38,11 +59,18 @@ const Button = twx.button`w-5 h-5 grid place-items-center`;
 
 const Label = twx(Text.Strong)`capitalize`;
 
+const Expansible = twx(motion.div).attrs({
+  initial: false,
+  variants: variants.expansible,
+})`overflow-hidden`;
+
 export const Tile = {
   Sortable,
   Container,
 
   Drag,
+  Expansible,
+
   Content,
   Actions,
 

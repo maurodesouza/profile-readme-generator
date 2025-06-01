@@ -103,7 +103,7 @@ export function Canvas() {
 
                 return (
                   <ContextMenu.Root key={id}>
-                    <ContextMenu.Trigger>
+                    <ContextMenu.Trigger asChild>
                       <CanvasSection id={id}>
                         <Component id={id} {...props} />
                       </CanvasSection>

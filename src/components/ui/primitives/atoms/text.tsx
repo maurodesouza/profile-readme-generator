@@ -45,16 +45,20 @@ const Link = twx(
 
 const Clickable = twx.button`inline !text-tone-foreground-context text-sm hover:underline`;
 
-const Strong = twx.strong`font-semibold text-foreground text-sm`;
+const Strong = twx.strong`text-foreground text-sm font-semibold`;
 
 const Small = twx.small`text-foreground text-xs italic`;
 
+const Label = twx.label`text-foreground text-sm font-semibold block`;
+
 export const Text = {
-  Link,
-  Small,
-  Strong,
   Heading,
   Paragraph,
+
+  Link,
+  Small,
+  Label,
+  Strong,
 
   Clickable,
 };

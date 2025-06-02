@@ -70,7 +70,7 @@
   --tone-luminosity-500: var(--tone-500);
 
   --tone-ring-inner: var(--tone-300);
-  --tone-ring-outer: var(--tone-300);
+  --tone-ring-outer: var(--tone-100);
 
   --tone-foreground-contrast: var(--tone-contrast);
   --tone-foreground-context: var(--tone-300);

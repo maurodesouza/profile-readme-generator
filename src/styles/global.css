@@ -153,7 +153,7 @@
   --color-tone-luminosity-500: hsla(var(--tone-luminosity-500));
 
   --color-tone-ring-inner: hsla(var(--tone-ring-inner));
-  --color-tone-ring-outer: hsla(var(-tone-ring-outer));
+  --color-tone-ring-outer: hsla(var(--tone-ring-outer));
 
   --color-tone-foreground-contrast: hsla(var(--tone-foreground-contrast));
   --color-tone-foreground-context: hsla(var(--tone-foreground-context));

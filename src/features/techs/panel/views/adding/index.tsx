@@ -1,6 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
 
-import { Select } from 'components';
 import { Fields } from 'components/ui/primitives/fields';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
@@ -83,10 +82,10 @@ export function Adding() {
           placeholder="Icon..."
         />
 
-        <Select
-          defaultValue={IconProviders.DEVICONS}
+        <Fields.Compound.Combobox
+          value={IconProviders.DEVICONS}
           label="Provider"
-          onChange={value => setProvider(value as Providers)}
+          onChange={option => setProvider(option.value as Providers)}
           options={[
             { value: 'all', label: 'all' },
             ...Object.values(IconProviders).map(value => ({

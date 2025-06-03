@@ -3,9 +3,9 @@ import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 
-import { Select } from 'components';
-import { views } from './views';
+import { Fields } from 'components/ui/primitives/fields';
 
+import { views } from './views';
 import { capitalize } from 'utils';
 
 type Views = keyof typeof views;
@@ -24,10 +24,10 @@ const Config = () => {
 
   return (
     <>
-      <Select
+      <Fields.Compound.Combobox
         label="Select the stats to config"
         defaultValue={currentTab}
-        onChange={setCurrentTab}
+        onChange={option => setCurrentTab(option.value)}
         options={viewNames.map(view => ({
           label: view.split('-').map(capitalize).join(' '),
           value: view,

@@ -51,6 +51,10 @@ const Small = twx.small`text-foreground text-xs italic`;
 
 const Label = twx.label`text-foreground text-sm font-semibold block`;
 
+const Highlight = twx.span`text-tone-foreground-context text-sm`;
+
+const Error = twx(Highlight)`tone palette-danger text-xs`;
+
 export const Text = {
   Heading,
   Paragraph,
@@ -58,7 +62,9 @@ export const Text = {
   Link,
   Small,
   Label,
+  Error,
   Strong,
+  Highlight,
 
   Clickable,
 };

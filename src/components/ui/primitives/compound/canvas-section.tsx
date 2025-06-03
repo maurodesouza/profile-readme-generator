@@ -13,7 +13,7 @@ type CanvasSectionProps = {
 export function CanvasSection(
   props: React.PropsWithChildren<CanvasSectionProps>
 ) {
-  const { id, children } = props;
+  const { id, children, ...rest } = props;
 
   const { previewMode, currentSection } = useCanvas();
 
@@ -46,6 +46,7 @@ export function CanvasSection(
       clear={clear}
       data-sectionid={id}
       data-hasfloat={float !== 'none'}
+      {...rest}
     >
       <Section.Wrapper onClick={onSelectSection} state={state.is}>
         {children}

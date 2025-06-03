@@ -1,22 +1,21 @@
 import { GuardSection } from 'components/sections/guard';
 
-import * as S from './styles';
-
 type PacmanSectionProps = {
   id: string;
 };
 
-const PacmanSection = ({ id }: PacmanSectionProps) => {
+export function PacmanSection(props: PacmanSectionProps) {
+  const { id } = props;
+
   return (
     <GuardSection sectionId={id}>
-      <S.Container>
-        <S.Image
+      <div className="grid place-items-center">
+        <img
+          className="w-full"
           src="/assets/pacman.svg"
           alt="An animation of pacman eating the github user contribuitions (like pacman game)"
         />
-      </S.Container>
+      </div>
     </GuardSection>
   );
-};
-
-export { PacmanSection };
+}

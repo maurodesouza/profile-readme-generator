@@ -1,12 +1,12 @@
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 
+import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Text } from 'components/ui/primitives/atoms/text';
+import { Fields } from 'components/ui/primitives/fields';
+
 import { events } from 'app';
 import { CanvasStatesEnum } from 'types';
 import { useCanvas, useSettings } from 'hooks';
-
-import { SimpleInput } from 'components/inputs';
-import { Icon } from 'components/ui/primitives/atoms/icon';
-import { Text } from 'components/ui/primitives/atoms/text';
 
 const BASE_URL = 'https://api.github.com/users/';
 
@@ -97,7 +97,7 @@ export function GuardSection(
             </Text.Paragraph>
           </div>
 
-          <SimpleInput
+          <Fields.Compound.Input
             error={error}
             ref={inputRef}
             label="Github username"

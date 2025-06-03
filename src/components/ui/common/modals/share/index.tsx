@@ -1,6 +1,6 @@
 import { IconName } from 'lucide-react/dynamic';
 
-import { SimpleInput } from 'components';
+import { Fields } from 'components/ui/primitives/fields';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Dialog } from 'components/ui/primitives/atoms/dialog';
@@ -42,7 +42,7 @@ export function ShareModal() {
       </div>
 
       <Dialog.Footer className="relative">
-        <SimpleInput defaultValue={shareUrl} disabled />
+        <Fields.Atoms.Input defaultValue={shareUrl} disabled />
 
         <button
           className="absolute top-0 right-md h-10 grid place-items-center hover:!text-tone-luminosity-300"

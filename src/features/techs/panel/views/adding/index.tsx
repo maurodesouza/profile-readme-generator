@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 
-import { SimpleInput, Select } from 'components';
+import { Select } from 'components';
+import { Fields } from 'components/ui/primitives/fields';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
@@ -75,7 +76,7 @@ export function Adding() {
   return (
     <>
       <div className="flex gap-md mb-md">
-        <SimpleInput
+        <Fields.Compound.Input
           label="Search"
           ref={inputRef}
           onInput={debounce(forceUpdate, 200)}

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
-import { SimpleInput } from 'components';
 import { Panel } from 'components/ui/primitives/atoms/panel';
+import { Fields } from 'components/ui/primitives/fields';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { events } from 'app';
@@ -30,7 +30,7 @@ export function Adding() {
 
   return (
     <>
-      <SimpleInput
+      <Fields.Compound.Input
         ref={inputRef}
         onInput={debounce(forceUpdate, 200)}
         placeholder="Search..."

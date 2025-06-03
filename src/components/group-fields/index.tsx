@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { inputMap } from 'components';
-
 import { events } from 'app';
 import { Inputs } from 'types';
 import { useCanvas, useSettings } from 'hooks';
@@ -10,6 +8,7 @@ import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
 
 import { variants } from './animations';
 import { GroupFieldsLabel } from './label';
+import { inputMap } from './fields/inputs-map';
 
 type Conditions = {
   path: string;
@@ -107,7 +106,7 @@ export function GroupFields(props: GroupFieldsProps) {
               >
                 <Input
                   label={field.label}
-                  defaultValue={defaultValue}
+                  value={defaultValue}
                   onChange={value => onChange(value, field.path)}
                   {...rest}
                 />

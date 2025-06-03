@@ -44,6 +44,7 @@
     "@radix-ui/react-switch": "^1.2.5",
     "@tailwindcss/postcss": "^4.1.7",
     "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
     "framer-motion": "^12.12.1",
     "gray-matter": "^4.0.3",
     "html-prettify": "^1.0.7",

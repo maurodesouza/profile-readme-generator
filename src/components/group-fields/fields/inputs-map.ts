@@ -4,6 +4,7 @@ import { Inputs } from 'types';
 import { GFTextField } from './text';
 import { GFSwitchField } from './switch';
 import { GFSelectField } from './select';
+import { GFTextAreaField } from './textarea';
 
 export type GFCommonProps<T = any> = {
   value: T;
@@ -18,4 +19,5 @@ export const inputMap: InputMap = {
   [Inputs.TEXT]: GFTextField,
   [Inputs.SWITCH]: GFSwitchField,
   [Inputs.SELECT]: GFSelectField,
+  [Inputs.TEXTAREA]: GFTextAreaField,
 };

@@ -1,0 +1,45 @@
+.text-section h1 {
+  font-size: 3.2rem;
+  line-height: normal;
+
+  border-bottom-width: 1px;
+  border-bottom-color: hsl(var(--ring-inner));
+  border-bottom-style: solid;
+  padding-bottom: var(--spacing-xs);
+}
+
+.text-section h2 {
+  font-size: 2.4rem;
+  line-height: normal;
+
+  border-bottom-width: 1px;
+  border-bottom-color: hsl(var(--ring-inner));
+  border-bottom-style: solid;
+  padding-bottom: var(--spacing-xs);
+}
+
+.text-section h3 {
+  font-size: 2rem;
+  line-height: normal;
+}
+
+.text-section h4 {
+  font-size: 1.6rem;
+  line-height: normal;
+}
+
+.text-section h5 {
+  font-size: 1.4rem;
+  line-height: normal;
+}
+
+.text-section h6 {
+  font-size: 1.36rem;
+  line-height: normal;
+}
+
+.text-section p {
+  font-size: 1.6rem;
+  line-height: normal;
+}
+

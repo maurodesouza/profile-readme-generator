@@ -1,98 +1,92 @@
-import { MouseEvent, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Reorder } from 'framer-motion';
 
-import {
-  BaseSection,
-  Tooltip,
-  Welcome,
-  OnlyClientSide,
-  ErrorBoundary,
-} from 'components';
+import { OnlyClientSide } from 'components';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
+import { ContextMenu } from 'components/ui/primitives/atoms/context-menu';
+import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
+
+import { SectionContextMenu } from 'components/context-menus/section';
+import { Welcome } from 'components/ui/primitives/compound/welcome';
+import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
-import { ContextMenus, PanelsEnum } from 'types';
+import { PanelsEnum } from 'types';
 
-import * as S from './styles';
 import { CanvasErrorFallback } from './error';
 
-const Canvas = () => {
+export function Canvas() {
   const { extensions } = useExtensions();
-  const { sections, currentSection, previewMode } = useCanvas();
-  const [hasError, setHasError] = useState(false);
+  const { sections, previewMode } = useCanvas();
 
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
 
   const sectionsData = useMemo(() => extensions.sections ?? {}, [extensions]);
 
-  const handleOpenContextMenu = (e: MouseEvent) => {
-    !previewMode && events.contextmenu.open(ContextMenus.SECTION, e);
-  };
-
   return (
     <OnlyClientSide>
-      <S.Container
-        onContextMenu={handleOpenContextMenu}
-        fullHeight={hasError || !hasSection}
-      >
+      <div className="h-full">
         {hasSection && !previewMode && (
-          <S.Wrapper>
-            <Tooltip position="left" content="Clear canvas" variant="danger">
-              <S.Button
+          <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
+            <Tooltip position="left" content="Clear canvas" tone="danger">
+              <Clickable.Button
                 aria-label="Clear canvas"
+                size="icon"
+                variant="icon"
+                tone="danger"
                 onClick={events.canvas.clear}
-                variant="warn"
               >
                 <Icon name="trash" />
-              </S.Button>
+              </Clickable.Button>
             </Tooltip>
 
-            <Tooltip
-              position="left"
-              content="Open settings panel"
-              variant="info"
-            >
-              <S.Button
+            <Tooltip position="left" content="Open settings panel" tone="brand">
+              <Clickable.Button
                 aria-label="Open settings panel"
+                size="icon"
+                variant="icon"
+                tone="brand"
                 onClick={() =>
-                  events.panel.open('right', PanelsEnum.USER_SETTINGS)
+                  events.panel.show('right', PanelsEnum.USER_SETTINGS)
                 }
-                variant="info"
               >
                 <Icon name="settings" />
-              </S.Button>
+              </Clickable.Button>
             </Tooltip>
-          </S.Wrapper>
+          </div>
         )}
 
-        <ErrorBoundary
-          fallback={<CanvasErrorFallback />}
-          onChange={setHasError}
-        >
+        <ErrorBoundary fallback={<CanvasErrorFallback />}>
           {previewMode && (
-            <S.Wrapper>
-              <Tooltip position="left" content="Use template" variant="success">
-                <S.Button
+            <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
+              <Tooltip position="left" content="Use template" tone="success">
+                <Clickable.Button
                   aria-label="Use template"
+                  size="icon"
+                  variant="icon"
+                  tone="success"
                   onClick={events.template.use}
-                  variant="success"
                 >
                   <Icon name="check" />
-                </S.Button>
+                </Clickable.Button>
               </Tooltip>
 
-              <Tooltip position="left" content="Leave preview" variant="danger">
-                <S.Button
+              <Tooltip position="left" content="Leave preview" tone="danger">
+                <Clickable.Button
                   aria-label="Leave preview"
+                  size="icon"
+                  variant="icon"
+                  tone="danger"
                   onClick={() => events.template.preview()}
-                  variant="warn"
                 >
                   <Icon name="x" />
-                </S.Button>
+                </Clickable.Button>
               </Tooltip>
-            </S.Wrapper>
+            </div>
           )}
 
           {hasSection ? (
@@ -103,20 +97,20 @@ const Canvas = () => {
             >
               {sections.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;
-
                 if (!section) return null;
 
                 const Component = section.component;
 
                 return (
-                  <BaseSection
-                    key={id}
-                    id={id}
-                    selected={id === currentSection?.id}
-                    previewMode={previewMode}
-                  >
-                    <Component id={id} {...props} />
-                  </BaseSection>
+                  <ContextMenu.Root key={id}>
+                    <ContextMenu.Trigger asChild>
+                      <CanvasSection id={id}>
+                        <Component id={id} {...props} />
+                      </CanvasSection>
+                    </ContextMenu.Trigger>
+
+                    <SectionContextMenu id={id} />
+                  </ContextMenu.Root>
                 );
               })}
             </Reorder.Group>
@@ -124,9 +118,7 @@ const Canvas = () => {
             <Welcome />
           )}
         </ErrorBoundary>
-      </S.Container>
+      </div>
     </OnlyClientSide>
   );
-};
-
-export { Canvas };
+}

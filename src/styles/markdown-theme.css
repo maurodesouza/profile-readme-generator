@@ -1,0 +1,22 @@
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown pre,
+.markdown ul {
+  margin-bottom: var(--spacing-lg);
+}
+
+.markdown pre {
+  border-radius: var(--radius-md);
+  border-width: var(--spacing-border);
+  border-color: hsl(var(--ring-inner));
+  padding: var(--spacing-md);
+}
+
+.markdown p {
+  margin-block: var(--spacing-lg);
+}
+
+.markdown code {
+  line-break: normal;
+}

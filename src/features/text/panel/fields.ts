@@ -38,7 +38,7 @@ const groups = [
     label: 'Content',
     fields: [
       {
-        type: Inputs.TEXT,
+        type: Inputs.TEXTAREA,
         path: 'content.text',
         label: 'Text',
         props: {

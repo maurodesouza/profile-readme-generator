@@ -5,11 +5,11 @@ import { useCanvas } from 'hooks';
 import { views } from './views';
 
 import { groups } from './fields';
-import * as S from './styles';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
 type Views = keyof typeof views;
 
-const MusicEditPanel = () => {
+export function MusicEditPanel() {
   const { currentSection: obj } = useCanvas();
 
   const currentView = getDeepObjectProperty<Views>(obj, 'props.content.type')!;
@@ -17,14 +17,12 @@ const MusicEditPanel = () => {
   const View = views[currentView];
 
   return (
-    <S.Container>
+    <Panel.Scrollable>
       {groups.map(group => (
         <GroupFields key={group.id} {...group} />
       ))}
 
       <View />
-    </S.Container>
+    </Panel.Scrollable>
   );
-};
-
-export { MusicEditPanel };
+}

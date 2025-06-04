@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+
+/* Base color classes */
+.base-1 {
+  --background-default: 216 28% 7%;
+  --background-support: 216 28% 30%;
+
+  --foreground-min: 210 17% 50%;
+  --foreground: 210 17% 82%;
+  --foreground-max: 210 17% 100%;
+
+  --ring-inner: 212 12% 21%;
+  --ring-outer: 212 12% 70%;
+}
+
+/* Token color classes */
+
+.palette-brand {
+  --tone-100: 212 100% 27%;
+  --tone-200: 212 100% 47%;
+  --tone-300: 212 100% 67%;
+  --tone-400: 212 100% 77%;
+  --tone-500: 212 100% 87%;
+
+  --tone-contrast: 0 0 100%;
+}
+
+.palette-success {
+  --tone-100: 136 54% 11%;
+  --tone-200: 136 54% 31%;
+  --tone-300: 136 54% 41%;
+  --tone-400: 136 54% 61%;
+  --tone-500: 136 54% 81%;
+
+  --tone-contrast: 0 0 100%;
+}
+
+.palette-danger {
+  --tone-100: 3 93% 23%;
+  --tone-200: 3 93% 43%;
+  --tone-300: 3 93% 63%;
+  --tone-400: 3 93% 73%;
+  --tone-500: 3 93% 83%;
+
+  --tone-contrast: 0 0 100%;
+}
+
+.palette-warning {
+  --tone-100: 11 90% 28%;
+  --tone-200: 11 90% 48%;
+  --tone-300: 11 90% 68%;
+  --tone-400: 11 90% 78%;
+  --tone-500: 11 90% 88%;
+
+  --tone-contrast: 0 0 100%;
+}
+
+.tone {
+  --tone-contrast-100: var(--tone-100);
+  --tone-contrast-200: var(--tone-200);
+  --tone-contrast-300: var(--tone-300);
+  --tone-contrast-400: var(--tone-400);
+  --tone-contrast-500: var(--tone-500);
+
+  --tone-luminosity-100: var(--tone-100);
+  --tone-luminosity-200: var(--tone-200);
+  --tone-luminosity-300: var(--tone-300);
+  --tone-luminosity-400: var(--tone-400);
+  --tone-luminosity-500: var(--tone-500);
+
+  --tone-ring-inner: var(--tone-300);
+  --tone-ring-outer: var(--tone-100);
+
+  --tone-foreground-contrast: var(--tone-contrast);
+  --tone-foreground-context: var(--tone-300);
+}
+
+.box-border {
+  @apply rounded-md border border-ring-inner transition-all;
+}
+
+@theme inline {
+  /* TODO: Change to use REM */
+
+  --spacing: 4px;
+  --default-transition-duration: 300ms;
+
+  /* Breakpoints */
+
+  --breakpoint-desktop: 1440px;
+  --breakpoint-laptop: 1170px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 450px;
+
+  /* Spacings */
+
+  --spacing-xs: 0.8rem;
+  --spacing-sm: 1.2rem;
+  --spacing-md: 1.6rem;
+  --spacing-lg: 2.0rem;
+  --spacing-xl: 2.4rem;
+
+  --spacing-border: 1px;
+
+  --spacing-page: 188rem;
+  --spacing-panel: 30rem;
+  --spacing-centered-content: 110rem;
+
+  /* Font */
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-md: 1.6rem;
+  --text-lg: 2.0rem;
+  --text-xl: 2.8rem;
+
+  /* Border */
+
+  --radius-md: 6px;
+
+  /* Shadow */
+
+  --shadow-panel-left: 5px 0 20px 5px hsla(var(--background-default));
+  --shadow-panel-right: -5px 0 20px 5px hsla(var(--background-default));
+
+  /* Base color tokens */
+
+  --color-background-default: hsla(var(--background-default));
+  --color-background-support: hsla(var(--background-support));
+
+  --color-ring-inner: hsla(var(--ring-inner));
+  --color-ring-outer: hsla(var(--ring-outer));
+
+  --color-foreground-min: hsla(var(--foreground-min));
+  --color-foreground: hsla(var(--foreground));
+  --color-foreground-max: hsla(var(--foreground-max));
+
+  /* Tone color tokens */
+
+  --color-tone-contrast-100: hsla(var(--tone-contrast-100));
+  --color-tone-contrast-200: hsla(var(--tone-contrast-200));
+  --color-tone-contrast-300: hsla(var(--tone-contrast-300));
+  --color-tone-contrast-400: hsla(var(--tone-contrast-400));
+  --color-tone-contrast-500: hsla(var(--tone-contrast-500));
+
+  --color-tone-luminosity-100: hsla(var(--tone-luminosity-100));
+  --color-tone-luminosity-200: hsla(var(--tone-luminosity-200));
+  --color-tone-luminosity-300: hsla(var(--tone-luminosity-300));
+  --color-tone-luminosity-400: hsla(var(--tone-luminosity-400));
+  --color-tone-luminosity-500: hsla(var(--tone-luminosity-500));
+
+  --color-tone-ring-inner: hsla(var(--tone-ring-inner));
+  --color-tone-ring-outer: hsla(var(--tone-ring-outer));
+
+  --color-tone-foreground-contrast: hsla(var(--tone-foreground-contrast));
+  --color-tone-foreground-context: hsla(var(--tone-foreground-context));
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 10px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+a *,
+button * {
+  cursor: pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+body,
+button,
+input,
+textarea {
+  @apply font-sans text-sm text-foreground font-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-semibold;
+}
+
+body {
+  @apply bg-background-default;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-ring-inner;
+}
+
+a {
+  @apply text-tone-luminosity-300;
+}
+
+a:hover {
+  text-decoration: underline;
+}

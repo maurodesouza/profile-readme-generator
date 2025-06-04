@@ -1,32 +1,33 @@
+import Router from 'next/router';
 import { useDragControls } from 'framer-motion';
 
-import Router from 'next/router';
-
-import { Tooltip } from 'components';
+import { Tile } from 'components/ui/primitives/atoms/tile';
 import { Icon } from 'components/ui/primitives/atoms/icon';
+import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 
-import { variants, animations } from './animations';
 import { events } from 'app';
+import { variants, animations } from './animations';
 
-import * as S from './styles';
-
-type EditSocialItemProps = {
+type ItemProps = {
   stats: string;
   isShowing: boolean;
 };
 
-const Item = ({ stats, isShowing }: EditSocialItemProps) => {
-  const getQueries = () => new URLSearchParams(window.location.search);
-
+export function Item(props: ItemProps) {
+  const { isShowing, stats } = props;
   const dragControls = useDragControls();
 
-  const handleChangeDisplay = () => {
+  function getQueries() {
+    return new URLSearchParams(window.location.search);
+  }
+
+  function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;
 
     events.canvas.edit({ path, value: !isShowing });
-  };
+  }
 
-  const handleConfigure = () => {
+  function onConfigure() {
     const query = getQueries();
 
     query.set('tab', 'config');
@@ -42,13 +43,13 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
         shallow: true,
       }
     );
-  };
+  }
 
   const label = isShowing ? 'Hide' : 'Show';
   const eyeIcon = isShowing ? 'eye' : 'eye-off';
 
   return (
-    <S.Container
+    <Tile.Sortable
       value={stats}
       variants={variants.container}
       dragListener={false}
@@ -56,31 +57,27 @@ const Item = ({ stats, isShowing }: EditSocialItemProps) => {
       layout
       {...animations.container}
     >
-      <S.Content>
-        <S.Drag onPointerDown={event => [dragControls.start(event)]}>
-          <Icon name="menu" size={20} />
-        </S.Drag>
+      <Tile.Container>
+        <Tile.Drag onPointerDown={event => [dragControls.start(event)]} />
 
-        <S.Wrapper>
-          <S.Name>{stats}</S.Name>
-        </S.Wrapper>
+        <Tile.Content>
+          <Tile.Label>{stats}</Tile.Label>
+        </Tile.Content>
 
-        <S.Actions>
-          <Tooltip content={label} position="right" variant="info">
-            <S.Button onClick={handleChangeDisplay}>
+        <Tile.Actions>
+          <Tooltip content={label} position="right" tone="brand">
+            <Tile.Button onClick={onChangeDisplay}>
               <Icon name={eyeIcon} />
-            </S.Button>
+            </Tile.Button>
           </Tooltip>
 
-          <Tooltip content="Configure" position="right" variant="info">
-            <S.Button onClick={handleConfigure}>
+          <Tooltip content="Configure" position="right" tone="brand">
+            <Tile.Button onClick={onConfigure}>
               <Icon name="settings" />
-            </S.Button>
+            </Tile.Button>
           </Tooltip>
-        </S.Actions>
-      </S.Content>
-    </S.Container>
+        </Tile.Actions>
+      </Tile.Container>
+    </Tile.Sortable>
   );
-};
-
-export { Item };
+}

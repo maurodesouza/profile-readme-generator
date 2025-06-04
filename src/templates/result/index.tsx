@@ -1,20 +1,28 @@
-import { ReadmeResult, Panel } from 'components';
+import { ReadmeResult } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
 import { PanelsEnum } from 'types';
-import * as S from './styles';
 
 const ResultTemplate = () => {
   return (
-    <S.Container>
-      <Panel initialPanel={PanelsEnum.GENERATED_FILES} side="left" />
+    <Page.Container>
+      <Panel.Template.Full
+        initialPanel={PanelsEnum.GENERATED_FILES}
+        side="left"
+      />
 
-      <S.Wrapper>
-        <ReadmeResult />
-      </S.Wrapper>
+      <Page.Wrapper>
+        <Page.Content>
+          <ReadmeResult />
+        </Page.Content>
+      </Page.Wrapper>
 
-      <Panel initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} side="right" />
-      <div />
-    </S.Container>
+      <Panel.Template.Full
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+        side="right"
+      />
+    </Page.Container>
   );
 };
 

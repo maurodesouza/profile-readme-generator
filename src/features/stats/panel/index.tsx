@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 
-import { Tabs } from 'components';
-import { tabs, views } from './tabs';
+import { Tabs } from 'components/ui/primitives/atoms/tabs';
+import { Panel } from 'components/ui/primitives/atoms/panel';
 
-import * as S from './styles';
+import { tabs, views } from './tabs';
 
 type Views = keyof typeof views;
 
-const StatsEditPanel = () => {
+export function StatsEditPanel() {
   const [currentTab, setCurrentTab] = useState<Views>('layout');
 
   const View = views[currentTab] ?? React.Fragment;
@@ -34,12 +34,12 @@ const StatsEditPanel = () => {
   }, []);
 
   return (
-    <S.Container>
+    <>
       <Tabs tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab} />
 
-      <View />
-    </S.Container>
+      <Panel.Scrollable>
+        <View />
+      </Panel.Scrollable>
+    </>
   );
-};
-
-export { StatsEditPanel };
+}

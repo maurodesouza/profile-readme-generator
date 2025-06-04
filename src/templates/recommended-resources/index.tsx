@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import { recommended_resources } from 'resources';
-import { AffiliateWarning, Footer, ResourceItem } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
+import { PageFooter } from 'components/ui/common/page-footer';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
+import { ResourceItem } from 'components/ui/primitives/compound/resource-items';
+import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-warning';
 
-import * as S from './styles';
+import { recommended_resources } from 'resources';
 
 type RecommendedResourcesTemplateProps = {
   resourceId: keyof typeof recommended_resources;
@@ -23,11 +26,12 @@ const RecommendedResourcesTemplate = (
   }, []);
 
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Content>
+    <Page.Container>
+      <Page.Wrapper centered>
+        <Page.Content>
           <h1>Recommended Resources for Developers</h1>
-          <p>
+
+          <p className="py-lg">
             Here you&apos;ll find a hand-picked selection of books and tools
             that are frequently recommended by experienced developers and
             educators. These resources cover essential topics like clean code,
@@ -35,7 +39,7 @@ const RecommendedResourcesTemplate = (
             you need to level up as a developer.
           </p>
 
-          <S.Resources>
+          <div className="grid grid-cols-2 gap-xl">
             {(resources ?? []).map(resource => (
               <ResourceItem
                 key={resource.name}
@@ -43,18 +47,21 @@ const RecommendedResourcesTemplate = (
                 linkLabel="Get the book"
               />
             ))}
-          </S.Resources>
-        </S.Content>
+          </div>
+        </Page.Content>
 
         <AffiliateWarning />
 
-        <Footer.Container>
-          <Footer.Owner />
-          <Footer.Navs />
-          <Footer.GenericLink href="/" label="Try Generator" />
-        </Footer.Container>
-      </S.Wrapper>
-    </S.Container>
+        <PageFooter.Container>
+          <PageFooter.Owner />
+          <PageFooter.Navs />
+
+          <Clickable.Link tone="brand" href="/">
+            Try Generator
+          </Clickable.Link>
+        </PageFooter.Container>
+      </Page.Wrapper>
+    </Page.Container>
   );
 };
 

@@ -1,40 +1,27 @@
-import { MouseEvent, useEffect } from 'react';
+import 'styles/global.css';
+import 'styles/markdown-theme.css';
+import 'styles/prism-syntax-theme.css';
+
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 
-import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
-import { config, events } from 'app';
-import { ContextMenu, Modal } from 'components';
+import { config } from 'app';
+import { Modal } from 'components/ui/primitives/compound/modal';
 
 import { Features } from 'features';
-import { theme, GlobalStyles } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
-
-  const handlePreventRightClick = (e: MouseEvent) => {
-    e.preventDefault();
-
-    events.contextmenu.close();
-  };
-
-  useEffect(() => {
-    events.on('contextmenu', handlePreventRightClick);
-
-    return () => {
-      events.on('contextmenu', handlePreventRightClick);
-    };
-  }, []);
 
   const title = 'Profile Readme Generator';
   const description =
     'Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!';
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Head>
         <title>{title}</title>
 
@@ -85,15 +72,12 @@ const App = ({ Component, pageProps }: AppProps) => {
           <SettingsProvider>
             <Component {...pageProps} />
 
-            <ContextMenu />
             <Modal />
             <Features />
-
-            <GlobalStyles />
           </SettingsProvider>
         </CanvasProvider>
       </ExtensionsProvider>
-    </ThemeProvider>
+    </>
   );
 };
 

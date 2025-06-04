@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 
-import { Tree } from 'components';
-import { useCanvas, useExtensions, useSettings } from 'hooks';
+import { Tree } from 'components/ui/primitives/atoms/tree';
 
 import { events } from 'app';
 import { parseToReadme } from 'utils';
-
-import * as S from './styles';
+import { useCanvas, useExtensions, useSettings } from 'hooks';
 
 const PanelGeneratedFiles = () => {
   const { sections } = useCanvas();
@@ -22,9 +20,9 @@ const PanelGeneratedFiles = () => {
   }, []);
 
   return (
-    <S.Container>
+    <div>
       <Tree tree={tree} />
-    </S.Container>
+    </div>
   );
 };
 

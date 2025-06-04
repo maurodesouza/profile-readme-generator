@@ -1,6 +1,9 @@
-import { Footer, Markdown, Panel } from 'components';
+import { Page } from 'components/ui/primitives/atoms/page';
+import { Panel } from 'components/ui/primitives/atoms/panel';
+import { PageFooter } from 'components/ui/common/page-footer';
+import { Markdown } from 'components/ui/primitives/atoms/markdown';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
-import * as S from './styles';
 import { PanelsEnum } from 'types';
 
 type PostTemplateProps = {
@@ -11,23 +14,32 @@ const PostTemplate = (props: PostTemplateProps) => {
   const { content } = props;
 
   return (
-    <S.Container>
-      <Panel side="left" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
+    <Page.Container>
+      <Panel.Template.Full
+        side="left"
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+      />
 
-      <S.Wrapper>
-        <S.Content>
+      <Page.Wrapper>
+        <Page.Content>
           <Markdown>{content}</Markdown>
-        </S.Content>
+        </Page.Content>
 
-        <Footer.Container>
-          <Footer.Owner />
-          <Footer.Navs />
-          <Footer.GenericLink href="/" label="Try Generator" />
-        </Footer.Container>
-      </S.Wrapper>
+        <PageFooter.Container>
+          <PageFooter.Owner />
+          <PageFooter.Navs />
 
-      <Panel side="right" initialPanel={PanelsEnum.RECOMMENDED_RESOURCES} />
-    </S.Container>
+          <Clickable.Link tone="brand" href="/">
+            Try Generator
+          </Clickable.Link>
+        </PageFooter.Container>
+      </Page.Wrapper>
+
+      <Panel.Template.Full
+        side="right"
+        initialPanel={PanelsEnum.RECOMMENDED_RESOURCES}
+      />
+    </Page.Container>
   );
 };
 

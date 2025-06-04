@@ -1,0 +1,55 @@
+.token.punctuation {
+  color: hsl(var(--color-foreground));
+ }
+
+.token.boolean,
+.token.constant,
+.token.deleted,
+.token.number,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: hsl(var(--tone-luminosity-300));
+}
+
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+  color: hsl(var(--tone-luminosity-400));
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: hsl(var(--tone-luminosity-200));
+}
+
+.token.bold,
+.token.important {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.code code,
+.code pre {
+  width: 100%;
+  color: hsl(var(--color-foreground));
+}
+
+.code code {
+  white-space: pre;
+}
+
+.code pre {
+  background: transparent;
+}

@@ -1,6 +1,9 @@
 const config = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  moduleNameMapper: {
+    '^react-twc$': '<rootDir>/.jest/mocks/react-twc.js',
+  },
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts(x)?',

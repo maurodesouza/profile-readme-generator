@@ -1,5 +1,4 @@
 import { EditableIcon } from 'types';
-import * as S from './styles';
 
 type TechStyles = {
   height: number;
@@ -20,15 +19,20 @@ type TechsSectionProps = {
   styles: SectionStyles;
 };
 
-const TechsSection = ({
-  content,
-  styles: containerStyles,
-}: TechsSectionProps) => {
+export function TechsSection(props: TechsSectionProps) {
+  const { content, styles: containerStyles } = props;
+
   const { icons, styles } = content;
   const { height } = styles;
 
   return (
-    <S.Container {...containerStyles}>
+    <div
+      className="flex flex-wrap"
+      style={{
+        justifyContent: containerStyles.align,
+        gap: `${containerStyles.spacing}px`,
+      }}
+    >
       {Object.entries(icons).map(
         ([name, { currentProvider, providers, config }]) => {
           const provider = providers[currentProvider]!;
@@ -40,12 +44,15 @@ const TechsSection = ({
             : provider.path;
 
           return (
-            <img key={name} height={height} alt={`${name} logo`} src={path} />
+            <img
+              style={{ height: `${height}px` }}
+              key={name}
+              alt={`${name} logo`}
+              src={path}
+            />
           );
         }
       )}
-    </S.Container>
+    </div>
   );
-};
-
-export { TechsSection };
+}

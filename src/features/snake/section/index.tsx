@@ -1,22 +1,21 @@
 import { GuardSection } from 'components/sections/guard';
 
-import * as S from './styles';
-
 type SnakeSectionProps = {
   id: string;
 };
 
-const SnakeSection = ({ id }: SnakeSectionProps) => {
+export function SnakeSection(props: SnakeSectionProps) {
+  const { id } = props;
+
   return (
     <GuardSection sectionId={id}>
-      <S.Container>
-        <S.Image
+      <div className="grid place-items-center">
+        <img
+          className="w-full"
           src="/assets/snake.svg"
           alt="An animation of snake eating the github user contribuitions (like snake game)"
         />
-      </S.Container>
+      </div>
     </GuardSection>
   );
-};
-
-export { SnakeSection };
+}

@@ -10,6 +10,7 @@ import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config } from 'app';
 import { Modal } from 'components/ui/primitives/compound/modal';
+import { GlobalHandlers } from 'components/global-handlers';
 
 import { Features } from 'features';
 
@@ -66,6 +67,8 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="https://github.com/maurodesouza"
         />
       </Head>
+
+      <GlobalHandlers />
 
       <ExtensionsProvider>
         <CanvasProvider>

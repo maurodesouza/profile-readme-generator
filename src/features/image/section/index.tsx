@@ -1,5 +1,3 @@
-import * as S from './styles';
-
 type Content = {
   url: string;
 };
@@ -14,15 +12,15 @@ type ImageProps = {
   styles: Styles;
 };
 
-const ImageSection = ({ content, styles }: ImageProps) => {
+export function ImageSection(props: ImageProps) {
+  const { content, styles } = props;
+
   const { url } = content;
-  const { height, ...rest } = styles;
+  const { height, align } = styles;
 
   return (
-    <S.Container {...rest}>
+    <div className="flex" style={{ justifyContent: align }}>
       <img height={height} src={url} alt="Image" />
-    </S.Container>
+    </div>
   );
-};
-
-export { ImageSection };
+}

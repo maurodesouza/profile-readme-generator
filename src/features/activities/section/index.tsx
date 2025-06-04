@@ -1,7 +1,5 @@
 import { getActivitiesUrl } from 'utils';
 
-import * as S from './styles';
-
 type Content = {
   type: Parameters<typeof getActivitiesUrl>[0];
   [key: string]: unknown;
@@ -17,15 +15,19 @@ type ActivitiesSectionProps = {
   styles: Styles;
 };
 
-const ActivitiesSection = ({ content, styles }: ActivitiesSectionProps) => {
+export function ActivitiesSection(props: ActivitiesSectionProps) {
+  const { content, styles } = props;
   const { type, ...rest } = content;
+
   const url = getActivitiesUrl(type, rest);
 
   return (
-    <S.Container {...styles}>
-      <img src={url} alt={`Layout with last ${type} posts`} />
-    </S.Container>
+    <div className="flex gap-sm" style={{ justifyContent: styles.align }}>
+      <img
+        src={url}
+        alt={`Layout with last ${type} posts`}
+        className="max-w-full"
+      />
+    </div>
   );
-};
-
-export { ActivitiesSection };
+}

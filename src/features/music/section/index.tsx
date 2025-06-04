@@ -1,5 +1,4 @@
 import { getMusicUrl } from 'utils';
-import * as S from './styles';
 
 type Obj = {
   [key: string]: unknown;
@@ -29,7 +28,8 @@ const ALTS = {
   currently: 'Widget with the current Spotify song',
 };
 
-const MusicSection = ({ content, styles }: MusicSectionProps) => {
+export function MusicSection(props: MusicSectionProps) {
+  const { content, styles } = props;
   const { type, ...rest } = content;
 
   const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, rest[type]);
@@ -43,12 +43,10 @@ const MusicSection = ({ content, styles }: MusicSectionProps) => {
     );
 
   return (
-    <S.Container {...styles}>
+    <div className="flex gap-sm" style={{ justifyContent: styles.align }}>
       <Wrapper>
-        <img src={imageUrl} alt={alt} />
+        <img src={imageUrl} alt={alt} className="max-w-full" />
       </Wrapper>
-    </S.Container>
+    </div>
   );
-};
-
-export { MusicSection };
+}

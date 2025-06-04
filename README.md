@@ -75,8 +75,8 @@ https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-
   <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
 </a> &#xa0; &#xa0;
 
-<a href="https://styled-components.com">
-  <img width="50" title="Styled Components" alt="Styled Components Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/styled-components/styled-components.png">
+<a href="https://tailwindcss.com">
+  <img width="50" title="Styled Components" alt="Styled Components Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/tailwind/tailwind.png">
 </a> &#xa0; &#xa0;
 
 <a href="https://jestjs.io">
@@ -98,13 +98,18 @@ https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-
 
   ###
 
-  * [Styled Icons (Feather Icons)](https://styled-icons.js.org)
-  * [Styled Media Query](https://github.com/morajabi/styled-media-query)
+  * [Shadcn](https://ui.shadcn.com)
+  * [Radix](https://www.radix-ui.com)
+  * [Lucid Icons](https://lucide.dev)
+  * [clsx](https://github.com/lukeed/clsx#readme)
+  * [Tailwind Merge](https://github.com/dcastil/tailwind-merge#readme)
+  * [Tailwind Variants](https://www.tailwind-variants.org)
   * [Framer Motion](https://framer.com/motion/)
-  * [HTML Prettify](https://github.com/Dmc0125/html-prettify)
-  * [React Share](https://github.com/nygardk/react-share)
   * [Prismjs](https://prismjs.com)
-  * [UUID](https://www.npmjs.com/package/uuid)
+  * [HTML Prettify](https://github.com/Dmc0125/html-prettify#readme)
+  * [React Share](https://github.com/nygardk/react-share)
+  * [React Markdown](https://github.com/remarkjs/react-markdown#readme)
+  * [UUID](https://github.com/uuidjs/uuid#readme)
 
 </details>
 

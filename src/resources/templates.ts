@@ -1165,6 +1165,468 @@ const templates = [
       },
     ],
   },
+
+  {
+    inspired: '',
+    template: [
+      {
+        id: '882f872d-3da2-415e-8757-28ee96c70439',
+        type: 'text',
+        props: {
+          content: { text: "Hey 👋What's Up?", as: 'h1' },
+          styles: { align: 'center' },
+        },
+      },
+      {
+        id: '8566ac51-34de-4fa6-b753-8fc0dcbba76b',
+        type: 'techs',
+        props: {
+          content: {
+            icons: {
+              typescript: {
+                name: 'typescript',
+                color: '#3178C6',
+                alias: ['ts'],
+                tags: ['programming', 'transpiler'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: { path: 'https://skillicons.dev/icons?i=ts' },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/typescript/3178C6',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              nextjs: {
+                name: 'nextjs',
+                color: '#000000',
+                alias: [],
+                tags: ['framework'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: {
+                    path: 'https://skillicons.dev/icons?i=nextjs',
+                  },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/nextdotjs/000000',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              tailwindcss: {
+                name: 'tailwindcss',
+                color: '#06B6D4',
+                alias: ['tailwind'],
+                tags: ['css', 'framework'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: {
+                    path: 'https://skillicons.dev/icons?i=tailwind',
+                  },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Tailwind CSS-06B6D4?logo=tailwindcss&logoColor=black&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              storybook: {
+                name: 'storybook',
+                color: '#FF4785',
+                alias: [],
+                tags: ['framework', 'documentation', 'ui'],
+                available_providers: ['simple_icons', 'shields', 'devicons'],
+                providers: {
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/storybook/FF4785',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Storybook-FF4785?logo=storybook&logoColor=black&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-plain.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-plain-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'devicons',
+                config: {},
+              },
+              graphql: {
+                name: 'graphql',
+                color: '#E10098',
+                alias: [],
+                tags: ['language', 'data', 'query'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: {
+                    path: 'https://skillicons.dev/icons?i=graphql',
+                  },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/graphql/E10098',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/GraphQL-E10098?logo=graphql&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              go: {
+                name: 'go',
+                color: '#00ADD8',
+                alias: [],
+                tags: ['language'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: { path: 'https://skillicons.dev/icons?i=go' },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/go/00ADD8',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-plain.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-line.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              rust: {
+                name: 'rust',
+                color: '#000000',
+                alias: [],
+                tags: ['programming', 'language'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: { path: 'https://skillicons.dev/icons?i=rust' },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/rust/000000',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Rust-000000?logo=rust&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              nestjs: {
+                name: 'nestjs',
+                color: '#E0234E',
+                alias: [],
+                tags: ['framework'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: {
+                    path: 'https://skillicons.dev/icons?i=nestjs',
+                  },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/nestjs/E0234E',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              python: {
+                name: 'python',
+                color: '#3776AB',
+                alias: ['py'],
+                tags: ['programming', 'language'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: { path: 'https://skillicons.dev/icons?i=py' },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/python/3776AB',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+              amazonwebservices: {
+                name: 'amazonwebservices',
+                shortname: 'aws',
+                color: '#232F3E',
+                alias: ['aws'],
+                tags: ['cloud', 'hosting', 'server'],
+                available_providers: [
+                  'simple_icons',
+                  'shields',
+                  'skill_icons',
+                  'devicons',
+                ],
+                providers: {
+                  skill_icons: { path: 'https://skillicons.dev/icons?i=aws' },
+                  simple_icons: {
+                    path: 'https://cdn.simpleicons.org/amazonwebservices/FF9900',
+                  },
+                  shields: {
+                    path: 'https://img.shields.io/badge/Amazon AWS-232F3E?logo=amazonwebservices&logoColor=FF9900&style=for-the-badge',
+                  },
+                  devicons: {
+                    path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+                    variants: [
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-line-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+                    ],
+                  },
+                },
+                currentProvider: 'skill_icons',
+                config: {},
+              },
+            },
+            config: {},
+            styles: { height: '60' },
+          },
+          styles: { align: 'center', spacing: 12 },
+        },
+      },
+      {
+        id: '42405d48-86d5-43d8-8585-60876154a02b',
+        type: 'socials',
+        props: {
+          content: {
+            socials: {
+              linkedin: {
+                icon: 'default',
+                message: 'LinkedIn',
+                color: '0077B5',
+                label: '',
+                logo: 'linkedin',
+                logoColor: 'white',
+              },
+              twitter: {
+                message: 'Twitter',
+                color: '1DA1F2',
+                label: '',
+                logo: 'twitter',
+                logoColor: 'white',
+                icon: 'default',
+              },
+              discord: {
+                icon: 'default',
+                message: 'Discord',
+                color: '7289DA',
+                label: '',
+                logo: 'discord',
+                logoColor: 'white',
+              },
+              twitch: {
+                message: 'Twitch',
+                color: '9146FF',
+                label: '',
+                logo: 'twitch',
+                logoColor: 'white',
+                icon: 'default',
+              },
+              devto: {
+                message: 'dev.to',
+                color: '0A0A0A',
+                label: '',
+                logo: 'dev.to',
+                logoColor: 'white',
+                icon: 'default',
+              },
+            },
+            styles: { style: 'for-the-badge', type: 'badge', height: '25' },
+          },
+          styles: { align: 'center', spacing: 12 },
+        },
+      },
+      {
+        id: '417a7e09-29b7-44a8-9899-054087530df4',
+        type: 'stats',
+        props: {
+          content: {
+            graphs: {
+              stats: {
+                height: 150,
+                hide_title: false,
+                hide_rank: false,
+                show_icons: true,
+                include_all_commits: true,
+                count_private: true,
+                disable_animations: false,
+                theme: 'dracula',
+                locale: 'en',
+                hide_border: false,
+                show: false,
+                order: 1,
+              },
+              languages: {
+                height: 150,
+                locale: 'en',
+                hide_title: false,
+                layout: 'compact',
+                card_width: 320,
+                langs_count: 5,
+                theme: 'dracula',
+                hide_border: false,
+                show: false,
+                order: 2,
+              },
+              streak: {
+                height: 150,
+                locale: 'en',
+                mode: 'daily',
+                theme: 'dracula',
+                hide_border: false,
+                border_radius: 5,
+                date_format: '',
+                show: true,
+                order: 3,
+              },
+              trophy: {
+                theme: 'dracula',
+                column: -1,
+                row: 1,
+                'margin-w': 8,
+                'margin-h': 8,
+                'no-bg': false,
+                'no-frame': false,
+                show: true,
+                order: 4,
+              },
+              'activity-graph': {
+                height: 300,
+                radius: 16,
+                theme: 'dracula',
+                area: true,
+                order: 5,
+                show: false,
+              },
+            },
+          },
+          styles: { align: 'center', direction: 'row' },
+          state: 'default',
+        },
+      },
+      {
+        id: '9f865fcd-94f4-436b-962f-95427a37f57b',
+        type: 'pacman',
+        props: { styles: {}, state: 'default' },
+      },
+    ],
+  },
 ];
 
 export { templates };

@@ -1,5 +1,4 @@
 import { getSocialImgUrl } from 'utils';
-import * as S from './styles';
 
 type SocialStyles = {
   type: 'icon' | 'badge';
@@ -17,9 +16,9 @@ type SocialIcon = {
   link: string;
 };
 
-type SocialBagde = Record<string, string>;
+type SocialBadge = Record<string, string>;
 
-type Social = SocialIcon | SocialBagde;
+type Social = SocialIcon | SocialBadge;
 
 type Content = {
   socials: Record<string, Social>;
@@ -31,21 +30,23 @@ type SocialSectionProps = {
   styles: SectionStyles;
 };
 
-const SocialsSection = ({
-  content,
-  styles: containerStyles,
-}: SocialSectionProps) => {
+export function SocialsSection(props: SocialSectionProps) {
+  const { content, styles: containerStyles } = props;
+
   const { socials, styles } = content;
   const { type, style, height } = styles;
 
-  const fixSpacing = type === 'badge' && { spacing: 5 };
+  const fixSpacing = type === 'badge' ? 5 : containerStyles.spacing;
 
   return (
-    <S.Container {...{ ...containerStyles, ...fixSpacing }}>
+    <div
+      className="flex flex-wrap"
+      style={{ justifyContent: containerStyles.align, gap: fixSpacing }}
+    >
       {Object.entries(socials).map(([social, { link, ...rest }]) => {
         const props = { ...rest, style };
 
-        const Wrapper = link ? S.A : ({ children }: any) => <>{children}</>;
+        const Wrapper = link ? 'a' : ({ children }: any) => <>{children}</>;
 
         return (
           <Wrapper href={link} key={social} target="_blank">
@@ -57,8 +58,6 @@ const SocialsSection = ({
           </Wrapper>
         );
       })}
-    </S.Container>
+    </div>
   );
-};
-
-export { SocialsSection };
+}

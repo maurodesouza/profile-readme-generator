@@ -82,6 +82,18 @@ export function CanvasActions() {
               <Icon name="settings" />
             </Clickable.Button>
           </Tooltip>
+
+          <Tooltip position="left" content="Toggle Theme" tone="brand">
+            <Clickable.Button
+              aria-label="Toggle Theme"
+              size="icon"
+              variant="icon"
+              tone="brand"
+              onClick={events.theme.toggle}
+            >
+              <Icon name="sun-moon" />
+            </Clickable.Button>
+          </Tooltip>
         </div>
       </div>
     </>

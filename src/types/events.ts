@@ -39,4 +39,9 @@ export enum Events {
   // Extensions
 
   REGISTER_EXTENSION = 'extensions.register',
+
+  // Theme
+
+  USE_THEME = 'theme.use',
+  TOGGLE_THEME = 'theme.toggle',
 }

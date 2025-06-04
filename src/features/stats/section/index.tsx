@@ -3,8 +3,6 @@ import { GuardSection } from 'components/sections/guard';
 import { useSettings } from 'hooks';
 import { getStatsUrl, objectToQueryParams } from 'utils';
 
-import * as S from './styles';
-
 type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof getStatsUrl>[0];
 
@@ -25,11 +23,8 @@ type StatsSectionProps = {
   styles: SectionStyles;
 };
 
-const StatsSection = ({
-  id,
-  content,
-  styles: containerStyles,
-}: StatsSectionProps) => {
+export function StatsSection(props: StatsSectionProps) {
+  const { id, content, styles: containerStyles } = props;
   const { settings } = useSettings();
 
   const { graphs } = content;
@@ -37,7 +32,13 @@ const StatsSection = ({
 
   return (
     <GuardSection sectionId={id}>
-      <S.Container {...containerStyles}>
+      <div
+        className="flex flex-wrap gap-xs"
+        style={{
+          justifyContent: containerStyles.align,
+          flexDirection: containerStyles.direction,
+        }}
+      >
         {(Object.entries(graphs) as [Graphs, Obj][]).map(([graph, props]) => {
           const url = getStatsUrl(graph as Graphs, github!);
 
@@ -48,16 +49,15 @@ const StatsSection = ({
 
           return (
             <img
-              height={height || 150}
+              height={Number(height || 150)}
               key={graph}
               src={fullUrl}
               alt={`${graph} graph`}
+              className="max-w-full"
             />
           );
         })}
-      </S.Container>
+      </div>
     </GuardSection>
   );
-};
-
-export { StatsSection };
+}

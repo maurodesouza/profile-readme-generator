@@ -2,7 +2,6 @@ import { GuardSection } from 'components/sections/guard';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
 import { useSettings } from 'hooks';
-import * as S from './styles';
 
 type Content = {
   type: Parameters<typeof getProfileViewsUrl>[0];
@@ -19,22 +18,25 @@ type ProfileViewsProps = {
   styles: Styles;
 };
 
-const ProfileViewsSection = ({ id, content, styles }: ProfileViewsProps) => {
+export function ProfileViewsSection(props: ProfileViewsProps) {
+  const { id, content, styles } = props;
+
   const { settings } = useSettings();
 
-  const { type, props } = content;
+  const { type, props: contentProps } = content;
   const { github = '' } = settings.user;
 
   const url = getProfileViewsUrl(type, github as string);
-  const fullUrl = `${url}${objectToQueryParams(props)}`;
+  const fullUrl = `${url}${objectToQueryParams(contentProps)}`;
 
   return (
     <GuardSection sectionId={id}>
-      <S.Container {...styles}>
+      <div
+        className="flex flex-wrap gap-sm"
+        style={{ justifyContent: styles.align }}
+      >
         <img src={fullUrl} alt="Profile views count" />
-      </S.Container>
+      </div>
     </GuardSection>
   );
-};
-
-export { ProfileViewsSection };
+}

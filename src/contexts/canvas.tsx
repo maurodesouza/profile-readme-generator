@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { events } from 'app';
-import { Sections, CanvasSection, Events } from 'types';
+import { Sections, CanvasSection, Events, PanelsEnum } from 'types';
 
 import { deepChangeObjectProperty } from 'utils';
 import { useExtensions, usePersistedState } from 'hooks';
@@ -136,7 +136,10 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setPreviewTemplate(template);
   };
 
-  const handleClearCanvas = () => setSections([]);
+  const handleClearCanvas = () => {
+    setSections([]);
+    events.panel.show('right', PanelsEnum.RECOMMENDED_RESOURCES);
+  };
 
   useEffect(() => {
     // Canvas events

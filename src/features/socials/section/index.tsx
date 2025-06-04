@@ -41,7 +41,7 @@ export function SocialsSection(props: SocialSectionProps) {
   return (
     <div
       className="flex flex-wrap"
-      style={{ justifyContent: containerStyles.align, gap: fixSpacing }}
+      style={{ justifyContent: containerStyles.align, gap: `${fixSpacing}px` }}
     >
       {Object.entries(socials).map(([social, { link, ...rest }]) => {
         const props = { ...rest, style };

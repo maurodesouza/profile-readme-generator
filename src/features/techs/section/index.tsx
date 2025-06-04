@@ -30,7 +30,7 @@ export function TechsSection(props: TechsSectionProps) {
       className="flex flex-wrap"
       style={{
         justifyContent: containerStyles.align,
-        gap: containerStyles.spacing,
+        gap: `${containerStyles.spacing}px`,
       }}
     >
       {Object.entries(icons).map(

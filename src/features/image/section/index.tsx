@@ -20,7 +20,7 @@ export function ImageSection(props: ImageProps) {
 
   return (
     <div className="flex" style={{ justifyContent: align }}>
-      <img height={height} src={url} alt="Image" />
+      <img style={{ height: `${height}px` }} src={url} alt="Image" />
     </div>
   );
 }

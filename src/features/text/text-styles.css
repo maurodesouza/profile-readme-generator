@@ -2,7 +2,7 @@
   font-size: 3.2rem;
 
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--color-ring-inner));
+  border-bottom-color: hsl(var(--ring-inner));
   border-bottom-style: solid;
   padding-bottom: var(--spacing-xs);
 }
@@ -11,7 +11,7 @@
   font-size: 2.4rem;
 
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--color-ring-inner));
+  border-bottom-color: hsl(var(--ring-inner));
   border-bottom-style: solid;
   padding-bottom: var(--spacing-xs);
 }

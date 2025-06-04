@@ -6,14 +6,12 @@ import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 
-import { ThemeProvider } from 'styled-components';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config } from 'app';
 import { Modal } from 'components/ui/primitives/compound/modal';
 
 import { Features } from 'features';
-import { theme } from 'styles';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;
@@ -23,7 +21,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     'Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!';
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Head>
         <title>{title}</title>
 
@@ -79,7 +77,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           </SettingsProvider>
         </CanvasProvider>
       </ExtensionsProvider>
-    </ThemeProvider>
+    </>
   );
 };
 

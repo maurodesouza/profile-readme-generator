@@ -23,6 +23,12 @@ type StatsSectionProps = {
   styles: SectionStyles;
 };
 
+const mapProperties = {
+  left: 'start',
+  right: 'end',
+  center: 'center',
+};
+
 export function StatsSection(props: StatsSectionProps) {
   const { id, content, styles: containerStyles } = props;
   const { settings } = useSettings();
@@ -30,13 +36,25 @@ export function StatsSection(props: StatsSectionProps) {
   const { graphs } = content;
   const { github } = settings.user;
 
+  function getStyles() {
+    if (containerStyles.direction === 'column') {
+      return {
+        alignContent: mapProperties[containerStyles.align],
+      };
+    }
+
+    return {
+      justifyContent: containerStyles.align,
+    };
+  }
+
   return (
     <GuardSection sectionId={id}>
       <div
         className="flex flex-wrap gap-xs"
         style={{
-          justifyContent: containerStyles.align,
           flexDirection: containerStyles.direction,
+          ...getStyles(),
         }}
       >
         {(Object.entries(graphs) as [Graphs, Obj][]).map(([graph, props]) => {

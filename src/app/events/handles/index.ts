@@ -5,6 +5,7 @@ import { ResultHandleEvents } from './result';
 import { ModalHandleEvents } from './modal';
 import { TemplateHandleEvents } from './template';
 import { ExtensionsHandleEvents } from './extensions';
+import { ThemeHandleEvents } from './theme';
 
 class Handles {
   canvas = new CanvasHandleEvents();
@@ -14,6 +15,7 @@ class Handles {
   modal = new ModalHandleEvents();
   template = new TemplateHandleEvents();
   extensions = new ExtensionsHandleEvents();
+  theme = new ThemeHandleEvents();
 }
 
 export { Handles };

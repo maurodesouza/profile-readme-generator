@@ -2,9 +2,7 @@ import { useMemo } from 'react';
 import { Reorder } from 'framer-motion';
 
 import { OnlyClientSide } from 'components';
-import { Icon } from 'components/ui/primitives/atoms/icon';
-import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
-import { Clickable } from 'components/ui/primitives/atoms/clickable';
+
 import { ContextMenu } from 'components/ui/primitives/atoms/context-menu';
 import { ErrorBoundary } from 'components/ui/primitives/atoms/error-boundary';
 
@@ -14,13 +12,13 @@ import { CanvasSection } from 'components/ui/primitives/compound/canvas-section'
 
 import { events } from 'app';
 import { useCanvas, useExtensions } from 'hooks';
-import { PanelsEnum } from 'types';
 
 import { CanvasErrorFallback } from './error';
+import { CanvasActions } from './actions';
 
 export function Canvas() {
   const { extensions } = useExtensions();
-  const { sections, previewMode } = useCanvas();
+  const { sections } = useCanvas();
 
   const sectionIds = sections.map(section => section.id);
   const hasSection = !!sections.length;
@@ -29,66 +27,9 @@ export function Canvas() {
 
   return (
     <OnlyClientSide>
+      <CanvasActions />
       <div className="h-full">
-        {hasSection && !previewMode && (
-          <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
-            <Tooltip position="left" content="Clear canvas" tone="danger">
-              <Clickable.Button
-                aria-label="Clear canvas"
-                size="icon"
-                variant="icon"
-                tone="danger"
-                onClick={events.canvas.clear}
-              >
-                <Icon name="trash" />
-              </Clickable.Button>
-            </Tooltip>
-
-            <Tooltip position="left" content="Open settings panel" tone="brand">
-              <Clickable.Button
-                aria-label="Open settings panel"
-                size="icon"
-                variant="icon"
-                tone="brand"
-                onClick={() =>
-                  events.panel.show('right', PanelsEnum.USER_SETTINGS)
-                }
-              >
-                <Icon name="settings" />
-              </Clickable.Button>
-            </Tooltip>
-          </div>
-        )}
-
         <ErrorBoundary fallback={<CanvasErrorFallback />}>
-          {previewMode && (
-            <div className="absolute top-md -left-md w-8 flex flex-col py-md bg-background-default box-border !rounded-full">
-              <Tooltip position="left" content="Use template" tone="success">
-                <Clickable.Button
-                  aria-label="Use template"
-                  size="icon"
-                  variant="icon"
-                  tone="success"
-                  onClick={events.template.use}
-                >
-                  <Icon name="check" />
-                </Clickable.Button>
-              </Tooltip>
-
-              <Tooltip position="left" content="Leave preview" tone="danger">
-                <Clickable.Button
-                  aria-label="Leave preview"
-                  size="icon"
-                  variant="icon"
-                  tone="danger"
-                  onClick={() => events.template.preview()}
-                >
-                  <Icon name="x" />
-                </Clickable.Button>
-              </Tooltip>
-            </div>
-          )}
-
           {hasSection ? (
             <Reorder.Group
               axis="y"

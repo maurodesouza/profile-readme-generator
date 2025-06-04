@@ -1,0 +1,53 @@
+/* Base color classes */
+.theme-light .base-1 {
+  --background-default: 0 0% 100%;
+  --background-support: 180 20% 88%;
+
+  --foreground-min: 210 10% 30%;
+  --foreground: 210 10% 20%;
+  --foreground-max: 210 10% 10%;
+
+  --ring-inner: 210 16% 86%;
+  --ring-outer: 210 16% 70%;
+}
+
+/* Token color classes */
+.theme-light .palette-brand {
+  --tone-100: 212 100% 87%;
+  --tone-200: 212 100% 67%;
+  --tone-300: 212 100% 47%;
+  --tone-400: 212 100% 37%;
+  --tone-500: 212 100% 27%;
+
+  --tone-contrast: 0 0% 100%;
+}
+
+.theme-light .palette-success {
+  --tone-100: 136 54% 81%;
+  --tone-200: 136 54% 61%;
+  --tone-300: 136 54% 41%;
+  --tone-400: 136 54% 31%;
+  --tone-500: 136 54% 21%;
+
+  --tone-contrast: 0 0% 100%;
+}
+
+.theme-light .palette-danger {
+  --tone-100: 3 93% 83%;
+  --tone-200: 3 93% 63%;
+  --tone-300: 3 93% 43%;
+  --tone-400: 3 93% 33%;
+  --tone-500: 3 93% 23%;
+
+  --tone-contrast: 0 0% 100%;
+}
+
+.theme-light .palette-warning {
+  --tone-100: 11 90% 88%;
+  --tone-200: 11 90% 68%;
+  --tone-300: 11 90% 48%;
+  --tone-400: 11 90% 38%;
+  --tone-500: 11 90% 28%;
+
+  --tone-contrast: 0 0% 100%;
+}

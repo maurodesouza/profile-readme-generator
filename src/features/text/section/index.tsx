@@ -1,4 +1,4 @@
-import * as S from './styles';
+import { JSX } from 'react';
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
@@ -6,7 +6,7 @@ type SectionStyles = {
 
 type Content = {
   text: string;
-  tag: string;
+  as: keyof JSX.IntrinsicElements;
 };
 
 type TextSectionProps = {
@@ -14,16 +14,19 @@ type TextSectionProps = {
   styles: SectionStyles;
 };
 
-const TextSection = ({ content, styles }: TextSectionProps) => {
-  const { text, ...rest } = content;
+export function TextSection(props: TextSectionProps) {
+  const { content, styles } = props;
+
+  const { text, as: Text } = content;
 
   return (
-    <S.Container>
-      <S.Text {...rest} {...styles}>
+    <div className="flex text-section">
+      <Text
+        className="w-full whitespace-pre-line"
+        style={{ textAlign: styles.align }}
+      >
         {text.trim()}
-      </S.Text>
-    </S.Container>
+      </Text>
+    </div>
   );
-};
-
-export { TextSection };
+}

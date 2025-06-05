@@ -4,7 +4,7 @@ import { PanelsEnum } from 'types';
 const contents = [
   {
     icon: 'star',
-    name: 'Start This Repo',
+    name: 'Star This Project',
 
     href: 'https://github.com/maurodesouza/profile-readme-generator',
     target: '_blank',
@@ -13,7 +13,7 @@ const contents = [
   },
   {
     icon: 'git-fork',
-    name: 'Fork This Repo',
+    name: 'Fork on Github',
 
     href: 'https://github.com/maurodesouza/profile-readme-generator/fork',
     target: '_blank',

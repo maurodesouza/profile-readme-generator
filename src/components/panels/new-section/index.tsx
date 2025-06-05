@@ -18,16 +18,24 @@ const PanelNewSection = () => {
   return (
     <Panel.Scrollable>
       <div className="grid grid-cols-2 gap-md">
-        {[...contents, ...items].map(({ icon, name, ...rest }) => (
-          <button key={name} {...rest}>
-            <DisplayBlock.Container>
-              <DisplayBlock.Content>
-                <DisplayBlock.Icon name={icon as IconName} size={48} />
-                <DisplayBlock.Label>{name}</DisplayBlock.Label>
-              </DisplayBlock.Content>
-            </DisplayBlock.Container>
-          </button>
-        ))}
+        {[...contents, ...items].map(({ icon, name, ...rest }) => {
+          const El = 'href' in rest ? 'a' : 'button';
+
+          return (
+            <El key={name} {...rest}>
+              <DisplayBlock.Container>
+                <DisplayBlock.Content>
+                  <DisplayBlock.Icon
+                    name={icon as IconName}
+                    size={48}
+                    className="text-inherit group-hover/test:animate-spin"
+                  />
+                  <DisplayBlock.Label>{name}</DisplayBlock.Label>
+                </DisplayBlock.Content>
+              </DisplayBlock.Container>
+            </El>
+          );
+        })}
       </div>
     </Panel.Scrollable>
   );

@@ -20,15 +20,21 @@ const contents = [
     rel: 'noreferrer',
     className: '!text-inherit tone palette-warning',
   },
-  {
-    icon: 'file-text',
-    name: 'Templates',
-    onClick: () => events.panel.show('right', PanelsEnum.TEMPLATES),
-  },
+
   {
     icon: 'zap',
     name: 'Level Up',
+
     onClick: () => events.panel.show('right', PanelsEnum.RECOMMENDED_RESOURCES),
+    className: 'tone palette-success',
+  },
+
+  {
+    icon: 'file-text',
+    name: 'Templates',
+
+    onClick: () => events.panel.show('right', PanelsEnum.TEMPLATES),
+    className: 'tone palette-success',
   },
 ];
 

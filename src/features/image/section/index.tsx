@@ -4,6 +4,7 @@ type Content = {
 
 type Styles = {
   align: 'left' | 'center' | 'right';
+  float: 'left' | 'none' | 'right';
   height: number;
 };
 
@@ -16,10 +17,10 @@ export function ImageSection(props: ImageProps) {
   const { content, styles } = props;
 
   const { url } = content;
-  const { height, align } = styles;
+  const { height, align, float } = styles;
 
   return (
-    <div className="flex" style={{ justifyContent: align }}>
+    <div className="flex" style={{ justifyContent: align, float }}>
       <img style={{ height: `${height}px` }} src={url} alt="Image" />
     </div>
   );

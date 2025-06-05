@@ -4,7 +4,7 @@ import { tv, VariantProps } from 'tailwind-variants';
 import { twx } from 'utils';
 
 const containerVariants = tv({
-  base: '[&_+_&]:mt-[calc(var(--spacing-md)_/_2))] data-[hasfloat="true"]:pt-xl data-[hasfloat="true"]:mt-0',
+  base: '[&_+_&]:mt-[calc(var(--spacing-md)_/_2))] [&[data-hasfloat=true]+&]:pt-xl [&[data-hasfloat=true]+&]:mt-0',
 
   variants: {
     float: {
@@ -33,7 +33,7 @@ const Container = twx(Reorder.Item)<ContainerProps>(props =>
 );
 
 const wrapperVariants = tv({
-  base: 'w-full flex flex-col p-sm box-border !border-transparent hover:!border-tone-luminosity-300',
+  base: 'w-[-webkit-fill-available] flex flex-col p-sm box-border !border-transparent hover:!border-tone-luminosity-300',
   variants: {
     state: {
       default: '',

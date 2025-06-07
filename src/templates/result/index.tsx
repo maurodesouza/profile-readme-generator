@@ -10,7 +10,7 @@ import { CopyCurrentFileContent } from 'components/ui/primitives/compound/copy-c
 
 import { PanelsEnum } from 'types';
 
-const ResultTemplate = () => {
+export function ResultTemplate() {
   return (
     <Page.Container>
       <Panel.Template.Full
@@ -77,6 +77,4 @@ const ResultTemplate = () => {
       />
     </Page.Container>
   );
-};
-
-export { ResultTemplate };
+}

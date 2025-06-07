@@ -5,7 +5,7 @@ import { tv, VariantProps } from 'tailwind-variants';
 import { twx } from 'utils';
 
 const buttonVariants = tv({
-  base: 'flex items-center gap-xs rounded-md',
+  base: 'flex items-center gap-xs rounded-md hover:!no-underline',
   variants: {
     tone: {
       default: 'bg-background-support text-foreground',

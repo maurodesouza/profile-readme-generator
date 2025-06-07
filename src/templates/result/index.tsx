@@ -1,6 +1,8 @@
 import { ReadmeResult } from 'components';
+
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Page } from 'components/ui/primitives/atoms/page';
+import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { PageFooter } from 'components/ui/common/page-footer';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
@@ -17,7 +19,34 @@ const ResultTemplate = () => {
       />
 
       <Page.Wrapper>
-        <Page.Content>
+        <header className="flex items-center gap-md box-border py-md px-xl">
+          <Clickable.Link href="/" size="icon" variant="ghost">
+            <Icon name="chevron-left" />
+          </Clickable.Link>
+
+          <Text.Heading as="h2">Your Readme is Done 🎉🎉🎉</Text.Heading>
+          <div className="flex justify-end gap-xs ml-auto">
+            <Clickable.Link
+              tone="warning"
+              variant="ghost"
+              href="https://github.com/maurodesouza/profile-readme-generator"
+            >
+              <Icon name="star" />
+              Star This Project
+            </Clickable.Link>
+
+            <Clickable.Link
+              tone="warning"
+              variant="ghost"
+              href="https://github.com/maurodesouza/profile-readme-generator/fork"
+            >
+              <Icon name="git-fork" />
+              Fork on Github
+            </Clickable.Link>
+          </div>
+        </header>
+
+        <Page.Content className="relative">
           <ReadmeResult />
         </Page.Content>
 

@@ -23,6 +23,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "src",
+    "paths": {
+      "@events": ["events"]
+    },
     "incremental": true,
     "plugins": [
       {

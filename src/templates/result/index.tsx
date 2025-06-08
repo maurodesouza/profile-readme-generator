@@ -26,23 +26,27 @@ export function ResultTemplate() {
 
           <Text.Heading as="h2">Your Readme is Done 🎉🎉🎉</Text.Heading>
           <div className="flex justify-end gap-xs ml-auto">
-            <Clickable.Link
+            <Clickable.ExternalLink
               tone="warning"
               variant="ghost"
               href="https://github.com/maurodesouza/profile-readme-generator"
+              target="_blank"
+              rel="noreferrer"
             >
               <Icon name="star" />
               Star This Project
-            </Clickable.Link>
+            </Clickable.ExternalLink>
 
-            <Clickable.Link
+            <Clickable.ExternalLink
               tone="warning"
               variant="ghost"
               href="https://github.com/maurodesouza/profile-readme-generator/fork"
+              target="_blank"
+              rel="noreferrer"
             >
               <Icon name="git-fork" />
               Fork on Github
-            </Clickable.Link>
+            </Clickable.ExternalLink>
           </div>
         </header>
 

@@ -1,6 +1,6 @@
 import { createContext, useEffect } from 'react';
 
-import { config } from 'app';
+import { config } from 'config';
 import { events } from '@events';
 import { deepChangeObjectProperty } from 'utils';
 

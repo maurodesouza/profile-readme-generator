@@ -1,4 +1,4 @@
-import { config } from 'app';
+import { config } from 'config';
 
 import { getStorageItem, setStorageItem } from '.';
 

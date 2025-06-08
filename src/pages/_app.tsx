@@ -8,7 +8,7 @@ import { AppProps } from 'next/app';
 
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
-import { config } from 'app';
+import { config } from 'config';
 import { Modal } from 'components/ui/primitives/compound/modal';
 import { GlobalHandlers } from 'components/global-handlers';
 

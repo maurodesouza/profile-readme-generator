@@ -1,8 +1,8 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { getMusicUrl } from '.';
 
 const { profileBaseUrl, recentlyPlayedBaseUrl } =
-  generalConfig.urls.sections.music.spotify;
+  config.general.urls.sections.music.spotify;
 
 describe('UTILS - Get music url', () => {
   it('should return the correct url for the recently played type', () => {

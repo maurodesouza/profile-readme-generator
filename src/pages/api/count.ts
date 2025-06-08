@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { config } from 'app';
+import { config } from 'config';
 import { CountApiKeys, HTTPMethods, StatusCode } from 'types';
 
 const {

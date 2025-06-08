@@ -1,10 +1,10 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { objectToQueryParams } from '../objectToQueryParams';
 
 type Obj = Record<string, unknown>;
 
 const { profileBaseUrl, recentlyPlayedBaseUrl } =
-  generalConfig.urls.sections.music.spotify;
+  config.general.urls.sections.music.spotify;
 
 const getMusicUrl = (type: string, props: Obj = {}) => {
   if (type === 'recently') {

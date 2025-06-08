@@ -1,7 +1,7 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { getActivitiesUrl } from '.';
 
-const { mediumBaseUrl } = generalConfig.urls.sections.activities;
+const { mediumBaseUrl } = config.general.urls.sections.activities;
 
 describe('UTILS - Get activities url', () => {
   it('should return the correct url for the activity type', () => {

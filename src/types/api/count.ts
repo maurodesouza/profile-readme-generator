@@ -1,9 +1,9 @@
-import { envs } from 'app/config/envs';
+import { config } from 'config';
 
 const {
   options: {
     count_api: { keys },
   },
-} = envs;
+} = config.envs;
 
 export type CountApiKeys = keyof typeof keys;

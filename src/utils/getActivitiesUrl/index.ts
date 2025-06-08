@@ -1,7 +1,7 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { objectToQueryParams } from '../objectToQueryParams';
 
-const { mediumBaseUrl } = generalConfig.urls.sections.activities;
+const { mediumBaseUrl } = config.general.urls.sections.activities;
 
 const activitiesUrl = {
   medium: mediumBaseUrl,

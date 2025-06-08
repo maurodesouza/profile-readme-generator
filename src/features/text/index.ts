@@ -1,4 +1,3 @@
-import './text-styles.css';
 import dynamic from 'next/dynamic';
 
 import { textSectionParser } from './parser';

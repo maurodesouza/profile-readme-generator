@@ -2,6 +2,8 @@ import 'styles/global.css';
 import 'styles/markdown-theme.css';
 import 'styles/prism-syntax-theme.css';
 
+import 'features/text/text-styles.css';
+
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';

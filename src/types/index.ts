@@ -8,7 +8,6 @@ export * from './helpers';
 export * from './modals';
 export * from './tooltip';
 export * from './icon';
-export * from './api';
 export * from './extensions';
 export * from './post-metadata';
 export * from './rendarable';

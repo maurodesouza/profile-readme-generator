@@ -1,7 +1,7 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 
 const { imageBaseUrl, streakBaseUrl, trophiBaseUrl, activityGraphBaseUrl } =
-  generalConfig.urls.sections.stats;
+  config.general.urls.sections.stats;
 
 const urls = (value: string) => ({
   stats: `${imageBaseUrl}?username=${value}`,

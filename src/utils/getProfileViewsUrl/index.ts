@@ -1,6 +1,7 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 
-const { badgeBaseUrl, imageBaseUrl } = generalConfig.urls.sections.profileViews;
+const { badgeBaseUrl, imageBaseUrl } =
+  config.general.urls.sections.profileViews;
 
 const urls = {
   badge: (username: string) =>

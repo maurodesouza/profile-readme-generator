@@ -9,7 +9,7 @@ import React, {
 
 import { Icon } from './icon';
 
-import { events } from 'app';
+import { events } from '@events';
 import { panels } from 'components/panels/panels';
 import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
 

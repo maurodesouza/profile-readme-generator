@@ -1,9 +1,10 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { getProfileViewsUrl } from '.';
 
 type ProfileViewsType = Parameters<typeof getProfileViewsUrl>[0];
 
-const { badgeBaseUrl, imageBaseUrl } = generalConfig.urls.sections.profileViews;
+const { badgeBaseUrl, imageBaseUrl } =
+  config.general.urls.sections.profileViews;
 
 describe('UTILS - Get profile views url', () => {
   it('should return the correct url for the profile views type', () => {

@@ -8,7 +8,7 @@ import {
   IconEditorRef,
 } from 'components/ui/primitives/compound/icon-editor';
 
-import { events } from 'app';
+import { events } from '@events';
 import { getDeepObjectProperty } from 'utils';
 import { useCanvas, useForceUpdate } from 'hooks';
 

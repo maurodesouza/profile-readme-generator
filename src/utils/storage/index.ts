@@ -1,4 +1,4 @@
-import { config } from 'app';
+import { config } from 'config';
 
 export const getStorageItem = (key: string) => {
   if (typeof window === 'undefined') return;

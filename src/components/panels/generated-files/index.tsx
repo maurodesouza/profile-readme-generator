@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { Tree } from 'components/ui/primitives/atoms/tree';
 
-import { events } from 'app';
+import { events } from '@events';
 import { parseToReadme } from 'utils';
 import { useCanvas, useExtensions, useSettings } from 'hooks';
 

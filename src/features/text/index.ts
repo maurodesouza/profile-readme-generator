@@ -1,10 +1,9 @@
-import './text-styles.css';
 import dynamic from 'next/dynamic';
 
 import { textSectionParser } from './parser';
 import { defaultTextSectionConfig } from './default-config';
 
-import { events } from 'app';
+import { events } from '@events';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {

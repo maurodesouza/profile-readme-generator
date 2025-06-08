@@ -1,7 +1,7 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { objectToQueryParams } from './objectToQueryParams';
 
-const { badgeBaseUrl, iconBaseUrl } = generalConfig.urls.sections.socials;
+const { badgeBaseUrl, iconBaseUrl } = config.general.urls.sections.socials;
 
 const getSocialImgUrl = (
   type: 'icon' | 'badge',

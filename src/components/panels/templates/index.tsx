@@ -2,7 +2,7 @@ import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
-import { events } from 'app';
+import { events } from '@events';
 import { templates } from 'resources';
 import { CanvasSection } from 'types';
 

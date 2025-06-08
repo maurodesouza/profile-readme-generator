@@ -1,4 +1,4 @@
-import { config } from 'app';
+import { config } from 'config';
 import { Events } from 'types';
 
 class BaseEventHandle {

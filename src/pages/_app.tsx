@@ -2,13 +2,15 @@ import 'styles/global.css';
 import 'styles/markdown-theme.css';
 import 'styles/prism-syntax-theme.css';
 
+import 'features/text/text-styles.css';
+
 import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
-import { config } from 'app';
+import { config } from 'config';
 import { Modal } from 'components/ui/primitives/compound/modal';
 import { GlobalHandlers } from 'components/global-handlers';
 

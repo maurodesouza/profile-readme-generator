@@ -5,7 +5,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Dialog } from 'components/ui/primitives/atoms/dialog';
 
-import { config } from 'app';
+import { config } from 'config';
 import { socials } from './socials';
 
 export function ShareModal() {

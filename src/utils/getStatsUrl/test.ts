@@ -1,9 +1,9 @@
-import { general as generalConfig } from 'app/config/general';
+import { config } from 'config';
 import { getStatsUrl } from '.';
 
 type StatsType = Parameters<typeof getStatsUrl>[0];
 
-const { imageBaseUrl, streakBaseUrl } = generalConfig.urls.sections.stats;
+const { imageBaseUrl, streakBaseUrl } = config.general.urls.sections.stats;
 
 describe('UTILS - Get stats url', () => {
   it('should return the correct url for the stats type', () => {

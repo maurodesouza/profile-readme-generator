@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { activitiesSectionParser } from './parser';
 import { defaultActivitiesSectionConfig } from './default-config';
 
-import { events } from 'app';
+import { events } from '@events';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {

@@ -6,7 +6,7 @@ import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 import { CopyCurrentFileContent } from 'components/ui/primitives/compound/copy-current-file-content';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Events } from 'types';
 
 export function ReadmeResult() {

@@ -5,7 +5,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { techsSectionParser } from './parser';
 import { defaultTechsSectionConfig } from './default-config';
 
-import { events } from 'app';
+import { events } from '@events';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {

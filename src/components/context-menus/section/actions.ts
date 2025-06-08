@@ -1,4 +1,4 @@
-import { events } from 'app';
+import { events } from '@events';
 
 const actions = [
   {

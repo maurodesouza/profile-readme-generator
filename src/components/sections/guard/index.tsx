@@ -4,7 +4,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Fields } from 'components/ui/primitives/fields';
 
-import { events } from 'app';
+import { events } from '@events';
 import { CanvasStatesEnum } from 'types';
 import { useCanvas, useSettings } from 'hooks';
 

@@ -1,4 +1,4 @@
-import { events } from 'app';
+import { events } from '@events';
 import { PanelsEnum } from 'types';
 
 const contents = [

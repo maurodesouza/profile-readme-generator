@@ -1,4 +1,4 @@
-import { events } from 'app';
+import { events } from '@events';
 
 import { ShareModal } from 'components/ui/common/modals/share';
 

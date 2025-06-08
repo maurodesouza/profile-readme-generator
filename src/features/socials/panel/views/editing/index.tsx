@@ -8,7 +8,7 @@ import {
 } from 'components/ui/primitives/compound/icon-editor';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 
-import { events } from 'app';
+import { events } from '@events';
 import { useCanvas, useForceUpdate } from 'hooks';
 import { getDeepObjectProperty, getSocialImgUrl } from 'utils';
 

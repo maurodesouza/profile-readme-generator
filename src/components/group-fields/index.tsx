@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Inputs } from 'types';
 import { useCanvas, useSettings } from 'hooks';
 import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';

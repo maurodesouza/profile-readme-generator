@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Events } from 'types';
 import { usePersistedState } from 'hooks';
 

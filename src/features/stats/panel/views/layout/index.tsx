@@ -4,7 +4,7 @@ import { GroupFields } from 'components';
 import { useCanvas, useForceUpdate } from 'hooks';
 import { getDeepObjectProperty } from 'utils';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Item } from './item';
 
 import { groups } from './fields';

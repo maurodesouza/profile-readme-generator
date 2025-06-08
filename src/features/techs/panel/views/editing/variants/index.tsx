@@ -1,4 +1,4 @@
-import { events } from 'app';
+import { events } from '@events';
 
 import { Text } from 'components/ui/primitives/atoms/text';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';

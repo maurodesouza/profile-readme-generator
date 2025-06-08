@@ -4,7 +4,7 @@ import { Panel } from 'components/ui/primitives/atoms/panel';
 import { Fields } from 'components/ui/primitives/fields';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
-import { events } from 'app';
+import { events } from '@events';
 import { useForceUpdate } from 'hooks';
 import { debounce, filterArrayByQueryMatch, getSocialImgUrl } from 'utils';
 

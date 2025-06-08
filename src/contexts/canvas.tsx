@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Sections, CanvasSection, Events, PanelsEnum } from 'types';
 
 import { deepChangeObjectProperty } from 'utils';

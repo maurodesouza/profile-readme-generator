@@ -11,7 +11,7 @@ import { Icon } from '../atoms/icon';
 import { Clickable } from '../atoms/clickable';
 import { FlexibleRender } from 'components/helpers/flexible-render';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Renderable } from 'types';
 
 type IconEditorProps = {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Events, Renderable } from 'types';
 
 import { Dialog } from '../atoms/dialog';

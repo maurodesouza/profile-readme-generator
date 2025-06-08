@@ -5,7 +5,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Text } from 'components/ui/primitives/atoms/text';
 
 import { cn } from 'utils';
-import { events } from 'app';
+import { events } from '@events';
 
 export type TFile = {
   file: string;

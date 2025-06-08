@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Section } from 'components/ui/primitives/atoms/section';
 
-import { events } from 'app';
+import { events } from '@events';
 import { useCanvas } from 'hooks';
 import { CanvasStatesEnum } from 'types';
 

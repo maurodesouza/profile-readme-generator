@@ -1,5 +1,5 @@
 import { createContext, useEffect, useRef, useState } from 'react';
-import { events } from 'app';
+import { events } from '@events';
 
 import { Events, Extension, ExtensionsGroup } from 'types';
 

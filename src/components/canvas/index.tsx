@@ -10,7 +10,7 @@ import { SectionContextMenu } from 'components/context-menus/section';
 import { Welcome } from 'components/ui/primitives/compound/welcome';
 import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 
-import { events } from 'app';
+import { events } from '@events';
 import { useCanvas, useExtensions } from 'hooks';
 
 import { CanvasErrorFallback } from './error';

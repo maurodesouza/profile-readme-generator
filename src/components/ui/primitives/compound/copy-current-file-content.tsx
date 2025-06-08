@@ -1,6 +1,6 @@
 import React, { JSX, useEffect, useState } from 'react';
 
-import { events } from 'app';
+import { events } from '@events';
 import { Events } from 'types';
 
 import { CopyChildrenArgs, CopyToClipboard } from './copy-to-clipboard';

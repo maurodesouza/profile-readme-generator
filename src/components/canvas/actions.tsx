@@ -2,7 +2,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
-import { events } from 'app';
+import { events } from '@events';
 import { useCanvas } from 'hooks';
 import { PanelsEnum } from 'types';
 

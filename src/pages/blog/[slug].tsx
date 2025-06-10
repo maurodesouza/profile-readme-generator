@@ -1,13 +1,15 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import path from 'node:path';
 import fs from 'node:fs';
+import path from 'node:path';
 
 import matter from 'gray-matter';
 
 import { PostTemplate } from 'templates/post';
 import { PostMetadata } from 'types';
+
+const LOCALES = ['en'];
 
 const POSTS_DIR = path.join(process.cwd(), 'posts');
 
@@ -32,9 +34,17 @@ const BlogPost = ({ metadata, ...rest }: BlogPostProps) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const slugs = fs.readdirSync(POSTS_DIR);
 
-  const paths = slugs.map(slug => ({
-    params: { slug: slug.replace(/\.md$/, '') },
-  }));
+  const paths = slugs.reduce(
+    (acc, slug) => {
+      const paths = LOCALES.map(locale => ({
+        params: { slug: slug.replace(/\.md$/, '') },
+        locale,
+      }));
+
+      return [...acc, ...paths];
+    },
+    [] as GetStaticPathsResult['paths']
+  );
 
   return {
     paths,
@@ -45,10 +55,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<BlogPostProps> = async ({
   params,
 }) => {
-  try {
-    const { slug } = params!;
+  const { slug, locale = 'en' } = params!;
 
-    const filePath = path.join(POSTS_DIR, `${slug}.md`);
+  if (!slug) {
+    return {
+      notFound: true,
+      props: {} as BlogPostProps,
+    };
+  }
+
+  try {
+    const filePath = path.join(POSTS_DIR, slug as string, `${locale}.md`);
     const fileContent = fs.readFileSync(filePath, 'utf8');
 
     const { content, data } = matter(fileContent);
@@ -61,6 +78,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async ({
     };
   } catch (err) {
     return {
+      notFound: true,
       props: {} as BlogPostProps,
     };
   }

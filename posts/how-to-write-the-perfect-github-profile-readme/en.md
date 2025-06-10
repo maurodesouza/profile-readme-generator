@@ -1,7 +1,7 @@
 ---
 date: "2025-05-14T00:00:00.000Z"
 title: How to Write the Perfect GitHub Profile README (with Templates)
-description: Learn how to craft a powerful GitHub profile README that stands out. This guide covers key sections, real examples, and templates to help you make a lasting impression.
+description: Learn how to create a standout GitHub profile README. From must-have sections to ready-to-use templates, this guide helps you make a strong first impression.
 tags:
   - github
   - readme
@@ -12,111 +12,117 @@ tags:
 
 # How to Write the Perfect GitHub Profile README (with Templates)
 
-Your GitHub profile README is one of the most powerful tools to showcase who you are as a developer. It's the first thing people see when they visit your profile — whether they’re recruiters, collaborators, or other devs. In this guide, you’ll learn how to create the **perfect GitHub profile README**, including **what to include**, **why it matters**, and a simple **template** to get started.
+Your GitHub profile is more than a repo hub — it’s a space to say *“This is who I am.”*
+Done right, your profile README can help you stand out, connect with others, and even land opportunities.
 
-## Why Your GitHub Profile README Matters
+Here’s how to build a clean, effective README — no fluff, just what matters.
 
-- 🧠 **First impressions count**: A clean and clear README makes your profile look professional and shows you care about details.
-- 🛠️ **Highlight your skills**: You can show off what you're good at — tech stack, projects, experience.
-- 📣 **Promote your work**: It's a place to link your best repositories, portfolio, and even social media.
-- 👀 **You stand out**: Most developers don’t take the time to write one. If you do, you're ahead already.
+## 1. A Short Intro
 
-## Key Sections Every Great GitHub Profile README Should Include
+Start with a simple greeting and a sentence or two about yourself. Be real, be you.
 
-### 1. Introduction
+```html
+<h1> Hey <img src="https://emojis.slackmojis.com/emojis/images/1577305505/7373/hand_wave.gif?1577305505" width="50" /> What's up?</h1>
 
-Start with a short paragraph introducing yourself. Mention what kind of dev you are, what you enjoy building, and your current focus.
-
-```markdown
-Hi there 👋
-
-I'm a full-stack developer who loves building web applications using React, Node.js, and TypeScript.
-Passionate about clean code and solving real-world problems.
+<p> My name is Mauro and I'm a javascript developer, from
+<img src="https://cdn-icons-png.flaticon.com/128/197/197386.png" width="17" /> <b>Paraná, Brasil</b>. </p>
 ```
 
-### 2. Skills / Tech Stack
+## 2. About Me
 
-List the main tools and technologies you use. You can format them as bullet points or use icons if you're feeling fancy.
-
-```markdown
-## Tech Stack
-
-- JavaScript / TypeScript
-- React, Next.js, Node.js
-- PostgreSQL, MongoDB
-- Git & GitHub, Docker
-```
-
-### 3. Featured Projects
-
-Pick 2–3 of your best public repos and link them with a short description.
+Here’s where you show a little personality. What are you learning, working on, or dreaming of?
 
 ```markdown
-## Featured Projects
+## About me
 
-### [DevPortfolio](https://github.com/yourusername/devportfolio)
-A sleek and minimal portfolio site for developers built with Next.js and Tailwind CSS.
-
-### [Taskly](https://github.com/yourusername/taskly)
-A full-stack task management app using React and Express with user auth and real-time updates.
+- ✨ Creating bugs since 2019
+- 📚 I'm currently learning english 🇺🇸 and docker 🐳
+- 🎯 Goals: live in a cold place ❄ and speak english 🚀
+- 🎲 And ... I play 🎸 guitar and ♟ chess online
 ```
 
-### 4. Stats or Badges (Optional)
 
-If you want to impress visually, you can add GitHub stats, contribution graphs, or badges using shields.io.
+## 3. Tech Stack
+
+Use badges or icons to show the tools you’re comfortable with. It looks clean and helps people get a quick sense of your stack.
+
+```html
+## I code with
+
+<a href="https://www.typescriptlang.org" target="_blank">
+  <img align="left" title="Typescript" alt="Typescript" width="40px" src="./assets/typescript-logo.svg" />
+</a>
+
+<a href="https://pt-br.reactjs.org" target="_blank">
+ <img align="left" title="React and React Native" alt="React and React Native" width="40px" src="./assets/react-logo.svg" />
+</a>
+
+<a href="https://tailwindcss.com" target="_blank">
+ <img align="left" title="Tailwind Css" alt="Tailwind Css" width="40px" src="./assets/tailwind-logo.svg" />
+</a>
+
+<a href="https://nextjs.org" target="_blank">
+  <img align="left" title="Next Js" alt="Next Js" width="40px" src="./assets/next-logo.svg" />
+</a>
+
+<a href="https://nestjs.com" target="_blank">
+  <img align="left" title="Nest Js" alt="Nest Js" width="40px" src="./assets/nest-logo.svg" />
+</a>
+
+<a href="https://go.dev" target="_blank">
+  <img align="left" title="Go Lang" alt="Go Lang" width="40px" src="./assets/golang-logo.svg" />
+</a>
+
+<a href="https://graphql.org" target="_blank">
+  <img align="left" title="GraphQL" alt="GraphQL" width="40px" src="./assets/graphql-logo.svg" />
+</a>
+
+<a href="https://jestjs.io/pt-BR/" target="_blank">
+  <img align="left" title="Jest" alt="Jest" width="40px" src="./assets/jest-logo.svg" />
+</a>
+
+<a href="https://www.cypress.io" target="_blank">
+  <img align="left" title="Cypress" alt="Cypress" width="40px" src="./assets/cypress-logo.svg" />
+</a>
+
+<a href="https://storybook.js.org" target="_blank">
+  <img align="left" title="Storybook" alt="Storybook" width="40px" src="./assets/storybook-logo.svg" />
+</a>
+```
+
+> Tip: You can keep icons aligned neatly by using `<br clear="left" />` after the last one.
+
+
+## Final Template (Just Paste and Edit)
+
+Here’s how all the parts come together:
 
 ```markdown
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yourusername&show_icons=true&theme=dracula)
+# Hey 👋 What's up?
+
+My name is Mauro and I'm a JavaScript developer from Paraná, Brazil.
+
+## About me
+
+- ✨ Creating bugs since 2019
+- 📚 I'm currently learning english 🇺🇸 and docker 🐳
+- 🎯 Goals: live in a cold place ❄ and speak english 🚀
+- 🎲 And ... I play 🎸 guitar and ♟ chess online
+
+## I code with
+
+<!-- Add your favorite icons here just like the example above -->
 ```
 
-### 5. Contact / Social Links
 
-Make it easy for people to reach out or follow your work.
+## Want to Generate This Instantly?
 
-```markdown
-## Connect with Me
+Instead of writing it all manually, use the [GitHub Profile README Generator](/) — it helps you:
 
-- 🐦 [Twitter](https://twitter.com/yourhandle)
-- 💼 [LinkedIn](https://linkedin.com/in/yourprofile)
-- 🌐 [Portfolio](https://yourwebsite.com)
-```
+- Pick from multiple templates (including this one)
+- Customize sections in real time
+- Copy the final version instantly
 
-## GitHub README Template (Copy and Paste)
+Give it a try and publish a profile README you're actually proud of — in minutes.
 
-Here’s a simple template to help you get started:
-
-```markdown
-# Hi, I'm [Your Name] 👋
-
-I'm a [your role] based in [your country], passionate about building high-quality web apps.
-
-## 🔧 Tech Stack
-- HTML, CSS, JavaScript
-- React, Node.js
-- Git & GitHub
-
-## 📂 Projects
-- [Project 1](#) - short description
-- [Project 2](#) - short description
-
-## 📫 Reach Me
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
-- LinkedIn: [yourname](https://linkedin.com/in/yourname)
-```
-
-## Bonus Tips
-
-* Keep it short and skimmable
-* Update it regularly as your skills evolve
-* Link to a portfolio if you have one
-* Don’t overdo it — clean and simple wins
-
-## Want to Build Yours Instantly?
-
-Use our free [GitHub Profile README Generator](/) to create a professional README in minutes — no coding required!
-
-## Final Thoughts
-
-Your GitHub profile is more than a code dump — it's your personal brand as a developer. A polished README helps people remember you, understand what you do, and even reach out with opportunities.
-
-Take 10–15 minutes to set it up. Future-you will thank you.
+If you want help tweaking your README or trying other layouts, the generator’s got your back.

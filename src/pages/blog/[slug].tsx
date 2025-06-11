@@ -54,8 +54,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<BlogPostProps> = async ({
   params,
+  locale = 'en',
 }) => {
-  const { slug, locale = 'en' } = params!;
+  const { slug } = params!;
 
   if (!slug) {
     return {

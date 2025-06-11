@@ -24,7 +24,8 @@
     "isolatedModules": true,
     "baseUrl": "src",
     "paths": {
-      "@events": ["events"]
+      "@events": ["events"],
+      "@constants": ["constants"]
     },
     "incremental": true,
     "plugins": [

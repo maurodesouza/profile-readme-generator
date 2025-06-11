@@ -9,7 +9,7 @@ import matter from 'gray-matter';
 import { PostTemplate } from 'templates/post';
 import { PostMetadata } from 'types';
 
-const LOCALES = ['en'];
+import { CONSTANTS } from '@constants';
 
 const POSTS_DIR = path.join(process.cwd(), 'posts');
 
@@ -36,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = slugs.reduce(
     (acc, slug) => {
-      const paths = LOCALES.map(locale => ({
+      const paths = CONSTANTS.LOCALES.map(locale => ({
         params: { slug: slug.replace(/\.md$/, '') },
         locale,
       }));

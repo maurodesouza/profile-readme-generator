@@ -7,6 +7,7 @@ enum OtherPanels {
   TEMPLATES = 'templates',
   RECOMMENDED_RESOURCES = 'recommended-resources',
   USER_SETTINGS = 'user-settings',
+  REORDER_SECTIONS = 'reorder-sections',
 }
 
 export type PanelSide = 'right' | 'left';

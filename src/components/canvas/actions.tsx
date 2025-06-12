@@ -52,6 +52,23 @@ export function CanvasActions() {
 
             {state.is === 'canvas' && (
               <>
+                <Tooltip
+                  position="left"
+                  content="Reorder Sections"
+                  tone="brand"
+                >
+                  <Clickable.Button
+                    aria-label="Reorder Sections"
+                    size="icon"
+                    variant="icon"
+                    tone="brand"
+                    onClick={() =>
+                      events.panel.show('right', PanelsEnum.REORDER_SECTIONS)
+                    }
+                  >
+                    <Icon name="arrow-up-down" />
+                  </Clickable.Button>
+                </Tooltip>
                 <Tooltip position="left" content="Clear canvas" tone="danger">
                   <Clickable.Button
                     aria-label="Clear canvas"

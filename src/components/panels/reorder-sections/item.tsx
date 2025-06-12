@@ -29,7 +29,9 @@ export function Item(props: ItemProps) {
   >;
 
   function extractSectionProp() {
-    if (data.type) {
+    if (data.type === 'text') {
+      console.log('???', data.type, data.props);
+
       return data.props.content.text;
     }
 

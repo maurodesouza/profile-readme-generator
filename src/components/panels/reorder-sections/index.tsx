@@ -16,8 +16,15 @@ export function ReorderSections() {
         values={sections.map(section => section.id)}
         onReorder={events.canvas.reorder}
       >
-        {sections.map(section => {
-          return <Item key={section.id} data={section} />;
+        {sections.map((section, index) => {
+          return (
+            <Item
+              key={section.id}
+              data={section}
+              first={index === 0}
+              last={sections.length === index + 1}
+            />
+          );
         })}
       </Reorder.Group>
     </Panel.Scrollable>

@@ -42,6 +42,13 @@ const panels: Panels = {
       () => () => null
     )
   ),
+
+  [PanelsEnum.REORDER_SECTIONS]: dynamic(() =>
+    import('./reorder-sections').then(
+      mod => mod.ReorderSections,
+      () => () => null
+    )
+  ),
 };
 
 export { panels };

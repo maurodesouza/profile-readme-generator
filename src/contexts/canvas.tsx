@@ -122,6 +122,34 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(newSections);
   };
 
+  function moveSectionUp(event: CustomEvent<string>) {
+    const index = sections.findIndex(section => section.id === event.detail);
+
+    if (index === 0) return;
+
+    const newSections = [...sections];
+
+    const temp = newSections[index - 1];
+    newSections[index - 1] = newSections[index];
+    newSections[index] = temp;
+
+    setSections(newSections);
+  }
+
+  function moveSectionDown(event: CustomEvent<string>) {
+    const index = sections.findIndex(section => section.id === event.detail);
+
+    if (index + 1 === sections.length) return;
+
+    const newSections = [...sections];
+
+    const temp = newSections[index + 1];
+    newSections[index + 1] = newSections[index];
+    newSections[index] = temp;
+
+    setSections(newSections);
+  }
+
   const handleUseTemplate = () => {
     setSections(previewTemplate);
     setPreviewTemplate([]);
@@ -150,6 +178,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
     events.on(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
     events.on(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
+    events.on(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
+    events.on(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
 
     return () => {
       events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
@@ -158,6 +188,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
       events.off(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
       events.off(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
+      events.off(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
+      events.off(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
     };
   }, [sections, currentSection]);
 

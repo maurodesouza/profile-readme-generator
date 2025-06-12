@@ -45,6 +45,14 @@ class CanvasHandleEvents extends BaseEventHandle {
   currentSection = (sectionId: string) => {
     this.emit(Events.CANVAS_SET_CURRENT_SECTION, sectionId);
   };
+
+  up = (sectionId: string) => {
+    this.emit(Events.CANVAS_MOVE_SECTION_UP, sectionId);
+  };
+
+  down = (sectionId: string) => {
+    this.emit(Events.CANVAS_MOVE_SECTION_DOWN, sectionId);
+  };
 }
 
 export { CanvasHandleEvents };

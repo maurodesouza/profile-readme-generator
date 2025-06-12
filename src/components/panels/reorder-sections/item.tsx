@@ -29,7 +29,7 @@ export function Item(props: ItemProps) {
   >;
 
   function extractSectionProp() {
-    if (data.type) {
+    if (data.type === 'text') {
       return data.props.content.text;
     }
 

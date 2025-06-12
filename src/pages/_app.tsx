@@ -42,11 +42,6 @@ const App = ({ Component, pageProps }: AppProps) => {
           content="Dg8elSjcV3Klaq5f7PSaPVXXnstRgH"
         />
 
-        <meta
-          name="impact-site-verification"
-          value="3509b453-ca9c-40fd-ac07-f30cdd77c31e"
-        />
-
         <meta name="author" content="Mauro de Souza" />
         <meta name="robots" content="index,nofollow" />
         <meta name="theme-color" content="#58a6ff" />

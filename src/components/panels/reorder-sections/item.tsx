@@ -4,16 +4,21 @@ import { IconName } from 'lucide-react/dynamic';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Tile } from 'components/ui/primitives/atoms/tile';
 import { Text } from 'components/ui/primitives/atoms/text';
+import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { useExtensions } from 'hooks';
 import { CanvasSection } from 'types';
+import { events } from '@events';
 
 type ItemProps = {
   data: CanvasSection;
+
+  last: boolean;
+  first: boolean;
 };
 
 export function Item(props: ItemProps) {
-  const { data } = props;
+  const { data, first, last } = props;
   const dragControls = useDragControls();
 
   const { extensions } = useExtensions();
@@ -58,6 +63,26 @@ export function Item(props: ItemProps) {
             </Text.Paragraph>
           )}
         </Tile.Content>
+
+        <Tile.Actions className="ml-auto">
+          <Clickable.Button
+            size="icon"
+            variant="icon"
+            disabled={first}
+            onClick={() => events.canvas.up(data.id)}
+          >
+            <Icon name="arrow-up" />
+          </Clickable.Button>
+
+          <Clickable.Button
+            size="icon"
+            variant="icon"
+            disabled={last}
+            onClick={() => events.canvas.down(data.id)}
+          >
+            <Icon name="arrow-down" />
+          </Clickable.Button>
+        </Tile.Actions>
       </Tile.Container>
     </Tile.Sortable>
   );

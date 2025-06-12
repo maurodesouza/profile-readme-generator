@@ -39,6 +39,11 @@ const buttonVariants = tv({
       icon: 'size-8 justify-center',
       default: 'px-md py-xs',
     },
+
+    disabled: {
+      true: '!cursor-not-allowed opacity-50 **:!cursor-not-allowed',
+      false: '',
+    },
   },
 
   defaultVariants: {

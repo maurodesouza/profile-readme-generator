@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { ResourceItem } from 'components/ui/primitives/compound/resource-items';
@@ -6,7 +8,9 @@ import { AffiliateWarning } from 'components/ui/primitives/compound/affiliate-wa
 import { getItems } from './items';
 
 const PanelRecommendedResources = () => {
-  const items = getItems();
+  const { locale = 'en' } = useRouter();
+
+  const items = getItems(locale);
 
   return (
     <div className="flex flex-col gap-md h-full">

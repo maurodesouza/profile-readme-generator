@@ -1134,6 +1134,47 @@ const tech_icons = [
     },
   },
   {
+    name: 'clion',
+    color: '#000000',
+    alias: [],
+    tags: ['ide', 'editor', 'jetbrains', 'c', 'c++', 'cpp'],
+    available_providers: ['skill_icons', 'simple_icons', 'shields', 'devicons'],
+    providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=clion',
+      },
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/clion/000000',
+        variants: [
+          'https://cdn.simpleicons.org/clion/000000',
+          'https://cdn.simpleicons.org/clion/FFFFFF',
+          'https://cdn.simpleicons.org/clion/009AE5',
+          'https://cdn.simpleicons.org/clion/FF2D90',
+          'https://cdn.simpleicons.org/clion/00D980',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/CLion-000000?logo=clion&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/CLion-000000?logo=clion&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/CLion-FFFFFF?logo=clion&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/CLion-009AE5?logo=clion&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/CLion-FF2D90?logo=clion&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/CLion-00D980?logo=clion&logoColor=white&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clion/clion-plain-wordmark.svg',
+        ],
+      },
+    },
+  },
+  {
     name: 'clojure',
     color: '#5881D8',
     alias: [],
@@ -1555,6 +1596,43 @@ const tech_icons = [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-plain.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-plain-wordmark.svg',
+        ],
+      },
+    },
+  },
+  {
+    name: 'datagrip',
+    color: '#000000',
+    alias: [],
+    tags: ['ide', 'editor', 'jetbrains', 'db', 'database'],
+    available_providers: ['simple_icons', 'shields', 'devicons'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/datagrip/000000',
+        variants: [
+          'https://cdn.simpleicons.org/datagrip/000000',
+          'https://cdn.simpleicons.org/datagrip/FFFFFF',
+          'https://cdn.simpleicons.org/datagrip/7256FF',
+          'https://cdn.simpleicons.org/datagrip/FF43F2',
+          'https://cdn.simpleicons.org/datagrip/00D980',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/DataGrip-000000?logo=datagrip&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/DataGrip-000000?logo=datagrip&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/DataGrip-FFFFFF?logo=datagrip&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/DataGrip-7256FF?logo=datagrip&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/DataGrip-FF43F2?logo=datagrip&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/DataGrip-00D980?logo=datagrip&logoColor=white&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datagrip/datagrip-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datagrip/datagrip-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datagrip/datagrip-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datagrip/datagrip-plain-wordmark.svg',
         ],
       },
     },
@@ -2756,6 +2834,42 @@ const tech_icons = [
     },
   },
   {
+    name: 'goland',
+    color: '#000000',
+    alias: [],
+    tags: ['ide', 'editor', 'jetbrains', 'golang', 'go'],
+    available_providers: ['simple_icons', 'shields', 'devicons'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/goland/000000',
+        variants: [
+          'https://cdn.simpleicons.org/goland/000000',
+          'https://cdn.simpleicons.org/goland/FFFFFF',
+          'https://cdn.simpleicons.org/goland/007DFE',
+          'https://cdn.simpleicons.org/goland/D249FC',
+          'https://cdn.simpleicons.org/goland/00D886',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/GoLand-000000?logo=goland&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/GoLand-000000?logo=goland&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/GoLand-FFFFFF?logo=goland&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/GoLand-007DFE?logo=goland&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/GoLand-D249FC?logo=goland&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/GoLand-00D886?logo=goland&logoColor=white&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/goland/goland-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/goland/goland-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/goland/goland-plain.svg',
+        ],
+      },
+    },
+  },
+  {
     name: 'google',
     color: '#4285F4',
     alias: [],
@@ -3317,14 +3431,30 @@ const tech_icons = [
     name: 'intellij',
     color: '#000000',
     alias: [],
-    tags: ['editor'],
+    tags: ['ide', 'editor', 'jetbrains'],
     available_providers: ['simple_icons', 'shields', 'devicons'],
     providers: {
       simple_icons: {
         path: 'https://cdn.simpleicons.org/intellijidea/000000',
+        variant: [
+          'https://cdn.simpleicons.org/intellijidea/000000',
+          'https://cdn.simpleicons.org/intellijidea/FFFFFF',
+          'https://cdn.simpleicons.org/intellijidea/007EFF',
+          'https://cdn.simpleicons.org/intellijidea/FF8100',
+          'https://cdn.simpleicons.org/intellijidea/FE2857',
+          'https://cdn.simpleicons.org/intellijidea/AF438B',
+        ],
       },
       shields: {
         path: 'https://img.shields.io/badge/IntelliJ IDEA-000000?logo=intellijidea&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/IntelliJ IDEA-000000?logo=intellijidea&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/IntelliJ IDEA-FFFFFF?logo=intellijidea&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/IntelliJ IDEA-007EFF?logo=intellijidea&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/IntelliJ IDEA-FF8100?logo=intellijidea&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/IntelliJ IDEA-FE2857?logo=intellijidea&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/IntelliJ IDEA-AF438B?logo=intellijidea&logoColor=white&style=for-the-badge',
+        ],
       },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg',
@@ -5149,14 +5279,31 @@ const tech_icons = [
     name: 'phpstorm',
     color: '#000000',
     alias: [],
-    tags: ['editor'],
-    available_providers: ['simple_icons', 'shields', 'devicons'],
+    tags: ['ide', 'editor', 'jetbrains', 'php'],
+    available_providers: ['skill_icons', 'simple_icons', 'shields', 'devicons'],
     providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=phpstorm',
+      },
       simple_icons: {
         path: 'https://cdn.simpleicons.org/phpstorm/000000',
+        variants: [
+          'https://cdn.simpleicons.org/phpstorm/000000',
+          'https://cdn.simpleicons.org/phpstorm/ffffff',
+          'https://cdn.simpleicons.org/phpstorm/FF2D90',
+          'https://cdn.simpleicons.org/phpstorm/D249FC',
+          'https://cdn.simpleicons.org/phpstorm/7256FF',
+        ],
       },
       shields: {
         path: 'https://img.shields.io/badge/PhpStorm-000000?logo=phpstorm&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/PhpStorm-000000?logo=phpstorm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PhpStorm-ffffff?logo=phpstorm&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/PhpStorm-FF2D90?logo=phpstorm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PhpStorm-D249FC?logo=phpstorm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PhpStorm-7256FF?logo=phpstorm&logoColor=white&style=for-the-badge',
+        ],
       },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg',
@@ -5452,14 +5599,31 @@ const tech_icons = [
     name: 'pycharm',
     color: '#000000',
     alias: [],
-    tags: ['editor'],
-    available_providers: ['simple_icons', 'shields', 'devicons'],
+    tags: ['ide', 'editor', 'jetbrains', 'python'],
+    available_providers: ['skill_icons', 'simple_icons', 'shields', 'devicons'],
     providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=pycharm',
+      },
       simple_icons: {
         path: 'https://cdn.simpleicons.org/pycharm/000000',
+        variants: [
+          'https://cdn.simpleicons.org/pycharm/000000',
+          'https://cdn.simpleicons.org/pycharm/ffffff',
+          'https://cdn.simpleicons.org/pycharm/00C4F4',
+          'https://cdn.simpleicons.org/pycharm/00D886',
+          'https://cdn.simpleicons.org/pycharm/F0EB18',
+        ],
       },
       shields: {
         path: 'https://img.shields.io/badge/PyCharm-000000?logo=pycharm&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/PyCharm-000000?logo=pycharm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PyCharm-ffffff?logo=pycharm&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/PyCharm-00C4F4?logo=pycharm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PyCharm-00D886?logo=pycharm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/PyCharm-F0EB18?logo=pycharm&logoColor=black&style=for-the-badge',
+        ],
       },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg',
@@ -5876,6 +6040,76 @@ const tech_icons = [
     },
   },
   {
+    name: 'resharper',
+    color: '#000000',
+    alias: ['resharper-tools'],
+    tags: ['tool', 'jetbrains', 'c#', 'csharp'],
+    available_providers: ['simple_icons', 'shields'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/resharper/000000',
+        variants: [
+          'https://cdn.simpleicons.org/resharper/000000',
+          'https://cdn.simpleicons.org/resharper/FFFFFF',
+          'https://cdn.simpleicons.org/resharper/FF0A67',
+          'https://cdn.simpleicons.org/resharper/FDB60D',
+          'https://cdn.simpleicons.org/resharper/FF45ED',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/ReSharper-000000?logo=resharper&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/ReSharper-000000?logo=resharper&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/ReSharper-FFFFFF?logo=resharper&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/ReSharper-FF0A67?logo=resharper&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/ReSharper-FDB60D?logo=resharper&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/ReSharper-FF45ED?logo=resharper&logoColor=white&style=for-the-badge',
+        ],
+      },
+    },
+  },
+  {
+    name: 'rider',
+    color: '#000000',
+    alias: [],
+    tags: ['editor', 'jetbrains', 'c#', 'csharp'],
+    available_providers: ['skill_icons', 'simple_icons', 'shields', 'devicons'],
+    providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=rider',
+      },
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/rider/000000',
+        variants: [
+          'https://cdn.simpleicons.org/rider/000000',
+          'https://cdn.simpleicons.org/rider/FFFFFF',
+          'https://cdn.simpleicons.org/rider/FFB700',
+          'https://cdn.simpleicons.org/rider/FF0A67',
+          'https://cdn.simpleicons.org/rider/007DFE',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/Rider-000000?logo=rider&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/Rider-000000?logo=rider&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Rider-FFFFFF?logo=rider&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/Rider-FFB700?logo=rider&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/Rider-FF0A67?logo=rider&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Rider-007DFE?logo=rider&logoColor=white&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rider/rider-plain-wordmark.svg',
+        ],
+      },
+    },
+  },
+  {
     name: 'rocket',
     color: '#000',
     alias: [],
@@ -6013,11 +6247,31 @@ const tech_icons = [
   },
   {
     name: 'rubymine',
-    color: '#C12C4C',
+    color: '#000000',
     alias: [],
-    tags: ['editor'],
-    available_providers: ['devicons'],
+    tags: ['ide', 'editor', 'jetbrains', 'ruby'],
+    available_providers: ['simple_icons', 'shields', 'devicons'],
     providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/rubymine/000000',
+        variants: [
+          'https://cdn.simpleicons.org/rubymine/000000',
+          'https://cdn.simpleicons.org/rubymine/FFFFFF',
+          'https://cdn.simpleicons.org/rubymine/7256FF',
+          'https://cdn.simpleicons.org/rubymine/FF8100',
+          'https://cdn.simpleicons.org/rubymine/FF2358',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/RubyMine-000000?logo=rubymine&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/RubyMine-000000?logo=rubymine&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/RubyMine-ffffff?logo=rubymine&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/RubyMine-7256FF?logo=rubymine&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/RubyMine-FF8100?logo=rubymine&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/RubyMine-FF2358?logo=rubymine&logoColor=white&style=for-the-badge',
+        ],
+      },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rubymine/rubymine-original.svg',
         variants: [
@@ -6786,6 +7040,35 @@ const tech_icons = [
     },
   },
   {
+    name: 'teamcity',
+    color: '#000000',
+    alias: ['tc', 'team-city', 'team city'],
+    tags: ['integration', 'platform', 'ci-cd', 'jetbrains'],
+    available_providers: ['simple_icons', 'shields'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/teamcity/000000',
+        variants: [
+          'https://cdn.simpleicons.org/teamcity/000000',
+          'https://cdn.simpleicons.org/teamcity/FFFFFF',
+          'https://cdn.simpleicons.org/teamcity/08C5F2',
+          'https://cdn.simpleicons.org/teamcity/695AFC',
+          'https://cdn.simpleicons.org/teamcity/46DA88',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/Team City-000000?logo=teamcity&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/Team City-000000?logo=teamcity&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Team City-FFFFFF?logo=teamcity&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/Team City-08C5F2?logo=teamcity&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Team City-695AFC?logo=teamcity&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Team City-46DA88?logo=teamcity&logoColor=white&style=for-the-badge',
+        ],
+      },
+    },
+  },
+  {
     name: 'tensorflow',
     color: '#FF6F00',
     alias: [],
@@ -7498,14 +7781,31 @@ const tech_icons = [
     name: 'webstorm',
     color: '#000000',
     alias: [],
-    tags: ['editor'],
-    available_providers: ['simple_icons', 'shields', 'devicons'],
+    tags: ['ide', 'editor', 'jetbrains', 'javascript', 'typescript'],
+    available_providers: ['skill_icons', 'simple_icons', 'shields', 'devicons'],
     providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=webstorm',
+      },
       simple_icons: {
         path: 'https://cdn.simpleicons.org/webstorm/000000',
+        variants: [
+          'https://cdn.simpleicons.org/webstorm/000000',
+          'https://cdn.simpleicons.org/webstorm/ffffff',
+          'https://cdn.simpleicons.org/webstorm/F0EB18',
+          'https://cdn.simpleicons.org/webstorm/00C4F4',
+          'https://cdn.simpleicons.org/webstorm/007DFE',
+        ],
       },
       shields: {
         path: 'https://img.shields.io/badge/WebStorm-000000?logo=webstorm&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/WebStorm-000000?logo=webstorm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/WebStorm-ffffff?logo=webstorm&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/WebStorm-F0EB18?logo=webstorm&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/WebStorm-00C4F4?logo=webstorm&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/WebStorm-007DFE?logo=webstorm&logoColor=white&style=for-the-badge',
+        ],
       },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webstorm/webstorm-original.svg',

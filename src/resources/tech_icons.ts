@@ -1107,6 +1107,33 @@ const tech_icons = [
     },
   },
   {
+    name: 'clickup',
+    color: '#000000',
+    alias: [],
+    tags: ['tool', 'software-management'],
+    available_providers: ['simple_icons', 'shields'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/clickup/000000',
+        variants: [
+          'https://cdn.simpleicons.org/clickup/000000',
+          'https://cdn.simpleicons.org/clickup/ffffff',
+          'https://cdn.simpleicons.org/clickup/ff38b0',
+          'https://cdn.simpleicons.org/clickup/716bfc',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/Clickup-000000?logo=clickup&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/Clickup-000000?logo=clickup&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Clickup-ffffff?logo=clickup&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/Clickup-ff38b0?logo=clickup&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Clickup-716bfc?logo=clickup&logoColor=white&style=for-the-badge',
+        ],
+      },
+    },
+  },
+  {
     name: 'clojure',
     color: '#5881D8',
     alias: [],
@@ -3234,6 +3261,40 @@ const tech_icons = [
     },
   },
   {
+    name: 'insomnia',
+    color: '#5E00D3',
+    alias: [],
+    tags: ['tool', 'testing', 'http', 'api'],
+    available_providers: ['simple_icons', 'shields', 'devicons'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/insomnia/5E00D3',
+        variants: [
+          'https://cdn.simpleicons.org/insomnia/5E00D3',
+          'https://cdn.simpleicons.org/insomnia/ffffff',
+          'https://cdn.simpleicons.org/insomnia/000000',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/insomnia-5E00D3?logo=insomnia&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/insomnia-5E00D3?logo=insomnia&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/insomnia-000000?logo=insomnia&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/insomnia-ffffff?logo=insomnia&logoColor=black&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-plain-wordmark.svg',
+        ],
+      },
+    },
+  },
+  {
     name: 'instagram',
     color: '#E4405F',
     alias: [],
@@ -3513,6 +3574,44 @@ const tech_icons = [
         variants: [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-plain.svg',
+        ],
+      },
+    },
+  },
+  {
+    name: 'jetpackcompose',
+    color: '#000000',
+    alias: ['jetpack-compose', 'jetpack', 'jetpack compose'],
+    tags: ['android', 'mobile', 'ui/ux'],
+    available_providers: ['simple_icons', 'shields', 'devicons'],
+    providers: {
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/jetpackcompose/000000',
+        variants: [
+          'https://cdn.simpleicons.org/jetpackcompose/000000',
+          'https://cdn.simpleicons.org/jetpackcompose/ffffff',
+          'https://cdn.simpleicons.org/jetpackcompose/2EC781',
+          'https://cdn.simpleicons.org/jetpackcompose/3A83F9',
+          'https://cdn.simpleicons.org/jetpackcompose/002B41',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/jetpack%20compose-000000?logo=jetpackcompose&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/jetpack%20compose-000000?logo=jetpackcompose&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/jetpack%20compose-ffffff?logo=jetpackcompose&logoColor=black&style=for-the-badge',
+          'https://img.shields.io/badge/jetpack%20compose-2EC781?logo=jetpackcompose&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/jetpack%20compose-3A83F9?logo=jetpackcompose&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/jetpack%20compose-002B41?logo=jetpackcompose&logoColor=white&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-plain.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original-wordmark.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-plain-wordmark.svg',
         ],
       },
     },
@@ -4559,6 +4658,39 @@ const tech_icons = [
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodewebkit/nodewebkit-plain-wordmark.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodewebkit/nodewebkit-line.svg',
           'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodewebkit/nodewebkit-line-wordmark.svg',
+        ],
+      },
+    },
+  },
+  {
+    name: 'notion',
+    color: '#000000',
+    alias: [],
+    tags: ['tool', 'software-management'],
+    available_providers: ['simple_icons', 'shields', 'skill_icons', 'devicons'],
+    providers: {
+      skill_icons: {
+        path: 'https://skillicons.dev/icons?i=notion',
+      },
+      simple_icons: {
+        path: 'https://cdn.simpleicons.org/notion/000000',
+        variants: [
+          'https://cdn.simpleicons.org/notion/000000',
+          'https://cdn.simpleicons.org/notion/ffffff',
+        ],
+      },
+      shields: {
+        path: 'https://img.shields.io/badge/Notion-000000?logo=notion&logoColor=white&style=for-the-badge',
+        variants: [
+          'https://img.shields.io/badge/Notion-000000?logo=notion&logoColor=white&style=for-the-badge',
+          'https://img.shields.io/badge/Notion-ffffff?logo=notion&logoColor=black&style=for-the-badge',
+        ],
+      },
+      devicons: {
+        path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg',
+        variants: [
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg',
+          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-plain.svg',
         ],
       },
     },

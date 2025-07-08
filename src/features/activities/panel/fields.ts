@@ -69,7 +69,7 @@ const groups = [
       {
         type: Inputs.TEXT,
         path: 'content.limit',
-        label: 'Post limit',
+        label: 'Post count',
       },
       {
         type: Inputs.SELECT,

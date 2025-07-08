@@ -35,7 +35,7 @@ const general = {
 
       activities: {
         mediumBaseUrl:
-          'https://github-read-medium-git-main.pahlevikun.vercel.app/latest',
+          'https://github-readme-medium-recent-article.vercel.app/medium',
       },
     },
   },

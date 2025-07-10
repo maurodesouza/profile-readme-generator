@@ -1,19 +1,14 @@
 import { config } from 'config';
-import { objectToQueryParams } from '../objectToQueryParams';
-
 const { mediumBaseUrl } = config.general.urls.sections.activities;
+
+export type ActivityUrlType = keyof typeof activitiesUrl;
 
 const activitiesUrl = {
   medium: mediumBaseUrl,
 };
 
-const getActivitiesUrl = (
-  origin: keyof typeof activitiesUrl,
-  props: Record<string, unknown> = {}
-) => {
-  const postUrl = activitiesUrl[origin];
-
-  return `${postUrl}?${objectToQueryParams(props)}`;
+const getActivitiesUrl = (origin: ActivityUrlType) => {
+  return activitiesUrl[origin];
 };
 
 export { getActivitiesUrl };

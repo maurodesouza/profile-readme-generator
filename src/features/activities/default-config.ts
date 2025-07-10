@@ -2,7 +2,7 @@ const defaultActivitiesSectionConfig = {
   props: {
     content: {
       type: 'medium',
-      limit: 4,
+      limit: 3,
     },
 
     styles: {

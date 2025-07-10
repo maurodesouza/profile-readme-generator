@@ -1,7 +1,7 @@
 import { getDeepObjectProperty } from '../getDeepObjectProperty';
 
 const operators = {
-  equal: '===',
+  equal: (a: unknown, b: unknown): boolean => a === b,
 };
 
 type checkDeepObjectValueArgs<T> = {
@@ -18,8 +18,9 @@ const checkDeepObjectValue = <T extends Record<string, unknown>>({
   value,
 }: checkDeepObjectValueArgs<T>): boolean => {
   const property = getDeepObjectProperty(obj, path);
+  const handler = operators[be];
 
-  return eval(`'${property}' ${operators[be]} '${value}'`);
+  return handler ? handler(property, value) : false;
 };
 
 export { checkDeepObjectValue };

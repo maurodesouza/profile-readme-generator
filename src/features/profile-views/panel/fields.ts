@@ -19,10 +19,6 @@ const groups = [
         props: {
           options: [
             {
-              label: 'Default',
-              value: 'default',
-            },
-            {
               label: 'Badge',
               value: 'badge',
             },

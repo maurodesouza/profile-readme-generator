@@ -30,7 +30,6 @@ const general = {
 
       profileViews: {
         badgeBaseUrl: 'https://visitor-badge.laobi.icu/badge',
-        imageBaseUrl: 'https://profile-counter.glitch.me',
       },
 
       activities: {

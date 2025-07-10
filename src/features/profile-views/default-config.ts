@@ -1,7 +1,7 @@
 const defaultProfileViewsSectionConfig = {
   props: {
     content: {
-      type: 'default',
+      type: 'badge',
       props: {
         left_color: '',
         right_color: '',

@@ -13,10 +13,6 @@ describe('UTILS - Get profile views url', () => {
         input: ['badge', 'test'],
         expected: `${badgeBaseUrl}?page_id=test.test&`,
       },
-      {
-        input: ['default', 'test'],
-        expected: `${imageBaseUrl}/test/count.svg?`,
-      },
     ];
 
     inputs.forEach(({ input: [type, username], expected }) => {

@@ -28,7 +28,7 @@ interface MemoizedIconEditorProps {
   social: string;
   props: Social;
   index: number;
-  iconEditorRefs: React.MutableRefObject<IconEditorRef[]>;
+  iconEditorRefs: React.RefObject<IconEditorRef[]>;
 }
 
 const MemoizedIconEditor = React.memo(
@@ -67,11 +67,12 @@ const MemoizedIconEditor = React.memo(
     );
   },
   (prevProps: MemoizedIconEditorProps, nextProps: MemoizedIconEditorProps) => {
-    if (prevProps.social !== nextProps.social) return false;
-    if (prevProps.index !== nextProps.index) return false;
-    if (prevProps.props.icon !== nextProps.props.icon) return false;
-    if (prevProps.props.short_name !== nextProps.props.short_name) return false;
-    return true;
+    return (
+      prevProps.social === nextProps.social &&
+      prevProps.props.icon === nextProps.props.icon &&
+      prevProps.props.short_name === nextProps.props.short_name &&
+      prevProps.index === nextProps.index
+    );
   }
 );
 

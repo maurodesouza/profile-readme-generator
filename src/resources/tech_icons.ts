@@ -21,14 +21,10 @@ const tech_icons = [
     color: '#FF9E0F',
     alias: ['bots'],
     tags: [],
-    available_providers: ['skill_icons', 'simple_icons', 'shields'],
+    available_providers: ['skill_icons', 'shields'],
     providers: {
       skill_icons: {
         path: 'https://skillicons.dev/icons?i=bots',
-      },
-      simple_icons: {
-        slug: 'abbrobotstudio',
-        path: 'https://cdn.simpleicons.org/abbrobotstudio/FF9E0F',
       },
       shields: {
         path: 'https://img.shields.io/badge/ABB RobotStudio-FF9E0F?logo=abbrobotstudio&logoColor=black&style=for-the-badge',
@@ -234,14 +230,10 @@ const tech_icons = [
     color: '#4053D6',
     alias: ['dynamodb', 'aws dynamodb'],
     tags: [],
-    available_providers: ['skill_icons', 'simple_icons', 'shields'],
+    available_providers: ['skill_icons', 'shields'],
     providers: {
       skill_icons: {
         path: 'https://skillicons.dev/icons?i=dynamodb',
-      },
-      simple_icons: {
-        slug: 'amazondynamodb',
-        path: 'https://cdn.simpleicons.org/amazondynamodb/4053D6',
       },
       shields: {
         path: 'https://img.shields.io/badge/Amazon DynamoDB-4053D6?logo=amazondynamodb&logoColor=white&style=for-the-badge',
@@ -254,13 +246,10 @@ const tech_icons = [
     color: '#232F3E',
     alias: ['aws'],
     tags: ['cloud', 'hosting', 'server'],
-    available_providers: ['simple_icons', 'shields', 'skill_icons', 'devicons'],
+    available_providers: ['shields', 'skill_icons', 'devicons'],
     providers: {
       skill_icons: {
         path: 'https://skillicons.dev/icons?i=aws',
-      },
-      simple_icons: {
-        path: 'https://cdn.simpleicons.org/amazonwebservices/FF9900',
       },
       shields: {
         path: 'https://img.shields.io/badge/Amazon AWS-232F3E?logo=amazonwebservices&logoColor=FF9900&style=for-the-badge',
@@ -1500,7 +1489,7 @@ const tech_icons = [
     },
   },
   {
-    name: 'css3',
+    name: 'css',
     color: '#1572B6',
     alias: ['css'],
     tags: ['language', 'programming'],
@@ -1510,10 +1499,10 @@ const tech_icons = [
         path: 'https://skillicons.dev/icons?i=css',
       },
       simple_icons: {
-        path: 'https://cdn.simpleicons.org/css3/1572B6',
+        path: 'https://cdn.simpleicons.org/css/1572B6',
       },
       shields: {
-        path: 'https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge',
+        path: 'https://img.shields.io/badge/CSS-1572B6?logo=css&logoColor=white&style=for-the-badge',
       },
       devicons: {
         path: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',

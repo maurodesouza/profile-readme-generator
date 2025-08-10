@@ -870,16 +870,18 @@ const tech_icons = [
     available_providers: ['simple_icons', 'shields'],
     providers: {
       simple_icons: {
-        path: 'https://cdn.simpleicons.org/bluesky/285DF6',
+        path: 'https://cdn.simpleicons.org/bluesky/0285FF',
         variants: [
+          'https://cdn.simpleicons.org/bluesky/0285FF',
           'https://cdn.simpleicons.org/bluesky/285DF6',
           'https://cdn.simpleicons.org/bluesky/FFFFFF',
           'https://cdn.simpleicons.org/bluesky/000000',
         ],
       },
       shields: {
-        path: 'https://img.shields.io/badge/Bluesky-285DF6?logo=bluesky&logoColor=white&style=for-the-badge',
+        path: 'https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=white&style=for-the-badge',
         variants: [
+          'https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=white&style=for-the-badge',
           'https://img.shields.io/badge/Bluesky-285DF6?logo=bluesky&logoColor=white&style=for-the-badge',
           'https://img.shields.io/badge/Bluesky-black?logo=bluesky&logoColor=white&style=for-the-badge',
           'https://img.shields.io/badge/Bluesky-white?logo=bluesky&logoColor=black&style=for-the-badge',

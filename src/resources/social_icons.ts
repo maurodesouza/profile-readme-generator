@@ -22,6 +22,17 @@ const social_icons = [
     },
   },
   {
+    name: 'bluesky',
+    icons: ['default'],
+    badge: {
+      message: 'Bluesky',
+      color: '0285FF',
+      label: '',
+      logo: 'bluesky',
+      logoColor: 'white',
+    },
+  },
+  {
     name: 'codesandbox',
     icons: ['default'],
     badge: {

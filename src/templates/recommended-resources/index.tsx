@@ -41,8 +41,8 @@ const RecommendedResourcesTemplate = (
 
           <div className="grid grid-cols-2 gap-xl">
             {(resources ?? []).map(resource => (
-              <ResourceItem
-                key={resource.name}
+              <ResourceItem.Mapper
+                key={resource.title}
                 {...resource}
                 linkLabel="Get the book"
               />

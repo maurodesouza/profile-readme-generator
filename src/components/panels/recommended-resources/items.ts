@@ -1,3 +1,5 @@
+import { ResourceItemMapperProps } from 'components/ui/primitives/compound/resource-items/mapper';
+
 function getItems(locale: string) {
   const isBR = locale === 'pt-BR';
 
@@ -41,7 +43,7 @@ function getItems(locale: string) {
       linkLabel: 'More books',
       linkTarget: '_self',
     },
-  ];
+  ] as ResourceItemMapperProps[];
 }
 
 export { getItems };

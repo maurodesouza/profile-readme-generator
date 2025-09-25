@@ -1,3 +1,4 @@
+import { ResourceItemMapper } from './mapper';
 import { Templates } from './templates';
 
 export type ResourceItemProps = {
@@ -14,4 +15,5 @@ export type ResourceItemProps = {
 
 export const ResourceItem = {
   Templates,
+  Mapper: ResourceItemMapper,
 };

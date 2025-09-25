@@ -26,7 +26,7 @@ export function ResourceItem(props: ResourceItemProps) {
       <div className="flex gap-md">
         <Tile.Img src={image} className="self-center" />
 
-        <Tile.Content>
+        <Tile.Content className="flex flex-col gap-1">
           <Tile.Label>{name}</Tile.Label>
 
           <Text.Paragraph>{description}</Text.Paragraph>

@@ -1,20 +1,11 @@
-import { Text } from '../atoms/text';
-import { Tile } from '../atoms/tile';
+import { Text } from 'components/ui/primitives/atoms/text';
+import { Tile } from 'components/ui/primitives/atoms/tile';
+import { ResourceItemProps } from '..';
 
-type ResourceItemProps = {
-  name: string;
-  image: string;
-  description: string;
-
-  link: string;
-  linkLabel: string;
-  linkTarget?: string;
-};
-
-export function ResourceItem(props: ResourceItemProps) {
+export function ShortResourceItem(props: ResourceItemProps) {
   const {
-    name,
-    image,
+    title,
+    imageSrc,
     description,
     link,
     linkLabel,
@@ -24,10 +15,10 @@ export function ResourceItem(props: ResourceItemProps) {
   return (
     <Tile.Container className="h-auto flex-col">
       <div className="flex gap-md">
-        <Tile.Img src={image} className="self-center" />
+        <Tile.Img src={imageSrc} className="self-center" />
 
-        <Tile.Content>
-          <Tile.Label>{name}</Tile.Label>
+        <Tile.Content className="flex flex-col gap-1">
+          <Tile.Label>{title}</Tile.Label>
 
           <Text.Paragraph>{description}</Text.Paragraph>
         </Tile.Content>

@@ -30,7 +30,7 @@ const PanelRecommendedResources = () => {
 
       <Panel.Scrollable className="space-y-md">
         {items.map(item => (
-          <ResourceItem key={item.name} {...item} />
+          <ResourceItem.Mapper key={item.title} {...item} />
         ))}
       </Panel.Scrollable>
 

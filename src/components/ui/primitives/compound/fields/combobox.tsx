@@ -75,7 +75,7 @@ export function Combobox(props: ComboboxProps) {
         </Popover.Trigger>
         <Popover.Content className="w-(--radix-popover-trigger-width) p-0">
           <Command.Root>
-            <Command.Input placeholder="Search framework..." />
+            <Command.Input placeholder="Search..." />
             <Command.List>
               <Command.Empty>No framework found.</Command.Empty>
               <Command.Group>

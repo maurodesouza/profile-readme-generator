@@ -154,7 +154,7 @@ function PanelContent(props: React.PropsWithChildren) {
   );
 }
 
-const Scrollable = twx.div`h-full w-[calc(100%_+_var(--spacing-md))] pr-xs overflow-y-scroll scrollbar`;
+const Scrollable = twx.div`h-full w-[calc(100%_+_(var(--spacing-md)_*_2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
 
 function PanelRender() {
   const { panel } = usePanel();

@@ -11,3 +11,4 @@ export * from './icon';
 export * from './extensions';
 export * from './post-metadata';
 export * from './rendarable';
+export * from './params';

@@ -12,6 +12,7 @@ const Features = () => {
     import('./music');
     import('./image');
     import('./activities');
+    import('./border');
   }, []);
 
   return null;

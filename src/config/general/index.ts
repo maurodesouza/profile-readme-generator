@@ -22,6 +22,10 @@ const general = {
           'https://github-readme-activity-graph.vercel.app/graph',
       },
 
+      borders: {
+        capsuleRenderBaseUrl: 'https://capsule-render.vercel.app/api',
+      },
+
       socials: {
         iconBaseUrl:
           'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social',

@@ -1,9 +1,15 @@
-import { Settings } from 'types';
+import { Params, Settings } from 'types';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
+type Providers = Parameters<typeof getProfileViewsUrl>[0];
+
+type Views = {
+  [key in Providers]: Params;
+};
+
 type Content = {
-  type: Parameters<typeof getProfileViewsUrl>[0];
-  props: Record<string, unknown>;
+  provider: Parameters<typeof getProfileViewsUrl>[0];
+  views: Views;
 };
 
 type Styles = {
@@ -20,11 +26,11 @@ const profileViewsSectionParser = (
   { content, styles }: ProfileViewsSectionParserArgs,
   settings: Settings
 ) => {
-  const { type, props } = content;
+  const { provider, views } = content;
   const { align, float } = styles;
 
-  const url = getProfileViewsUrl(type, settings.user.github as string);
-  const fullUrl = `${url}${type === 'badge' ? objectToQueryParams(props) : ''}`;
+  const url = getProfileViewsUrl(provider, settings.user.github as string);
+  const fullUrl = `${url}${objectToQueryParams(views[provider])}`;
 
   const hasFloat = float !== 'none';
   const floatStyle = `align="${float}" `;

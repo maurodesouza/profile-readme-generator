@@ -33,7 +33,8 @@ const general = {
       },
 
       profileViews: {
-        badgeBaseUrl: 'https://visitor-badge.laobi.icu/badge',
+        laobi: 'https://visitor-badge.laobi.icu/badge',
+        getloli: 'https://count.getloli.com',
       },
 
       activities: {

@@ -2,10 +2,17 @@ import { GuardSection } from 'components/sections/guard';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
 import { useSettings } from 'hooks';
+import { Params } from 'types';
+
+type Providers = Parameters<typeof getProfileViewsUrl>[0];
+
+type Views = {
+  [key in Providers]: Params;
+};
 
 type Content = {
-  type: Parameters<typeof getProfileViewsUrl>[0];
-  props: Record<string, unknown>;
+  provider: Parameters<typeof getProfileViewsUrl>[0];
+  views: Views;
 };
 
 type Styles = {
@@ -23,11 +30,11 @@ export function ProfileViewsSection(props: ProfileViewsProps) {
 
   const { settings } = useSettings();
 
-  const { type, props: contentProps } = content;
+  const { provider, views } = content;
   const { github = '' } = settings.user;
 
-  const url = getProfileViewsUrl(type, github as string);
-  const fullUrl = `${url}${objectToQueryParams(contentProps)}`;
+  const url = getProfileViewsUrl(provider, github as string);
+  const fullUrl = `${url}${objectToQueryParams(views[provider])}`;
 
   return (
     <GuardSection sectionId={id}>

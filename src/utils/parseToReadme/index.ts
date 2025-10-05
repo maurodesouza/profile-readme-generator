@@ -9,7 +9,7 @@ const parseToReadme = (
   settings: Settings
 ) => {
   const readme = template.reduce((readme, section) => {
-    const { state, styles } = section.props;
+    const { state, styles = {} } = section.props;
 
     if (state === CanvasStatesEnum.ALERT) return readme;
 

@@ -1,4 +1,5 @@
 export enum Sections {
+  BORDER = 'border',
   TEXT = 'text',
   STATS = 'stats',
   TECHS = 'techs',

@@ -3,15 +3,18 @@ import { getProfileViewsUrl } from '.';
 
 type ProfileViewsType = Parameters<typeof getProfileViewsUrl>[0];
 
-const { badgeBaseUrl, imageBaseUrl } =
-  config.general.urls.sections.profileViews;
+const { getloli, laobi } = config.general.urls.sections.profileViews;
 
 describe('UTILS - Get profile views url', () => {
   it('should return the correct url for the profile views type', () => {
     const inputs = [
       {
-        input: ['badge', 'test'],
-        expected: `${badgeBaseUrl}?page_id=test.test&`,
+        input: ['laobi', 'test'],
+        expected: `${laobi}?page_id=test.test&`,
+      },
+      {
+        input: ['getloli', 'test'],
+        expected: `${getloli}/@:test?`,
       },
     ];
 

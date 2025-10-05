@@ -1,13 +1,14 @@
 import { config } from 'config';
 
-const { badgeBaseUrl } = config.general.urls.sections.profileViews;
+const { getloli, laobi } = config.general.urls.sections.profileViews;
 
 const urls = {
-  badge: (username: string) =>
-    `${badgeBaseUrl}?page_id=${username}.${username}&`,
+  laobi: (username: string) => `${laobi}?page_id=${username}.${username}&`,
+  getloli: (username: string) => `${getloli}/@:${username}?`,
 };
 
-const getProfileViewsUrl = (type: keyof typeof urls, username: string) =>
-  urls[type](username);
+function getProfileViewsUrl(type: keyof typeof urls, username: string) {
+  return urls[type](username);
+}
 
 export { getProfileViewsUrl };

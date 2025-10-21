@@ -1,8 +1,8 @@
 {
   "name": "profile-readme-generator",
   "displayName": "Profile Readme Generator",
-  "description": "Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way",
-  "version": "1.0.0",
+  "description": "Beautify your GitHub profile with this amazing tool, Creating your README file in a simple and fast way.",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Mauro de Souza",
   "type": "module",
@@ -27,7 +27,7 @@
     "url": "https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS"
   },
   "homepage": "https://profile-readme-generator.com",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -35,6 +35,7 @@
     "lint": "eslint src",
     "test": "jest",
     "analyze": "ANALYZE=true yarn build"
+    "inst": pnpm install
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.16",

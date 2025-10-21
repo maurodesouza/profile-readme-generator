@@ -129,7 +129,7 @@ a {
 }
 
 button {
-  background: none;
+  background: gray;
   border: none;
 }
 
@@ -145,7 +145,7 @@ button * {
 
 input,
 textarea {
-  cursor: text;
+  cursor: block;
 }
 
 body,

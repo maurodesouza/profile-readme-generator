@@ -1,11 +1,11 @@
 <div align="center" id="top">
-  <img src="https://profile-readme-generator.com/assets/app.png" width="900" alt="Profile Readme Generator" />
+  <img src="https://profile-readme-generator.com/assets/app.png" width="900" alt="Profile Description Generator" />
 
   <a href="https://profile-readme-generator.com">Demo</a>
 </div>
 
 <div align="center">
-  <h1>Profile Readme Generator</h1>
+  <h1>Profile Description Generator</h1>
   <h3>The best profile readme generator you will find!</h3>
 </div>
 
@@ -52,9 +52,9 @@
 
 Are you tired of manually editing your GitHub profile or missing out on the amazing features you can add to it? 😩 Configuring GitHub actions can also be a hassle, right? Say no more! 💪
 
-**Introducing a tool that lets you beautify your GitHub profile with a customized README, easily and in no time!** ✨ You can include whatever content you want, wherever you want it (*within the limitations of markdown, of course*). 📝
+**Introducing a tool that lets you beautify your GitHub profile with a customized Description, easily and in no time!** ✨ You can include whatever content you want, wherever you want it (*within the limitations of markdown, of course*). 📝
 
-**With this amazing tool, creating your own README has never been so simple and fast.** ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
+**With this amazing tool, creating your own Description has never been so simple and fast.** ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
 
 **Don't miss out on the opportunity to enhance your GitHub profile.** Give it a try and see for yourself how easy and convenient it is! 😉
 
@@ -154,4 +154,4 @@ Made with :heart: by <a href="https://github.com/maurodesouza" target="_blank">M
 
 <a href="#top">Back to top</a>
 
-*Readme created with [Simple Readme](https://marketplace.visualstudio.com/items?itemName=maurodesouza.vscode-simple-readme)*
+*Description created with [Simple Description](https://marketplace.visualstudio.com/items?itemName=maurodesouza.vscode-simple-readme)*

@@ -188,3 +188,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.is-used {
+  @apply border border-ring-outer;
+}

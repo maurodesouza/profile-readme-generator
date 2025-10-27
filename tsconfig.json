@@ -8,6 +8,7 @@
       "es2017"
     ],
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "allowJs": true,
     "noEmit": true,
     "strict": true,

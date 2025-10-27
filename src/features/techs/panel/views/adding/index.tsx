@@ -6,11 +6,18 @@ import { Panel } from 'components/ui/primitives/atoms/panel';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
 import { events } from '@events';
-import { useForceUpdate } from 'hooks';
+import { useCanvas, useForceUpdate } from 'hooks';
 import { capitalize, cn, debounce, filterArrayByQueryMatch } from 'utils';
 
 import { tech_icons } from 'resources';
-import { GroupIcons, Icon, IconProviders } from 'types';
+import {
+  CanvasContent,
+  CanvasSection,
+  GroupIcons,
+  Icon,
+  IconProviders,
+  Sections,
+} from 'types';
 
 type Providers = IconProviders | 'all';
 
@@ -19,6 +26,15 @@ export function Adding() {
   const [provider, setProvider] = useState<Providers>(IconProviders.DEVICONS);
 
   const forceUpdate = useForceUpdate();
+  const { sections } = useCanvas();
+
+  const usedIcons = useMemo(() => {
+    const techsSection = sections.find(
+      (section: CanvasSection) => section.type === Sections.TECHS
+    );
+    const content = techsSection?.props.content as CanvasContent;
+    return Object.keys(content?.icons || {});
+  }, [sections]);
 
   const groupIcons = useMemo(() => {
     const result: GroupIcons = {
@@ -56,16 +72,20 @@ export function Adding() {
     return result;
   }
 
-  function handleAddTech(icon: Icon, provider: string) {
+  function handleAddTech(icon: Icon, provider: string, isUsed: boolean) {
     return () => {
       const path = `content.icons.${icon.name}`;
-      const value = {
-        ...icon,
-        currentProvider: provider,
-        config: {},
-      };
 
-      events.canvas.edit({ path, value });
+      if (isUsed) {
+        events.canvas.edit({ path, value: undefined });
+      } else {
+        const value = {
+          ...icon,
+          currentProvider: provider,
+          config: {},
+        };
+        events.canvas.edit({ path, value });
+      }
     };
   }
 
@@ -129,12 +149,16 @@ export function Adding() {
                     const { name, shortname, providers } = icon;
                     const url = providers[providerName]!.path;
 
+                    const isUsed = usedIcons.includes(icon.name);
+
                     return (
                       <button
                         key={name}
-                        onClick={handleAddTech(icon, providerName)}
+                        onClick={handleAddTech(icon, providerName, isUsed)}
                       >
-                        <DisplayBlock.Container>
+                        <DisplayBlock.Container
+                          className={cn(isUsed && 'is-used')}
+                        >
                           <DisplayBlock.Content>
                             <img
                               style={{

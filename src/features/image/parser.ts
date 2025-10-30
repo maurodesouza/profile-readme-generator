@@ -1,3 +1,5 @@
+import { Sections } from 'types';
+
 type Content = {
   url: string;
 };
@@ -22,8 +24,8 @@ const imageSectionParser = ({ content, styles }: ImageSectionParserArgs) => {
   const floatStyle = `align="${float}" `;
 
   return `
-    ${!hasFloat ? `<div align="${align}">` : ''}
-      <img ${hasFloat ? floatStyle : ''}height="${height}" src="${url}" />
+    ${!hasFloat ? `<div data-importer="${Sections.IMAGE}" align="${align}">` : ''}
+      <img data-importer="${Sections.IMAGE}" ${hasFloat ? floatStyle : ''}height="${height}" src="${url}" />
     ${!hasFloat ? '</div>' : ''}
   `;
 };

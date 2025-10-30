@@ -60,9 +60,14 @@
     "react-markdown": "^10.1.0",
     "react-share": "^5.2.2",
     "react-twc": "^1.4.2",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "tailwind-merge": "^3.3.0",
     "tailwind-variants": "^1.0.0",
     "tailwindcss": "^4.1.7",
+    "unified": "^11.0.5",
     "uuid": "^11.1.0"
   },
   "devDependencies": {

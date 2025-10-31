@@ -1,4 +1,5 @@
 import { objectToQueryParams } from '.';
+import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Object to query params', () => {
   it('should correctly format an object to query params format', () => {

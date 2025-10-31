@@ -1,9 +1,11 @@
 import { config } from 'config';
 import { getStatsUrl } from '.';
+import { describe, it, expect } from 'vitest';
 
 type StatsType = Parameters<typeof getStatsUrl>[0];
 
-const { imageBaseUrl, streakBaseUrl } = config.general.urls.sections.stats;
+const { languagesBaseUrl, statsBaseUrl, streakBaseUrl } =
+  config.general.urls.sections.stats;
 
 describe('UTILS - Get stats url', () => {
   it('should return the correct url for the stats type', () => {
@@ -12,11 +14,11 @@ describe('UTILS - Get stats url', () => {
     const inputs = [
       {
         input: 'stats',
-        expected: `${imageBaseUrl}?username=${github}`,
+        expected: `${statsBaseUrl}${github}`,
       },
       {
         input: 'languages',
-        expected: `${imageBaseUrl}/top-langs?username=${github}`,
+        expected: `${languagesBaseUrl}${github}`,
       },
       {
         input: 'streak',

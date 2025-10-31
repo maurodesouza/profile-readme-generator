@@ -1,11 +1,16 @@
 import { config } from 'config';
 
-const { imageBaseUrl, streakBaseUrl, trophiBaseUrl, activityGraphBaseUrl } =
-  config.general.urls.sections.stats;
+const {
+  statsBaseUrl,
+  languagesBaseUrl,
+  streakBaseUrl,
+  trophiBaseUrl,
+  activityGraphBaseUrl,
+} = config.general.urls.sections.stats;
 
 const urls = (value: string) => ({
-  stats: `${imageBaseUrl}?username=${value}`,
-  languages: `${imageBaseUrl}/top-langs?username=${value}`,
+  stats: `${statsBaseUrl}${value}`,
+  languages: `${languagesBaseUrl}${value}`,
   streak: `${streakBaseUrl}?user=${value}`,
   trophy: `${trophiBaseUrl}?username=${value}`,
   'activity-graph': `${activityGraphBaseUrl}?username=${value}`,

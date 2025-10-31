@@ -1,5 +1,6 @@
 import { config } from 'config';
 import { getMusicUrl } from '.';
+import { describe, it, expect } from 'vitest';
 
 const { profileBaseUrl, recentlyPlayedBaseUrl } =
   config.general.urls.sections.music.spotify;

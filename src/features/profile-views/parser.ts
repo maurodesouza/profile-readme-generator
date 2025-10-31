@@ -1,4 +1,4 @@
-import { Params, Settings } from 'types';
+import { Params, Sections, Settings } from 'types';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
 type Providers = Parameters<typeof getProfileViewsUrl>[0];
@@ -36,8 +36,8 @@ const profileViewsSectionParser = (
   const floatStyle = `align="${float}" `;
 
   return `
-    ${!hasFloat ? `<div align="${align}">` : ''}
-      <img ${hasFloat ? floatStyle : ''}src="${fullUrl}" />
+    ${!hasFloat ? `<div data-importer="${Sections.PROFILE_VIEWS}" align="${align}">` : ''}
+      <img data-importer="${Sections.PROFILE_VIEWS}" ${hasFloat ? floatStyle : ''}src="${fullUrl}" />
     ${!hasFloat ? '</div>' : ''}
   `;
 };

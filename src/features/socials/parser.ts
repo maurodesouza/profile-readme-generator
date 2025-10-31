@@ -1,3 +1,4 @@
+import { Sections } from 'types';
 import { getSocialImgUrl } from 'utils';
 
 type SocialStyles = {
@@ -63,7 +64,7 @@ const socialsSectionParser = ({
     .trim();
 
   return `
-    <div align="${align}">
+    <div data-importer="${Sections.SOCIALS}" align="${align}">
       ${imgsHtml}
     </div>
   `;

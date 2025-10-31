@@ -1,4 +1,4 @@
-import { Settings } from 'types';
+import { Sections, Settings } from 'types';
 
 const pacmanSectionParser = (
   _: Record<string, unknown>,
@@ -6,7 +6,7 @@ const pacmanSectionParser = (
 ) => {
   const { github } = settings.user;
 
-  return `<picture>
+  return `<picture data-importer="${Sections.PACMAN}">
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">
     <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">

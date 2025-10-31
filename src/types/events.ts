@@ -8,6 +8,8 @@ export enum Events {
   CANVAS_CLEAR_SECTIONS = 'canvas.clear',
   CANVAS_MOVE_SECTION_UP = 'canvas.section.move.up',
   CANVAS_MOVE_SECTION_DOWN = 'canvas.section.move.down',
+  CANVAS_IMPORT_README = 'canvas.import',
+  CANVAS_IMPORT_README_FILE = 'canvas.import.file',
 
   TEMPLATE_USE = 'template.use',
   TEMPLATE_PREVIEW = 'template.preview',

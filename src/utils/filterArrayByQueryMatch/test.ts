@@ -1,4 +1,5 @@
 import { filterArrayByQueryMatch } from '.';
+import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Filter array by query match', () => {
   const objectArray = [

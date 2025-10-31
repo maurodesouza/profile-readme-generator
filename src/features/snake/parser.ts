@@ -1,9 +1,9 @@
-import { Settings } from 'types';
+import { Sections, Settings } from 'types';
 
 const snakeSectionParser = (_: Record<string, unknown>, settings: Settings) => {
   const { github } = settings.user;
 
-  return `<img src="https://raw.githubusercontent.com/${github}/${github}/output/snake.svg" alt="Snake animation"/>`;
+  return `<img data-importer="${Sections.SNAKE}" src="https://raw.githubusercontent.com/${github}/${github}/output/snake.svg" alt="Snake animation"/>`;
 };
 
 const snakeWorkflowParser = () => {

@@ -1,5 +1,6 @@
 import { Events, PanelSide } from 'types';
 import { getPanelSideEvent } from '.';
+import { describe, it, expect } from 'vitest';
 
 type Expected = {
   show: Events;

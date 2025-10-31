@@ -1,4 +1,5 @@
 import { config } from 'config';
+import { describe, it, expect } from 'vitest';
 
 import { CapsuleRenderParams, getBorderUrl } from '.';
 

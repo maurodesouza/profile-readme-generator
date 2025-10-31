@@ -1,4 +1,5 @@
 import { checkDeepObjectValue } from '.';
+import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Check deep object value', () => {
   const objInput = {

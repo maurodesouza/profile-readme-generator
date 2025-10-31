@@ -1,4 +1,5 @@
 import { getDeepObjectProperty } from '.';
+import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Get deep object property', () => {
   const objInput = {

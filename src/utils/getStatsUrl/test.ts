@@ -1,5 +1,6 @@
 import { config } from 'config';
 import { getStatsUrl } from '.';
+import { describe, it, expect } from 'vitest';
 
 type StatsType = Parameters<typeof getStatsUrl>[0];
 

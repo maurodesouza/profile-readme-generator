@@ -5,9 +5,11 @@ import { CanvasSection, CanvasStatesEnum, Settings } from 'types';
 
 const parseToReadme = (
   template: CanvasSection[],
-  parsers: Record<string, any>,
+  parsers: Record<string, any> | undefined,
   settings: Settings
 ) => {
+  if (!parsers) parsers = {} as Record<string, any>;
+
   const readme = template.reduce((readme, section) => {
     const { state, styles = {} } = section.props;
 

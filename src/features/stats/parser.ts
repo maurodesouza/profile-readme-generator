@@ -1,4 +1,4 @@
-import { Settings } from 'types';
+import { Sections, Settings } from 'types';
 import { getStatsUrl, objectToQueryParams } from 'utils';
 
 type Obj = Record<string, unknown>;
@@ -46,7 +46,7 @@ const statsSectionParser = (
     .trim();
 
   return `
-    <div align="${align}">
+    <div data-importer="${Sections.STATS}" align="${align}">
       ${imgsHtml}
     </div>
   `;

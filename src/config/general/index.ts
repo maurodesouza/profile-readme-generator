@@ -15,7 +15,9 @@ const general = {
       },
 
       stats: {
-        imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
+        statsBaseUrl: 'https://github-readme-stats.vercel.app/api?username=',
+        languagesBaseUrl:
+          'https://github-readme-stats.vercel.app/api/top-langs?username=',
         streakBaseUrl: 'https://streak-stats.demolab.com',
         trophiBaseUrl: 'https://github-profile-trophy.vercel.app',
         activityGraphBaseUrl:

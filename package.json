@@ -50,7 +50,7 @@
     "html-prettify": "^1.0.7",
     "html-react-parser": "^5.2.5",
     "lucide-react": "^0.511.0",
-    "next": "^15.3.2",
+    "next": "15.3.8",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.6.0",
     "postcss": "^8.5.3",

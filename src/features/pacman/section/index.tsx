@@ -13,7 +13,7 @@ export function PacmanSection(props: PacmanSectionProps) {
         <img
           className="w-full"
           src="/assets/pacman.svg"
-          alt="An animation of pacman eating the github user contribuitions (like pacman game)"
+          alt="An animation of pacman eating the github user contributions (like pacman game)"
         />
       </div>
     </GuardSection>

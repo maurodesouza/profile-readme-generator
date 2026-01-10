@@ -13,7 +13,7 @@ export function SnakeSection(props: SnakeSectionProps) {
         <img
           className="w-full"
           src="/assets/snake.svg"
-          alt="An animation of snake eating the github user contribuitions (like snake game)"
+          alt="An animation of snake eating the github user contributions (like snake game)"
         />
       </div>
     </GuardSection>

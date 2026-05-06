@@ -15,11 +15,13 @@ const general = {
       },
 
       stats: {
-        imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
+        imageBaseUrl:
+          'https://github-readme-stats.profile-readme-generator.com/api',
         streakBaseUrl: 'https://streak-stats.demolab.com',
-        trophiBaseUrl: 'https://github-profile-trophy.vercel.app',
+        trophiBaseUrl:
+          'https://github-profile-trophy.profile-readme-generator.com',
         activityGraphBaseUrl:
-          'https://github-readme-activity-graph.vercel.app/graph',
+          'https://github-readme-activity-graph.profile-readme-generator.com/graph',
       },
 
       borders: {

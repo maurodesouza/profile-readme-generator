@@ -18,7 +18,7 @@ const general = {
         imageBaseUrl:
           'https://github-readme-stats.profile-readme-generator.com/api',
         streakBaseUrl: 'https://streak-stats.demolab.com',
-        trophiBaseUrl:
+        trophyBaseUrl:
           'https://github-profile-trophy.profile-readme-generator.com',
         activityGraphBaseUrl:
           'https://github-readme-activity-graph.profile-readme-generator.com/graph',

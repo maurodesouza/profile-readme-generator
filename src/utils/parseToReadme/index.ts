@@ -1,6 +1,6 @@
+import { TFile } from 'components/ui/primitives/atoms/tree';
 import htmlPrettify from 'html-prettify';
 
-import { File } from 'components/tree';
 import { CanvasSection, CanvasStatesEnum, Settings } from 'types';
 
 const parseToReadme = (
@@ -33,10 +33,15 @@ const parseToReadme = (
 
     if (!generator?.parser?.workflow) return workflows;
 
-    const workflow = generator.parser.workflow() as File;
+    const workflow = generator.parser.workflow(section.props, settings) as
+      | TFile
+      | null
+      | undefined;
+
+    if (!workflow) return workflows;
 
     return [...workflows, workflow];
-  }, [] as File[]);
+  }, [] as TFile[]);
 
   const readmeFormatted = readme.replace(/(###)/g, '\n$1');
 

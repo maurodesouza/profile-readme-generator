@@ -7,9 +7,9 @@ const pacmanSectionParser = (
   const { github } = settings.user;
 
   return `<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">
-    <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/output/pacman-contribution-graph.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/pacman-contribution-graph-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/pacman-contribution-graph.svg">
+    <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/pacman-output/pacman-contribution-graph.svg">
 </picture>`;
 };
 
@@ -44,7 +44,7 @@ jobs:
       - name: push pacman-contribution-graph.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: pacman-output
           build_dir: dist
         env:
           GITHUB_TOKEN: ${'${{ secrets.GITHUB_TOKEN }}'}

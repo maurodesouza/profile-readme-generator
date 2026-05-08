@@ -23,6 +23,7 @@ const WORKFLOW_OUTPUT_BRANCH = 'output';
 const WORKFLOW_GRAPH_FILES: Partial<Record<Graphs, string>> = {
   stats: 'stats.svg',
   trophy: 'trophy.svg',
+  'activity-graph': 'activity-graph.svg',
 };
 
 const statsSectionParser = (

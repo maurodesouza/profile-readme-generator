@@ -221,6 +221,17 @@ const social_icons = [
     },
   },
   {
+    name: 'spotify',
+    icons: ['default'],
+    badge: {
+      message: 'Spotify',
+      color: '000000',
+      label: '',
+      logo: 'spotify',
+      logoColor: '1DB954',
+    },
+  },
+  {
     name: 'stackoverflow',
     icons: ['default'],
     badge: {
@@ -255,12 +266,13 @@ const social_icons = [
   },
   {
     name: 'twitter',
+    short_name: 'x',
     icons: ['default'],
     badge: {
-      message: 'Twitter',
-      color: '1DA1F2',
+      message: 'X',
+      color: '000000',
       label: '',
-      logo: 'twitter',
+      logo: 'x',
       logoColor: 'white',
     },
   },

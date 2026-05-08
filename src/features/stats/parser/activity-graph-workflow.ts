@@ -65,7 +65,7 @@ jobs:
       - name: Push activity-graph.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: activity-graph-output
           build_dir: dist
         env:
           GITHUB_TOKEN: ${'${{ secrets.GITHUB_TOKEN }}'}

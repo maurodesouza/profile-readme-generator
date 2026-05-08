@@ -18,7 +18,11 @@ export type StatsSectionParserArgs = {
   styles: SectionStyles;
 };
 
-const WORKFLOW_OUTPUT_BRANCH = 'output';
+const WORKFLOW_OUTPUT_BRANCH: Record<string, string> = {
+  stats: 'stats-output',
+  trophy: 'trophy-output',
+  'activity-graph': 'activity-graph-output',
+};
 
 const WORKFLOW_GRAPH_FILES: Partial<Record<Graphs, string>> = {
   stats: 'stats.svg',
@@ -49,7 +53,8 @@ const statsSectionParser = (
       let img: string;
 
       if (workflowFile) {
-        const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${WORKFLOW_OUTPUT_BRANCH}/${workflowFile}`;
+        const branch = WORKFLOW_OUTPUT_BRANCH[graph];
+        const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${branch}/${workflowFile}`;
 
         img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
       } else {

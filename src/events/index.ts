@@ -1,5 +1,4 @@
 import { Events } from 'types';
-
 import { Handles } from './handles';
 
 type Callback = (args: any) => void;

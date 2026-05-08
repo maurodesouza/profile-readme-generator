@@ -45,6 +45,10 @@ on:
 
   workflow_dispatch:
 
+  push:
+    branches:
+    - main
+
 jobs:
   build:
     permissions:

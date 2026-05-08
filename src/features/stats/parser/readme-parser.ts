@@ -20,12 +20,14 @@ export type StatsSectionParserArgs = {
 
 const WORKFLOW_OUTPUT_BRANCH: Record<string, string> = {
   stats: 'stats-output',
+  languages: 'languages-output',
   trophy: 'trophy-output',
   'activity-graph': 'activity-graph-output',
 };
 
 const WORKFLOW_GRAPH_FILES: Partial<Record<Graphs, string>> = {
   stats: 'stats.svg',
+  languages: 'languages.svg',
   trophy: 'trophy.svg',
   'activity-graph': 'activity-graph.svg',
 };

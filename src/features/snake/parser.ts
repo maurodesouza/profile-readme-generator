@@ -3,7 +3,7 @@ import { Settings } from 'types';
 const snakeSectionParser = (_: Record<string, unknown>, settings: Settings) => {
   const { github } = settings.user;
 
-  return `<img src="https://raw.githubusercontent.com/${github}/${github}/output/snake.svg" alt="Snake animation"/>`;
+  return `<img src="https://raw.githubusercontent.com/${github}/${github}/snake-output/snake.svg" alt="Snake animation"/>`;
 };
 
 const snakeWorkflowParser = () => {
@@ -38,7 +38,7 @@ jobs:
       - name: push snake.svg to the output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
-          target_branch: output
+          target_branch: snake-output
           build_dir: dist
         env:
           GITHUB_TOKEN: ${'${{ secrets.GITHUB_TOKEN }}'}

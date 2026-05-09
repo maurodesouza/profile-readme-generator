@@ -13,7 +13,7 @@ const feature = {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'ghost',
       onClick: () => events.canvas.add(Sections.PACMAN),
-      name: 'Pacman',
+      name: 'Arcade games',
     },
 
     sections: {

@@ -2,13 +2,13 @@ import { GuardSection } from 'components/sections/guard';
 
 const GAME_IMAGES: Record<string, string> = {
   pacman:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/a0f0a3d2ab9631b370485e79018c48c67b139ab6/public/assets/pacman.svg',
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/pacman.svg',
   breakout:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/a0f0a3d2ab9631b370485e79018c48c67b139ab6/public/assets/breakout.svg',
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/breakout.svg',
   galaga:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/a0f0a3d2ab9631b370485e79018c48c67b139ab6/public/assets/galaga.svg',
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/galaga.svg',
   'puzzle-bobble':
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/a0f0a3d2ab9631b370485e79018c48c67b139ab6/public/assets/pacman4.svg',
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/puzzle-bobble.svg',
 };
 
 type PacmanSectionProps = {

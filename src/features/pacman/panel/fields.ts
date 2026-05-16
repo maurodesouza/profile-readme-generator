@@ -27,6 +27,10 @@ const groups = [
               label: '🫧 Puzzle Bobble',
               value: 'puzzle-bobble',
             },
+            {
+              label: '💣 Bomberman',
+              value: 'bomberman',
+            },
           ],
         },
       },

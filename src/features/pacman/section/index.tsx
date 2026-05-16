@@ -9,6 +9,8 @@ const GAME_IMAGES: Record<string, string> = {
     'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/galaga.svg',
   'puzzle-bobble':
     'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/puzzle-bobble.svg',
+  bomberman:
+    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/bomberman.svg',
 };
 
 type PacmanSectionProps = {

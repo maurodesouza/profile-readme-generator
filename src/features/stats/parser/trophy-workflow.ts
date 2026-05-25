@@ -22,6 +22,7 @@ const buildTrophyWithBlock = (props: Obj) => {
       const value = props[panelKey];
 
       if (value === undefined || value === null || value === '') return lines;
+      if (panelKey === 'column' && Number(value) === -1) return lines;
 
       const line = `${indent}${actionKey}: ${String(value)}`;
 

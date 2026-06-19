@@ -13,10 +13,10 @@ const defaultSocialsSectionConfig = {
 
         twitter: {
           icon: 'default',
-          message: 'Twitch',
-          color: '9146FF',
+          message: 'X',
+          color: '000000',
           label: '',
-          logo: 'twitch',
+          logo: 'x',
           logoColor: 'white',
         },
 

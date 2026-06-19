@@ -44,6 +44,7 @@ export function Adding() {
 
   const filteredOptions = filterArrayByQueryMatch(value, social_icons, [
     'name',
+    'short_name',
   ]);
 
   return (

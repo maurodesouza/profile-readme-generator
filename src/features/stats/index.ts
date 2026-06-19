@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { statsSectionParser } from './parser';
+import { statsSectionParser, statsWorkflowParser } from './parser';
 import { defaultStatsSectionConfig } from './default-config';
 
 import { events } from '@events';
@@ -25,6 +25,7 @@ const feature = {
       ),
       parser: {
         readme: statsSectionParser,
+        workflow: statsWorkflowParser,
       },
       defaultConfig: defaultStatsSectionConfig,
     },

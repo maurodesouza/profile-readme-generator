@@ -13,9 +13,23 @@ type SectionStyles = {
   direction: 'row' | 'column';
 };
 
-type StatsSectionParserArgs = {
+export type StatsSectionParserArgs = {
   content: Content;
   styles: SectionStyles;
+};
+
+const WORKFLOW_OUTPUT_BRANCH: Record<string, string> = {
+  stats: 'stats-output',
+  languages: 'languages-output',
+  trophy: 'trophy-output',
+  'activity-graph': 'activity-graph-output',
+};
+
+const WORKFLOW_GRAPH_FILES: Partial<Record<Graphs, string>> = {
+  stats: 'stats.svg',
+  languages: 'languages.svg',
+  trophy: 'trophy.svg',
+  'activity-graph': 'activity-graph.svg',
 };
 
 const statsSectionParser = (
@@ -29,17 +43,28 @@ const statsSectionParser = (
   const imgsHtml = (Object.entries(graphs) as [Graphs, Obj][])
     .filter(([, props]) => props.show)
     .reduce((html, [graph, props], index, arr) => {
-      const url = getStatsUrl(graph as Graphs, github!);
-
       const { height = 150, ...rest } = { ...props };
 
       Reflect.deleteProperty(rest, 'show');
 
-      const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;
       const toAddBr = direction === 'column' && index + 1 !== arr.length;
-
-      const img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
       const br = toAddBr ? '<br>' : '';
+
+      const workflowFile = WORKFLOW_GRAPH_FILES[graph];
+
+      let img: string;
+
+      if (workflowFile) {
+        const branch = WORKFLOW_OUTPUT_BRANCH[graph];
+        const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${branch}/${workflowFile}`;
+
+        img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
+      } else {
+        const url = getStatsUrl(graph as Graphs, github!);
+        const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;
+
+        img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
+      }
 
       return `${html} \n ${img} ${br}`;
     }, '')

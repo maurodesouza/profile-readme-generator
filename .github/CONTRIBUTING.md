@@ -19,7 +19,7 @@
 
 First off, we would like to thank you for taking the time to contribute and make this a better project!
 
-Here we have a set of instructions and guidelines to reduce misunderstandings and make the process of contributing to `profile-reame-generator` as smooth as possible.
+Here we have a set of instructions and guidelines to reduce misunderstandings and make the process of contributing to `profile-readme-generator` as smooth as possible.
 
 We hope this guide makes the contribution process clear and answers any questions you may have.
 

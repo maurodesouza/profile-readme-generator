@@ -57,8 +57,9 @@ const statsSectionParser = (
       if (workflowFile) {
         const branch = WORKFLOW_OUTPUT_BRANCH[graph];
         const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${branch}/${workflowFile}`;
+        const queryParams = objectToQueryParams(rest as Obj);
 
-        img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
+        img = `<img src="${fullUrl}?${queryParams}" height="${height}" alt="${graph} graph" />`;
       } else {
         const url = getStatsUrl(graph as Graphs, github!);
         const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;

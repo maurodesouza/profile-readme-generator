@@ -4,8 +4,7 @@ import { describe, it, expect } from 'vitest';
 
 type StatsType = Parameters<typeof getStatsUrl>[0];
 
-const { languagesBaseUrl, statsBaseUrl, streakBaseUrl } =
-  config.general.urls.sections.stats;
+const { imageBaseUrl, streakBaseUrl } = config.general.urls.sections.stats;
 
 describe('UTILS - Get stats url', () => {
   it('should return the correct url for the stats type', () => {
@@ -14,11 +13,11 @@ describe('UTILS - Get stats url', () => {
     const inputs = [
       {
         input: 'stats',
-        expected: `${statsBaseUrl}${github}`,
+        expected: `${imageBaseUrl}?username=${github}`,
       },
       {
         input: 'languages',
-        expected: `${languagesBaseUrl}${github}`,
+        expected: `${imageBaseUrl}/top-langs?username=${github}`,
       },
       {
         input: 'streak',

@@ -32,7 +32,7 @@ const techsImporter = (techsDiv: Element): CanvasSection | null => {
   ] as number;
   defaultConfig.props.styles.align = techsDiv.properties['align'] as string;
   defaultConfig.props.styles.spacing =
-    (firstSpacingImage?.properties?.['height'] as number) || 12;
+    (firstSpacingImage?.properties?.['width'] as number) || 12;
 
   const techIcons: any = {};
   for (let image of images) {

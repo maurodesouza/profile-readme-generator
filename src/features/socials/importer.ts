@@ -103,6 +103,7 @@ const socialsImporter = (socialsDiv: Element): CanvasSection | null => {
   defaultConfig.props.content.styles.height = height;
   defaultConfig.props.content.styles.width = width;
   defaultConfig.props.styles.align = socialsDiv.properties['align'] as string;
+  defaultConfig.props.styles.spacing = width - height;
   defaultConfig.props.content.socials = socialIcons;
   defaultConfig.props.content.styles.style = style;
 

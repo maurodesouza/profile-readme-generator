@@ -1,5 +1,6 @@
 import { config } from 'config';
 import { getActivitiesUrl } from '.';
+import { describe, it, expect } from 'vitest';
 
 const { mediumBaseUrl } = config.general.urls.sections.activities;
 

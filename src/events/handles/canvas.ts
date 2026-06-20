@@ -23,6 +23,14 @@ class CanvasHandleEvents extends BaseEventHandle {
     this.emit(Events.CANVAS_REMOVE_SECTION, sectionId);
   };
 
+  loadImportFile = () => {
+    this.emit(Events.CANVAS_IMPORT_README_FILE);
+  };
+
+  import = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.emit(Events.CANVAS_IMPORT_README, event);
+  };
+
   clear = () => {
     this.emit(Events.CANVAS_CLEAR_SECTIONS);
   };

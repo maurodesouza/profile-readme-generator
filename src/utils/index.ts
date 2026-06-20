@@ -17,3 +17,4 @@ export * from './capitalize';
 export * from './toArray';
 export * from './parseToReadme';
 export * from './tailwind';
+export * from './importer';

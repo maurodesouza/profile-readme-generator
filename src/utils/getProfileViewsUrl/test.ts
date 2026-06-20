@@ -1,5 +1,6 @@
 import { config } from 'config';
 import { getProfileViewsUrl } from '.';
+import { describe, it, expect } from 'vitest';
 
 type ProfileViewsType = Parameters<typeof getProfileViewsUrl>[0];
 

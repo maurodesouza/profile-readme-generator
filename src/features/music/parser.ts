@@ -1,3 +1,4 @@
+import { Sections } from 'types';
 import { getMusicUrl } from 'utils';
 
 type Obj = {
@@ -35,7 +36,7 @@ const musicSectionParser = ({ content, styles }: MusicSectionParserArgs) => {
   const alt = ALTS[type];
 
   return `
-    <div align="${align}">
+    <div data-importer="${Sections.MUSIC}" align="${align}">
       ${spotifyAccountUrl ? `<a href="${spotifyAccountUrl}">` : ''}
         <img src="${imageUrl}" alt="${alt}" />
       ${spotifyAccountUrl ? `</a>` : ''}

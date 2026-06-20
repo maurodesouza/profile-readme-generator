@@ -111,6 +111,28 @@ export function CanvasActions() {
               <Icon name="sun-moon" />
             </Clickable.Button>
           </Tooltip>
+
+          <Tooltip position="left" content="Import README" tone="brand">
+            <Clickable.Button
+              aria-label="Import README"
+              size="icon"
+              variant="icon"
+              tone="brand"
+              onClick={events.canvas.loadImportFile}
+            >
+              <Icon name="upload-cloud" />
+            </Clickable.Button>
+          </Tooltip>
+
+          <input
+            id="readme-file-import"
+            type="file"
+            accept=".md,text/markdown"
+            style={{
+              display: 'none',
+            }}
+            onChange={events.canvas.import}
+          />
         </div>
       </div>
     </>

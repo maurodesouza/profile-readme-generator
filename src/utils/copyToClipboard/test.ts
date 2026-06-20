@@ -1,4 +1,5 @@
 import { copyToClipboard } from '.';
+import { describe, it, expect, beforeAll, vi } from 'vitest';
 
 Object.assign(navigator, {
   clipboard: {
@@ -6,7 +7,7 @@ Object.assign(navigator, {
   },
 });
 
-jest.spyOn(navigator.clipboard, 'writeText');
+vi.spyOn(navigator.clipboard, 'writeText');
 
 describe('UTILS - Copy to clip board', () => {
   const input = 'some value';

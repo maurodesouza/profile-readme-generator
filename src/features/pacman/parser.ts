@@ -1,4 +1,5 @@
-import { Settings } from 'types';
+import { Sections, Settings } from 'types';
+import { objectToQueryParams } from 'utils';
 
 const pacmanSectionParser = (
   config: Record<string, unknown>,
@@ -6,12 +7,15 @@ const pacmanSectionParser = (
 ) => {
   const { github } = settings.user;
   const game = (config?.game as string) ?? 'pacman';
+  const queryParams = objectToQueryParams({ game });
 
-  return `<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph.svg">
-    <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph.svg">
-</picture>`;
+  return `
+    <picture data-importer="${Sections.PACMAN}">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph-dark.svg?${queryParams}">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph.svg?${queryParams}">
+      <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/${github}/${github}/pacman-output/${game}-contribution-graph.svg?${queryParams}">
+    </picture>
+  `;
 };
 
 const pacmanWorkflowParser = (config: Record<string, unknown>) => {

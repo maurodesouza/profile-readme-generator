@@ -1,4 +1,4 @@
-import { EditableIcon } from 'types';
+import { EditableIcon, Sections } from 'types';
 
 type TechStyles = {
   height: number;
@@ -51,7 +51,7 @@ const techsSectionParser = ({
     .trim();
 
   return `
-    <div align="${align}">
+    <div data-importer="${Sections.TECHS}" align="${align}">
       ${imgsHtml}
     </div>
   `;

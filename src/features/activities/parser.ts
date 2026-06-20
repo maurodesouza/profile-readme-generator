@@ -1,3 +1,4 @@
+import { Sections } from 'types';
 import { getActivitiesUrl } from 'utils';
 import { ActivityUrlType } from 'utils/getActivitiesUrl';
 
@@ -35,7 +36,7 @@ const _handleMediumPosts = (
   const count = (rest.limit as number) || 3;
   const username = rest.username as string;
 
-  let result = `<div align="${align}" style="width: 100%">`;
+  let result = `<div data-importer="${Sections.ACTIVITIES}" align="${align}" style="width: 100%">`;
 
   for (let i = 0; i < count; i++) {
     const url = `${baseUrl}/@${username}/${i}`;

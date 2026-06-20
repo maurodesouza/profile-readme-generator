@@ -1,3 +1,5 @@
+import { Sections } from 'types';
+
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
 };
@@ -18,7 +20,7 @@ const textSectionParser = ({ content, styles }: TextSectionParserArgs) => {
 
   const formattedText = text.trim().replace(/\n/g, '<br>');
 
-  return `<${tag} align="${align}">${formattedText}</${tag}>`;
+  return `<${tag} data-importer="${Sections.TEXT}" align="${align}">${formattedText}</${tag}>`;
 };
 
 export { textSectionParser };

@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { events } from '@events';
 import { Sections, CanvasSection, Events, PanelsEnum } from 'types';
 
-import { deepChangeObjectProperty } from 'utils';
+import { deepChangeObjectProperty, parseImportedReadme } from 'utils';
 import { useExtensions, usePersistedState } from 'hooks';
 
 type HandleAddSectionArgs = CustomEvent<Sections>;
@@ -23,6 +23,8 @@ type CanvasContextData = {
 type CanvasProviderProps = {
   children: React.ReactNode;
 };
+
+type ImportReadme = CustomEvent<React.ChangeEvent<HTMLInputElement>>;
 
 const CanvasContext = createContext<CanvasContextData>({} as CanvasContextData);
 
@@ -51,6 +53,19 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     };
 
     setSections(state => [...state, newSection]);
+  };
+
+  const loadReadmeFile = async () => {
+    document.getElementById('readme-file-import')?.click();
+  };
+
+  const importReadme = async (event: ImportReadme) => {
+    const file = event?.detail?.target?.files?.[0];
+    if (!file) return; // TODO: toast error event
+    const text = await file.text();
+    const sections = await parseImportedReadme(text);
+    handleClearCanvas();
+    setSections(sections);
   };
 
   const handleEditSection = (event: HandleEditSectionArgs) => {
@@ -180,6 +195,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     events.on(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
     events.on(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
     events.on(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
+    events.on(Events.CANVAS_IMPORT_README, importReadme);
+    events.on(Events.CANVAS_IMPORT_README_FILE, loadReadmeFile);
 
     return () => {
       events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
@@ -190,6 +207,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
       events.off(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
       events.off(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
       events.off(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
+      events.off(Events.CANVAS_IMPORT_README, importReadme);
+      events.off(Events.CANVAS_IMPORT_README_FILE, loadReadmeFile);
     };
   }, [sections, currentSection]);
 

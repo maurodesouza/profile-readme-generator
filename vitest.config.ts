@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitest/config';
 import path from 'path';
-import { features } from 'process';
 
 export default defineConfig({
   plugins: [],

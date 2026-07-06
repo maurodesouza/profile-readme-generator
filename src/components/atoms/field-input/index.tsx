@@ -9,7 +9,7 @@ const inputVariants = tv({
     rounded-md border border-tone-ring-inner outline-none
     transition-[color,box-shadow]
     file:text-foreground file:inline-flex file:h-7 file:border-0 file:bg-background-default file:text-sm file:font-semibold
-    disabled:!cursor-not-allowed disabled:opacity-50
+    disabled:cursor-not-allowed! disabled:opacity-50
 
     focus-visible:ring-tone-ring-outer focus-visible:ring-[1px]
   `,

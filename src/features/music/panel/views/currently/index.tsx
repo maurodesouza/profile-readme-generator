@@ -30,7 +30,7 @@ export function Currently() {
             <li
               key={item.id}
               dangerouslySetInnerHTML={{ __html: item.content }}
-              className="relative !list-[circle] ml-md"
+              className="relative list-[circle]! ml-md"
             />
           ))}
         </ul>

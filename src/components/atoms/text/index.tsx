@@ -43,7 +43,7 @@ const Link = twx(
   NextLink
 )`text-tone-foreground-context text-sm hover:underline`;
 
-const Clickable = twx.button`inline !text-tone-foreground-context text-sm hover:underline`;
+const Clickable = twx.button`inline text-tone-foreground-context! text-sm hover:underline`;
 
 const Strong = twx.strong`text-foreground text-sm font-semibold`;
 

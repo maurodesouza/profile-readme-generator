@@ -9,8 +9,8 @@ const switchVariants = tv({
   base: `
     peer inline-flex h-[1.2rem] w-8 shrink-0 items-center rounded-full shadow-xs
     focus-visible:ring-[2px]
-    data-[state=checked]:!bg-tone-luminosity-300/30 data-[state=checked]:focus-visible:ring-tone-luminosity-300/40
-    data-[state=unchecked]:!bg-foreground/30 data-[state=unchecked]:focus-visible:ring-foreground/40
+    data-[state=checked]:bg-tone-luminosity-300/30! data-[state=checked]:focus-visible:ring-tone-luminosity-300/40
+    data-[state=unchecked]:bg-foreground/30! data-[state=unchecked]:focus-visible:ring-foreground/40
     transition-all outline-none
     disabled:cursor-not-allowed disabled:opacity-50
   `,

@@ -25,7 +25,7 @@ export function GroupFieldsLabel(props: GroupFieldsLabelProps) {
         onClick={toggleExpansible}
         variant="icon"
         tone="brand"
-        className="w-full !px-0 !font-semibold"
+        className="w-full px-0! font-semibold!"
       >
         <motion.div
           initial={false}

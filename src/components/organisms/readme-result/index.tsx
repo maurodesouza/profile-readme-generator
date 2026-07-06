@@ -44,7 +44,7 @@ export function ReadmeResult() {
                   onClick={copy}
                   size="icon"
                   variant="icon"
-                  className="box-border !rounded-full"
+                  className="box-border rounded-full!"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
                 </Clickable.Button>

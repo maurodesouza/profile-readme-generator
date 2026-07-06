@@ -149,7 +149,7 @@ function PanelContent(props: React.PropsWithChildren) {
   );
 }
 
-const Scrollable = twx.div`h-full w-[calc(100%_+_(var(--spacing-md)_*_2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
+const Scrollable = twx.div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
 
 function PanelRender() {
   const { panel } = usePanel();
@@ -186,15 +186,15 @@ function PanelToggle() {
   }
 
   function getBorderClasses() {
-    if (isLeft) return 'pr-0 !border-r-0 !rounded-tr-none !rounded-br-none';
+    if (isLeft) return 'pr-0 border-r-0! rounded-tr-none! rounded-br-none!';
 
-    return 'pl-0 !border-l-0 !rounded-tl-none !rounded-bl-none';
+    return 'pl-0 border-l-0! rounded-tl-none! rounded-bl-none!';
   }
 
   function getPositionClasses() {
     if (isOpen) return isLeft ? '-right-panel' : '-left-panel';
 
-    return isLeft ? 'right-[-5px]' : 'left-[-5px]';
+    return isLeft ? '-right-1.25' : '-left-1.25';
   }
 
   return (
@@ -205,13 +205,13 @@ function PanelToggle() {
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}
       className={cn(
-        'absolute grid place-items-center top-md !bg-background-default box-border rounded-md p-[calc(var(--spacing-xs)_/_2)] z-20 laptop:hidden',
+        'absolute grid place-items-center top-md bg-background-default! box-border rounded-md p-[calc(var(--spacing-xs)/2)] z-20 laptop:hidden',
 
         getPositionClasses(),
         !isOpen && getBorderClasses()
       )}
     >
-      <Icon name={`chevron-${side}`} size={24} className="!cursor-pointer" />
+      <Icon name={`chevron-${side}`} size={24} className="cursor-pointer!" />
     </button>
   );
 }

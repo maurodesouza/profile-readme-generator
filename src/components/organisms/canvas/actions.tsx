@@ -21,7 +21,7 @@ export function CanvasActions() {
     <>
       <div className="absolute top-md -left-md w-8 flex flex-col gap-md">
         {state.is !== 'hidden' && (
-          <div className="py-md bg-background-default box-border !rounded-full">
+          <div className="py-md bg-background-default box-border rounded-full!">
             {state.is === 'preview-mode' && (
               <>
                 <Tooltip position="left" content="Use template" tone="success">
@@ -85,7 +85,7 @@ export function CanvasActions() {
           </div>
         )}
 
-        <div className="py-md bg-background-default box-border !rounded-full">
+        <div className="py-md bg-background-default box-border rounded-full!">
           <Tooltip position="left" content="Open settings panel" tone="brand">
             <Clickable.Button
               aria-label="Open settings panel"

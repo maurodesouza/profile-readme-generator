@@ -118,7 +118,6 @@ export class Command {
       },
 
       apply(_target, _thisArg, args: [ActionPayload<ActionPath>, Config?]) {
-        console.log('path', path);
         const commandName = path.join('.') as ActionPath;
         return self.dispatch(commandName, args[0], args[1]);
       },

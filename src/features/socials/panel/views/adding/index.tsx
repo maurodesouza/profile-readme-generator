@@ -1,8 +1,8 @@
 import React, { useMemo, useRef } from 'react';
 
-import { Panel } from 'components/ui/primitives/atoms/panel';
-import { Fields } from 'components/ui/primitives/fields';
-import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
+import { Panel } from '#/components/organisms/panel';
+import { Fields } from '#/components/molecules/fields';
+import { DisplayBlock } from '#/components/atoms/display-block';
 
 import { actions } from 'lib/command';
 import { useCanvas, useForceUpdate } from 'hooks';

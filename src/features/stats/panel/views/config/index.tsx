@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 
-import { Fields } from 'components/ui/primitives/fields';
+import { Fields } from '#/components/molecules/fields';
 
 import { views } from './views';
 import { capitalize } from 'utils';

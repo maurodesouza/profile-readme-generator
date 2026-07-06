@@ -1,4 +1,4 @@
-import { GuardSection } from 'components/sections/guard';
+import { GuardSection } from '#/components/organisms/sections/guard';
 
 const GAME_IMAGES: Record<string, string> = {
   pacman:

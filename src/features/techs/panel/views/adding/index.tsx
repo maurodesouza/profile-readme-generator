@@ -1,9 +1,9 @@
 import React, { useMemo, useRef, useState } from 'react';
 
-import { Fields } from 'components/ui/primitives/fields';
-import { Text } from 'components/ui/primitives/atoms/text';
-import { Panel } from 'components/ui/primitives/atoms/panel';
-import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
+import { Fields } from '#/components/molecules/fields';
+import { Text } from '#/components/atoms/text';
+import { Panel } from '#/components/organisms/panel';
+import { DisplayBlock } from '#/components/atoms/display-block';
 
 import { actions } from 'lib/command';
 import { useCanvas, useForceUpdate } from 'hooks';

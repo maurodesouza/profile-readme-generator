@@ -1,7 +1,7 @@
-import { GroupFields } from 'components';
+import { GroupFields } from '#/components/organisms/group-fields';
 
-import { Text } from 'components/ui/primitives/atoms/text';
-import { Callout } from 'components/ui/primitives/atoms/callout';
+import { Text } from '#/components/atoms/text';
+import { Callout } from '#/components/atoms/callout';
 
 import { useCanvas } from 'hooks';
 import { getDeepObjectProperty } from 'utils';

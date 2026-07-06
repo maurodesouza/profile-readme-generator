@@ -11,8 +11,8 @@ import { AppProps } from 'next/app';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config } from 'config';
-import { Modal } from 'components/ui/primitives/compound/modal';
-import { GlobalHandlers } from 'components/global-handlers';
+import { Modal } from '#/components/molecules/modal';
+import { GlobalHandlers } from '#/components/handles/global-handlers';
 
 import { Features } from 'features';
 

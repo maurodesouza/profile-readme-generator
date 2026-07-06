@@ -1,4 +1,4 @@
-import { CanvasTemplate } from 'templates';
+import { CanvasTemplate } from '#/components/templates';
 
 const Home = () => {
   return <CanvasTemplate />;

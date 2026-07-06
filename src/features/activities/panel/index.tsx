@@ -1,4 +1,4 @@
-import { GroupFields } from 'components';
+import { GroupFields } from '#/components/organisms/group-fields';
 
 import { groups } from './fields';
 

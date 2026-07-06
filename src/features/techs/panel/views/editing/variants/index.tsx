@@ -1,7 +1,7 @@
 import { actions } from 'lib/command';
 
-import { Text } from 'components/ui/primitives/atoms/text';
-import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
+import { Text } from '#/components/atoms/text';
+import { DisplayBlock } from '#/components/atoms/display-block';
 
 type VariantsProps = {
   icon: string;

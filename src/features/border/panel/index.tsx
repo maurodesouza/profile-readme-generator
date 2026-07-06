@@ -1,7 +1,7 @@
-import { GroupFields } from 'components';
+import { GroupFields } from '#/components/organisms/group-fields';
 
 import { groups } from './fields';
-import { Panel } from 'components/ui/primitives/atoms/panel';
+import { Panel } from '#/components/organisms/panel';
 
 export function BorderEditPanel() {
   return (

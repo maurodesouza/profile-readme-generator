@@ -25,11 +25,7 @@ const contents = [
     icon: 'zap',
     name: 'Level Up',
 
-    onClick: () =>
-      actions.panel.show({
-        side: 'right',
-        panel: PanelsEnum.RECOMMENDED_RESOURCES,
-      }),
+    onClick: () => actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES),
     className: 'tone palette-success',
   },
 
@@ -37,8 +33,7 @@ const contents = [
     icon: 'file-text',
     name: 'Templates',
 
-    onClick: () =>
-      actions.panel.show({ side: 'right', panel: PanelsEnum.TEMPLATES }),
+    onClick: () => actions.panel.right.show(PanelsEnum.TEMPLATES),
     className: 'tone palette-success',
   },
 ];

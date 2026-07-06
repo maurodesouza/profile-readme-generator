@@ -46,43 +46,29 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
     props.initialPanel
   );
 
-  function onShowPanel({
-    side,
-    panel,
-  }: {
-    side: PanelSide;
-    panel: PanelsEnumType;
-  }) {
-    if (side !== props.side) return;
-
+  async function onShowPanel(panel: PanelsEnumType) {
     setPanel(panel);
     setIsOpen(true);
   }
 
-  function onClearPanel(side: PanelSide) {
-    if (side !== props.side) return;
-
+  async function onClearPanel() {
     setPanel(undefined);
   }
 
-  function onOpenPanel(side: PanelSide) {
-    if (side !== props.side) return;
-
+  async function onOpenPanel() {
     setIsOpen(true);
   }
 
-  function onClosePanel(side: PanelSide) {
-    if (side !== props.side) return;
-
+  async function onClosePanel() {
     setIsOpen(false);
   }
 
   useEffect(() => {
     const disposes = [
-      command.handle('panel.show', onShowPanel),
-      command.handle('panel.clear', onClearPanel),
-      command.handle('panel.open', onOpenPanel),
-      command.handle('panel.close', onClosePanel),
+      command.handle(`panel.${props.side}.show`, onShowPanel),
+      command.handle(`panel.${props.side}.clear`, onClearPanel),
+      command.handle(`panel.${props.side}.open`, onOpenPanel),
+      command.handle(`panel.${props.side}.close`, onClosePanel),
     ];
 
     return () => {
@@ -116,7 +102,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   useOutsideClick(
     containerRef,
     () => {
-      actions.panel.close(side);
+      actions.panel[side].close();
     },
     isLessThanLaptop && isOpen
   );
@@ -196,7 +182,7 @@ function PanelToggle() {
   function togglePanel() {
     const method = isOpen ? 'close' : 'open';
 
-    actions.panel[method](side);
+    actions.panel[side][method]();
   }
 
   function getBorderClasses() {

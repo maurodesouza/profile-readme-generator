@@ -89,13 +89,13 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
   const handleRemoveSection = (sectionId: string) => {
     setSections(state => state.filter(item => item.id !== sectionId));
 
-    if (sectionId === currentSection?.id) actions.panel.clear('right');
+    if (sectionId === currentSection?.id) actions.panel.right.close();
   };
 
   const handleSetCurrentSection = (id: string) => {
     const result = sections.find(item => item.id === id);
 
-    actions.panel.show({ side: 'right', panel: result!.type });
+    actions.panel.right.show(result!.type);
     setCurrentSection(result);
   };
 
@@ -168,10 +168,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   const handleClearCanvas = () => {
     setSections([]);
-    actions.panel.show({
-      side: 'right',
-      panel: PanelsEnum.RECOMMENDED_RESOURCES,
-    });
+    actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
   };
 
   useEffect(() => {

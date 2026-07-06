@@ -63,10 +63,7 @@ export function CanvasActions() {
                     variant="icon"
                     tone="brand"
                     onClick={() =>
-                      actions.panel.show({
-                        side: 'right',
-                        panel: PanelsEnum.REORDER_SECTIONS,
-                      })
+                      actions.panel.right.show(PanelsEnum.REORDER_SECTIONS)
                     }
                   >
                     <Icon name="arrow-up-down" />
@@ -95,12 +92,7 @@ export function CanvasActions() {
               size="icon"
               variant="icon"
               tone="brand"
-              onClick={() =>
-                actions.panel.show({
-                  side: 'right',
-                  panel: PanelsEnum.USER_SETTINGS,
-                })
-              }
+              onClick={() => actions.panel.right.show(PanelsEnum.USER_SETTINGS)}
             >
               <Icon name="settings" />
             </Clickable.Button>

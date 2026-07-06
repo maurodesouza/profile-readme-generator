@@ -8,6 +8,13 @@ import type {
 } from 'types';
 import type { Action } from './types';
 
+type PanelActions = {
+  show: Action<PanelsEnumType>;
+  clear: Action;
+  open: Action;
+  close: Action;
+};
+
 export interface Actions {
   canvas: {
     add: Action<Sections>;
@@ -28,10 +35,8 @@ export interface Actions {
   };
 
   panel: {
-    show: Action<{ side: PanelSide; panel: PanelsEnumType }>;
-    clear: Action<PanelSide>;
-    open: Action<PanelSide>;
-    close: Action<PanelSide>;
+    right: PanelActions;
+    left: PanelActions;
   };
 
   modal: {

@@ -5,7 +5,7 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Text } from 'components/ui/primitives/atoms/text';
 
 import { cn } from 'utils';
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 export type TFile = {
   file: string;
@@ -39,7 +39,7 @@ function File(props: FileProps) {
   const { content, file } = props;
 
   function onClick() {
-    events.result.show(content);
+    actions.result.show(content);
   }
 
   return (

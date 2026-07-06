@@ -1,7 +1,6 @@
 import React, { JSX, useEffect, useState } from 'react';
 
-import { events } from '@events';
-import { Events } from 'types';
+import { command } from 'lib/command';
 
 import { CopyChildrenArgs, CopyToClipboard } from './copy-to-clipboard';
 
@@ -12,15 +11,15 @@ type CopyCurrentFileContentProps = {
 export function CopyCurrentFileContent(props: CopyCurrentFileContentProps) {
   const [content, setContent] = useState('');
 
-  function onShowContent(event: CustomEvent<string>) {
-    setContent(event.detail);
+  function onShowContent(content: string) {
+    setContent(content);
   }
 
   useEffect(() => {
-    events.on(Events.RESULT_SHOW_CONTENT, onShowContent);
+    const dispose = command.handle('result.show', onShowContent);
 
     return () => {
-      events.off(Events.RESULT_SHOW_CONTENT, onShowContent);
+      dispose();
     };
   }, []);
 

@@ -8,7 +8,7 @@ import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
 import { useExtensions } from 'hooks';
 import { CanvasSection } from 'types';
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 type ItemProps = {
   data: CanvasSection;
@@ -69,7 +69,7 @@ export function Item(props: ItemProps) {
             size="icon"
             variant="icon"
             disabled={first}
-            onClick={() => events.canvas.up(data.id)}
+            onClick={() => actions.canvas.moveUp(data.id)}
           >
             <Icon name="arrow-up" />
           </Clickable.Button>
@@ -78,7 +78,7 @@ export function Item(props: ItemProps) {
             size="icon"
             variant="icon"
             disabled={last}
-            onClick={() => events.canvas.down(data.id)}
+            onClick={() => actions.canvas.moveDown(data.id)}
           >
             <Icon name="arrow-down" />
           </Clickable.Button>

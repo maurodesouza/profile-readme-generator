@@ -10,7 +10,7 @@ import { SectionContextMenu } from 'components/context-menus/section';
 import { Welcome } from 'components/ui/primitives/compound/welcome';
 import { CanvasSection } from 'components/ui/primitives/compound/canvas-section';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { useCanvas, useExtensions } from 'hooks';
 
 import { CanvasErrorFallback } from './error';
@@ -34,7 +34,7 @@ export function Canvas() {
             <Reorder.Group
               axis="y"
               values={sectionIds}
-              onReorder={events.canvas.reorder}
+              onReorder={actions.canvas.reorder}
             >
               {sections.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;

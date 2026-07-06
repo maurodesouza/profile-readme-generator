@@ -2,7 +2,7 @@ import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { templates } from 'resources';
 import { CanvasSection } from 'types';
 
@@ -21,7 +21,7 @@ const PanelTemplates = () => {
             <button
               key={index}
               onClick={() =>
-                events.template.preview(template as CanvasSection[])
+                actions.template.preview(template as CanvasSection[])
               }
             >
               <DisplayBlock.Container>

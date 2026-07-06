@@ -1,4 +1,4 @@
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 import { Text } from 'components/ui/primitives/atoms/text';
 import { ShareModal } from 'components/ui/common/modals/share';
@@ -34,7 +34,7 @@ export function Welcome() {
               <button
                 key={index}
                 onClick={() =>
-                  events.template.preview(template as CanvasSection[])
+                  actions.template.preview(template as CanvasSection[])
                 }
               >
                 <DisplayBlock.Container>
@@ -61,7 +61,7 @@ export function Welcome() {
           project repository
         </Text.Link>{' '}
         a star on Github and{' '}
-        <Text.Clickable onClick={() => events.modal.open(ShareModal)}>
+        <Text.Clickable onClick={() => actions.modal.open(ShareModal)}>
           share
         </Text.Clickable>{' '}
         with your friends!! I will be happy with it! ❤

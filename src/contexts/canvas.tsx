@@ -1,18 +1,11 @@
 import { createContext, useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { events } from '@events';
-import { Sections, CanvasSection, Events, PanelsEnum } from 'types';
+import { Sections, CanvasSection, PanelsEnum } from 'types';
 
 import { deepChangeObjectProperty, parseImportedReadme } from 'utils';
 import { useExtensions, usePersistedState } from 'hooks';
-
-type HandleAddSectionArgs = CustomEvent<Sections>;
-type HandleEditSectionArgs = CustomEvent<{
-  id?: string;
-  path: string;
-  value: unknown;
-}>;
+import { actions, command } from 'lib/command';
 
 type CanvasContextData = {
   sections: CanvasSection[];
@@ -23,8 +16,6 @@ type CanvasContextData = {
 type CanvasProviderProps = {
   children: React.ReactNode;
 };
-
-type ImportReadme = CustomEvent<React.ChangeEvent<HTMLInputElement>>;
 
 const CanvasContext = createContext<CanvasContextData>({} as CanvasContextData);
 
@@ -39,16 +30,12 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
   const { extensions } = useExtensions();
 
-  const handleAddSection = (event: HandleAddSectionArgs) => {
-    const sectionType = event.detail;
-
-    const sectionData = extensions.sections[
-      sectionType
-    ] as CanvasSection['props'];
+  const handleAddSection = (sectionType: Sections) => {
+    const sectionData = extensions.sections[sectionType] as Record<string, any>;
 
     const newSection = {
       id: uuid(),
-      type: event.detail,
+      type: sectionType,
       ...sectionData.defaultConfig,
     };
 
@@ -59,8 +46,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     document.getElementById('readme-file-import')?.click();
   };
 
-  const importReadme = async (event: ImportReadme) => {
-    const file = event?.detail?.target?.files?.[0];
+  const importReadme = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event?.target?.files?.[0];
     if (!file) return; // TODO: toast error event
     const text = await file.text();
     const sections = await parseImportedReadme(text);
@@ -68,9 +55,15 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(sections);
   };
 
-  const handleEditSection = (event: HandleEditSectionArgs) => {
-    const { id = currentSection?.id, path, value } = event.detail;
-
+  const handleEditSection = ({
+    id = currentSection?.id,
+    path,
+    value,
+  }: {
+    id?: string;
+    path: string;
+    value: unknown;
+  }) => {
     if (!id) return;
 
     const obj = sections.find(item => item.id === id)!;
@@ -93,24 +86,20 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     isEditingCurrentSection && setCurrentSection(result);
   };
 
-  const handleRemoveSection = (event: CustomEvent<string>) => {
-    setSections(state => state.filter(item => item.id !== event.detail));
+  const handleRemoveSection = (sectionId: string) => {
+    setSections(state => state.filter(item => item.id !== sectionId));
 
-    if (event.detail === currentSection?.id) events.panel.clear('right');
+    if (sectionId === currentSection?.id) actions.panel.right.close();
   };
 
-  const handleSetCurrentSection = (event: CustomEvent<string>) => {
-    const id = event.detail;
-
+  const handleSetCurrentSection = (id: string) => {
     const result = sections.find(item => item.id === id);
 
-    events.panel.show('right', result!.type);
+    actions.panel.right.show(result!.type);
     setCurrentSection(result);
   };
 
-  const handleReorderSections = (event: CustomEvent<string[]>) => {
-    const order = event.detail;
-
+  const handleReorderSections = (order: string[]) => {
     const sectionsReordered = order.map(
       sectionId => sections.find(section => section.id === sectionId)!
     );
@@ -118,9 +107,7 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(sectionsReordered);
   };
 
-  const handleDuplicateSection = (event: CustomEvent<string>) => {
-    const id = event.detail;
-
+  const handleDuplicateSection = (id: string) => {
     const newSections = sections.reduce((arr, section) => {
       if (section.id === id) {
         const duplicate = {
@@ -137,8 +124,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(newSections);
   };
 
-  function moveSectionUp(event: CustomEvent<string>) {
-    const index = sections.findIndex(section => section.id === event.detail);
+  function moveSectionUp(id: string) {
+    const index = sections.findIndex(section => section.id === id);
 
     if (index === 0) return;
 
@@ -151,8 +138,8 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setSections(newSections);
   }
 
-  function moveSectionDown(event: CustomEvent<string>) {
-    const index = sections.findIndex(section => section.id === event.detail);
+  function moveSectionDown(id: string) {
+    const index = sections.findIndex(section => section.id === id);
 
     if (index + 1 === sections.length) return;
 
@@ -170,67 +157,55 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
     setPreviewTemplate([]);
   };
 
-  const handlePreviewTemplate = (event: CustomEvent<CanvasSection[]>) => {
-    const template = event.detail.map(section => ({
+  const handlePreviewTemplate = (template?: CanvasSection[]) => {
+    const mappedTemplate = (template ?? []).map(section => ({
       ...section,
       id: uuid(),
     }));
 
-    setPreviewTemplate(template);
+    setPreviewTemplate(mappedTemplate);
   };
 
   const handleClearCanvas = () => {
     setSections([]);
-    events.panel.show('right', PanelsEnum.RECOMMENDED_RESOURCES);
+    actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
   };
 
   useEffect(() => {
-    // Canvas events
-
-    events.on(Events.CANVAS_EDIT_SECTION, handleEditSection);
-    events.on(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
-    events.on(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
-    events.on(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
-    events.on(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
-    events.on(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
-    events.on(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
-    events.on(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
-    events.on(Events.CANVAS_IMPORT_README, importReadme);
-    events.on(Events.CANVAS_IMPORT_README_FILE, loadReadmeFile);
+    const disposes = [
+      command.handle('canvas.edit', handleEditSection),
+      command.handle('canvas.remove', handleRemoveSection),
+      command.handle('canvas.setCurrentSection', handleSetCurrentSection),
+      command.handle('canvas.reorder', handleReorderSections),
+      command.handle('canvas.duplicate', handleDuplicateSection),
+      command.handle('canvas.clear', handleClearCanvas),
+      command.handle('canvas.moveUp', moveSectionUp),
+      command.handle('canvas.moveDown', moveSectionDown),
+      command.handle('canvas.import', importReadme),
+      command.handle('canvas.loadImportFile', loadReadmeFile),
+    ];
 
     return () => {
-      events.off(Events.CANVAS_EDIT_SECTION, handleEditSection);
-      events.off(Events.CANVAS_REMOVE_SECTION, handleRemoveSection);
-      events.off(Events.CANVAS_SET_CURRENT_SECTION, handleSetCurrentSection);
-      events.off(Events.CANVAS_REORDER_SECTIONS, handleReorderSections);
-      events.off(Events.CANVAS_DUPLICATE_SECTION, handleDuplicateSection);
-      events.off(Events.CANVAS_CLEAR_SECTIONS, handleClearCanvas);
-      events.off(Events.CANVAS_MOVE_SECTION_UP, moveSectionUp);
-      events.off(Events.CANVAS_MOVE_SECTION_DOWN, moveSectionDown);
-      events.off(Events.CANVAS_IMPORT_README, importReadme);
-      events.off(Events.CANVAS_IMPORT_README_FILE, loadReadmeFile);
+      disposes.forEach(dispose => dispose());
     };
   }, [sections, currentSection]);
 
   useEffect(() => {
-    // Canvas events
-
-    events.on(Events.CANVAS_ADD_SECTION, handleAddSection);
+    const dispose = command.handle('canvas.add', handleAddSection);
 
     return () => {
-      events.off(Events.CANVAS_ADD_SECTION, handleAddSection);
+      dispose();
     };
   }, [sections, currentSection, extensions]);
 
   useEffect(() => {
-    // Template events
-
-    events.on(Events.TEMPLATE_USE, handleUseTemplate);
-    events.on(Events.TEMPLATE_PREVIEW, handlePreviewTemplate);
+    const disposes = [
+      command.handle('template.use', handleUseTemplate),
+      command.handle('template.preview', handlePreviewTemplate),
+    ];
 
     return () => {
-      events.off(Events.TEMPLATE_USE, handleUseTemplate);
-      events.off(Events.TEMPLATE_PREVIEW, handlePreviewTemplate);
+      disposes.forEach(dispose => dispose());
     };
   }, [previewTemplate]);
 

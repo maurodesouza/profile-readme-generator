@@ -11,7 +11,7 @@ import { Icon } from '../atoms/icon';
 import { Clickable } from '../atoms/clickable';
 import { FlexibleRender } from 'components/helpers/flexible-render';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { Renderable } from 'types';
 
 type IconEditorProps = {
@@ -48,7 +48,7 @@ const IconEditor: React.ForwardRefRenderFunction<
   function deleteIcon() {
     const path = `${props.baseEditPath}.${props.id}`;
 
-    events.canvas.edit({ path, value: undefined });
+    actions.canvas.edit({ path, value: undefined });
   }
 
   function toggleExpansible() {

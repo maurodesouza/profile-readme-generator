@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { textSectionParser } from './parser';
 import { defaultTextSectionConfig } from './default-config';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {
@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'type',
-      onClick: () => events.canvas.add(Sections.TEXT),
+      onClick: () => actions.canvas.add(Sections.TEXT),
       name: 'Text',
     },
 
@@ -38,4 +38,4 @@ const feature = {
   },
 };
 
-events.extensions.register(feature);
+actions.extensions.register(feature);

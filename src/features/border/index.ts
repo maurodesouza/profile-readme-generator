@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { borderSectionParser } from './parser';
 import { defaultImageSectionConfig } from './default-config';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {
@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'square-dashed-top-solid',
-      onClick: () => events.canvas.add(Sections.BORDER),
+      onClick: () => actions.canvas.add(Sections.BORDER),
       name: 'Border',
     },
 
@@ -37,4 +37,4 @@ const feature = {
   },
 };
 
-events.extensions.register(feature);
+actions.extensions.register(feature);

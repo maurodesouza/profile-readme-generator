@@ -9,12 +9,12 @@ import React, {
 
 import { Icon } from './icon';
 
-import { events } from '@events';
 import { panels } from 'components/panels/panels';
 import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
+import { command, actions } from 'lib/command';
 
 import { PanelsEnumType, PanelSide } from 'types';
-import { cn, getPanelSideEvent, getThemeToken, twx } from 'utils';
+import { cn, getThemeToken, twx } from 'utils';
 
 type PanelContextState = {
   isOpen: boolean;
@@ -46,38 +46,33 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
     props.initialPanel
   );
 
-  function onShowPanel(event: CustomEvent<PanelsEnumType>) {
-    setPanel(event.detail);
+  async function onShowPanel(panel: PanelsEnumType) {
+    setPanel(panel);
     setIsOpen(true);
   }
 
-  function onClearPanel() {
+  async function onClearPanel() {
     setPanel(undefined);
   }
 
-  function onOpenPanel() {
+  async function onOpenPanel() {
     setIsOpen(true);
   }
 
-  function onClosePanel() {
+  async function onClosePanel() {
     setIsOpen(false);
   }
 
   useEffect(() => {
-    const { showEvent, clearEvent, openEvent, closeEvent } = getPanelSideEvent(
-      props.side
-    );
-
-    events.on(showEvent, onShowPanel);
-    events.on(clearEvent, onClearPanel);
-    events.on(openEvent, onOpenPanel);
-    events.on(closeEvent, onClosePanel);
+    const disposes = [
+      command.handle(`panel.${props.side}.show`, onShowPanel),
+      command.handle(`panel.${props.side}.clear`, onClearPanel),
+      command.handle(`panel.${props.side}.open`, onOpenPanel),
+      command.handle(`panel.${props.side}.close`, onClosePanel),
+    ];
 
     return () => {
-      events.off(showEvent, onShowPanel);
-      events.off(clearEvent, onClearPanel);
-      events.off(openEvent, onOpenPanel);
-      events.off(closeEvent, onClosePanel);
+      disposes.forEach(dispose => dispose());
     };
   }, []);
 
@@ -107,7 +102,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   useOutsideClick(
     containerRef,
     () => {
-      events.panel.close(side);
+      actions.panel[side].close();
     },
     isLessThanLaptop && isOpen
   );
@@ -168,7 +163,7 @@ function PanelRender() {
     [extensions]
   );
 
-  const Panel = allPanels[panel!] || React.Fragment;
+  const Panel = (allPanels[panel!] || React.Fragment) as React.ComponentType;
 
   return <Panel />;
 }
@@ -187,7 +182,7 @@ function PanelToggle() {
   function togglePanel() {
     const method = isOpen ? 'close' : 'open';
 
-    events.panel[method](side);
+    actions.panel[side][method]();
   }
 
   function getBorderClasses() {

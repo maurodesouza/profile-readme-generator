@@ -4,7 +4,7 @@ import { Item } from './item';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 
 import { useCanvas } from 'hooks';
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 export function ReorderSections() {
   const { sections } = useCanvas();
@@ -14,7 +14,7 @@ export function ReorderSections() {
       <Reorder.Group
         axis="y"
         values={sections.map(section => section.id)}
-        onReorder={events.canvas.reorder}
+        onReorder={actions.canvas.reorder}
       >
         {sections.map((section, index) => {
           return (

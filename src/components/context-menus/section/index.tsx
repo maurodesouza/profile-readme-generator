@@ -5,8 +5,8 @@ import { actions } from './actions';
 import { Icon } from 'components/ui/primitives/atoms/icon';
 import { ContextMenu } from 'components/ui/primitives/atoms/context-menu';
 
-import { events } from '@events';
 import { useCanvas } from 'hooks';
+import { actions as commandActions } from 'lib/command';
 
 type SectionContextMenuProps = {
   id: string;
@@ -41,7 +41,7 @@ export function SectionContextMenu(props: SectionContextMenuProps) {
       <ContextMenu.Separator />
 
       <ContextMenu.Item
-        onClick={() => events.canvas.up(props.id)}
+        onClick={() => commandActions.canvas.moveUp(props.id)}
         disabled={isFirst}
       >
         <Icon name="arrow-up" />
@@ -49,7 +49,7 @@ export function SectionContextMenu(props: SectionContextMenuProps) {
       </ContextMenu.Item>
 
       <ContextMenu.Item
-        onClick={() => events.canvas.down(props.id)}
+        onClick={() => commandActions.canvas.moveDown(props.id)}
         disabled={isLast}
       >
         <Icon name="arrow-down" />

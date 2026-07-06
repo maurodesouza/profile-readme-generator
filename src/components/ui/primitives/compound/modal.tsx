@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { events } from '@events';
-import { Events, Renderable } from 'types';
+import { Renderable } from 'types';
+import { command, actions } from 'lib/command';
 
 import { Dialog } from '../atoms/dialog';
 import { FlexibleRender } from 'components/helpers/flexible-render';
@@ -9,8 +9,8 @@ import { FlexibleRender } from 'components/helpers/flexible-render';
 export function Modal() {
   const [Modal, setModal] = useState<Renderable>();
 
-  function onOpenModal(event: CustomEvent<Renderable>) {
-    setModal(event.detail);
+  function onOpenModal(modal: Renderable) {
+    setModal(modal);
   }
 
   function onCloseModal() {
@@ -18,17 +18,18 @@ export function Modal() {
   }
 
   useEffect(() => {
-    events.on(Events.MODAL_OPEN, onOpenModal);
-    events.on(Events.MODAL_CLOSE, onCloseModal);
+    const disposes = [
+      command.handle('modal.open', onOpenModal),
+      command.handle('modal.close', onCloseModal),
+    ];
 
     return () => {
-      events.off(Events.MODAL_OPEN, onOpenModal);
-      events.off(Events.MODAL_CLOSE, onCloseModal);
+      disposes.forEach(dispose => dispose());
     };
   }, []);
 
   return (
-    <Dialog.Provider open={!!Modal} onOpenChange={events.modal.close}>
+    <Dialog.Provider open={!!Modal} onOpenChange={actions.modal.close}>
       <FlexibleRender render={Modal} />
     </Dialog.Provider>
   );

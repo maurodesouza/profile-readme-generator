@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { Inputs } from 'types';
 import { useCanvas, useSettings } from 'hooks';
 import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
@@ -55,7 +55,7 @@ export function GroupFields(props: GroupFieldsProps) {
   }
 
   function onChange(value: string | boolean, path: string) {
-    events[context].edit({ value, path });
+    actions[context].edit({ value, path });
   }
 
   const canRender = conditions

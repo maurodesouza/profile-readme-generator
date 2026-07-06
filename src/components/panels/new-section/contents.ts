@@ -1,4 +1,4 @@
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { PanelsEnum } from 'types';
 
 const contents = [
@@ -25,7 +25,7 @@ const contents = [
     icon: 'zap',
     name: 'Level Up',
 
-    onClick: () => events.panel.show('right', PanelsEnum.RECOMMENDED_RESOURCES),
+    onClick: () => actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES),
     className: 'tone palette-success',
   },
 
@@ -33,7 +33,7 @@ const contents = [
     icon: 'file-text',
     name: 'Templates',
 
-    onClick: () => events.panel.show('right', PanelsEnum.TEMPLATES),
+    onClick: () => actions.panel.right.show(PanelsEnum.TEMPLATES),
     className: 'tone palette-success',
   },
 ];

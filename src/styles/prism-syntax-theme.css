@@ -1,6 +1,6 @@
 .token.punctuation {
   color: hsl(var(--color-foreground));
- }
+}
 
 .token.boolean,
 .token.constant,

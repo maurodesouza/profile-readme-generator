@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "./themes/index.css";
+@import 'tailwindcss';
+@import './themes/index.css';
 
 .tone {
   --tone-contrast-100: var(--tone-100);
@@ -44,7 +44,7 @@
   --spacing-xs: 0.8rem;
   --spacing-sm: 1.2rem;
   --spacing-md: 1.6rem;
-  --spacing-lg: 2.0rem;
+  --spacing-lg: 2rem;
   --spacing-xl: 2.4rem;
 
   --spacing-border: 1px;
@@ -55,12 +55,14 @@
 
   /* Font */
 
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
 
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;
   --text-md: 1.6rem;
-  --text-lg: 2.0rem;
+  --text-lg: 2rem;
   --text-xl: 2.8rem;
 
   /* Border */

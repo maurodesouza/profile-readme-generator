@@ -12,7 +12,7 @@ import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config } from 'config';
 import { Modal } from '#/components/molecules/modal';
-import { GlobalHandlers } from '#/components/handles/global-handlers';
+import { Handles } from '#/components/handles';
 
 import { Features } from 'features';
 
@@ -70,7 +70,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
-      <GlobalHandlers />
+      <Handles />
 
       <ExtensionsProvider>
         <CanvasProvider>

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { recommended_resources } from 'resources';
-import { RecommendedResourcesTemplate } from '#/components/templates';
+import { RecommendedResourcesTemplate } from '#/components/templates/recommended-resources';
 
 const Resources = () => {
   const router = useRouter();

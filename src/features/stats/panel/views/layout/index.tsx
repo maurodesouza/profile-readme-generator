@@ -29,9 +29,9 @@ export function Layout() {
     const path = 'content.graphs';
 
     const value = order.reduce((obj, name) => {
-      const finded = stats.find(stat => stat[0] === name)!;
+      const found = stats.find(stat => stat[0] === name)!;
 
-      obj[finded[0]] = finded[1];
+      obj[found[0]] = found[1];
 
       return obj;
     }, {} as Stats);

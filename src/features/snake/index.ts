@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { snakeSectionParser, snakeWorkflowParser } from './parser';
 import { defaultSnakeSectionConfig } from './default-config';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { PanelsEnum, Sections } from 'types';
 
 const feature = {
@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'worm',
-      onClick: () => events.canvas.add(Sections.SNAKE),
+      onClick: () => actions.canvas.add(Sections.SNAKE),
       name: 'Snake',
     },
 
@@ -39,4 +39,4 @@ const feature = {
   },
 };
 
-events.extensions.register(feature);
+actions.extensions.register(feature);

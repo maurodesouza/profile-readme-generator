@@ -9,12 +9,12 @@ import React, {
 
 import { Icon } from './icon';
 
-import { events } from '@events';
 import { panels } from 'components/panels/panels';
 import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
+import { command, actions } from 'lib/command';
 
 import { PanelsEnumType, PanelSide } from 'types';
-import { cn, getPanelSideEvent, getThemeToken, twx } from 'utils';
+import { cn, getThemeToken, twx } from 'utils';
 
 type PanelContextState = {
   isOpen: boolean;
@@ -46,38 +46,47 @@ function PanelProvider(props: React.PropsWithChildren<PanelProviderProps>) {
     props.initialPanel
   );
 
-  function onShowPanel(event: CustomEvent<PanelsEnumType>) {
-    setPanel(event.detail);
+  function onShowPanel({
+    side,
+    panel,
+  }: {
+    side: PanelSide;
+    panel: PanelsEnumType;
+  }) {
+    if (side !== props.side) return;
+
+    setPanel(panel);
     setIsOpen(true);
   }
 
-  function onClearPanel() {
+  function onClearPanel(side: PanelSide) {
+    if (side !== props.side) return;
+
     setPanel(undefined);
   }
 
-  function onOpenPanel() {
+  function onOpenPanel(side: PanelSide) {
+    if (side !== props.side) return;
+
     setIsOpen(true);
   }
 
-  function onClosePanel() {
+  function onClosePanel(side: PanelSide) {
+    if (side !== props.side) return;
+
     setIsOpen(false);
   }
 
   useEffect(() => {
-    const { showEvent, clearEvent, openEvent, closeEvent } = getPanelSideEvent(
-      props.side
-    );
-
-    events.on(showEvent, onShowPanel);
-    events.on(clearEvent, onClearPanel);
-    events.on(openEvent, onOpenPanel);
-    events.on(closeEvent, onClosePanel);
+    const disposes = [
+      command.handle('panel.show', onShowPanel),
+      command.handle('panel.clear', onClearPanel),
+      command.handle('panel.open', onOpenPanel),
+      command.handle('panel.close', onClosePanel),
+    ];
 
     return () => {
-      events.off(showEvent, onShowPanel);
-      events.off(clearEvent, onClearPanel);
-      events.off(openEvent, onOpenPanel);
-      events.off(closeEvent, onClosePanel);
+      disposes.forEach(dispose => dispose());
     };
   }, []);
 
@@ -107,7 +116,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   useOutsideClick(
     containerRef,
     () => {
-      events.panel.close(side);
+      actions.panel.close(side);
     },
     isLessThanLaptop && isOpen
   );
@@ -168,7 +177,7 @@ function PanelRender() {
     [extensions]
   );
 
-  const Panel = allPanels[panel!] || React.Fragment;
+  const Panel = (allPanels[panel!] || React.Fragment) as React.ComponentType;
 
   return <Panel />;
 }
@@ -187,7 +196,7 @@ function PanelToggle() {
   function togglePanel() {
     const method = isOpen ? 'close' : 'open';
 
-    events.panel[method](side);
+    actions.panel[method](side);
   }
 
   function getBorderClasses() {

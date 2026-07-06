@@ -5,7 +5,7 @@ import { Text } from 'components/ui/primitives/atoms/text';
 import { Panel } from 'components/ui/primitives/atoms/panel';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { useCanvas, useForceUpdate } from 'hooks';
 import { capitalize, cn, debounce, filterArrayByQueryMatch } from 'utils';
 
@@ -77,14 +77,14 @@ export function Adding() {
       const path = `content.icons.${icon.name}`;
 
       if (isUsed) {
-        events.canvas.edit({ path, value: undefined });
+        actions.canvas.edit({ path, value: undefined });
       } else {
         const value = {
           ...icon,
           currentProvider: provider,
           config: {},
         };
-        events.canvas.edit({ path, value });
+        actions.canvas.edit({ path, value });
       }
     };
   }

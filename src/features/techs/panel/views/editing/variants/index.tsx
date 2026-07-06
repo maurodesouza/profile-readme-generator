@@ -1,4 +1,4 @@
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 import { Text } from 'components/ui/primitives/atoms/text';
 import { DisplayBlock } from 'components/ui/primitives/atoms/display-block';
@@ -16,7 +16,7 @@ export function Variants(props: VariantsProps) {
     return () => {
       const path = `content.icons.${icon}.config.${provider}.variant`;
 
-      events.canvas.edit({ path, value });
+      actions.canvas.edit({ path, value });
     };
   }
   return variants.length ? (

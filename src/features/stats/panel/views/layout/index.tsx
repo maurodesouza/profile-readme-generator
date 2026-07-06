@@ -4,7 +4,7 @@ import { GroupFields } from 'components';
 import { useCanvas, useForceUpdate } from 'hooks';
 import { getDeepObjectProperty } from 'utils';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { Item } from './item';
 
 import { groups } from './fields';
@@ -36,7 +36,7 @@ export function Layout() {
       return obj;
     }, {} as Stats);
 
-    events.canvas.edit({ path, value });
+    actions.canvas.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 

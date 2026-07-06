@@ -1,4 +1,4 @@
-import { events } from '@events';
+import { actions } from 'lib/command';
 
 import { ShareModal } from 'components/ui/common/modals/share';
 
@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
   {
     label: 'Share',
     props: {
-      onClick: () => events.modal.open(ShareModal),
+      onClick: () => actions.modal.open(ShareModal),
     },
   },
 

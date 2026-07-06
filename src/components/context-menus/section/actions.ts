@@ -1,20 +1,20 @@
-import { events } from '@events';
+import { actions as commandActions } from 'lib/command';
 
 const actions = [
   {
     label: 'Duplicate',
     icon: 'copy',
-    action: events.canvas.duplicate,
+    action: commandActions.canvas.duplicate,
   },
   {
     label: 'Edit',
     icon: 'edit-2',
-    action: events.canvas.currentSection,
+    action: commandActions.canvas.setCurrentSection,
   },
   {
     label: 'Delete',
     icon: 'trash',
-    action: events.canvas.remove,
+    action: commandActions.canvas.remove,
     tone: 'danger',
   },
 ] as const;

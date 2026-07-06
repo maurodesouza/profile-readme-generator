@@ -2,9 +2,9 @@ import { Icon } from 'components/ui/primitives/atoms/icon';
 import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 
-import { events } from '@events';
 import { useCanvas } from 'hooks';
 import { PanelsEnum } from 'types';
+import { actions } from 'lib/command';
 
 export function CanvasActions() {
   const { sections, previewMode } = useCanvas();
@@ -30,7 +30,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="success"
-                    onClick={events.template.use}
+                    onClick={actions.template.use}
                   >
                     <Icon name="check" />
                   </Clickable.Button>
@@ -42,7 +42,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={() => events.template.preview()}
+                    onClick={() => actions.template.preview()}
                   >
                     <Icon name="x" />
                   </Clickable.Button>
@@ -63,7 +63,10 @@ export function CanvasActions() {
                     variant="icon"
                     tone="brand"
                     onClick={() =>
-                      events.panel.show('right', PanelsEnum.REORDER_SECTIONS)
+                      actions.panel.show({
+                        side: 'right',
+                        panel: PanelsEnum.REORDER_SECTIONS,
+                      })
                     }
                   >
                     <Icon name="arrow-up-down" />
@@ -75,7 +78,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={events.canvas.clear}
+                    onClick={actions.canvas.clear}
                   >
                     <Icon name="trash" />
                   </Clickable.Button>
@@ -93,7 +96,10 @@ export function CanvasActions() {
               variant="icon"
               tone="brand"
               onClick={() =>
-                events.panel.show('right', PanelsEnum.USER_SETTINGS)
+                actions.panel.show({
+                  side: 'right',
+                  panel: PanelsEnum.USER_SETTINGS,
+                })
               }
             >
               <Icon name="settings" />
@@ -106,7 +112,7 @@ export function CanvasActions() {
               size="icon"
               variant="icon"
               tone="brand"
-              onClick={events.theme.toggle}
+              onClick={actions.theme.toggle}
             >
               <Icon name="sun-moon" />
             </Clickable.Button>
@@ -118,7 +124,7 @@ export function CanvasActions() {
               size="icon"
               variant="icon"
               tone="brand"
-              onClick={events.canvas.loadImportFile}
+              onClick={actions.canvas.loadImportFile}
             >
               <Icon name="upload-cloud" />
             </Clickable.Button>
@@ -131,7 +137,7 @@ export function CanvasActions() {
             style={{
               display: 'none',
             }}
-            onChange={events.canvas.import}
+            onChange={actions.canvas.import}
           />
         </div>
       </div>

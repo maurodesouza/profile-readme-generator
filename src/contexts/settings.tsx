@@ -1,16 +1,16 @@
 import { createContext, useEffect } from 'react';
 
 import { config } from 'config';
-import { events } from '@events';
 import { deepChangeObjectProperty } from 'utils';
 
-import { Events, Settings } from 'types';
+import { Settings } from 'types';
 import { useCanvas, usePersistedState } from 'hooks';
+import { command } from 'lib/command';
 
-type HandleEditSettingsArgs = CustomEvent<{
+type HandleEditSettingsArgs = {
   path: string;
   value: unknown;
-}>;
+};
 
 type SettingsContextData = {
   settings: Settings;
@@ -35,9 +35,7 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
 
   const { previewMode } = useCanvas();
 
-  const handleEdit = (event: HandleEditSettingsArgs) => {
-    const { path, value } = event.detail;
-
+  const handleEdit = ({ path, value }: HandleEditSettingsArgs) => {
     const result = deepChangeObjectProperty<Settings>({
       obj: settings,
       path,
@@ -48,10 +46,10 @@ const SettingsProvider = ({ children }: SettingsProviderProps) => {
   };
 
   useEffect(() => {
-    events.on(Events.SETTINGS_EDIT, handleEdit);
+    const dispose = command.handle('settings.edit', handleEdit);
 
     return () => {
-      events.off(Events.SETTINGS_EDIT, handleEdit);
+      dispose();
     };
   }, [settings]);
 

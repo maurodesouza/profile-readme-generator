@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Section } from 'components/ui/primitives/atoms/section';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { useCanvas } from 'hooks';
 import { CanvasStatesEnum } from 'types';
 
@@ -20,7 +20,7 @@ export function CanvasSection(
   function onSelectSection() {
     if (isInAlert || previewMode) return;
 
-    events.canvas.currentSection(id);
+    actions.canvas.setCurrentSection(id);
   }
 
   const childrenInfo = React.Children.only(children) as React.ReactPortal;

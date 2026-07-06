@@ -6,16 +6,15 @@ import { Tooltip } from 'components/ui/primitives/atoms/tooltip';
 import { Clickable } from 'components/ui/primitives/atoms/clickable';
 import { CopyCurrentFileContent } from 'components/ui/primitives/compound/copy-current-file-content';
 
-import { events } from '@events';
-import { Events } from 'types';
+import { command } from 'lib/command';
 
 export function ReadmeResult() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [content, setContent] = useState('');
 
-  function handleShowContent(event: CustomEvent<string>) {
-    setContent(event.detail);
+  function handleShowContent(content: string) {
+    setContent(content);
   }
 
   useEffect(() => {
@@ -23,10 +22,10 @@ export function ReadmeResult() {
   }, [content]);
 
   useEffect(() => {
-    events.on(Events.RESULT_SHOW_CONTENT, handleShowContent);
+    const dispose = command.handle('result.show', handleShowContent);
 
     return () => {
-      events.off(Events.RESULT_SHOW_CONTENT, handleShowContent);
+      dispose();
     };
   }, []);
 

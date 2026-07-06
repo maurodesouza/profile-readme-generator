@@ -8,7 +8,7 @@ import {
   IconEditorRef,
 } from 'components/ui/primitives/compound/icon-editor';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { getDeepObjectProperty } from 'utils';
 import { useCanvas, useForceUpdate } from 'hooks';
 
@@ -47,7 +47,7 @@ export function Editing() {
       return obj;
     }, {} as Icons);
 
-    events.canvas.edit({ path, value });
+    actions.canvas.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 

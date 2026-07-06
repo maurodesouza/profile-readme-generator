@@ -1,7 +1,7 @@
 import { Text } from 'components/ui/primitives/atoms/text';
 import { DropdownMenu } from 'components/ui/primitives/atoms/dropdown-menu';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { IconProviders } from 'types';
 
 type ProvidersProps = {
@@ -17,7 +17,7 @@ export function Providers({ icon, current, available }: ProvidersProps) {
 
       const path = `content.icons.${icon}.currentProvider`;
 
-      events.canvas.edit({ path, value });
+      actions.canvas.edit({ path, value });
     };
   }
 

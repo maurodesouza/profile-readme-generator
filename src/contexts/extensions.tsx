@@ -1,7 +1,7 @@
 import { createContext, useEffect, useRef, useState } from 'react';
-import { events } from '@events';
 
-import { Events, Extension, ExtensionsGroup } from 'types';
+import { Extension, ExtensionsGroup } from 'types';
+import { command } from 'lib/command';
 
 type ExtensionsContextData = {
   extensions: ExtensionsGroup;
@@ -21,35 +21,45 @@ const ExtensionsProvider = ({ children }: SettingsProviderProps) => {
   const [extensions, setExtensions] = useState<ExtensionsGroup>({});
   const [registers, setRegisters] = useState<Record<string, Extension>>({});
 
-  const handleRegisterExtension = (event: CustomEvent<Extension[]>) => {
-    const newRegisters = event.detail.reduce((registers, extension) => {
+  const handleRegisterExtension = (newExtensions: Extension | Extension[]) => {
+    const extensionsToRegister = Array.isArray(newExtensions)
+      ? newExtensions
+      : [newExtensions];
+
+    const newRegisters = extensionsToRegister.reduce((registers, extension) => {
       return { ...registers, [extension.id]: extension };
     }, registersRef.current);
 
     registersRef.current = newRegisters;
 
-    const extensions = Object.values(newRegisters).reduce((obj, extension) => {
-      Object.entries(extension.presentation).forEach(([key, item]) => {
-        const curExtension = obj[key] || {};
+    const nextExtensions = Object.values(newRegisters).reduce(
+      (obj, extension) => {
+        Object.entries(extension.presentation).forEach(([key, item]) => {
+          const curExtension = obj[key] || {};
 
-        obj[key] = {
-          ...curExtension,
-          [extension.id]: item,
-        };
-      });
+          obj[key] = {
+            ...curExtension,
+            [extension.id]: item,
+          };
+        });
 
-      return obj;
-    }, {} as ExtensionsGroup);
+        return obj;
+      },
+      {} as ExtensionsGroup
+    );
 
-    setExtensions(extensions);
+    setExtensions(nextExtensions);
     setRegisters(newRegisters);
   };
 
   useEffect(() => {
-    events.on(Events.REGISTER_EXTENSION, handleRegisterExtension);
+    const dispose = command.handle(
+      'extensions.register',
+      handleRegisterExtension
+    );
 
     return () => {
-      events.off(Events.REGISTER_EXTENSION, handleRegisterExtension);
+      dispose();
     };
   }, [registers]);
 

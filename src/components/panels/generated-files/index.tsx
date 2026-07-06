@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { Tree } from 'components/ui/primitives/atoms/tree';
 
-import { events } from '@events';
+import { actions } from 'lib/command';
 import { parseToReadme } from 'utils';
 import { useCanvas, useExtensions, useSettings } from 'hooks';
 
@@ -16,7 +16,7 @@ const PanelGeneratedFiles = () => {
   useEffect(() => {
     const content = tree[1].files[0].content;
 
-    window.setTimeout(() => events.result.show(content), 0);
+    window.setTimeout(() => actions.result.show(content), 0);
   }, []);
 
   return (

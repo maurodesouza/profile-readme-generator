@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 
-import { events } from '@events';
-import { Events } from 'types';
 import { usePersistedState } from 'hooks';
+import { actions, command } from 'lib/command';
 
 export function ThemeHandler() {
   function getSystemTheme() {
@@ -29,8 +28,8 @@ export function ThemeHandler() {
     setTheme(theme);
   }
 
-  function useTheme(event: CustomEvent<string>) {
-    changeTheme(event.detail);
+  function useTheme(theme: string) {
+    changeTheme(theme);
   }
 
   function getCurrentTheme() {
@@ -42,24 +41,24 @@ export function ThemeHandler() {
 
     const newTheme = curTheme === 'dark' ? 'light' : 'dark';
 
-    events.theme.use(newTheme);
+    actions.theme.use(newTheme);
   }
 
   useEffect(() => {
     changeTheme(getCurrentTheme());
 
-    events.on(Events.USE_THEME, useTheme);
+    const dispose = command.handle('theme.use', useTheme);
 
     return () => {
-      events.off(Events.USE_THEME, useTheme);
+      dispose();
     };
   }, []);
 
   useEffect(() => {
-    events.on(Events.TOGGLE_THEME, toggleTheme);
+    const dispose = command.handle('theme.toggle', toggleTheme);
 
     return () => {
-      events.off(Events.TOGGLE_THEME, toggleTheme);
+      dispose();
     };
   }, [storedTheme]);
 

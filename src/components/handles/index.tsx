@@ -1,5 +1,5 @@
 import { ThemeHandler } from './theme';
 
-export function GlobalHandlers() {
+export function Handles() {
   return <ThemeHandler />;
 }

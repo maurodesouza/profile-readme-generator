@@ -4,6 +4,7 @@ import { Icon } from './icon';
 
 export type CanvasContent = {
   icons?: Record<string, Icon>;
+  [key: string]: any;
 };
 
 export type CanvasSection = {
@@ -11,6 +12,9 @@ export type CanvasSection = {
   type: Sections;
   props: {
     content: CanvasContent;
+    state?: CanvasStatesEnum;
+    styles?: Record<string, any>;
+    [key: string]: any;
   };
 };
 

@@ -1,12 +1,9 @@
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
-import { GroupFields } from 'components';
-import { Panel } from 'components/ui/primitives/atoms/panel';
-import {
-  IconEditor,
-  IconEditorRef,
-} from 'components/ui/primitives/compound/icon-editor';
+import { GroupFields } from '#/components/organisms/group-fields';
+import { Panel } from '#/components/organisms/panel';
+import { IconEditor, IconEditorRef } from '#/components/molecules/icon-editor';
 
 import { actions } from 'lib/command';
 import { getDeepObjectProperty } from 'utils';

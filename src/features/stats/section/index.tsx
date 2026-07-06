@@ -1,4 +1,4 @@
-import { GuardSection } from 'components/sections/guard';
+import { GuardSection } from '#/components/organisms/sections/guard';
 
 import { useSettings } from 'hooks';
 import { getStatsUrl, objectToQueryParams } from 'utils';

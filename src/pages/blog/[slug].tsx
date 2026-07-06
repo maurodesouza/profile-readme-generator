@@ -6,7 +6,7 @@ import path from 'node:path';
 
 import matter from 'gray-matter';
 
-import { PostTemplate } from 'templates/post';
+import { PostTemplate } from '#/components/templates/post';
 import { PostMetadata } from 'types';
 
 import { CONSTANTS } from '@constants';

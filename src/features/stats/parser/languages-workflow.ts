@@ -1,4 +1,4 @@
-import { TFile } from 'components/ui/primitives/atoms/tree';
+import { TFile } from '#/components/atoms/tree';
 import { objectToQueryParams } from 'utils';
 
 import { StatsSectionParserArgs } from './readme-parser';

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Router from 'next/router';
 
-import { Tabs } from 'components/ui/primitives/atoms/tabs';
-import { Panel } from 'components/ui/primitives/atoms/panel';
+import { Tabs } from '#/components/atoms/tabs';
+import { Panel } from '#/components/organisms/panel';
 
 import { tabs, views } from './tabs';
 

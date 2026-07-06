@@ -1,4 +1,4 @@
-import { PrivacyPolicyTemplate } from 'templates/privacy-policy';
+import { PrivacyPolicyTemplate } from '#/components/templates/privacy-policy';
 
 const PrivacyPolicy = () => {
   return <PrivacyPolicyTemplate />;

@@ -1,5 +1,5 @@
 import { AnimatePresence, Reorder } from 'framer-motion';
-import { GroupFields } from 'components';
+import { GroupFields } from '#/components/organisms/group-fields';
 
 import { useCanvas, useForceUpdate } from 'hooks';
 import { getDeepObjectProperty } from 'utils';

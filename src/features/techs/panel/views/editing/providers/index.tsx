@@ -1,5 +1,5 @@
-import { Text } from 'components/ui/primitives/atoms/text';
-import { DropdownMenu } from 'components/ui/primitives/atoms/dropdown-menu';
+import { Text } from '#/components/atoms/text';
+import { DropdownMenu } from '#/components/atoms/dropdown-menu';
 
 import { actions } from 'lib/command';
 import { IconProviders } from 'types';

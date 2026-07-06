@@ -25,6 +25,7 @@
     "baseUrl": "src",
     "paths": {
       "@constants": ["constants"],
+      "#/components/*": ["components/*"]
     },
     "incremental": true,
     "plugins": [

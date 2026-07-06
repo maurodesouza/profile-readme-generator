@@ -11,8 +11,8 @@ import { AppProps } from 'next/app';
 import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
 
 import { config } from 'config';
-import { Modal } from 'components/ui/primitives/compound/modal';
-import { GlobalHandlers } from 'components/global-handlers';
+import { Modal } from '#/components/molecules/modal';
+import { Handles } from '#/components/handles';
 
 import { Features } from 'features';
 
@@ -70,7 +70,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
 
-      <GlobalHandlers />
+      <Handles />
 
       <ExtensionsProvider>
         <CanvasProvider>

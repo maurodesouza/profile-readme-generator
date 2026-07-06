@@ -1,4 +1,4 @@
-import { ResultTemplate } from 'templates';
+import { ResultTemplate } from '#/components/templates/result';
 
 const Result = () => <ResultTemplate />;
 

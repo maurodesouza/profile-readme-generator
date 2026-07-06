@@ -1,4 +1,4 @@
-import { GuardSection } from 'components/sections/guard';
+import { GuardSection } from '#/components/organisms/sections/guard';
 
 type SnakeSectionProps = {
   id: string;

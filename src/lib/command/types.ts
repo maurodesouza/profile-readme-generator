@@ -87,3 +87,11 @@ export type ScopedCommands = {
 
 export type UnscopedCommands = Exclude<ActionPath, ScopedCommands>;
 // #endregion
+
+export type SpecialProps =
+  | 'name'
+  | 'length'
+  | 'prototype'
+  | 'caller'
+  | 'arguments'
+  | 'toString';

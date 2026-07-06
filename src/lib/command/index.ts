@@ -11,6 +11,7 @@ import type {
   Config,
   Handler,
   ScopedCommands,
+  SpecialProps,
   UnscopedCommands,
 } from './types';
 
@@ -94,18 +95,32 @@ export class Command {
   }
 
   getActionsProxy(path: DeepKeys<Actions>[] = []): Actions {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const self = this;
+
     return new Proxy(() => {}, {
-      get: (_target, prop: DeepKeys<Actions>) => {
-        return this.getActionsProxy([...path, prop]);
+      get(target, prop: DeepKeys<Actions> | SpecialProps) {
+        if (typeof prop === 'symbol') {
+          return Reflect.get(target, prop);
+        }
+
+        switch (prop) {
+          case 'name':
+          case 'length':
+          case 'prototype':
+          case 'caller':
+          case 'arguments':
+          case 'toString':
+            return Reflect.get(target, prop);
+        }
+
+        return self.getActionsProxy([...path, prop]);
       },
 
-      apply: (
-        _target,
-        _thisArg,
-        args: [ActionPayload<ActionPath>, Config?]
-      ) => {
+      apply(_target, _thisArg, args: [ActionPayload<ActionPath>, Config?]) {
+        console.log('path', path);
         const commandName = path.join('.') as ActionPath;
-        return this.dispatch(commandName, args[0], args[1]);
+        return self.dispatch(commandName, args[0], args[1]);
       },
     }) as unknown as Actions;
   }

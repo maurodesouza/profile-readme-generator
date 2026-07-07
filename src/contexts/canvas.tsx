@@ -68,9 +68,11 @@ const CanvasProvider = ({ children }: CanvasProviderProps) => {
 
     const obj = sections.find(item => item.id === id)!;
 
+    const finalPath = path.startsWith('props.') ? path : `props.${path}`;
+
     const result = deepChangeObjectProperty<CanvasSection>({
       obj,
-      path,
+      path: finalPath,
       value,
     });
 

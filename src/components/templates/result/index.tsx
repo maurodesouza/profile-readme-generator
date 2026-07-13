@@ -1,16 +1,34 @@
-import { ReadmeResult } from '#/components/organisms/readme-result';
+import { useEffect, useState } from 'react';
 
 import { Icon } from '#/components/atoms/icon';
 import { Page } from '#/components/atoms/page';
 import { Text } from '#/components/atoms/text';
-import { Panel } from '#/components/organisms/panel';
-import { PageFooter } from '#/components/molecules/page-footer';
 import { Clickable } from '#/components/atoms/clickable';
-import { CopyCurrentFileContent } from '#/components/molecules/copy-current-file-content';
 
+import { Panel } from '#/components/organisms/panel';
+import { ReadmeResult } from '#/components/organisms/readme-result';
+
+import { PageFooter } from '#/components/molecules/page-footer';
+import { CopyToClipboard } from '#/components/molecules/copy-to-clipboard';
+
+import { command } from 'lib/command';
 import { PanelsEnum } from 'types';
 
 export function ResultTemplate() {
+  const [content, setContent] = useState('');
+
+  function handleShowContent(content: string) {
+    setContent(content);
+  }
+
+  useEffect(() => {
+    const dispose = command.handle('result.show', handleShowContent);
+
+    return () => {
+      dispose();
+    };
+  }, []);
+
   return (
     <Page.Container>
       <Panel.Template.Full
@@ -51,14 +69,14 @@ export function ResultTemplate() {
         </header>
 
         <Page.Content className="relative">
-          <ReadmeResult />
+          <ReadmeResult content={content} />
         </Page.Content>
 
         <PageFooter.Container>
           <PageFooter.Owner />
           <PageFooter.Navs />
 
-          <CopyCurrentFileContent>
+          <CopyToClipboard content={content}>
             {({ copy, isCopied }) => {
               return (
                 <Clickable.Button
@@ -71,7 +89,7 @@ export function ResultTemplate() {
                 </Clickable.Button>
               );
             }}
-          </CopyCurrentFileContent>
+          </CopyToClipboard>
         </PageFooter.Container>
       </Page.Wrapper>
 

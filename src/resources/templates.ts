@@ -1643,6 +1643,101 @@ const templates = [
       },
     ],
   },
+  {
+    inspired: 'https://github.com/csagnik1302',
+    template: [
+      {
+        type: 'text',
+        props: {
+          content: { text: "Hi 👋, I'm Sagnik", as: 'h1' },
+          styles: { align: 'left' },
+        },
+      },
+      {
+        type: 'text',
+        props: {
+          content: { text: 'Aspiring ML Engineer', as: 'h2' },
+          styles: { align: 'left' },
+        },
+      },
+      {
+        type: 'text',
+        props: {
+          content: {
+            text: "- 🔭 I'm currently working on **a research project exploring the Lost in The Middle phenomena in LLM Retrieval pipelines and RAG pipelines.**\n- 🌱 I'm currently learning **LangChain and SQL**\n- 🤝 I'm looking for help with **Creating and managing custom LM pipelines**\n- 💬 Ask me about **Machine Learning, RAG pipelines, Data Mining**\n- 📫 How to reach me **sagnikchandra@gmail.com**\n- ⚡ Fun fact **I spend more time defeating your Python environments than training my AI models.**\n- 👨‍💻 All of my projects are available at **https://csagnik1302.github.io/#top**\n- 📝 I regularly write articles on **https://medium.com/@sagnikchandra-65680**\n- 📄 Know about my experiences **https://drive.google.com/file/d/1rhio97CGMhq9xvoXZJAp88HLMmLWJHsi/view?usp=sharing**",
+            as: 'p',
+          },
+          styles: { align: 'left' },
+        },
+      },
+      {
+        type: 'text',
+        props: {
+          content: {
+            text: "Languages and Tools:\n- Anaconda\n- C\n- Git\n- Hugging Face\n- Jupyter\n- Keras\n- LangChain\n- Linux\n- Matplotlib\n- MySQL\n- NumPy\n- Ollama\n- Pandas\n- Python\n- PyTorch\n- Scikit-learn\n- Seaborn\n- TensorFlow",
+            as: 'p',
+          },
+          styles: { align: 'left' },
+        },
+      },
+      {
+        type: 'socials',
+        props: {
+          content: {
+            socials: {
+              github: {
+                link: 'https://github.com/csagnik1302',
+                icon: 'default',
+                message: 'GitHub',
+                color: '181717',
+                label: '',
+                logo: 'github',
+                logoColor: 'white',
+              },
+              linkedin: {
+                link: 'https://www.linkedin.com/in/sagnik-chandra-52b0a111a/',
+                icon: 'default',
+                message: 'LinkedIn',
+                color: '0077B5',
+                label: '',
+                logo: 'linkedin',
+                logoColor: 'white',
+              },
+              instagram: {
+                link: 'https://instagram.com/_swag_nik_',
+                icon: 'default',
+                message: 'Instagram',
+                color: 'E4405F',
+                label: '',
+                logo: 'instagram',
+                logoColor: 'white',
+              },
+              medium: {
+                link: 'https://medium.com/@sagnikchandra-65680',
+                icon: 'default',
+                message: 'Medium',
+                color: '000000',
+                label: '',
+                logo: 'medium',
+                logoColor: 'white',
+              },
+              gmail: {
+                link: 'mailto:sagnikchandra@gmail.com',
+                icon: 'default',
+                message: 'Gmail',
+                color: 'D14836',
+                label: '',
+                logo: 'gmail',
+                logoColor: 'white',
+              },
+            },
+            styles: { style: 'for-the-badge', type: 'badge', height: '35' },
+          },
+          styles: { align: 'left', spacing: 12 },
+        },
+      },
+    ],
+  },
 ];
 
 export { templates };

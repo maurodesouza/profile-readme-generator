@@ -1,5 +1,9 @@
 const copyToClipboard = async (string: string) => {
-  if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+  if (
+    typeof navigator !== 'undefined' &&
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ) {
     await navigator.clipboard.writeText(string);
   } else {
     const textArea = document.createElement('textarea');
@@ -14,11 +18,11 @@ const copyToClipboard = async (string: string) => {
     textArea.style.outline = 'none';
     textArea.style.boxShadow = 'none';
     textArea.style.background = 'transparent';
-    
+
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
-    
+
     try {
       const successful = document.execCommand('copy');
       if (!successful) {

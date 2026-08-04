@@ -28,13 +28,14 @@
   },
   "homepage": "https://profile-readme-generator.com",
   "private": true,
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
     "test": "vitest",
-    "analyze": "ANALYZE=true yarn build"
+    "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.15",

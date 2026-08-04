@@ -10,10 +10,12 @@ import { actions } from 'lib/command';
 export type TFile = {
   file: string;
   content: string;
+  className?: string;
 };
 
 export type TFolder = {
   name?: string;
+  className?: string;
   files: TFile[];
 };
 
@@ -36,7 +38,7 @@ function Label(props: LabelProps) {
 type FileProps = TFile;
 
 function File(props: FileProps) {
-  const { content, file } = props;
+  const { content, file, className } = props;
 
   function onClick() {
     actions.result.show(content);
@@ -44,7 +46,7 @@ function File(props: FileProps) {
 
   return (
     <button className="flex w-full mt-xs **:cursor-pointer hover:text-tone-foreground-context!">
-      <Label onClick={onClick} icon="file">
+      <Label onClick={onClick} icon="file" className={className}>
         {file}
       </Label>
     </button>
@@ -54,13 +56,15 @@ function File(props: FileProps) {
 type FolderProps = TFolder;
 
 function Folder(props: FolderProps) {
-  const { name, files } = props;
+  const { name, files, className } = props;
 
   const hasFiles = !!files.length;
 
   return hasFiles ? (
     <div>
-      <Label icon="folder">{name}</Label>
+      <Label icon="folder" className={className}>
+        {name}
+      </Label>
 
       <div className="ml-md">
         {files.map(file => (

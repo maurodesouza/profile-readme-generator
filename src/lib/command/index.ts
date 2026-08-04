@@ -95,7 +95,7 @@ export class Command {
   }
 
   getActionsProxy(path: DeepKeys<Actions>[] = []): Actions {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    // biome-ignore lint/complexity/noUselessThisAlias: required to capture `this`
     const self = this;
 
     return new Proxy(() => {}, {

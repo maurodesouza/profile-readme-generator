@@ -2,7 +2,6 @@ import type {
   CanvasSection,
   Extension,
   PanelsEnumType,
-  PanelSide,
   Renderable,
   Sections,
 } from 'types';
@@ -46,6 +45,13 @@ export interface Actions {
 
   result: {
     show: Action<string>;
+  };
+
+  generated: {
+    workflows: {
+      highlight: Action;
+      unhighlight: Action;
+    };
   };
 
   template: {

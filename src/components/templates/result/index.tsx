@@ -11,11 +11,21 @@ import { ReadmeResult } from '#/components/organisms/readme-result';
 import { PageFooter } from '#/components/molecules/page-footer';
 import { CopyToClipboard } from '#/components/molecules/copy-to-clipboard';
 
-import { command } from 'lib/command';
+import { actions, command } from 'lib/command';
 import { PanelsEnum } from 'types';
+
+import { useCanvas, useExtensions, useSettings } from 'hooks';
+import { parseToReadme } from 'utils';
 
 export function ResultTemplate() {
   const [content, setContent] = useState('');
+
+  const { sections } = useCanvas();
+  const { extensions } = useExtensions();
+  const { settings } = useSettings();
+
+  const hasWorkflows =
+    parseToReadme(sections, extensions.sections, settings)[0].files.length > 0;
 
   function handleShowContent(content: string) {
     setContent(content);
@@ -72,6 +82,23 @@ export function ResultTemplate() {
           <ReadmeResult content={content} />
         </Page.Content>
 
+        {hasWorkflows && (
+          <Text.Paragraph
+            className="text-center"
+            onMouseEnter={() => actions.generated.workflows.highlight()}
+            onMouseLeave={() => actions.generated.workflows.unhighlight()}
+          >
+            Hey, hey, hey! You also generated workflow files in{' '}
+            <Text.Highlight className="tone palette-warning self-center">
+              .github/workflows
+            </Text.Highlight>
+            &nbsp;.
+            <br />
+            Don&apos;t forget to copy those too — your README won&apos;t work
+            without them!
+          </Text.Paragraph>
+        )}
+
         <PageFooter.Container>
           <PageFooter.Owner />
           <PageFooter.Navs />
@@ -82,7 +109,7 @@ export function ResultTemplate() {
                 <Clickable.Button
                   onClick={copy}
                   tone="success"
-                  className="w-[166px]"
+                  className="w-41.5"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
                   {isCopied ? 'Copied 🎉' : 'Copy File Content'}

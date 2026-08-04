@@ -83,12 +83,8 @@ https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-
   <img width="50" title="Jest" alt="Jest Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/jest-logo.svg">
 </a> &#xa0; &#xa0;
 
-<a href="https://eslint.org">
-  <img  width="50" title="Eslint" alt="Eslint Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/eslint/eslint.png">
-</a> &#xa0; &#xa0;
-
-<a href="https://prettier.io">
-  <img width="50" title="Prettier" alt="Prettier Logo" src="https://prettier.io/icon.png">
+<a href="https://biomejs.dev">
+  <img width="50" title="Biome" alt="Biome Logo" src="https://biomejs.dev/img/favicon.svg">
 </a>
 
 ###
@@ -141,7 +137,8 @@ $ yarn dev
 - `build`: creates an optimized production build of the application;
 - `start`: starts the application in production mode at localhost:3000 (make sure to run the build first);
 - `test`: runs the tests;
-- `lint`: runs eslint in the /src directory.
+- `lint`: runs biome check in the /src directory;
+- `format`: runs biome format in the /src directory.
 
 ## :memo: License ##
 

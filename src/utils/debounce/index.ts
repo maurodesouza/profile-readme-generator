@@ -5,7 +5,6 @@ const debounce =
     time?: ReturnType<typeof setTimeout>
   ) =>
   (...args: unknown[]) =>
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     clearTimeout(time, (time = setTimeout(() => fn(...args), wait)));
 

@@ -43,12 +43,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.2,
       alternates: populateAlternates(basePath, '/privacy-policy'),
     },
-    {
-      url: `${basePath}/resources/books`,
-      lastModified: today,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-      alternates: populateAlternates(basePath, '/resources/books'),
-    },
   ];
 }

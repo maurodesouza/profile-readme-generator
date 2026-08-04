@@ -9,6 +9,5 @@ export * from './tooltip';
 export * from './icon';
 export * from './social-icon';
 export * from './extensions';
-export * from './post-metadata';
 export * from './rendarable';
 export * from './params';

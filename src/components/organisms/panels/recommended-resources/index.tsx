@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router';
-
 import { Text } from '#/components/atoms/text';
 import { Panel } from '#/components/organisms/panel';
 import { ResourceItem } from '#/components/molecules/resource-items';
@@ -8,9 +6,7 @@ import { AffiliateWarning } from '#/components/molecules/affiliate-warning';
 import { getItems } from './items';
 
 const PanelRecommendedResources = () => {
-  const { locale = 'en' } = useRouter();
-
-  const items = getItems(locale);
+  const items = getItems();
 
   return (
     <div className="flex flex-col gap-md h-full">

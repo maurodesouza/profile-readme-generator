@@ -2,11 +2,6 @@ import { CONSTANTS } from '@constants';
 import { config } from 'config';
 import type { MetadataRoute } from 'next';
 
-import fs from 'node:fs';
-import path from 'node:path';
-
-const POSTS_DIR = path.join(process.cwd(), 'posts');
-
 function populateAlternates(initialPath: string, finalPath: string) {
   return {
     languages: CONSTANTS.LOCALES.reduce(
@@ -21,20 +16,8 @@ function populateAlternates(initialPath: string, finalPath: string) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const slugs = fs.readdirSync(POSTS_DIR);
-
   const basePath = config.general.urls.app;
   const today = new Date();
-
-  const postsMap = slugs.map(slug => {
-    return {
-      url: `${basePath}/blog/${slug}`,
-      lastModified: today,
-      changeFrequency: 'yearly',
-      priority: 0.8,
-      alternates: populateAlternates(basePath, `/blog/${slug}`),
-    };
-  }) as MetadataRoute.Sitemap;
 
   return [
     {
@@ -67,6 +50,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
       alternates: populateAlternates(basePath, '/resources/books'),
     },
-    ...postsMap,
   ];
 }

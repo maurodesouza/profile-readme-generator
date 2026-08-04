@@ -201,13 +201,13 @@ const PrivacyPolicyTemplate = () => {
             as soon as You close Your web browser. You can learn more about
             cookies on{' '}
             <a
-              href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
+              href="https://www.termsfeed.com"
               target="_blank"
               rel="noreferrer"
             >
-              TermsFeed website
+              TermsFeed
             </a>{' '}
-            article.
+            cookies page.
           </p>
           <p>
             We use both Session and Persistent Cookies for the purposes set out

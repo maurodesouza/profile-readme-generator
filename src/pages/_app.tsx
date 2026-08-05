@@ -8,8 +8,6 @@ import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 
-import { CanvasProvider, ExtensionsProvider, SettingsProvider } from 'contexts';
-
 import { config } from 'config';
 import { Modal } from '#/components/molecules/modal';
 import { Handles } from '#/components/handles';
@@ -67,16 +65,10 @@ const App = ({ Component, pageProps }: AppProps) => {
 
       <Handles />
 
-      <ExtensionsProvider>
-        <CanvasProvider>
-          <SettingsProvider>
-            <Component {...pageProps} />
+      <Component {...pageProps} />
 
-            <Modal />
-            <Features />
-          </SettingsProvider>
-        </CanvasProvider>
-      </ExtensionsProvider>
+      <Modal />
+      <Features />
     </>
   );
 };

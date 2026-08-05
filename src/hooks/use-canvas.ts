@@ -1,5 +1,3 @@
-import { useContext } from 'react';
+import { canvasStore } from 'stores';
 
-import { CanvasContext } from 'contexts';
-
-export const useCanvas = () => useContext(CanvasContext);
+export const useCanvas = () => canvasStore;

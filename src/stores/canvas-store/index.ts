@@ -1,4 +1,5 @@
 import { makeAutoObservable } from 'mobx';
+import { makePersistable } from 'mobx-persist-store';
 
 import { CanvasSection } from 'types';
 
@@ -9,6 +10,12 @@ class CanvasStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    makePersistable(canvasStore, {
+      name: 'canvas store',
+      properties: ['sections'],
+      storage: window.localStorage,
+    });
   }
 
   get $isInPreviewMode() {

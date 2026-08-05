@@ -1,4 +1,3 @@
-import { useContext } from 'react';
-import { ExtensionsContext } from 'contexts';
+import { extensionsStore } from 'stores';
 
-export const useExtensions = () => useContext(ExtensionsContext);
+export const useExtensions = () => extensionsStore;

@@ -20,9 +20,9 @@ export const CanvasSection = observer(function CanvasSection(
   const canvasStore = useCanvas();
 
   function onSelectSection() {
-    if (isInAlert || canvasStore.previewMode) return;
+    if (isInAlert || canvasStore.$isInPreviewMode) return;
 
-    actions.canvas.setCurrentSection(id);
+    actions.canvas.section.activate(id);
   }
 
   const childrenInfo = React.Children.only(children) as React.ReactPortal;
@@ -33,10 +33,10 @@ export const CanvasSection = observer(function CanvasSection(
   const isInAlert = childrenProps.state === CanvasStatesEnum.ALERT;
 
   const state = (() => {
-    if (canvasStore.currentSection?.id === id)
+    if (canvasStore.activeSectionId === id)
       return { is: CanvasStatesEnum.SELECTED };
     if (isInAlert) return { is: CanvasStatesEnum.ALERT };
-    if (canvasStore.previewMode) return { is: CanvasStatesEnum.PREVIEW };
+    if (canvasStore.$isInPreviewMode) return { is: CanvasStatesEnum.PREVIEW };
 
     return { is: CanvasStatesEnum.DEFAULT };
   })();
@@ -44,7 +44,7 @@ export const CanvasSection = observer(function CanvasSection(
   return (
     <Section.Container
       value={id}
-      drag={!canvasStore.previewMode}
+      drag={!canvasStore.$isInPreviewMode}
       float={float}
       clear={clear}
       data-sectionid={id}

@@ -30,7 +30,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
     parseToReadme(
       canvasStore.sections,
       extensionsStore.extensions.sections,
-      settingsStore.settings
+      settingsStore.$settings
     )[0].files.length > 0;
 
   function handleShowContent(content: string) {

@@ -17,7 +17,7 @@ export function Providers({ icon, current, available }: ProvidersProps) {
 
       const path = `content.icons.${icon}.currentProvider`;
 
-      actions.canvas.edit({ path, value });
+      actions.canvas.section.edit({ path, value });
     };
   }
 

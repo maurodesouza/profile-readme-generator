@@ -29,7 +29,7 @@ export const GuardSection = observer(function GuardSection(
   const canvasStore = useCanvas();
   const settingsStore = useSettings();
 
-  const { github } = settingsStore.settings.user;
+  const { github } = settingsStore.$settings.user;
 
   async function checkGithubUsername(event: FormEvent) {
     event.preventDefault();
@@ -57,12 +57,12 @@ export const GuardSection = observer(function GuardSection(
   }
 
   useEffect(() => {
-    if (canvasStore.previewMode) return;
+    if (canvasStore.$isInPreviewMode) return;
 
     const state = github ? CanvasStatesEnum.DEFAULT : CanvasStatesEnum.ALERT;
 
     setTimeout(() => {
-      actions.canvas.edit({
+      actions.canvas.section.edit({
         id: sectionId,
         path: 'state',
         value: state,

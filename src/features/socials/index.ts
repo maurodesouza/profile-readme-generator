@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'message-square',
-      onClick: () => actions.canvas.add(Sections.SOCIALS),
+      onClick: () => actions.canvas.section.add(Sections.SOCIALS),
       name: 'Social Media',
     },
 

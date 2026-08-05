@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'image',
-      onClick: () => actions.canvas.add(Sections.IMAGE),
+      onClick: () => actions.canvas.section.add(Sections.IMAGE),
       name: 'Image',
     },
 

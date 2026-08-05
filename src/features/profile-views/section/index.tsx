@@ -35,7 +35,7 @@ export const ProfileViewsSection = observer(function ProfileViewsSection(
   const settingsStore = useSettings();
 
   const { provider, views } = content;
-  const { github = '' } = settingsStore.settings.user;
+  const { github = '' } = settingsStore.$settings.user;
 
   const url = getProfileViewsUrl(provider, github as string);
   const fullUrl = `${url}${objectToQueryParams(views[provider])}`;

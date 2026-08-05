@@ -16,7 +16,7 @@ export function Variants(props: VariantsProps) {
     return () => {
       const path = `content.icons.${icon}.config.${provider}.variant`;
 
-      actions.canvas.edit({ path, value });
+      actions.canvas.section.edit({ path, value });
     };
   }
   return variants.length ? (

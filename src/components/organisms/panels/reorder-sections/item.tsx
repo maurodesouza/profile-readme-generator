@@ -70,7 +70,7 @@ export const Item = observer(function Item(props: ItemProps) {
             size="icon"
             variant="icon"
             disabled={first}
-            onClick={() => actions.canvas.moveUp(data.id)}
+            onClick={() => actions.canvas.section.moveUp(data.id)}
           >
             <Icon name="arrow-up" />
           </Clickable.Button>
@@ -79,7 +79,7 @@ export const Item = observer(function Item(props: ItemProps) {
             size="icon"
             variant="icon"
             disabled={last}
-            onClick={() => actions.canvas.moveDown(data.id)}
+            onClick={() => actions.canvas.section.moveDown(data.id)}
           >
             <Icon name="arrow-down" />
           </Clickable.Button>

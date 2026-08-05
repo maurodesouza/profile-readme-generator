@@ -48,7 +48,7 @@ const IconEditor: React.ForwardRefRenderFunction<
   function deleteIcon() {
     const path = `${props.baseEditPath}.${props.id}`;
 
-    actions.canvas.edit({ path, value: undefined });
+    actions.canvas.section.edit({ path, value: undefined });
   }
 
   function toggleExpansible() {

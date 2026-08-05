@@ -79,14 +79,14 @@ export const Adding = observer(function Adding() {
       const path = `content.icons.${icon.name}`;
 
       if (isUsed) {
-        actions.canvas.edit({ path, value: undefined });
+        actions.canvas.section.edit({ path, value: undefined });
       } else {
         const value = {
           ...icon,
           currentProvider: provider,
           config: {},
         };
-        actions.canvas.edit({ path, value });
+        actions.canvas.section.edit({ path, value });
       }
     };
   }

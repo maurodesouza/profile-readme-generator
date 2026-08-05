@@ -47,7 +47,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
       <ContextMenu.Separator />
 
       <ContextMenu.Item
-        onClick={() => commandActions.canvas.moveUp(props.id)}
+        onClick={() => commandActions.canvas.section.moveUp(props.id)}
         disabled={isFirst}
       >
         <Icon name="arrow-up" />
@@ -55,7 +55,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
       </ContextMenu.Item>
 
       <ContextMenu.Item
-        onClick={() => commandActions.canvas.moveDown(props.id)}
+        onClick={() => commandActions.canvas.section.moveDown(props.id)}
         disabled={isLast}
       >
         <Icon name="arrow-down" />

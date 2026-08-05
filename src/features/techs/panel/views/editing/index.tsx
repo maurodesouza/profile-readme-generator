@@ -46,7 +46,7 @@ export const Editing = observer(function Editing() {
       return obj;
     }, {} as Icons);
 
-    actions.canvas.edit({ path, value });
+    actions.canvas.section.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 

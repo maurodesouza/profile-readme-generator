@@ -39,7 +39,7 @@ export const Canvas = observer(function Canvas() {
             <Reorder.Group
               axis="y"
               values={sectionIds}
-              onReorder={actions.canvas.reorder}
+              onReorder={actions.canvas.sections.reorder}
             >
               {canvasStore.sections.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;

@@ -35,9 +35,9 @@ export const Adding = observer(function Adding() {
       const path = `content.socials.${name}`;
 
       if (isUsed) {
-        actions.canvas.edit({ path, value: undefined });
+        actions.canvas.section.edit({ path, value: undefined });
       } else {
-        actions.canvas.edit({ path, value });
+        actions.canvas.section.edit({ path, value });
       }
     };
   }

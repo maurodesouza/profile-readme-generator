@@ -16,7 +16,7 @@ export const ReorderSections = observer(function ReorderSections() {
       <Reorder.Group
         axis="y"
         values={canvasStore.sections.map(section => section.id)}
-        onReorder={actions.canvas.reorder}
+        onReorder={actions.canvas.sections.reorder}
       >
         {canvasStore.sections.map((section, index) => {
           return (

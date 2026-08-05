@@ -13,8 +13,8 @@ export const CanvasActions = observer(function CanvasActions() {
   const hasSection = !!canvasStore.sections.length;
 
   const state = (() => {
-    if (canvasStore.previewMode) return { is: 'preview-mode' } as const;
-    if (!canvasStore.previewMode && hasSection)
+    if (canvasStore.$isInPreviewMode) return { is: 'preview-mode' } as const;
+    if (!canvasStore.$isInPreviewMode && hasSection)
       return { is: 'canvas' } as const;
 
     return { is: 'hidden' } as const;
@@ -33,7 +33,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="success"
-                    onClick={actions.template.use}
+                    onClick={actions.canvas.preview.apply}
                   >
                     <Icon name="check" />
                   </Clickable.Button>
@@ -45,7 +45,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={() => actions.template.preview()}
+                    onClick={() => actions.canvas.preview.sections()}
                   >
                     <Icon name="x" />
                   </Clickable.Button>
@@ -78,7 +78,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={actions.canvas.clear}
+                    onClick={actions.canvas.sections.clear}
                   >
                     <Icon name="trash" />
                   </Clickable.Button>
@@ -119,7 +119,7 @@ export const CanvasActions = observer(function CanvasActions() {
               size="icon"
               variant="icon"
               tone="brand"
-              onClick={actions.canvas.loadImportFile}
+              onClick={actions.canvas.import.loadFile}
             >
               <Icon name="upload-cloud" />
             </Clickable.Button>
@@ -132,7 +132,7 @@ export const CanvasActions = observer(function CanvasActions() {
             style={{
               display: 'none',
             }}
-            onChange={actions.canvas.import}
+            onChange={actions.canvas.import.apply}
           />
         </div>
       </div>

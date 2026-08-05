@@ -38,7 +38,7 @@ export const StatsSection = observer(function StatsSection(
   const settingsStore = useSettings();
 
   const { graphs } = content;
-  const { github } = settingsStore.settings.user;
+  const { github } = settingsStore.$settings.user;
 
   function getStyles() {
     if (containerStyles.direction === 'column') {

@@ -24,12 +24,12 @@ export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
       parseToReadme(
         canvasStore.sections,
         extensionsStore.extensions.sections,
-        settingsStore.settings
+        settingsStore.$settings
       ),
     [
       canvasStore.sections,
       extensionsStore.extensions.sections,
-      settingsStore.settings,
+      settingsStore.$settings,
     ]
   );
 

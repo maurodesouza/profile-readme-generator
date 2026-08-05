@@ -38,7 +38,7 @@ export const Layout = observer(function Layout() {
       return obj;
     }, {} as Stats);
 
-    actions.canvas.edit({ path, value });
+    actions.canvas.section.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 

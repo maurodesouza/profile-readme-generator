@@ -14,7 +14,7 @@ import { inputMap } from './fields/inputs-map';
 
 type Conditions = {
   path: string;
-  be: any;
+  be: 'equal' | string;
   value: unknown;
 };
 
@@ -52,21 +52,32 @@ export const GroupFields = observer(function GroupFields(
   const canvasStore = useCanvas();
   const settingsStore = useSettings();
 
+  const currentSection = canvasStore.activeSectionId
+    ? canvasStore.$sectionsMap.byId[canvasStore.activeSectionId]
+    : undefined;
+
   const obj =
-    context === 'canvas'
-      ? canvasStore.currentSection
-      : { props: settingsStore.settings };
+    context === 'canvas' ? currentSection : { props: settingsStore.$settings };
 
   function toggleExpansible() {
     setIsExpanded(!isExpanded);
   }
 
   function onChange(value: string | boolean, path: string) {
-    actions[context].edit({ value, path });
+    if (context === 'canvas') {
+      actions.canvas.section.edit({ value, path });
+    } else {
+      actions.settings.edit({ value, path });
+    }
   }
 
   const canRender = conditions
-    ? checkDeepObjectValue({ obj, ...conditions })
+    ? checkDeepObjectValue({
+        obj,
+        path: conditions.path,
+        be: conditions.be as 'equal',
+        value: conditions.value,
+      })
     : true;
 
   const isExpansible = !!label && accordion;
@@ -97,13 +108,18 @@ export const GroupFields = observer(function GroupFields(
             const { column, ...rest } = field?.props ?? {};
 
             const canRender = field.conditions
-              ? checkDeepObjectValue({ obj, ...field.conditions })
+              ? checkDeepObjectValue({
+                  obj,
+                  path: field.conditions.path,
+                  be: field.conditions.be as 'equal',
+                  value: field.conditions.value,
+                })
               : true;
 
-            const defaultValue = getDeepObjectProperty<any>(
+            const defaultValue = getDeepObjectProperty(
               obj?.props,
               field.path
-            );
+            ) as string | boolean | undefined;
 
             return canRender ? (
               <motion.div

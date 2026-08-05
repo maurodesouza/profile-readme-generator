@@ -12,7 +12,7 @@ const feature = {
   presentation: {
     [PanelsEnum.NEW_SECTION]: {
       icon: 'telescope',
-      onClick: () => actions.canvas.add(Sections.PROFILE_VIEWS),
+      onClick: () => actions.canvas.section.add(Sections.PROFILE_VIEWS),
       name: 'Profile views',
     },
 

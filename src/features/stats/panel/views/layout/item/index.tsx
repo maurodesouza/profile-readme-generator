@@ -24,7 +24,7 @@ export function Item(props: ItemProps) {
   function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;
 
-    actions.canvas.edit({ path, value: !isShowing });
+    actions.canvas.section.edit({ path, value: !isShowing });
   }
 
   function onConfigure() {

@@ -15,7 +15,7 @@ class SettingsStore {
   constructor() {
     makeAutoObservable(this);
 
-    makePersistable(settingsStore, {
+    makePersistable(this, {
       name: 'settings store',
       properties: ['settings'],
       storage: window.localStorage,

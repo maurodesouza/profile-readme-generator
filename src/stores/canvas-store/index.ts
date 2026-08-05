@@ -11,7 +11,7 @@ class CanvasStore {
   constructor() {
     makeAutoObservable(this);
 
-    makePersistable(canvasStore, {
+    makePersistable(this, {
       name: 'canvas store',
       properties: ['sections'],
       storage: window.localStorage,

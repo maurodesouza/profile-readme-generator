@@ -1,0 +1,172 @@
+import { useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
+
+import { CanvasSection, PanelsEnum, Sections } from 'types';
+import { deepChangeObjectProperty, parseImportedReadme } from 'utils';
+import { actions, command } from 'lib/command';
+import { canvasStore } from 'stores/canvas-store';
+import { extensionsStore } from 'stores/extensions-store';
+
+type HandleEditPayload = {
+  id?: string;
+  path: string;
+  value: unknown;
+};
+
+export function CanvasHandle() {
+  function clear() {
+    canvasStore.sections = [];
+    canvasStore.activeSectionId = undefined;
+    canvasStore.previewSections = [];
+  }
+
+  function handleCanvasSectionAdd(sectionType: Sections) {
+    const sectionData = extensionsStore.extensions.sections?.[sectionType] as
+      | Record<string, unknown>
+      | undefined;
+
+    const newSection = {
+      id: uuid(),
+      type: sectionType,
+      ...(sectionData?.defaultConfig || {}),
+    } as CanvasSection;
+
+    canvasStore.sections.push(newSection);
+  }
+
+  function handleCanvasSectionEdit(payload: HandleEditPayload) {
+    const { id = canvasStore.activeSectionId, path, value } = payload;
+    if (!id) return;
+
+    const section = canvasStore.$sectionsMap.byId[id];
+    const finalPath = path.startsWith('props.') ? path : `props.${path}`;
+
+    deepChangeObjectProperty<CanvasSection>({
+      obj: section,
+      path: finalPath,
+      value,
+    });
+  }
+
+  function handleCanvasSectionRemove(sectionId: string) {
+    const index = canvasStore.$sectionsMap.indexById[sectionId];
+    if (index === undefined) return;
+
+    canvasStore.sections.splice(index, 1);
+
+    if (sectionId === canvasStore.activeSectionId) {
+      canvasStore.activeSectionId = undefined;
+      actions.panel.right.close();
+    }
+  }
+
+  function handleCanvasSectionActivate(id: string) {
+    const section = canvasStore.$sectionsMap.byId[id];
+    if (!section) return;
+
+    canvasStore.activeSectionId = id;
+    actions.panel.right.show(section.type);
+  }
+
+  function handleCanvasSectionsClear() {
+    clear();
+    actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
+    actions.settings.preview.reset();
+  }
+
+  function handleCanvasSectionsReorder(order: string[]) {
+    const sectionsReordered = order.map(
+      sectionId => canvasStore.$sectionsMap.byId[sectionId]
+    );
+
+    canvasStore.sections = sectionsReordered;
+  }
+
+  function handleCanvasSectionDuplicate(id: string) {
+    const section = canvasStore.$sectionsMap.byId[id];
+    if (!section) return;
+
+    const clone = structuredClone(section);
+    clone.id = uuid();
+
+    const index = canvasStore.$sectionsMap.indexById[id];
+    canvasStore.sections.splice(index + 1, 0, clone);
+  }
+
+  function handleCanvasSectionMoveUp(id: string) {
+    const index = canvasStore.$sectionsMap.indexById[id];
+    if (index === 0) return;
+
+    const temp = canvasStore.sections[index - 1];
+    canvasStore.sections[index - 1] = canvasStore.sections[index];
+    canvasStore.sections[index] = temp;
+  }
+
+  function handleCanvasSectionMoveDown(id: string) {
+    const index = canvasStore.$sectionsMap.indexById[id];
+    if (index + 1 === canvasStore.sections.length) return;
+
+    const temp = canvasStore.sections[index + 1];
+    canvasStore.sections[index + 1] = canvasStore.sections[index];
+    canvasStore.sections[index] = temp;
+  }
+
+  function handleCanvasImportLoadFile() {
+    document.getElementById('readme-file-import')?.click();
+  }
+
+  async function handleCanvasImportApply(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    const file = event?.target?.files?.[0];
+    if (!file) return;
+
+    const text = await file.text();
+    const sections = await parseImportedReadme(text);
+
+    clear();
+    canvasStore.sections = sections;
+  }
+
+  function handleCanvasPreviewApply() {
+    canvasStore.sections = canvasStore.previewSections;
+    canvasStore.previewSections = [];
+    actions.settings.preview.reset();
+  }
+
+  function handleCanvasPreviewSections(template?: CanvasSection[]) {
+    const mappedTemplate = (template ?? []).map(section => ({
+      ...section,
+      id: uuid(),
+    }));
+
+    canvasStore.previewSections = mappedTemplate;
+    actions.settings.preview.apply();
+  }
+
+  useEffect(() => {
+    const disposes = [
+      command.handle('canvas.section.add', handleCanvasSectionAdd),
+      command.handle('canvas.section.edit', handleCanvasSectionEdit),
+      command.handle('canvas.section.remove', handleCanvasSectionRemove),
+      command.handle('canvas.section.activate', handleCanvasSectionActivate),
+      command.handle('canvas.sections.clear', handleCanvasSectionsClear),
+      command.handle('canvas.sections.reorder', handleCanvasSectionsReorder),
+      command.handle('canvas.section.duplicate', handleCanvasSectionDuplicate),
+      command.handle('canvas.section.moveUp', handleCanvasSectionMoveUp),
+      command.handle('canvas.section.moveDown', handleCanvasSectionMoveDown),
+
+      command.handle('canvas.import.loadFile', handleCanvasImportLoadFile),
+      command.handle('canvas.import.apply', handleCanvasImportApply),
+
+      command.handle('canvas.preview.apply', handleCanvasPreviewApply),
+      command.handle('canvas.preview.sections', handleCanvasPreviewSections),
+    ];
+
+    return () => {
+      disposes.forEach(dispose => dispose());
+    };
+  }, []);
+
+  return null;
+}

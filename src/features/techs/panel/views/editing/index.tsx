@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
@@ -19,14 +21,14 @@ type Icons = {
   [key: string]: EditableIcon;
 };
 
-export function Editing() {
+export const Editing = observer(function Editing() {
   const iconEditorRefs = useRef<IconEditorRef[]>([]);
 
   const forceUpdate = useForceUpdate();
-  const { currentSection } = useCanvas();
+  const canvasStore = useCanvas();
 
   const selectedIcons = getDeepObjectProperty<Icons>(
-    currentSection,
+    canvasStore.currentSection,
     'props.content.icons'
   )!;
 
@@ -117,4 +119,4 @@ export function Editing() {
       </AnimatePresence>
     </Panel.Scrollable>
   );
-}
+});

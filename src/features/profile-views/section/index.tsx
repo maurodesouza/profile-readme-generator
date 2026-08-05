@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { GuardSection } from '#/components/organisms/sections/guard';
 import { getProfileViewsUrl, objectToQueryParams } from 'utils';
 
@@ -25,13 +27,15 @@ type ProfileViewsProps = {
   styles: Styles;
 };
 
-export function ProfileViewsSection(props: ProfileViewsProps) {
+export const ProfileViewsSection = observer(function ProfileViewsSection(
+  props: ProfileViewsProps
+) {
   const { id, content, styles } = props;
 
-  const { settings } = useSettings();
+  const settingsStore = useSettings();
 
   const { provider, views } = content;
-  const { github = '' } = settings.user;
+  const { github = '' } = settingsStore.settings.user;
 
   const url = getProfileViewsUrl(provider, github as string);
   const fullUrl = `${url}${objectToQueryParams(views[provider])}`;
@@ -46,4 +50,4 @@ export function ProfileViewsSection(props: ProfileViewsProps) {
       </div>
     </GuardSection>
   );
-}
+});

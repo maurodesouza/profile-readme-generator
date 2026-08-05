@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useDragControls } from 'framer-motion';
 import { IconName } from 'lucide-react/dynamic';
 
@@ -17,16 +19,15 @@ type ItemProps = {
   first: boolean;
 };
 
-export function Item(props: ItemProps) {
+export const Item = observer(function Item(props: ItemProps) {
   const { data, first, last } = props;
   const dragControls = useDragControls();
 
-  const { extensions } = useExtensions();
+  const extensionsStore = useExtensions();
 
-  const featureData = extensions['new-section'][data.type] as Record<
-    string,
-    string
-  >;
+  const featureData = extensionsStore.extensions['new-section'][
+    data.type
+  ] as Record<string, string>;
 
   function extractSectionProp() {
     if (data.type === 'text') {
@@ -86,4 +87,4 @@ export function Item(props: ItemProps) {
       </Tile.Container>
     </Tile.Sortable>
   );
-}
+});

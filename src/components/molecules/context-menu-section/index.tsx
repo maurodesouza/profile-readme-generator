@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { IconName } from 'lucide-react/dynamic';
 
 import { actions } from './actions';
@@ -12,13 +14,17 @@ type SectionContextMenuProps = {
   id: string;
 };
 
-export function SectionContextMenu(props: SectionContextMenuProps) {
-  const { sections } = useCanvas();
+export const SectionContextMenu = observer(function SectionContextMenu(
+  props: SectionContextMenuProps
+) {
+  const canvasStore = useCanvas();
 
-  const sectionIndex = sections.findIndex(section => section.id === props.id);
+  const sectionIndex = canvasStore.sections.findIndex(
+    section => section.id === props.id
+  );
 
   const isFirst = sectionIndex === 0;
-  const isLast = sectionIndex + 1 === sections.length;
+  const isLast = sectionIndex + 1 === canvasStore.sections.length;
 
   return (
     <ContextMenu.Content>
@@ -57,4 +63,4 @@ export function SectionContextMenu(props: SectionContextMenuProps) {
       </ContextMenu.Item>
     </ContextMenu.Content>
   );
-}
+});

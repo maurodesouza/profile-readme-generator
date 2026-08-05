@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import React from 'react';
 
 import { Section } from '#/components/atoms/section';
@@ -10,15 +12,15 @@ type CanvasSectionProps = {
   id: string;
 };
 
-export function CanvasSection(
+export const CanvasSection = observer(function CanvasSection(
   props: React.PropsWithChildren<CanvasSectionProps>
 ) {
   const { id, children, ...rest } = props;
 
-  const { previewMode, currentSection } = useCanvas();
+  const canvasStore = useCanvas();
 
   function onSelectSection() {
-    if (isInAlert || previewMode) return;
+    if (isInAlert || canvasStore.previewMode) return;
 
     actions.canvas.setCurrentSection(id);
   }
@@ -31,9 +33,10 @@ export function CanvasSection(
   const isInAlert = childrenProps.state === CanvasStatesEnum.ALERT;
 
   const state = (() => {
-    if (currentSection?.id === id) return { is: CanvasStatesEnum.SELECTED };
+    if (canvasStore.currentSection?.id === id)
+      return { is: CanvasStatesEnum.SELECTED };
     if (isInAlert) return { is: CanvasStatesEnum.ALERT };
-    if (previewMode) return { is: CanvasStatesEnum.PREVIEW };
+    if (canvasStore.previewMode) return { is: CanvasStatesEnum.PREVIEW };
 
     return { is: CanvasStatesEnum.DEFAULT };
   })();
@@ -41,7 +44,7 @@ export function CanvasSection(
   return (
     <Section.Container
       value={id}
-      drag={!previewMode}
+      drag={!canvasStore.previewMode}
       float={float}
       clear={clear}
       data-sectionid={id}
@@ -53,4 +56,4 @@ export function CanvasSection(
       </Section.Wrapper>
     </Section.Container>
   );
-}
+});

@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { GroupFields } from '#/components/organisms/group-fields';
 
 import { Text } from '#/components/atoms/text';
@@ -11,11 +13,11 @@ import { list_items, projects_links } from './content';
 
 type Projects = keyof typeof projects_links;
 
-export function Currently() {
-  const { currentSection: obj } = useCanvas();
+export const Currently = observer(function Currently() {
+  const canvasStore = useCanvas();
 
   const project = getDeepObjectProperty<Projects>(
-    obj,
+    canvasStore.currentSection,
     'props.content.currently.project'
   )!;
 
@@ -56,4 +58,4 @@ export function Currently() {
       ))}
     </div>
   );
-}
+});

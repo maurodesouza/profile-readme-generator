@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useMemo } from 'react';
 import { Reorder } from 'framer-motion';
 
@@ -16,14 +18,17 @@ import { useCanvas, useExtensions } from 'hooks';
 import { CanvasErrorFallback } from './error';
 import { CanvasActions } from './actions';
 
-export function Canvas() {
-  const { extensions } = useExtensions();
-  const { sections } = useCanvas();
+export const Canvas = observer(function Canvas() {
+  const extensionsStore = useExtensions();
+  const canvasStore = useCanvas();
 
-  const sectionIds = sections.map(section => section.id);
-  const hasSection = !!sections.length;
+  const sectionIds = canvasStore.sections.map(section => section.id);
+  const hasSection = !!canvasStore.sections.length;
 
-  const sectionsData = useMemo(() => extensions.sections ?? {}, [extensions]);
+  const sectionsData = useMemo(
+    () => extensionsStore.extensions.sections ?? {},
+    [extensionsStore.extensions]
+  );
 
   return (
     <OnlyClientSide>
@@ -36,7 +41,7 @@ export function Canvas() {
               values={sectionIds}
               onReorder={actions.canvas.reorder}
             >
-              {sections.map(({ type, id, props }) => {
+              {canvasStore.sections.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;
                 if (!section) return null;
 
@@ -62,4 +67,4 @@ export function Canvas() {
       </div>
     </OnlyClientSide>
   );
-}
+});

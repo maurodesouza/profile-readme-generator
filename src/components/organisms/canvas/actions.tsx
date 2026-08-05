@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
 import { Clickable } from '#/components/atoms/clickable';
@@ -6,13 +8,14 @@ import { useCanvas } from 'hooks';
 import { PanelsEnum } from 'types';
 import { actions } from 'lib/command';
 
-export function CanvasActions() {
-  const { sections, previewMode } = useCanvas();
-  const hasSection = !!sections.length;
+export const CanvasActions = observer(function CanvasActions() {
+  const canvasStore = useCanvas();
+  const hasSection = !!canvasStore.sections.length;
 
   const state = (() => {
-    if (previewMode) return { is: 'preview-mode' } as const;
-    if (!previewMode && hasSection) return { is: 'canvas' } as const;
+    if (canvasStore.previewMode) return { is: 'preview-mode' } as const;
+    if (!canvasStore.previewMode && hasSection)
+      return { is: 'canvas' } as const;
 
     return { is: 'hidden' } as const;
   })();
@@ -135,4 +138,4 @@ export function CanvasActions() {
       </div>
     </>
   );
-}
+});

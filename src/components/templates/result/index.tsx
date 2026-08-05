@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useEffect, useState } from 'react';
 
 import { Icon } from '#/components/atoms/icon';
@@ -17,15 +19,19 @@ import { PanelsEnum } from 'types';
 import { useCanvas, useExtensions, useSettings } from 'hooks';
 import { parseToReadme } from 'utils';
 
-export function ResultTemplate() {
+export const ResultTemplate = observer(function ResultTemplate() {
   const [content, setContent] = useState('');
 
-  const { sections } = useCanvas();
-  const { extensions } = useExtensions();
-  const { settings } = useSettings();
+  const canvasStore = useCanvas();
+  const extensionsStore = useExtensions();
+  const settingsStore = useSettings();
 
   const hasWorkflows =
-    parseToReadme(sections, extensions.sections, settings)[0].files.length > 0;
+    parseToReadme(
+      canvasStore.sections,
+      extensionsStore.extensions.sections,
+      settingsStore.settings
+    )[0].files.length > 0;
 
   function handleShowContent(content: string) {
     setContent(content);
@@ -126,4 +132,4 @@ export function ResultTemplate() {
       />
     </Page.Container>
   );
-}
+});

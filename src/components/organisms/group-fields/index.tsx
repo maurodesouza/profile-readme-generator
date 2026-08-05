@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { actions } from 'lib/command';
@@ -33,7 +35,9 @@ type GroupFieldsProps = {
   context?: 'canvas' | 'settings';
 };
 
-export function GroupFields(props: GroupFieldsProps) {
+export const GroupFields = observer(function GroupFields(
+  props: GroupFieldsProps
+) {
   const {
     label,
     columns = 1,
@@ -45,10 +49,13 @@ export function GroupFields(props: GroupFieldsProps) {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { currentSection } = useCanvas();
-  const { settings } = useSettings();
+  const canvasStore = useCanvas();
+  const settingsStore = useSettings();
 
-  const obj = context === 'canvas' ? currentSection : { props: settings };
+  const obj =
+    context === 'canvas'
+      ? canvasStore.currentSection
+      : { props: settingsStore.settings };
 
   function toggleExpansible() {
     setIsExpanded(!isExpanded);
@@ -117,4 +124,4 @@ export function GroupFields(props: GroupFieldsProps) {
       </motion.div>
     </div>
   ) : null;
-}
+});

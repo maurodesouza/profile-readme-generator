@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { AnimatePresence, Reorder } from 'framer-motion';
 import { GroupFields } from '#/components/organisms/group-fields';
 
@@ -13,12 +15,12 @@ type Stats = {
   [key: string]: Stats;
 };
 
-export function Layout() {
+export const Layout = observer(function Layout() {
   const forceUpdate = useForceUpdate();
-  const { currentSection } = useCanvas();
+  const canvasStore = useCanvas();
 
   const selectedStats = getDeepObjectProperty<Stats>(
-    currentSection,
+    canvasStore.currentSection,
     'props.content.graphs'
   )!;
 
@@ -55,4 +57,4 @@ export function Layout() {
       </AnimatePresence>
     </div>
   );
-}
+});

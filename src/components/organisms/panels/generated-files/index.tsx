@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useEffect, useMemo, useState } from 'react';
 
 import { Tree } from '#/components/atoms/tree';
@@ -10,16 +12,25 @@ import { useCanvas, useExtensions, useSettings } from 'hooks';
 const WORKFLOWS_FOLDER = '.github/workflows';
 const WORKFLOWS_CLASS = 'tone palette-warning text-tone-foreground-context';
 
-const PanelGeneratedFiles = () => {
+export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
   const [isHighlighted, setIsHighlighted] = useState(false);
 
-  const { sections } = useCanvas();
-  const { settings } = useSettings();
-  const { extensions } = useExtensions();
+  const canvasStore = useCanvas();
+  const settingsStore = useSettings();
+  const extensionsStore = useExtensions();
 
   const generatedTree = useMemo(
-    () => parseToReadme(sections, extensions.sections, settings),
-    [sections, extensions.sections, settings]
+    () =>
+      parseToReadme(
+        canvasStore.sections,
+        extensionsStore.extensions.sections,
+        settingsStore.settings
+      ),
+    [
+      canvasStore.sections,
+      extensionsStore.extensions.sections,
+      settingsStore.settings,
+    ]
   );
 
   const tree = useMemo((): TFolder[] => {
@@ -70,6 +81,4 @@ const PanelGeneratedFiles = () => {
       <Tree tree={tree} />
     </div>
   );
-};
-
-export { PanelGeneratedFiles };
+});

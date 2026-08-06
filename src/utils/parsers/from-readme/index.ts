@@ -28,7 +28,10 @@ export async function fromReadme(content: string): Promise<CanvasSection[]> {
     if (!child.properties[DATA_IMPORTER_ATTR]) continue;
 
     const importType = child.properties[DATA_IMPORTER_ATTR];
-    const data = _generateSectionFromImport(importType as string, child);
+    const data = _generateSectionFromImport(
+      importType as string,
+      child as unknown as Element
+    );
 
     if (data !== null) {
       sections.push(data);

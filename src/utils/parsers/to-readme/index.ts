@@ -4,19 +4,26 @@ import htmlPrettify from 'html-prettify';
 
 import { CanvasSection, CanvasStatesEnum, Settings } from '#/types';
 
+type ParserModule = {
+  parser?: {
+    readme?: (props: unknown, settings: Settings) => string;
+    workflow?: (props: unknown, settings: Settings) => unknown;
+  };
+};
+
 export function toReadme(
   template: CanvasSection[],
-  parsers: Record<string, any> | undefined,
+  parsers: Record<string, ParserModule> | undefined,
   settings: Settings
 ) {
-  if (!parsers) parsers = {} as Record<string, any>;
+  if (!parsers) parsers = {} as Record<string, ParserModule>;
 
   const readme = template.reduce((readme, section) => {
     const { state, styles = {} } = section.props;
 
     if (state === CanvasStatesEnum.ALERT) return readme;
 
-    const generator = (parsers as any)[section.type!];
+    const generator = parsers[section.type!];
 
     if (!generator?.parser?.readme) return readme;
 

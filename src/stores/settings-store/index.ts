@@ -16,11 +16,13 @@ class SettingsStore {
   constructor() {
     makeAutoObservable(this);
 
-    makePersistable(this, {
-      name: 'settings store',
-      properties: ['settings'],
-      storage: fn.storage,
-    });
+    if (typeof window !== 'undefined') {
+      makePersistable(this, {
+        name: 'settings store',
+        properties: ['settings'],
+        storage: fn.storage,
+      });
+    }
   }
 
   get $settings() {

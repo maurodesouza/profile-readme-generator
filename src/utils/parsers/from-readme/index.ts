@@ -19,9 +19,7 @@ import { borderImporter } from '#/features/border/importer';
 
 const DATA_IMPORTER_ATTR = 'dataImporter';
 
-const fromReadme = async (
-  content: string
-): Promise<CanvasSection[]> => {
+export async function fromReadme(content: string): Promise<CanvasSection[]> {
   const tree = await _parseMarkdownWithHtml(content);
   const sections: CanvasSection[] = [];
 
@@ -38,7 +36,7 @@ const fromReadme = async (
   }
 
   return sections;
-};
+}
 
 async function _parseMarkdownWithHtml(markdownText: string) {
   const processor = unified()
@@ -51,13 +49,13 @@ async function _parseMarkdownWithHtml(markdownText: string) {
   return hastTree;
 }
 
-const _generateSectionFromImport = (
+function _generateSectionFromImport(
   type: string,
   content: Element
-): CanvasSection | null => {
+): CanvasSection | null {
   if (!importers[type]) return null;
   return importers[type](content);
-};
+}
 
 const importers: Record<string, (e: Element) => CanvasSection | null> = {
   [Sections.TECHS]: techsImporter,
@@ -72,5 +70,3 @@ const importers: Record<string, (e: Element) => CanvasSection | null> = {
   [Sections.BORDER]: borderImporter,
   [Sections.ACTIVITIES]: activitiesImporter,
 };
-
-export { fromReadme };

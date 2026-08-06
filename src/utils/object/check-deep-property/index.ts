@@ -11,16 +11,14 @@ type checkDeepObjectValueArgs<T> = {
   value: unknown;
 };
 
-const checkDeepProperty = <T extends Record<string, unknown>>({
+export function checkDeepProperty<T extends Record<string, unknown>>({
   obj,
   path,
   be,
   value,
-}: checkDeepObjectValueArgs<T>): boolean => {
+}: checkDeepObjectValueArgs<T>): boolean {
   const property = getDeepProperty(obj, path);
   const handler = operators[be];
 
   return handler ? handler(property, value) : false;
-};
-
-export { checkDeepProperty };
+}

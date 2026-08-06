@@ -1,4 +1,4 @@
-const clipboard = async (string: string) => {
+export async function clipboard(string: string) {
   if (
     typeof navigator !== 'undefined' &&
     navigator.clipboard &&
@@ -35,6 +35,4 @@ const clipboard = async (string: string) => {
       document.body.removeChild(textArea);
     }
   }
-};
-
-export { clipboard };
+}

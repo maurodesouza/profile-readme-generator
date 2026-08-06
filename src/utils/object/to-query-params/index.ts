@@ -1,7 +1,7 @@
-const toQueryParams = (
+export function toQueryParams(
   queries: Record<string, unknown>,
   excludeFalseValue = true
-) => {
+) {
   const result = Object.entries(queries).reduce((query, [key, value]) => {
     if (
       excludeFalseValue &&
@@ -14,6 +14,4 @@ const toQueryParams = (
   }, '');
 
   return result.slice(0, -1);
-};
-
-export { toQueryParams };
+}

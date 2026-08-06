@@ -6,7 +6,7 @@ type Obj = Record<string, unknown>;
 const { profileBaseUrl, recentlyPlayedBaseUrl } =
   config.general.urls.sections.music.spotify;
 
-const getMusic = (type: string, props: Obj = {}) => {
+export function getMusic(type: string, props: Obj = {}) {
   if (type === 'recently') {
     const spotifyAccountUrl = (props.user &&
       `${profileBaseUrl}/${props.user}`) as string | undefined;
@@ -26,6 +26,4 @@ const getMusic = (type: string, props: Obj = {}) => {
 
     return { imageUrl };
   }
-};
-
-export { getMusic };
+}

@@ -4,6 +4,6 @@ type Variants = {
   [key: string]: FramerMotionVariants | ((args: any) => FramerMotionVariants);
 };
 
-const createVariants = <T extends Variants>(obj: T) => obj;
-
-export { createVariants };
+export function createVariants<T extends Variants>(obj: T) {
+  return obj;
+}

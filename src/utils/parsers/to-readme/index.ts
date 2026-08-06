@@ -4,12 +4,11 @@ import htmlPrettify from 'html-prettify';
 
 import { CanvasSection, CanvasStatesEnum, Settings } from '#/types';
 
-
-const toReadme = (
+export function toReadme(
   template: CanvasSection[],
   parsers: Record<string, any> | undefined,
   settings: Settings
-) => {
+) {
   if (!parsers) parsers = {} as Record<string, any>;
 
   const readme = template.reduce((readme, section) => {
@@ -67,6 +66,4 @@ const toReadme = (
   ];
 
   return tree;
-};
-
-export { toReadme };
+}

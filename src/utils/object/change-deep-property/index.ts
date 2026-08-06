@@ -6,17 +6,17 @@ type DeepChangeObjectPropertyArgs<T extends Obj = Obj> = {
   value: unknown;
 };
 
-const deepChangeObjectPropertyError = (path: string) => {
+function deepChangeObjectPropertyError(path: string) {
   throw new Error(
     `changeDeepProperty Error: path "${path}" don't exist in object`
   );
-};
+}
 
-const changeDeepProperty = <T extends Obj = Obj>({
+export function changeDeepProperty<T extends Obj = Obj>({
   obj,
   path,
   value,
-}: DeepChangeObjectPropertyArgs<T>): T => {
+}: DeepChangeObjectPropertyArgs<T>): T {
   const paths = path.split('.');
 
   const isToRemoveProp = value === undefined;
@@ -43,6 +43,4 @@ const changeDeepProperty = <T extends Obj = Obj>({
   }, obj as Obj);
 
   return result as T;
-};
-
-export { changeDeepProperty };
+}

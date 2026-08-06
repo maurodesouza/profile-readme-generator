@@ -7,8 +7,6 @@ const urls = {
   getloli: (username: string) => `${getloli}/@:${username}?`,
 };
 
-function getProfileViews(type: keyof typeof urls, username: string) {
+export function getProfileViews(type: keyof typeof urls, username: string) {
   return urls[type](username);
 }
-
-export { getProfileViews };

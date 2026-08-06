@@ -1,9 +1,6 @@
 type Obj = Record<string, unknown>;
 
-const getDeepProperty = <T>(
-  obj: Obj = {},
-  path: string
-): T | undefined => {
+export function getDeepProperty<T>(obj: Obj = {}, path: string): T | undefined {
   const paths = path.split('.');
 
   const result = paths.reduce<Obj | undefined>((nested, key) => {
@@ -13,6 +10,4 @@ const getDeepProperty = <T>(
   }, obj);
 
   return result as T;
-};
-
-export { getDeepProperty };
+}

@@ -3,11 +3,11 @@ import { object } from '#/utils/object';
 
 const { badgeBaseUrl, iconBaseUrl } = config.general.urls.sections.socials;
 
-const getSocialImg = (
+export function getSocialImg(
   type: 'icon' | 'badge',
   social: string,
   props: Record<string, unknown>
-) => {
+) {
   const { icon, ...badgeProps } = props;
 
   if (type === 'icon') return `${iconBaseUrl}/${social}/${icon}.svg`;
@@ -36,6 +36,4 @@ const getSocialImg = (
     },
     false
   )}`;
-};
-
-export { getSocialImg };
+}

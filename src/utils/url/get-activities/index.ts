@@ -7,8 +7,6 @@ const activitiesUrl = {
   medium: mediumBaseUrl,
 };
 
-const getActivities = (origin: ActivityUrlType) => {
+export function getActivities(origin: ActivityUrlType) {
   return activitiesUrl[origin];
-};
-
-export { getActivities };
+}

@@ -39,10 +39,8 @@ export const Editing = observer(function Editing() {
     const path = 'content.icons';
 
     const value = order.reduce((obj, name) => {
-      const finded = icons.find(icon => icon[0] === name)!;
-
-      obj[finded[0]] = finded[1];
-
+      const found = icons.find(icon => icon[0] === name)!;
+      obj[found[0]] = found[1];
       return obj;
     }, {} as Icons);
 

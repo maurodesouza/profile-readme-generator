@@ -10,7 +10,7 @@ import { Text } from '#/components/atoms/text';
 
 
 
-const variants = framer.createFramerMotionVariants({
+const variants = framer.createVariants({
   expansible: {
     open: {
       marginTop: 12,

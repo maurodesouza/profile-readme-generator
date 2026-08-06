@@ -48,7 +48,7 @@ export const Adding = observer(function Adding() {
 
   const { value = '' } = inputRef.current || {};
 
-  const filteredOptions = array.filterArrayByQueryMatch(value, social_icons, [
+  const filteredOptions = array.filterByQueryMatch(value, social_icons, [
     'name',
     'short_name',
   ]);
@@ -83,7 +83,7 @@ export const Adding = observer(function Adding() {
                         width: '40%',
                         height: '40%',
                       }}
-                      src={url.getSocialImgUrl('icon', name, { icon })}
+                      src={url.getSocialImg('icon', name, { icon })}
                     />
                     <DisplayBlock.Label className="text-xs">
                       {short_name ?? name}

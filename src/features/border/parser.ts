@@ -2,7 +2,7 @@ import { url } from '#/utils/url';
 import { Params, Sections } from '#/types';
 
 
-type Borders = Parameters<typeof url.getBorderUrl>[0];
+type Borders = Parameters<typeof url.getBorder>[0];
 
 type Content = {
   provider: Borders;
@@ -19,7 +19,7 @@ type BorderSectionParserArgs = {
 const borderSectionParser = ({ content }: BorderSectionParserArgs) => {
   const { borders, provider } = content;
 
-  const srcUrl = url.getBorderUrl(provider, borders[provider]);
+  const srcUrl = url.getBorder(provider, borders[provider]);
 
   return `
     <div data-importer="${Sections.BORDER}">

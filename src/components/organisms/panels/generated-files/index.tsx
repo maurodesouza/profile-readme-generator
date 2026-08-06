@@ -22,7 +22,7 @@ export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
 
   const generatedTree = useMemo(
     () =>
-      parsers.parseToReadme(
+      parsers.toReadme(
         canvasStore.sections,
         extensionsStore.extensions.sections,
         settingsStore.$settings

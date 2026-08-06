@@ -1,7 +1,6 @@
-import { filterArrayByQueryMatch } from './filter-array-by-query-match';
+import { filterByQueryMatch } from './filter-by-query-match';
 import { toArray } from './to-array';
 
-export const array = { filterArrayByQueryMatch, toArray };
-
-export { filterArrayByQueryMatch } from './filter-array-by-query-match';
+export const array = { filterByQueryMatch, toArray };
+export { filterByQueryMatch } from './filter-by-query-match';
 export { toArray } from './to-array';

@@ -44,7 +44,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     const finalPath = path.startsWith('props.') ? path : `props.${path}`;
 
-    object.deepChangeObjectProperty<CanvasSection>({
+    object.deepChangeProperty<CanvasSection>({
       obj: section,
       path: finalPath,
       value,
@@ -125,7 +125,7 @@ export function CanvasHandle() {
     if (!file) return;
 
     const text = await file.text();
-    const sections = await parsers.parseImportedReadme(text);
+    const sections = await parsers.fromReadme(text);
 
     clear();
     canvasStore.sections = sections;

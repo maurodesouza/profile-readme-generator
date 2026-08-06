@@ -8,7 +8,7 @@ const pacmanSectionParser = (
 ) => {
   const { github } = settings.user;
   const game = (config?.game as string) ?? 'pacman';
-  const queryParams = object.objectToQueryParams({ game });
+  const queryParams = object.toQueryParams({ game });
 
   return `
     <picture data-importer="${Sections.PACMAN}">

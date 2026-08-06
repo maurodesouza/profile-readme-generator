@@ -95,7 +95,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const breakpoint = useMemo(() => {
-    return tailwind.getThemeToken('--breakpoint-laptop', { fallbackReturn: '0px' });
+    return tailwind.getToken('--breakpoint-laptop', { fallbackReturn: '0px' });
   }, []);
 
   const [isLessThanLaptop] = useMediaQuery(`(max-width: ${breakpoint})`);

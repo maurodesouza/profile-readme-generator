@@ -24,7 +24,7 @@ export function CopyToClipboard(props: CopyToClipboardProps) {
     if (isCopied) return;
 
     try {
-      await fn.copyToClipboard(content);
+      await fn.copy(content);
 
       onCopy?.();
 

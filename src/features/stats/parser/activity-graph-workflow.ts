@@ -16,7 +16,7 @@ const buildActivityGraphOptions = (props: Obj) => {
   const customTitle = rest.customTitle as string | undefined;
   Reflect.deleteProperty(rest, 'customTitle');
 
-  const query = object.objectToQueryParams(rest);
+  const query = object.toQueryParams(rest);
 
   let options = query;
 

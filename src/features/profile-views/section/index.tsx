@@ -8,14 +8,14 @@ import { GuardSection } from '#/components/organisms/sections/guard';
 import { useSettings } from '#/hooks';
 import { Params } from '#/types';
 
-type Providers = Parameters<typeof url.getProfileViewsUrl>[0];
+type Providers = Parameters<typeof url.getProfileViews>[0];
 
 type Views = {
   [key in Providers]: Params;
 };
 
 type Content = {
-  provider: Parameters<typeof url.getProfileViewsUrl>[0];
+  provider: Parameters<typeof url.getProfileViews>[0];
   views: Views;
 };
 
@@ -39,8 +39,8 @@ export const ProfileViewsSection = observer(function ProfileViewsSection(
   const { provider, views } = content;
   const { github = '' } = settingsStore.$settings.user;
 
-  const srcUrl = url.getProfileViewsUrl(provider, github as string);
-  const fullUrl = `${srcUrl}${object.objectToQueryParams(views[provider])}`;
+  const srcUrl = url.getProfileViews(provider, github as string);
+  const fullUrl = `${srcUrl}${object.toQueryParams(views[provider])}`;
 
   return (
     <GuardSection sectionId={id}>

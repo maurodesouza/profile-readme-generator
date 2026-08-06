@@ -49,7 +49,7 @@ const MemoizedIconEditor = React.memo(
         baseEditPath="content.socials"
         img={{
           alt: `${social} ${icon} logo`,
-          url: url.getSocialImgUrl('icon', social, { icon }),
+          url: url.getSocialImg('icon', social, { icon }),
         }}
         slots={{
           expansibleContent: () => (
@@ -83,7 +83,7 @@ export const Editing = observer(function Editing() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedSocials = object.getDeepObjectProperty<Socials>(
+  const selectedSocials = object.getDeepProperty<Socials>(
     canvasStore.$currentSection,
     'props.content.socials'
   )!;

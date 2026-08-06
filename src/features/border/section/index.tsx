@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { Params } from '#/types';
 
 
-type Borders = Parameters<typeof url.getBorderUrl>[0];
+type Borders = Parameters<typeof url.getBorder>[0];
 
 type Content = {
   provider: Borders;
@@ -25,7 +25,7 @@ export const BorderSection = observer(function BorderSection(
 
   const { borders, provider } = content;
 
-  const srcUrl = url.getBorderUrl(provider, borders[provider]);
+  const srcUrl = url.getBorder(provider, borders[provider]);
 
   return (
     <div className="flex">

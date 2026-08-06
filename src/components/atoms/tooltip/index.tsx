@@ -72,7 +72,7 @@ export function Tooltip(props: TooltipProps) {
     const childrenRect = childrenRef.current!.getBoundingClientRect();
     const tooltipRect = tooltipRef.current!.getBoundingClientRect();
 
-    const space = tailwind.getThemeToken('--spacing-xs', {
+    const space = tailwind.getToken('--spacing-xs', {
       fallbackReturn: 0,
       formatToNumber: true,
     });

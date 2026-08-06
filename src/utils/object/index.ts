@@ -1,19 +1,19 @@
-import { checkDeepObjectValue } from './check-deep-object-value';
-import { deepChangeObjectProperty } from './deep-change-object-property';
+import { checkDeepValue } from './check-deep-value';
+import { deepChangeProperty } from './deep-change-property';
 import { deepCopy } from './deep-copy';
-import { getDeepObjectProperty } from './get-deep-object-property';
-import { objectToQueryParams } from './object-to-query-params';
+import { getDeepProperty } from './get-deep-property';
+import { toQueryParams } from './to-query-params';
 
 export const object = {
-  checkDeepObjectValue,
-  deepChangeObjectProperty,
+  checkDeepValue,
+  deepChangeProperty,
   deepCopy,
-  getDeepObjectProperty,
-  objectToQueryParams,
+  getDeepProperty,
+  toQueryParams,
 };
 
-export { checkDeepObjectValue } from './check-deep-object-value';
-export { deepChangeObjectProperty } from './deep-change-object-property';
+export { checkDeepValue } from './check-deep-value';
+export { deepChangeProperty } from './deep-change-property';
 export { deepCopy } from './deep-copy';
-export { getDeepObjectProperty } from './get-deep-object-property';
-export { objectToQueryParams } from './object-to-query-params';
+export { getDeepProperty } from './get-deep-property';
+export { toQueryParams } from './to-query-params';

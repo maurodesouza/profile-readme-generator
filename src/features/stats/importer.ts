@@ -58,7 +58,7 @@ export function statsImporter(statsDiv: Element): CanvasSection | null {
   const graphTypes = Object.keys(graphs) as GraphType[];
 
   for (const graphType of graphTypes) {
-    graphs[graphType] = object.deepChangeObjectProperty({
+    graphs[graphType] = object.deepChangeProperty({
       obj: graphs[graphType],
       path: 'show',
       value: false,

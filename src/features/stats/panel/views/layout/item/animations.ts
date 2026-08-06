@@ -1,7 +1,7 @@
 import { framer } from '#/utils/framer';
 
 
-const variants = framer.createFramerMotionVariants({
+const variants = framer.createVariants({
   container: {
     open: {
       y: 0,

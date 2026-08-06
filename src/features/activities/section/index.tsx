@@ -6,7 +6,7 @@ import { activitiesSectionParser } from '#/features/activities//parser';
 import parse from 'html-react-parser';
 
 type Content = {
-  type: Parameters<typeof url.getActivitiesUrl>[0];
+  type: Parameters<typeof url.getActivities>[0];
   [key: string]: unknown;
 };
 

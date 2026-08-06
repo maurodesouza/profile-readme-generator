@@ -33,7 +33,7 @@ const musicSectionParser = ({ content, styles }: MusicSectionParserArgs) => {
   const { type, ...rest } = content;
   const { align } = styles;
 
-  const { spotifyAccountUrl, imageUrl } = url.getMusicUrl(type, rest[type]);
+  const { spotifyAccountUrl, imageUrl } = url.getMusic(type, rest[type]);
   const alt = ALTS[type];
 
   return `

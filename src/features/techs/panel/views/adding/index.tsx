@@ -63,7 +63,7 @@ export const Adding = observer(function Adding() {
     const result: GroupIcons = {};
 
     function filter(provider: IconProviders) {
-      return array.filterArrayByQueryMatch(value, groupIcons[provider], [
+      return array.filterByQueryMatch(value, groupIcons[provider], [
         'name',
         'alias',
       ]);

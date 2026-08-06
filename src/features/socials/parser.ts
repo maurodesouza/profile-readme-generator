@@ -52,7 +52,7 @@ const socialsSectionParser = ({
   const imgsHtml = Object.entries(socials)
     .reduce((html, [social, { link, ...rest }]) => {
       const props = { ...rest, style };
-      const srcUrl = url.getSocialImgUrl(type, social, props);
+      const srcUrl = url.getSocialImg(type, social, props);
 
       const widthValue = Number(height) + Number(spacing);
       const widthAttr = type === 'icon' ? ` width="${widthValue}"` : '';

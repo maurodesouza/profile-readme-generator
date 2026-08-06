@@ -19,7 +19,6 @@ import { PanelsEnum } from '#/types';
 
 import { useCanvas, useExtensions, useSettings } from '#/hooks';
 
-
 export const ResultTemplate = observer(function ResultTemplate() {
   const [content, setContent] = useState('');
 
@@ -28,7 +27,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
   const settingsStore = useSettings();
 
   const hasWorkflows =
-    parsers.parseToReadme(
+    parsers.toReadme(
       canvasStore.sections,
       extensionsStore.extensions.sections,
       settingsStore.$settings

@@ -17,7 +17,7 @@ type Projects = keyof typeof projects_links;
 export const Currently = observer(function Currently() {
   const canvasStore = useCanvas();
 
-  const project = object.getDeepObjectProperty<Projects>(
+  const project = object.getDeepProperty<Projects>(
     canvasStore.$currentSection,
     'props.content.currently.project'
   )!;

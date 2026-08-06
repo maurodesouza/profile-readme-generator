@@ -8,7 +8,7 @@ import { useSettings } from '#/hooks';
 
 
 type Obj = Record<string, unknown>;
-type Graphs = Parameters<typeof url.getStatsUrl>[0];
+type Graphs = Parameters<typeof url.getStats>[0];
 
 type Content = {
   graphs: {
@@ -64,12 +64,12 @@ export const StatsSection = observer(function StatsSection(
         }}
       >
         {(Object.entries(graphs) as [Graphs, Obj][]).map(([graph, props]) => {
-          const srcUrl = url.getStatsUrl(graph as Graphs, github!);
+          const srcUrl = url.getStats(graph as Graphs, github!);
 
           const { height = '', show = false, ...rest } = { ...props };
           if (!graph || !show) return null;
 
-          const fullUrl = `${srcUrl}&${object.objectToQueryParams(rest as Obj)}`;
+          const fullUrl = `${srcUrl}&${object.toQueryParams(rest as Obj)}`;
 
           return (
             <img

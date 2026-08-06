@@ -1,5 +1,4 @@
-import { createFramerMotionVariants } from './create-framer-motion-variants';
+import { createVariants } from './create-variants';
 
-export const framer = { createFramerMotionVariants };
-
-export { createFramerMotionVariants } from './create-framer-motion-variants';
+export const framer = { createVariants };
+export { createVariants } from './create-variants';

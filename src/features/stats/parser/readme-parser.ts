@@ -4,7 +4,7 @@ import { Sections, Settings } from '#/types';
 
 
 type Obj = Record<string, unknown>;
-type Graphs = Parameters<typeof url.getStatsUrl>[0];
+type Graphs = Parameters<typeof url.getStats>[0];
 
 type Content = {
   graphs: Record<Graphs, Obj>;
@@ -59,12 +59,12 @@ const statsSectionParser = (
       if (workflowFile) {
         const branch = WORKFLOW_OUTPUT_BRANCH[graph];
         const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${branch}/${workflowFile}`;
-        const queryParams = object.objectToQueryParams(rest as Obj);
+        const queryParams = object.toQueryParams(rest as Obj);
 
         img = `<img src="${fullUrl}?${queryParams}" height="${height}" alt="${graph} graph" />`;
       } else {
-        const srcUrl = url.getStatsUrl(graph as Graphs, github!);
-        const fullUrl = `${srcUrl}&${object.objectToQueryParams(rest as Obj)}`;
+        const srcUrl = url.getStats(graph as Graphs, github!);
+        const fullUrl = `${srcUrl}&${object.toQueryParams(rest as Obj)}`;
 
         img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
       }

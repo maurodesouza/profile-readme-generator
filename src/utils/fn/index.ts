@@ -1,9 +1,8 @@
-import { copyToClipboard } from './copy-to-clipboard';
+import { copy } from './copy';
 import { debounce } from './debounce';
 import { storage } from './storage';
 
-export const fn = { copyToClipboard, debounce, storage };
-
-export { copyToClipboard } from './copy-to-clipboard';
+export const fn = { copy, debounce, storage };
+export { copy } from './copy';
 export { debounce } from './debounce';
 export { storage } from './storage';

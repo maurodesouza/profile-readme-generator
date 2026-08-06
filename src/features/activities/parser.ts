@@ -4,7 +4,7 @@ import { Sections } from '#/types';
 
 
 type Content = {
-  type: Parameters<typeof url.getActivitiesUrl>[0];
+  type: Parameters<typeof url.getActivities>[0];
   [key: string]: unknown;
 };
 
@@ -18,7 +18,7 @@ type ActivitiesSectionParserArgs = {
 };
 
 const _handleDefaultActivities = (type: ActivityUrlType, align: string) => {
-  const srcUrl = url.getActivitiesUrl(type);
+  const srcUrl = url.getActivities(type);
   const alt = `Layout with last ${type} posts`;
 
   return `
@@ -33,7 +33,7 @@ const _handleMediumPosts = (
   rest: Record<string, unknown>,
   align: string
 ) => {
-  const baseUrl = url.getActivitiesUrl(type);
+  const baseUrl = url.getActivities(type);
   const count = (rest.limit as number) || 3;
   const username = rest.username as string;
 

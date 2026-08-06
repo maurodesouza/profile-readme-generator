@@ -37,7 +37,7 @@ export const MusicSection = observer(function MusicSection(
   const { content, styles } = props;
   const { type, ...rest } = content;
 
-  const { spotifyAccountUrl, imageUrl } = url.getMusicUrl(type, rest[type]);
+  const { spotifyAccountUrl, imageUrl } = url.getMusic(type, rest[type]);
   const alt = ALTS[type];
 
   const Wrapper = ({ children }: { children: React.ReactNode }) =>

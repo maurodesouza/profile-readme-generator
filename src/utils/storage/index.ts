@@ -1,17 +1,18 @@
 import { config } from 'config';
 
-export const getStorageItem = (key: string) => {
-  if (typeof window === 'undefined') return;
-  const app_key = config.general.storage.prefix;
+const app_key = config.general.storage.prefix;
 
-  const data = window.localStorage.getItem(`${app_key}:${key}`);
-  return JSON.parse(data!);
-};
-
-export const setStorageItem = (key: string, value: unknown[]) => {
-  if (typeof window === 'undefined') return;
-  const app_key = config.general.storage.prefix;
-
-  const data = JSON.stringify(value);
-  window.localStorage.setItem(`${app_key}:${key}`, data);
+export const storage = {
+  setItem: (key: string, value: string) => {
+    if (typeof window === 'undefined') return;
+    window.localStorage.setItem(`${app_key}:${key}`, value);
+  },
+  getItem: (key: string): string | null => {
+    if (typeof window === 'undefined') return null;
+    return window.localStorage.getItem(`${app_key}:${key}`);
+  },
+  removeItem: (key: string) => {
+    if (typeof window === 'undefined') return;
+    window.localStorage.removeItem(`${app_key}:${key}`);
+  },
 };

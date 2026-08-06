@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 type Content = {
   url: string;
 };
@@ -13,7 +15,7 @@ type ImageProps = {
   styles: Styles;
 };
 
-export function ImageSection(props: ImageProps) {
+export const ImageSection = observer(function ImageSection(props: ImageProps) {
   const { content, styles } = props;
 
   const { url } = content;
@@ -24,4 +26,4 @@ export function ImageSection(props: ImageProps) {
       <img style={{ height: `${height}px` }} src={url} alt="Image" />
     </div>
   );
-}
+});

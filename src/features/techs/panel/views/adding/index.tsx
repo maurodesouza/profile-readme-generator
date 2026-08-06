@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import React, { useMemo, useRef, useState } from 'react';
 
 import { Fields } from '#/components/molecules/fields';
@@ -21,20 +23,20 @@ import {
 
 type Providers = IconProviders | 'all';
 
-export function Adding() {
+export const Adding = observer(function Adding() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [provider, setProvider] = useState<Providers>(IconProviders.DEVICONS);
 
   const forceUpdate = useForceUpdate();
-  const { sections } = useCanvas();
+  const canvasStore = useCanvas();
 
   const usedIcons = useMemo(() => {
-    const techsSection = sections.find(
+    const techsSection = canvasStore.sections.find(
       (section: CanvasSection) => section.type === Sections.TECHS
     );
     const content = techsSection?.props.content as CanvasContent;
     return Object.keys(content?.icons || {});
-  }, [sections]);
+  }, [canvasStore.sections]);
 
   const groupIcons = useMemo(() => {
     const result: GroupIcons = {
@@ -77,14 +79,14 @@ export function Adding() {
       const path = `content.icons.${icon.name}`;
 
       if (isUsed) {
-        actions.canvas.edit({ path, value: undefined });
+        actions.canvas.section.edit({ path, value: undefined });
       } else {
         const value = {
           ...icon,
           currentProvider: provider,
           config: {},
         };
-        actions.canvas.edit({ path, value });
+        actions.canvas.section.edit({ path, value });
       }
     };
   }
@@ -185,4 +187,4 @@ export function Adding() {
       </Panel.Scrollable>
     </>
   );
-}
+});

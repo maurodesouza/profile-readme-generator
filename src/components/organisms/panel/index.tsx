@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import React, {
   createContext,
   useContext,
@@ -151,22 +153,22 @@ function PanelContent(props: React.PropsWithChildren) {
 
 const Scrollable = twx.div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
 
-function PanelRender() {
+const PanelRender = observer(function PanelRender() {
   const { panel } = usePanel();
-  const { extensions } = useExtensions();
+  const extensionsStore = useExtensions();
 
   const allPanels = useMemo(
     () => ({
       ...panels,
-      ...(extensions.panels ?? {}),
+      ...(extensionsStore.extensions.panels ?? {}),
     }),
-    [extensions]
+    [extensionsStore.extensions]
   );
 
   const Panel = (allPanels[panel!] || React.Fragment) as React.ComponentType;
 
   return <Panel />;
-}
+});
 
 const percentageMap = {
   left: '70%',

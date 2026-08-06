@@ -44,6 +44,15 @@ importers:
       lucide-react:
         specifier: ^0.511.0
         version: 0.511.0(react@19.2.8)
+      mobx:
+        specifier: ^7.0.0
+        version: 7.0.0
+      mobx-persist-store:
+        specifier: ^1.1.8
+        version: 1.1.8(mobx@7.0.0)
+      mobx-react-lite:
+        specifier: ^5.0.0
+        version: 5.0.0(mobx@7.0.0)(react@19.2.8)
       next:
         specifier: ^15.5.22
         version: 15.5.22(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -3172,6 +3181,20 @@ packages:
         optional: true
       uglify-js:
         optional: true
+
+  mobx-persist-store@1.1.8:
+    resolution: {integrity: sha512-7SiLvang0POfGvfP69fzmppBKv36e0TNndKJT1UokZuLXt13CqF3PAxIcRacHqjTBe4ktmzDsh3DK+fbM6epNg==}
+    peerDependencies:
+      mobx: '*'
+
+  mobx-react-lite@5.0.0:
+    resolution: {integrity: sha512-+Kg+KhOQx/ggkFuHViUJvsOsgmAFvBUHfGb/cimNX5Csb1MfMYjbp5CcUu6kw2zr11HwB1gaD7FnqdAcCryvhg==}
+    peerDependencies:
+      mobx: ^7.0.0
+      react: ^18 || ^19
+
+  mobx@7.0.0:
+    resolution: {integrity: sha512-J+hR/wq6RdBnB4QXQRqGrWL9vOOLKaYhXh0ooxLAW4AE72av10Y5+xiaxohUYmPZiUswfpxMjQooYqpWkv+Fxg==}
 
   motion-dom@12.43.0:
     resolution: {integrity: sha512-azKON4d9S65PEoFUiQTMTgPheEmzf2QngdRc50AKfJp9Q9mmcBVw22c8eMq9k8kxOFHdL7+WZY7N/5F/lwiDag==}
@@ -7388,6 +7411,17 @@ snapshots:
     optionalDependencies:
       lightningcss: 1.32.0
       postcss: 8.5.25
+
+  mobx-persist-store@1.1.8(mobx@7.0.0):
+    dependencies:
+      mobx: 7.0.0
+
+  mobx-react-lite@5.0.0(mobx@7.0.0)(react@19.2.8):
+    dependencies:
+      mobx: 7.0.0
+      react: 19.2.8
+
+  mobx@7.0.0: {}
 
   motion-dom@12.43.0:
     dependencies:

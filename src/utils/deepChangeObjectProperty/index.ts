@@ -18,7 +18,6 @@ const deepChangeObjectProperty = <T extends Obj = Obj>({
   value,
 }: DeepChangeObjectPropertyArgs<T>): T => {
   const paths = path.split('.');
-  const objClone = JSON.parse(JSON.stringify(obj)) as T;
 
   const isToRemoveProp = value === undefined;
 
@@ -33,7 +32,7 @@ const deepChangeObjectProperty = <T extends Obj = Obj>({
         isToRemoveProp
           ? Reflect.deleteProperty(nested, key)
           : (nested[key] = value),
-        objClone
+        obj
       );
     }
 
@@ -41,7 +40,7 @@ const deepChangeObjectProperty = <T extends Obj = Obj>({
       nested[key] = {};
 
     return nested[key] as T;
-  }, objClone as Obj);
+  }, obj as Obj);
 
   return result as T;
 };

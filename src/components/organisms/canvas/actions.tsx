@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
 import { Clickable } from '#/components/atoms/clickable';
@@ -6,13 +8,14 @@ import { useCanvas } from 'hooks';
 import { PanelsEnum } from 'types';
 import { actions } from 'lib/command';
 
-export function CanvasActions() {
-  const { sections, previewMode } = useCanvas();
-  const hasSection = !!sections.length;
+export const CanvasActions = observer(function CanvasActions() {
+  const canvasStore = useCanvas();
+  const hasSection = !!canvasStore.sections.length;
 
   const state = (() => {
-    if (previewMode) return { is: 'preview-mode' } as const;
-    if (!previewMode && hasSection) return { is: 'canvas' } as const;
+    if (canvasStore.$isInPreviewMode) return { is: 'preview-mode' } as const;
+    if (!canvasStore.$isInPreviewMode && hasSection)
+      return { is: 'canvas' } as const;
 
     return { is: 'hidden' } as const;
   })();
@@ -30,7 +33,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="success"
-                    onClick={actions.template.use}
+                    onClick={actions.canvas.preview.apply}
                   >
                     <Icon name="check" />
                   </Clickable.Button>
@@ -42,7 +45,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={() => actions.template.preview()}
+                    onClick={() => actions.canvas.preview.sections()}
                   >
                     <Icon name="x" />
                   </Clickable.Button>
@@ -75,7 +78,7 @@ export function CanvasActions() {
                     size="icon"
                     variant="icon"
                     tone="danger"
-                    onClick={actions.canvas.clear}
+                    onClick={actions.canvas.sections.clear}
                   >
                     <Icon name="trash" />
                   </Clickable.Button>
@@ -116,7 +119,7 @@ export function CanvasActions() {
               size="icon"
               variant="icon"
               tone="brand"
-              onClick={actions.canvas.loadImportFile}
+              onClick={actions.canvas.import.loadFile}
             >
               <Icon name="upload-cloud" />
             </Clickable.Button>
@@ -129,10 +132,10 @@ export function CanvasActions() {
             style={{
               display: 'none',
             }}
-            onChange={actions.canvas.import}
+            onChange={actions.canvas.import.apply}
           />
         </div>
       </div>
     </>
   );
-}
+});

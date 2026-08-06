@@ -1,3 +1,6 @@
+import { observer } from 'mobx-react-lite';
+import type { ReactNode } from 'react';
+
 import { getSocialImgUrl } from 'utils';
 
 type SocialStyles = {
@@ -30,7 +33,9 @@ type SocialSectionProps = {
   styles: SectionStyles;
 };
 
-export function SocialsSection(props: SocialSectionProps) {
+export const SocialsSection = observer(function SocialsSection(
+  props: SocialSectionProps
+) {
   const { content, styles: containerStyles } = props;
 
   const { socials, styles } = content;
@@ -46,7 +51,15 @@ export function SocialsSection(props: SocialSectionProps) {
       {Object.entries(socials).map(([social, { link, ...rest }]) => {
         const props = { ...rest, style };
 
-        const Wrapper = link ? 'a' : ({ children }: any) => <>{children}</>;
+        const Wrapper = link
+          ? 'a'
+          : ({
+              children,
+            }: {
+              children: ReactNode;
+              href?: string;
+              target?: string;
+            }) => <>{children}</>;
 
         return (
           <Wrapper href={link} key={social} target="_blank">
@@ -60,4 +73,4 @@ export function SocialsSection(props: SocialSectionProps) {
       })}
     </div>
   );
-}
+});

@@ -1,10 +1,14 @@
+import { observer } from 'mobx-react-lite';
+
 import { GuardSection } from '#/components/organisms/sections/guard';
 
 type SnakeSectionProps = {
   id: string;
 };
 
-export function SnakeSection(props: SnakeSectionProps) {
+export const SnakeSection = observer(function SnakeSection(
+  props: SnakeSectionProps
+) {
   const { id } = props;
 
   return (
@@ -18,4 +22,4 @@ export function SnakeSection(props: SnakeSectionProps) {
       </div>
     </GuardSection>
   );
-}
+});

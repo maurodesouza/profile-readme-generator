@@ -1,4 +1,6 @@
-import React, { useMemo, useRef } from 'react';
+import { observer } from 'mobx-react-lite';
+
+import { useMemo, useRef } from 'react';
 
 import { Panel } from '#/components/organisms/panel';
 import { Fields } from '#/components/molecules/fields';
@@ -11,18 +13,18 @@ import { cn, debounce, filterArrayByQueryMatch, getSocialImgUrl } from 'utils';
 import { social_icons } from 'resources';
 import { CanvasContent, CanvasSection, Sections } from 'types';
 
-export function Adding() {
+export const Adding = observer(function Adding() {
   const inputRef = useRef<HTMLInputElement>(null);
   const forceUpdate = useForceUpdate();
-  const { sections } = useCanvas();
+  const canvasStore = useCanvas();
 
   const usedSocials = useMemo(() => {
-    const socialsSection = sections.find(
+    const socialsSection = canvasStore.sections.find(
       (section: CanvasSection) => section.type === Sections.SOCIALS
     );
     const content = socialsSection?.props.content as CanvasContent;
     return Object.keys(content?.socials || {});
-  }, [sections]);
+  }, [canvasStore.sections]);
 
   function handleAddSocial(
     name: string,
@@ -33,9 +35,9 @@ export function Adding() {
       const path = `content.socials.${name}`;
 
       if (isUsed) {
-        actions.canvas.edit({ path, value: undefined });
+        actions.canvas.section.edit({ path, value: undefined });
       } else {
-        actions.canvas.edit({ path, value });
+        actions.canvas.section.edit({ path, value });
       }
     };
   }
@@ -91,4 +93,4 @@ export function Adding() {
       </Panel.Scrollable>
     </>
   );
-}
+});

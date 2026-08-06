@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { IconName } from 'lucide-react/dynamic';
 
 import { Panel } from '#/components/organisms/panel';
@@ -8,11 +10,11 @@ import { PanelsEnum } from 'types';
 
 import { contents } from './contents';
 
-const PanelNewSection = () => {
-  const { extensions } = useExtensions();
+export const PanelNewSection = observer(function PanelNewSection() {
+  const extensionsStore = useExtensions();
 
   const items = Object.values(
-    extensions[PanelsEnum.NEW_SECTION] ?? {}
+    extensionsStore.extensions[PanelsEnum.NEW_SECTION] ?? {}
   ) as typeof contents;
 
   return (
@@ -39,6 +41,4 @@ const PanelNewSection = () => {
       </div>
     </Panel.Scrollable>
   );
-};
-
-export { PanelNewSection };
+});

@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { GuardSection } from '#/components/organisms/sections/guard';
 
 const GAME_IMAGES: Record<string, string> = {
@@ -18,7 +20,9 @@ type PacmanSectionProps = {
   game?: string;
 };
 
-export function PacmanSection(props: PacmanSectionProps) {
+export const PacmanSection = observer(function PacmanSection(
+  props: PacmanSectionProps
+) {
   const { id, game = 'pacman' } = props;
 
   const src = GAME_IMAGES[game] ?? GAME_IMAGES['pacman'];
@@ -34,4 +38,4 @@ export function PacmanSection(props: PacmanSectionProps) {
       </div>
     </GuardSection>
   );
-}
+});

@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 
 import { Icon } from '#/components/atoms/icon';
@@ -14,7 +16,7 @@ type GuardSectionProps = {
   sectionId: string;
 };
 
-export function GuardSection(
+export const GuardSection = observer(function GuardSection(
   props: React.PropsWithChildren<GuardSectionProps>
 ) {
   const { sectionId, children } = props;
@@ -24,10 +26,10 @@ export function GuardSection(
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const { previewMode } = useCanvas();
-  const { settings } = useSettings();
+  const canvasStore = useCanvas();
+  const settingsStore = useSettings();
 
-  const { github } = settings.user;
+  const { github } = settingsStore.$settings.user;
 
   async function checkGithubUsername(event: FormEvent) {
     event.preventDefault();
@@ -55,12 +57,12 @@ export function GuardSection(
   }
 
   useEffect(() => {
-    if (previewMode) return;
+    if (canvasStore.$isInPreviewMode) return;
 
     const state = github ? CanvasStatesEnum.DEFAULT : CanvasStatesEnum.ALERT;
 
     setTimeout(() => {
-      actions.canvas.edit({
+      actions.canvas.section.edit({
         id: sectionId,
         path: 'state',
         value: state,
@@ -108,4 +110,4 @@ export function GuardSection(
       )}
     </>
   );
-}
+});

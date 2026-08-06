@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { getMusicUrl } from 'utils';
 
 type Obj = {
@@ -28,7 +30,9 @@ const ALTS = {
   currently: 'Widget with the current Spotify song',
 };
 
-export function MusicSection(props: MusicSectionProps) {
+export const MusicSection = observer(function MusicSection(
+  props: MusicSectionProps
+) {
   const { content, styles } = props;
   const { type, ...rest } = content;
 
@@ -49,4 +53,4 @@ export function MusicSection(props: MusicSectionProps) {
       </Wrapper>
     </div>
   );
-}
+});

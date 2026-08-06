@@ -34,7 +34,7 @@ export function Welcome() {
               <button
                 key={index}
                 onClick={() =>
-                  actions.template.preview(template as CanvasSection[])
+                  actions.canvas.preview.sections(template as CanvasSection[])
                 }
               >
                 <DisplayBlock.Container>

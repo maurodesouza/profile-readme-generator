@@ -4,17 +4,17 @@ const actions = [
   {
     label: 'Duplicate',
     icon: 'copy',
-    action: commandActions.canvas.duplicate,
+    action: commandActions.canvas.section.duplicate,
   },
   {
     label: 'Edit',
     icon: 'edit-2',
-    action: commandActions.canvas.setCurrentSection,
+    action: commandActions.canvas.section.activate,
   },
   {
     label: 'Delete',
     icon: 'trash',
-    action: commandActions.canvas.remove,
+    action: commandActions.canvas.section.remove,
     tone: 'danger',
   },
 ] as const;

@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { Params } from 'types';
 import { getBorderUrl } from 'utils/getBorderUrl';
 
@@ -15,7 +17,9 @@ type ImageProps = {
   styles: object;
 };
 
-export function BorderSection(props: ImageProps) {
+export const BorderSection = observer(function BorderSection(
+  props: ImageProps
+) {
   const { content } = props;
 
   const { borders, provider } = content;
@@ -27,4 +31,4 @@ export function BorderSection(props: ImageProps) {
       <img className="w-full" src={url} />
     </div>
   );
-}
+});

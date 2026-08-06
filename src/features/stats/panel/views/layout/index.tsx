@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { AnimatePresence, Reorder } from 'framer-motion';
 import { GroupFields } from '#/components/organisms/group-fields';
 
@@ -13,16 +15,16 @@ type Stats = {
   [key: string]: Stats;
 };
 
-export function Layout() {
+export const Layout = observer(function Layout() {
   const forceUpdate = useForceUpdate();
-  const { currentSection } = useCanvas();
+  const canvasStore = useCanvas();
 
-  const selectedStats = getDeepObjectProperty<Stats>(
-    currentSection,
+  const selectedStats = getDeepObjectProperty<Stats | undefined>(
+    canvasStore.$currentSection,
     'props.content.graphs'
-  )!;
+  );
 
-  const stats = Object.entries(selectedStats);
+  const stats = selectedStats ? Object.entries(selectedStats) : [];
   const stats_types = stats.map(tech => tech[0]);
 
   function onReorder(order: typeof stats_types) {
@@ -36,7 +38,7 @@ export function Layout() {
       return obj;
     }, {} as Stats);
 
-    actions.canvas.edit({ path, value });
+    actions.canvas.section.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 
@@ -55,4 +57,4 @@ export function Layout() {
       </AnimatePresence>
     </div>
   );
-}
+});

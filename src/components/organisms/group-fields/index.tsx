@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { actions } from 'lib/command';
@@ -12,7 +14,7 @@ import { inputMap } from './fields/inputs-map';
 
 type Conditions = {
   path: string;
-  be: any;
+  be: 'equal' | string;
   value: unknown;
 };
 
@@ -33,7 +35,9 @@ type GroupFieldsProps = {
   context?: 'canvas' | 'settings';
 };
 
-export function GroupFields(props: GroupFieldsProps) {
+export const GroupFields = observer(function GroupFields(
+  props: GroupFieldsProps
+) {
   const {
     label,
     columns = 1,
@@ -45,21 +49,33 @@ export function GroupFields(props: GroupFieldsProps) {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { currentSection } = useCanvas();
-  const { settings } = useSettings();
+  const canvasStore = useCanvas();
+  const settingsStore = useSettings();
 
-  const obj = context === 'canvas' ? currentSection : { props: settings };
+  const obj =
+    context === 'canvas'
+      ? canvasStore.$currentSection
+      : { props: settingsStore.$settings };
 
   function toggleExpansible() {
     setIsExpanded(!isExpanded);
   }
 
   function onChange(value: string | boolean, path: string) {
-    actions[context].edit({ value, path });
+    if (context === 'canvas') {
+      actions.canvas.section.edit({ value, path });
+    } else {
+      actions.settings.edit({ value, path });
+    }
   }
 
   const canRender = conditions
-    ? checkDeepObjectValue({ obj, ...conditions })
+    ? checkDeepObjectValue({
+        obj,
+        path: conditions.path,
+        be: conditions.be as 'equal',
+        value: conditions.value,
+      })
     : true;
 
   const isExpansible = !!label && accordion;
@@ -90,13 +106,18 @@ export function GroupFields(props: GroupFieldsProps) {
             const { column, ...rest } = field?.props ?? {};
 
             const canRender = field.conditions
-              ? checkDeepObjectValue({ obj, ...field.conditions })
+              ? checkDeepObjectValue({
+                  obj,
+                  path: field.conditions.path,
+                  be: field.conditions.be as 'equal',
+                  value: field.conditions.value,
+                })
               : true;
 
-            const defaultValue = getDeepObjectProperty<any>(
+            const defaultValue = getDeepObjectProperty(
               obj?.props,
               field.path
-            );
+            ) as string | boolean | undefined;
 
             return canRender ? (
               <motion.div
@@ -117,4 +138,4 @@ export function GroupFields(props: GroupFieldsProps) {
       </motion.div>
     </div>
   ) : null;
-}
+});

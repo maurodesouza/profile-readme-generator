@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { GuardSection } from '#/components/organisms/sections/guard';
 
 import { useSettings } from 'hooks';
@@ -29,12 +31,14 @@ const mapProperties = {
   center: 'center',
 };
 
-export function StatsSection(props: StatsSectionProps) {
+export const StatsSection = observer(function StatsSection(
+  props: StatsSectionProps
+) {
   const { id, content, styles: containerStyles } = props;
-  const { settings } = useSettings();
+  const settingsStore = useSettings();
 
   const { graphs } = content;
-  const { github } = settings.user;
+  const { github } = settingsStore.$settings.user;
 
   function getStyles() {
     if (containerStyles.direction === 'column') {
@@ -78,4 +82,4 @@ export function StatsSection(props: StatsSectionProps) {
       </div>
     </GuardSection>
   );
-}
+});

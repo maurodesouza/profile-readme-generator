@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { EditableIcon } from 'types';
 
 type TechStyles = {
@@ -19,7 +21,9 @@ type TechsSectionProps = {
   styles: SectionStyles;
 };
 
-export function TechsSection(props: TechsSectionProps) {
+export const TechsSection = observer(function TechsSection(
+  props: TechsSectionProps
+) {
   const { content, styles: containerStyles } = props;
 
   const { icons, styles } = content;
@@ -55,4 +59,4 @@ export function TechsSection(props: TechsSectionProps) {
       )}
     </div>
   );
-}
+});

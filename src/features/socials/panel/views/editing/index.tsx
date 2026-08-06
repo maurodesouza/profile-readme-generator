@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { useMemo, useRef } from 'react';
 import { AnimatePresence, Reorder } from 'framer-motion';
 
@@ -73,14 +75,14 @@ const MemoizedIconEditor = React.memo(
   }
 );
 
-export function Editing() {
+export const Editing = observer(function Editing() {
   const iconEditorRefs = useRef<IconEditorRef[]>([]);
 
   const forceUpdate = useForceUpdate();
-  const { currentSection } = useCanvas();
+  const canvasStore = useCanvas();
 
   const selectedSocials = getDeepObjectProperty<Socials>(
-    currentSection,
+    canvasStore.$currentSection,
     'props.content.socials'
   )!;
 
@@ -105,7 +107,7 @@ export function Editing() {
       return obj;
     }, {} as Socials);
 
-    actions.canvas.edit({ path, value });
+    actions.canvas.section.edit({ path, value });
     setTimeout(forceUpdate, 200);
   }
 
@@ -132,4 +134,4 @@ export function Editing() {
       </AnimatePresence>
     </Panel.Scrollable>
   );
-}
+});

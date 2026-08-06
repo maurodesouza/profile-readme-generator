@@ -22,8 +22,8 @@ export const Canvas = observer(function Canvas() {
   const extensionsStore = useExtensions();
   const canvasStore = useCanvas();
 
-  const sectionIds = canvasStore.sections.map(section => section.id);
-  const hasSection = !!canvasStore.sections.length;
+  const sectionIds = canvasStore.$canvas.map(section => section.id);
+  const hasSection = !!canvasStore.$canvas.length;
 
   const sectionsData = useMemo(
     () => extensionsStore.extensions.sections ?? {},
@@ -41,7 +41,7 @@ export const Canvas = observer(function Canvas() {
               values={sectionIds}
               onReorder={actions.canvas.sections.reorder}
             >
-              {canvasStore.sections.map(({ type, id, props }) => {
+              {canvasStore.$canvas.map(({ type, id, props }) => {
                 const section = sectionsData[type] as any;
                 if (!section) return null;
 

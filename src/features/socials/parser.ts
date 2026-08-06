@@ -1,5 +1,5 @@
+import { url } from '#/utils/url';
 import { Sections } from '#/types';
-import { getSocialImgUrl } from '#/utils';
 
 type SocialStyles = {
   type: 'icon' | 'badge';
@@ -51,12 +51,12 @@ const socialsSectionParser = ({
   const imgsHtml = Object.entries(socials)
     .reduce((html, [social, { link, ...rest }]) => {
       const props = { ...rest, style };
-      const url = getSocialImgUrl(type, social, props);
+      const srcUrl = url.getSocialImg(type, social, props);
 
       const widthValue = Number(height) + Number(spacing);
       const widthAttr = type === 'icon' ? ` width="${widthValue}"` : '';
 
-      const img = `<img src="${url}"${widthAttr} height="${height}" alt="${social} logo" />`;
+      const img = `<img src="${srcUrl}"${widthAttr} height="${height}" alt="${social} logo" />`;
       const finalHtml = link ? wrapperHtmlInLink(link, img) : img;
 
       return `${html}\n${finalHtml}`;

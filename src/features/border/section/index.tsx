@@ -1,9 +1,9 @@
+import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
 import { Params } from '#/types';
-import { getBorderUrl } from '#/utils/getBorderUrl';
 
-type Borders = Parameters<typeof getBorderUrl>[0];
+type Borders = Parameters<typeof url.getBorder>[0];
 
 type Content = {
   provider: Borders;
@@ -24,11 +24,11 @@ export const BorderSection = observer(function BorderSection(
 
   const { borders, provider } = content;
 
-  const url = getBorderUrl(provider, borders[provider]);
+  const srcUrl = url.getBorder(provider, borders[provider]);
 
   return (
     <div className="flex">
-      <img className="w-full" src={url} />
+      <img className="w-full" src={srcUrl} />
     </div>
   );
 });

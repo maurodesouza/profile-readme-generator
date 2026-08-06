@@ -2,10 +2,9 @@ import { CanvasSection, Sections } from '#/types';
 import { defaultPacmanSectionConfig } from './default-config';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
-import { deepCopy } from '#/utils/deepCopy';
 
 const pacmanImporter = (pictureElement: Element): CanvasSection | null => {
-  const defaultConfig = deepCopy(defaultPacmanSectionConfig);
+  const defaultConfig = structuredClone(defaultPacmanSectionConfig) as any;
 
   // Find the img element within the picture
   const imgElement = pictureElement.children.find(

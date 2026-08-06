@@ -1,3 +1,7 @@
+import { array } from '#/utils/array';
+import { fn } from '#/utils/fn';
+import { string } from '#/utils/string';
+import { tailwind } from '#/utils/tailwind';
 import { observer } from 'mobx-react-lite';
 
 import React, { useMemo, useRef, useState } from 'react';
@@ -9,7 +13,6 @@ import { DisplayBlock } from '#/components/atoms/display-block';
 
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
-import { capitalize, cn, debounce, filterArrayByQueryMatch } from '#/utils';
 
 import { tech_icons } from '#/resources';
 import {
@@ -59,7 +62,7 @@ export const Adding = observer(function Adding() {
     const result: GroupIcons = {};
 
     function filter(provider: IconProviders) {
-      return filterArrayByQueryMatch(value, groupIcons[provider], [
+      return array.filterByQueryMatch(value, groupIcons[provider], [
         'name',
         'alias',
       ]);
@@ -100,7 +103,7 @@ export const Adding = observer(function Adding() {
         <Fields.Compound.Input
           label="Search"
           ref={inputRef}
-          onInput={debounce(forceUpdate, 200)}
+          onInput={fn.debounce(forceUpdate, 200)}
           placeholder="Icon..."
         />
 
@@ -133,7 +136,7 @@ export const Adding = observer(function Adding() {
                 <React.Fragment key={providerName}>
                   {provider === 'all' && (
                     <div
-                      className={cn(
+                      className={tailwind.cn(
                         'col-span-3 pb-md',
                         index > 0 && 'border-t border-ring-inner mt-md pt-md'
                       )}
@@ -141,7 +144,7 @@ export const Adding = observer(function Adding() {
                       <Text.Strong>
                         {providerName
                           .split('_')
-                          .map(w => capitalize(w))
+                          .map(w => string.capitalize(w))
                           .join(' ')}
                       </Text.Strong>
                     </div>
@@ -159,7 +162,7 @@ export const Adding = observer(function Adding() {
                         onClick={handleAddTech(icon, providerName, isUsed)}
                       >
                         <DisplayBlock.Container
-                          className={cn(isUsed && 'is-used')}
+                          className={tailwind.cn(isUsed && 'is-used')}
                         >
                           <DisplayBlock.Content>
                             <img

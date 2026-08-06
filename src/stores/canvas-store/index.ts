@@ -1,8 +1,8 @@
+import { fn } from '#/utils/fn';
 import { makeAutoObservable } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
 import { CanvasSection } from '#/types';
-import { storage } from '#/utils/storage';
 
 class CanvasStore {
   sections: CanvasSection[] = [];
@@ -15,7 +15,7 @@ class CanvasStore {
     makePersistable(this, {
       name: 'canvas store',
       properties: ['sections'],
-      storage,
+      storage: fn.storage,
     });
   }
 

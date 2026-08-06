@@ -1,3 +1,7 @@
+import { array } from '#/utils/array';
+import { fn } from '#/utils/fn';
+import { tailwind } from '#/utils/tailwind';
+import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
 import { useMemo, useRef } from 'react';
@@ -8,12 +12,6 @@ import { DisplayBlock } from '#/components/atoms/display-block';
 
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
-import {
-  cn,
-  debounce,
-  filterArrayByQueryMatch,
-  getSocialImgUrl,
-} from '#/utils';
 
 import { social_icons } from '#/resources';
 import { CanvasContent, CanvasSection, Sections } from '#/types';
@@ -49,7 +47,7 @@ export const Adding = observer(function Adding() {
 
   const { value = '' } = inputRef.current || {};
 
-  const filteredOptions = filterArrayByQueryMatch(value, social_icons, [
+  const filteredOptions = array.filterByQueryMatch(value, social_icons, [
     'name',
     'short_name',
   ]);
@@ -58,7 +56,7 @@ export const Adding = observer(function Adding() {
     <>
       <Fields.Compound.Input
         ref={inputRef}
-        onInput={debounce(forceUpdate, 200)}
+        onInput={fn.debounce(forceUpdate, 200)}
         placeholder="Search..."
         className="mb-md"
       />
@@ -77,14 +75,16 @@ export const Adding = observer(function Adding() {
                   isUsed
                 )}
               >
-                <DisplayBlock.Container className={cn(isUsed && 'is-used')}>
+                <DisplayBlock.Container
+                  className={tailwind.cn(isUsed && 'is-used')}
+                >
                   <DisplayBlock.Content>
                     <img
                       style={{
                         width: '40%',
                         height: '40%',
                       }}
-                      src={getSocialImgUrl('icon', name, { icon })}
+                      src={url.getSocialImg('icon', name, { icon })}
                     />
                     <DisplayBlock.Label className="text-xs">
                       {short_name ?? name}

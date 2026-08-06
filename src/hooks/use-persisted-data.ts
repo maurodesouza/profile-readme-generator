@@ -1,11 +1,11 @@
+import { fn } from '#/utils/fn';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { storage } from '#/utils';
 
 type Return<T> = [T, Dispatch<SetStateAction<T>>];
 
 const usePersistedState = <T>(key: string, initialState: T): Return<T> => {
   const [state, setState] = useState<T>(() => {
-    const storageValue = storage.getItem(key);
+    const storageValue = fn.storage.getItem(key);
 
     if (!storageValue) return initialState;
 
@@ -17,7 +17,7 @@ const usePersistedState = <T>(key: string, initialState: T): Return<T> => {
   });
 
   useEffect(() => {
-    storage.setItem(key, JSON.stringify(state));
+    fn.storage.setItem(key, JSON.stringify(state));
   }, [key, state]);
 
   return [state, setState];

@@ -1,5 +1,5 @@
+import { object } from '#/utils/object';
 import { TFile } from '#/components/atoms/tree';
-import { objectToQueryParams } from '#/utils';
 
 import { StatsSectionParserArgs } from './readme-parser';
 
@@ -13,7 +13,7 @@ const buildStatsWorkflowOptions = (props: Obj) => {
   Reflect.deleteProperty(rest, 'order');
 
   const repositoryOwner = '${{ github.repository_owner }}';
-  const query = objectToQueryParams(rest);
+  const query = object.toQueryParams(rest);
 
   return query
     ? `username=${repositoryOwner}&${query}`

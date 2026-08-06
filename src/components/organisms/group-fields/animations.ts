@@ -1,6 +1,6 @@
-import { createFramerMotionVariants } from '#/utils';
+import { framer } from '#/utils/framer';
 
-const variants = createFramerMotionVariants({
+const variants = framer.createVariants({
   icon: {
     open: {
       rotate: 90,

@@ -1,14 +1,15 @@
+import { object } from '#/utils/object';
+import { url } from '#/utils/url';
 import { Params, Sections, Settings } from '#/types';
-import { getProfileViewsUrl, objectToQueryParams } from '#/utils';
 
-type Providers = Parameters<typeof getProfileViewsUrl>[0];
+type Providers = Parameters<typeof url.getProfileViews>[0];
 
 type Views = {
   [key in Providers]: Params;
 };
 
 type Content = {
-  provider: Parameters<typeof getProfileViewsUrl>[0];
+  provider: Parameters<typeof url.getProfileViews>[0];
   views: Views;
 };
 
@@ -29,8 +30,8 @@ const profileViewsSectionParser = (
   const { provider, views } = content;
   const { align, float } = styles;
 
-  const url = getProfileViewsUrl(provider, settings.user.github as string);
-  const fullUrl = `${url}${objectToQueryParams(views[provider])}`;
+  const srcUrl = url.getProfileViews(provider, settings.user.github as string);
+  const fullUrl = `${srcUrl}${object.toQueryParams(views[provider])}`;
 
   const hasFloat = float !== 'none';
   const floatStyle = `align="${float}" `;

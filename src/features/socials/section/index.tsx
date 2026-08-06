@@ -1,7 +1,6 @@
+import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 import type { ReactNode } from 'react';
-
-import { getSocialImgUrl } from '#/utils';
 
 type SocialStyles = {
   type: 'icon' | 'badge';
@@ -66,7 +65,7 @@ export const SocialsSection = observer(function SocialsSection(
             <img
               style={{ height: `${height}px` }}
               alt={`${social} logo`}
-              src={getSocialImgUrl(type, social, props)}
+              src={url.getSocialImg(type, social, props)}
             />
           </Wrapper>
         );

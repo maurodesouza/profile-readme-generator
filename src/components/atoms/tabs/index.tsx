@@ -1,3 +1,4 @@
+import { tailwind } from '#/utils/tailwind';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
@@ -6,8 +7,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
-
-import { cn } from '#/utils';
 
 export type Tab = {
   icon?: IconName;
@@ -49,7 +48,10 @@ export function Tabs(props: PrePlayerTabsProps) {
 
             return (
               <button
-                className={cn('relative flex flex-col flex-1 px-sm', classes)}
+                className={tailwind.cn(
+                  'relative flex flex-col flex-1 px-sm',
+                  classes
+                )}
                 key={view}
                 onClick={() => setCurrentTab(view)}
               >

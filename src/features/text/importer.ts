@@ -2,10 +2,9 @@ import type { Element, Text } from 'hast';
 import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import { defaultTextSectionConfig } from './default-config';
-import { deepCopy } from '#/utils/deepCopy';
 
 const textImporter = (textElement: Element): CanvasSection | null => {
-  const defaultConfig = deepCopy(defaultTextSectionConfig);
+  const defaultConfig = structuredClone(defaultTextSectionConfig) as any;
 
   if (textElement.children.length === 0) return null;
 

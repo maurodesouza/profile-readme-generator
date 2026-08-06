@@ -1,7 +1,3 @@
-export const dev = {
-  isDev: process.env.NODE_ENV === 'development',
+import { dev } from './dev';
 
-  run: (fn: () => void) => {
-    if (dev.isDev) fn();
-  },
-};
+export { dev };

@@ -1,6 +1,6 @@
+import { tailwind } from '#/utils/tailwind';
 import React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
-import { cn } from '#/utils';
 
 const calloutVariant = tv({
   base: 'w-1 absolute top-0 bottom-0 left-0 bg-tone-luminosity-300',
@@ -28,7 +28,7 @@ export function Callout(props: React.PropsWithChildren<CalloutProps>) {
 
   return (
     <div
-      className={cn('flex flex-col gap-xs pl-md relative', className)}
+      className={tailwind.cn('flex flex-col gap-xs pl-md relative', className)}
       {...rest}
     >
       <div className={calloutVariant(rest)} />

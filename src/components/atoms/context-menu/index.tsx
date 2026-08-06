@@ -1,10 +1,11 @@
 'use client';
 
+import { tailwind } from '#/utils/tailwind';
+
 import * as React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
-import { cn } from '#/utils';
 import { Icon } from '#/components/atoms/icon';
 
 const ContextMenuRoot = ContextMenuPrimitive.Root;
@@ -20,7 +21,7 @@ const ContextMenuContent = React.forwardRef<
   <ContextMenuPrimitive.Portal>
     <ContextMenuPrimitive.Content
       ref={ref}
-      className={cn(
+      className={tailwind.cn(
         'z-50 max-h-[--radix-context-menu-content-available-height] min-w-[8rem] overflow-y-auto overflow-x-hidden box-border bg-background-default p-xs text-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
         className
       )}
@@ -38,7 +39,7 @@ const ContextMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Label
     ref={ref}
-    className={cn(
+    className={tailwind.cn(
       'px-sm py-xs text-sm font-semibold text-foreground',
       inset && 'pl-8',
       className
@@ -93,7 +94,7 @@ const ContextMenuShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className={cn(
+      className={tailwind.cn(
         'ml-auto text-xs tracking-widest text-foreground',
         className
       )}
@@ -113,7 +114,7 @@ const ContextMenuSubTrigger = React.forwardRef<
 >(({ className, inset, children, ...props }, ref) => (
   <ContextMenuPrimitive.SubTrigger
     ref={ref}
-    className={cn(
+    className={tailwind.cn(
       'flex cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-background-support focus:text-foreground data-[state=open]:bg-background-support data-[state=open]:text-foreground',
       inset && 'pl-8',
       className
@@ -132,7 +133,7 @@ const ContextMenuSubContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.SubContent
     ref={ref}
-    className={cn(
+    className={tailwind.cn(
       'z-50 min-w-[8rem] overflow-hidden box-border bg-background-default p-xs text-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
       className
     )}
@@ -147,7 +148,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
 >(({ className, children, checked, ...props }, ref) => (
   <ContextMenuPrimitive.CheckboxItem
     ref={ref}
-    className={cn(
+    className={tailwind.cn(
       'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-background-support focus:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
@@ -173,7 +174,7 @@ const ContextMenuRadioItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <ContextMenuPrimitive.RadioItem
     ref={ref}
-    className={cn(
+    className={tailwind.cn(
       'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-background-support focus:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
@@ -195,7 +196,7 @@ const ContextMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Separator
     ref={ref}
-    className={cn('-mx-xs my-xs h-px bg-ring-inner', className)}
+    className={tailwind.cn('-mx-xs my-xs h-px bg-ring-inner', className)}
     {...props}
   />
 ));

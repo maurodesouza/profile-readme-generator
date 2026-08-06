@@ -1,8 +1,9 @@
+import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import type { Element } from 'hast';
 import { v4 as uuid } from 'uuid';
 import { defaultStatsSectionConfig } from './default-config';
-import { deepChangeObjectProperty } from '#/utils/deepChangeObjectProperty';
+
 import { general } from '#/config/general';
 
 type GraphType = keyof typeof defaultStatsSectionConfig.props.content.graphs;
@@ -51,13 +52,13 @@ export function statsImporter(statsDiv: Element): CanvasSection | null {
 
   if (images.length === 0) return null;
 
-  const defaultConfig = structuredClone(defaultStatsSectionConfig);
+  const defaultConfig = structuredClone(defaultStatsSectionConfig) as any;
 
   const graphs = defaultConfig.props.content.graphs as GraphConfig;
   const graphTypes = Object.keys(graphs) as GraphType[];
 
   for (const graphType of graphTypes) {
-    graphs[graphType] = deepChangeObjectProperty({
+    graphs[graphType] = object.deep.set({
       obj: graphs[graphType],
       path: 'show',
       value: false,

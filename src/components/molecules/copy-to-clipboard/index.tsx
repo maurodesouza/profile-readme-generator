@@ -1,5 +1,5 @@
+import { fn } from '#/utils/fn';
 import React, { JSX, useEffect, useRef, useState } from 'react';
-import { copyToClipboard } from '#/utils';
 
 export type CopyChildrenArgs = {
   isCopied: boolean;
@@ -23,7 +23,7 @@ export function CopyToClipboard(props: CopyToClipboardProps) {
     if (isCopied) return;
 
     try {
-      await copyToClipboard(content);
+      await fn.clipboard(content);
 
       onCopy?.();
 

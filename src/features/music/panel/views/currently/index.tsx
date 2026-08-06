@@ -1,3 +1,4 @@
+import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
 import { GroupFields } from '#/components/organisms/group-fields';
@@ -6,7 +7,6 @@ import { Text } from '#/components/atoms/text';
 import { Callout } from '#/components/atoms/callout';
 
 import { useCanvas } from '#/hooks';
-import { getDeepObjectProperty } from '#/utils';
 
 import { first_group, second_group } from './fields';
 import { list_items, projects_links } from './content';
@@ -16,7 +16,7 @@ type Projects = keyof typeof projects_links;
 export const Currently = observer(function Currently() {
   const canvasStore = useCanvas();
 
-  const project = getDeepObjectProperty<Projects>(
+  const project = object.deep.get<Projects>(
     canvasStore.$currentSection,
     'props.content.currently.project'
   )!;

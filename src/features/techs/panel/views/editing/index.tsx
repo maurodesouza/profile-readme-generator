@@ -1,3 +1,4 @@
+import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
 import { useRef } from 'react';
@@ -8,7 +9,7 @@ import { Panel } from '#/components/organisms/panel';
 import { IconEditor, IconEditorRef } from '#/components/molecules/icon-editor';
 
 import { actions } from '#/lib/command';
-import { getDeepObjectProperty } from '#/utils';
+
 import { useCanvas, useForceUpdate } from '#/hooks';
 
 import { fields } from './fields';
@@ -27,7 +28,7 @@ export const Editing = observer(function Editing() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedIcons = getDeepObjectProperty<Icons>(
+  const selectedIcons = object.deep.get<Icons>(
     canvasStore.$currentSection,
     'props.content.icons'
   )!;

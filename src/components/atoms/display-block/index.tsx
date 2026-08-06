@@ -1,16 +1,19 @@
-import { twx } from '#/utils';
+import { tailwind } from '#/utils/tailwind';
+
 import { Text } from '#/components/atoms/text';
 import { Icon as IconPure } from '#/components/atoms/icon';
 
-const Container = twx.div`group relative w-full rounded-md box-border pt-[100%] transition-colors hover:border-tone-luminosity-300!`;
+const Container = tailwind.twx
+  .div`group relative w-full rounded-md box-border pt-[100%] transition-colors hover:border-tone-luminosity-300!`;
 
-const Content = twx.div`absolute inset-0 w-full flex flex-col items-center justify-center gap-xs`;
+const Content = tailwind.twx
+  .div`absolute inset-0 w-full flex flex-col items-center justify-center gap-xs`;
 
-const Icon = twx(
+const Icon = tailwind.twx(
   IconPure
 )`group-hover:text-tone-foreground-context transition-colors`;
 
-const Label = twx(
+const Label = tailwind.twx(
   Text.Paragraph
 )`group-hover:text-tone-foreground-context transition-colors`;
 

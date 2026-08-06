@@ -52,7 +52,7 @@ export function statsImporter(statsDiv: Element): CanvasSection | null {
 
   if (images.length === 0) return null;
 
-  const defaultConfig = (structuredClone(defaultStatsSectionConfig) as any);
+  const defaultConfig = structuredClone(defaultStatsSectionConfig) as any;
 
   const graphs = defaultConfig.props.content.graphs as GraphConfig;
   const graphTypes = Object.keys(graphs) as GraphType[];

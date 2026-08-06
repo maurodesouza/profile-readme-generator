@@ -89,7 +89,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     if (!section) return;
 
-    const clone = (structuredClone(toJS(section)) as any);
+    const clone = structuredClone(toJS(section)) as any;
     clone.id = uuid();
 
     const index = canvasStore.$sectionsMap.indexById[id];

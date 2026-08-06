@@ -3,8 +3,6 @@ import React from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
 
-
-
 const buttonVariants = tv({
   base: 'flex items-center gap-xs rounded-md hover:no-underline!',
   variants: {

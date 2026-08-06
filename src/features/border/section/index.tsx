@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 
 import { Params } from '#/types';
 
-
 type Borders = Parameters<typeof url.getBorder>[0];
 
 type Content = {

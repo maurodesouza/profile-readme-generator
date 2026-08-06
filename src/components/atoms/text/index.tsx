@@ -3,8 +3,6 @@ import React, { JSX } from 'react';
 import NextLink from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
 
-
-
 const headingVariants = tv({
   base: 'font-semibold text-foreground',
   variants: {
@@ -44,7 +42,8 @@ const Link = tailwind.twx(
   NextLink
 )`text-tone-foreground-context text-sm hover:underline`;
 
-const Clickable = tailwind.twx.button`inline text-tone-foreground-context! text-sm hover:underline`;
+const Clickable = tailwind.twx
+  .button`inline text-tone-foreground-context! text-sm hover:underline`;
 
 const Strong = tailwind.twx.strong`text-foreground text-sm font-semibold`;
 

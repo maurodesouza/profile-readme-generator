@@ -4,7 +4,6 @@ import { makePersistable } from 'mobx-persist-store';
 
 import { CanvasSection } from '#/types';
 
-
 class CanvasStore {
   sections: CanvasSection[] = [];
   activeSectionId: string | undefined = undefined;

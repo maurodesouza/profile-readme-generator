@@ -1,9 +1,8 @@
 import { tailwind } from '#/utils/tailwind';
-'use client';
+('use client');
 
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-
 
 import { Icon } from '#/components/atoms/icon';
 import { tv, VariantProps } from 'tailwind-variants';

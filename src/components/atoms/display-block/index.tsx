@@ -3,9 +3,11 @@ import { tailwind } from '#/utils/tailwind';
 import { Text } from '#/components/atoms/text';
 import { Icon as IconPure } from '#/components/atoms/icon';
 
-const Container = tailwind.twx.div`group relative w-full rounded-md box-border pt-[100%] transition-colors hover:border-tone-luminosity-300!`;
+const Container = tailwind.twx
+  .div`group relative w-full rounded-md box-border pt-[100%] transition-colors hover:border-tone-luminosity-300!`;
 
-const Content = tailwind.twx.div`absolute inset-0 w-full flex flex-col items-center justify-center gap-xs`;
+const Content = tailwind.twx
+  .div`absolute inset-0 w-full flex flex-col items-center justify-center gap-xs`;
 
 const Icon = tailwind.twx(
   IconPure

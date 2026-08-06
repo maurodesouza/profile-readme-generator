@@ -2,7 +2,6 @@ import { object } from '#/utils/object';
 import { url } from '#/utils/url';
 import { Params, Sections, Settings } from '#/types';
 
-
 type Providers = Parameters<typeof url.getProfileViews>[0];
 
 type Views = {

@@ -6,8 +6,6 @@ import { makePersistable } from 'mobx-persist-store';
 import { config } from '#/config';
 import { Settings } from '#/types';
 
-
-
 const { preview: PREVIEW_SETTINGS, initial: INITIAL_SETTINGS } =
   config.general.settings;
 

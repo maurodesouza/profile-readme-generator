@@ -3,12 +3,8 @@ import { tailwind } from '#/utils/tailwind';
 import React from 'react';
 import { Reorder, motion } from 'framer-motion';
 
-
-
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
-
-
 
 const variants = framer.createVariants({
   expansible: {

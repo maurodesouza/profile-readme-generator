@@ -3,7 +3,6 @@ import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 import { defaultMusicSectionConfig } from './default-config';
 
-
 const _processCurrentMusic = (element: Element, currentConfig: any): any => {
   const src = element.properties.src as string;
   const urlParams = new URLSearchParams(src.split('?')[1]);
@@ -42,7 +41,7 @@ const _processRecentMusic = (element: Element, currentConfig: any): any => {
 };
 
 const musicImporter = (musicDiv: Element): CanvasSection | null => {
-  const defaultConfig = (structuredClone(defaultMusicSectionConfig) as any);
+  const defaultConfig = structuredClone(defaultMusicSectionConfig) as any;
 
   if (musicDiv.children.length === 0) return null;
 

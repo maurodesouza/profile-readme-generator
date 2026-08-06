@@ -14,7 +14,6 @@ import { DisplayBlock } from '#/components/atoms/display-block';
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
 
-
 import { tech_icons } from '#/resources';
 import {
   CanvasContent,

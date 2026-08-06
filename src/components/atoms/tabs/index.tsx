@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 
-
-
 export type Tab = {
   icon?: IconName;
   label: string;
@@ -50,7 +48,10 @@ export function Tabs(props: PrePlayerTabsProps) {
 
             return (
               <button
-                className={tailwind.cn('relative flex flex-col flex-1 px-sm', classes)}
+                className={tailwind.cn(
+                  'relative flex flex-col flex-1 px-sm',
+                  classes
+                )}
                 key={view}
                 onClick={() => setCurrentTab(view)}
               >

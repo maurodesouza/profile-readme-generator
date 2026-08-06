@@ -4,8 +4,6 @@ import React from 'react';
 import { Text } from '#/components/atoms/text';
 import { Switch as SwitchAtom } from '#/components/atoms/field-switch';
 
-
-
 type SwitchProps = React.ComponentProps<typeof SwitchAtom> & {
   label: string;
   direction?: 'column' | 'row';

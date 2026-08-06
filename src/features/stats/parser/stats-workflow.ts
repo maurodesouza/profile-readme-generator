@@ -1,7 +1,6 @@
 import { object } from '#/utils/object';
 import { TFile } from '#/components/atoms/tree';
 
-
 import { StatsSectionParserArgs } from './readme-parser';
 
 type Obj = Record<string, unknown>;

@@ -3,9 +3,8 @@ import { defaultActivitiesSectionConfig } from './default-config';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 
-
 const activitiesImporter = (activityDiv: Element): CanvasSection | null => {
-  const defaultConfig = (structuredClone(defaultActivitiesSectionConfig) as any);
+  const defaultConfig = structuredClone(defaultActivitiesSectionConfig) as any;
 
   // NOTE: currently only Medium posts supported
   if (activityDiv.children.length === 0) return null;

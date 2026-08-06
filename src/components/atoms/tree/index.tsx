@@ -5,7 +5,6 @@ import { IconName } from 'lucide-react/dynamic';
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 
-
 import { actions } from '#/lib/command';
 
 export type TFile = {
@@ -28,7 +27,10 @@ function Label(props: LabelProps) {
   const { children, className, icon = 'file', ...rest } = props;
 
   return (
-    <div className={tailwind.cn('flex items-center gap-sm', className)} {...rest}>
+    <div
+      className={tailwind.cn('flex items-center gap-sm', className)}
+      {...rest}
+    >
       <Icon name={icon} size={20} />
 
       <Text.Paragraph className="text-inherit">{children}</Text.Paragraph>

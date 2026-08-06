@@ -1,7 +1,6 @@
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
-
 import { activitiesSectionParser } from '#/features/activities//parser';
 import parse from 'html-react-parser';
 

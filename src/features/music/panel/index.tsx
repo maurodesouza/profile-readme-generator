@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 
 import { GroupFields } from '#/components/organisms/group-fields';
 
-
 import { useCanvas } from '#/hooks';
 import { views } from './views';
 

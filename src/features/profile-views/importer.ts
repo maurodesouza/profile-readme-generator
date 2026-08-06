@@ -3,7 +3,6 @@ import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 import { defaultProfileViewsSectionConfig } from './default-config';
 
-
 const _processGetLoliParams = (
   params: URLSearchParams,
   defaultConfig: any
@@ -48,7 +47,9 @@ const profileViewsImporter = (
 
   if (images.length === 0) return null;
 
-  const defaultConfig = (structuredClone(defaultProfileViewsSectionConfig) as any);
+  const defaultConfig = structuredClone(
+    defaultProfileViewsSectionConfig
+  ) as any;
 
   const image = images[0] as Element;
   const src: string = image.properties['src'] as string;

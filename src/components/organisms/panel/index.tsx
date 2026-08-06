@@ -18,7 +18,6 @@ import { command, actions } from '#/lib/command';
 
 import { PanelsEnumType, PanelSide } from '#/types';
 
-
 type PanelContextState = {
   isOpen: boolean;
   side: PanelSide;
@@ -152,7 +151,8 @@ function PanelContent(props: React.PropsWithChildren) {
   );
 }
 
-const Scrollable = tailwind.twx.div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
+const Scrollable = tailwind.twx
+  .div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
 
 const PanelRender = observer(function PanelRender() {
   const { panel } = usePanel();

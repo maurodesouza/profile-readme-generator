@@ -2,7 +2,6 @@ import { object } from '#/utils/object';
 import { url } from '#/utils/url';
 import { Sections, Settings } from '#/types';
 
-
 type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof url.getStats>[0];
 

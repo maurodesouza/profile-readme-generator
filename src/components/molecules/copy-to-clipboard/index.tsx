@@ -1,7 +1,6 @@
 import { fn } from '#/utils/fn';
 import React, { JSX, useEffect, useRef, useState } from 'react';
 
-
 export type CopyChildrenArgs = {
   isCopied: boolean;
   copy: () => void;

@@ -13,7 +13,6 @@ import { DisplayBlock } from '#/components/atoms/display-block';
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
 
-
 import { social_icons } from '#/resources';
 import { CanvasContent, CanvasSection, Sections } from '#/types';
 
@@ -76,7 +75,9 @@ export const Adding = observer(function Adding() {
                   isUsed
                 )}
               >
-                <DisplayBlock.Container className={tailwind.cn(isUsed && 'is-used')}>
+                <DisplayBlock.Container
+                  className={tailwind.cn(isUsed && 'is-used')}
+                >
                   <DisplayBlock.Content>
                     <img
                       style={{

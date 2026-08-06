@@ -1,6 +1,5 @@
 import { framer } from '#/utils/framer';
 
-
 const variants = framer.createVariants({
   container: {
     open: {

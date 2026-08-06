@@ -1,7 +1,6 @@
 import { url } from '#/utils/url';
 import { Sections } from '#/types';
 
-
 type SocialStyles = {
   type: 'icon' | 'badge';
   style: string;

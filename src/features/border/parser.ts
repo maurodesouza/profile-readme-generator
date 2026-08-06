@@ -1,7 +1,6 @@
 import { url } from '#/utils/url';
 import { Params, Sections } from '#/types';
 
-
 type Borders = Parameters<typeof url.getBorder>[0];
 
 type Content = {

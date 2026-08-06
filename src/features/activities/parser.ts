@@ -1,8 +1,6 @@
 import { url, ActivityUrlType } from '#/utils/url';
 import { Sections } from '#/types';
 
-
-
 type Content = {
   type: Parameters<typeof url.getActivities>[0];
   [key: string]: unknown;

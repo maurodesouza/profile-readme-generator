@@ -8,8 +8,6 @@ import { Popover } from '#/components/atoms/popover';
 import { Clickable } from '#/components/atoms/clickable';
 import { Input } from '#/components/atoms/field-input';
 
-
-
 type ComboboxOption = {
   label: string;
   value: string;
@@ -53,7 +51,12 @@ export function Combobox(props: ComboboxProps) {
   }, [value]);
 
   return (
-    <div className={tailwind.cn('w-full flex flex-col items-start gap-xs', className)}>
+    <div
+      className={tailwind.cn(
+        'w-full flex flex-col items-start gap-xs',
+        className
+      )}
+    >
       {label && <Text.Label>{label}</Text.Label>}
 
       <Popover.Root open={isOpen} onOpenChange={setIsOpen}>

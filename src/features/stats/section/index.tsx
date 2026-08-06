@@ -6,7 +6,6 @@ import { GuardSection } from '#/components/organisms/sections/guard';
 
 import { useSettings } from '#/hooks';
 
-
 type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof url.getStats>[0];
 

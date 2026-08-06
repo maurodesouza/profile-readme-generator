@@ -1,7 +1,6 @@
 import { object } from '#/utils/object';
 import { Sections, Settings } from '#/types';
 
-
 const pacmanSectionParser = (
   config: Record<string, unknown>,
   settings: Settings

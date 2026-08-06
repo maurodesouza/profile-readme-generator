@@ -1,7 +1,6 @@
 import { fn } from '#/utils/fn';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-
 type Return<T> = [T, Dispatch<SetStateAction<T>>];
 
 const usePersistedState = <T>(key: string, initialState: T): Return<T> => {

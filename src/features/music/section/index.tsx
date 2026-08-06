@@ -1,8 +1,6 @@
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
-
-
 type Obj = {
   [key: string]: unknown;
 };

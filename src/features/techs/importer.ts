@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { defaultTechsSectionConfig } from './default-config';
 
 const techsImporter = (techsDiv: Element): CanvasSection | null => {
-  const defaultConfig = (structuredClone(defaultTechsSectionConfig) as any);
+  const defaultConfig = structuredClone(defaultTechsSectionConfig) as any;
 
   const images = techsDiv.children.filter(
     child =>

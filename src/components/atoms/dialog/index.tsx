@@ -1,9 +1,8 @@
 import { tailwind } from '#/utils/tailwind';
-'use client';
+('use client');
 
 import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-
 
 import { Text } from '#/components/atoms/text';
 import { Icon } from '#/components/atoms/icon';

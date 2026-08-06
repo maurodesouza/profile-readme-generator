@@ -81,15 +81,9 @@ describe('UTILS - Filter array by query match', () => {
 
       const result1 = filterByQueryMatch(query, objectArray, ['key']);
 
-      const result2 = filterByQueryMatch(query, objectArray, [
-        'key',
-        'key2',
-      ]);
+      const result2 = filterByQueryMatch(query, objectArray, ['key', 'key2']);
 
-      const result3 = filterByQueryMatch(query, objectArray, [
-        'key',
-        'key3',
-      ]);
+      const result3 = filterByQueryMatch(query, objectArray, ['key', 'key3']);
 
       expect(result1).toHaveLength(expected.one_field);
       expect(result2).toHaveLength(expected.two_fields);

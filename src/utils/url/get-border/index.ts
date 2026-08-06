@@ -2,7 +2,6 @@ import { object } from '#/utils/object';
 import { config } from '#/config';
 import { Params } from '#/types';
 
-
 const { capsuleRenderBaseUrl } = config.general.urls.sections.borders;
 
 type CustomColorProps =

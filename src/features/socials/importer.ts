@@ -28,7 +28,9 @@ const _processImage = (
 ): any => {
   let result = {};
 
-  const data = (structuredClone(social_icons.find(icon => icon.name === logo)) as any);
+  const data = structuredClone(
+    social_icons.find(icon => icon.name === logo)
+  ) as any;
   if (!data) return null;
 
   result = {
@@ -57,7 +59,7 @@ const _processImage = (
 };
 
 const socialsImporter = (socialsDiv: Element): CanvasSection | null => {
-  const defaultConfig = (structuredClone(defaultSocialsSectionConfig) as any);
+  const defaultConfig = structuredClone(defaultSocialsSectionConfig) as any;
 
   const children = socialsDiv.children.filter(
     child => child.type === 'element'

@@ -8,7 +8,6 @@ import { Callout } from '#/components/atoms/callout';
 
 import { useCanvas } from '#/hooks';
 
-
 import { first_group, second_group } from './fields';
 import { list_items, projects_links } from './content';
 

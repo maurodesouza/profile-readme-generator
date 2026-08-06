@@ -1,10 +1,9 @@
 import { tailwind } from '#/utils/tailwind';
-'use client';
+('use client');
 
 import * as React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
-
 
 import { Icon } from '#/components/atoms/icon';
 

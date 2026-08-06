@@ -1,7 +1,6 @@
 import { url } from '#/utils/url';
 import { Sections } from '#/types';
 
-
 type Obj = {
   [key: string]: unknown;
 };

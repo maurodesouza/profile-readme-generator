@@ -35,10 +35,7 @@ describe('UTILS - Get music url', () => {
     ];
 
     inputs.forEach(input => {
-      const { spotifyAccountUrl, imageUrl } = getMusic(
-        'recently',
-        input.props
-      );
+      const { spotifyAccountUrl, imageUrl } = getMusic('recently', input.props);
 
       const { imgUrl, profileUrl } = input.expect;
 

@@ -12,7 +12,6 @@ import { Panel } from '#/components/organisms/panel';
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
 
-
 import { fields, getIconFields } from './fields';
 import React from 'react';
 

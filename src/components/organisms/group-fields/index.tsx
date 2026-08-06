@@ -8,7 +8,6 @@ import { actions } from '#/lib/command';
 import { Inputs } from '#/types';
 import { useCanvas, useSettings } from '#/hooks';
 
-
 import { variants } from './animations';
 import { GroupFieldsLabel } from './label';
 import { inputMap } from './fields/inputs-map';
@@ -115,10 +114,10 @@ export const GroupFields = observer(function GroupFields(
                 })
               : true;
 
-            const defaultValue = object.deep.get(
-              obj?.props,
-              field.path
-            ) as string | boolean | undefined;
+            const defaultValue = object.deep.get(obj?.props, field.path) as
+              | string
+              | boolean
+              | undefined;
 
             return canRender ? (
               <motion.div

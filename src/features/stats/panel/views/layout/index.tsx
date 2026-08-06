@@ -6,7 +6,6 @@ import { GroupFields } from '#/components/organisms/group-fields';
 
 import { useCanvas, useForceUpdate } from '#/hooks';
 
-
 import { actions } from '#/lib/command';
 import { Item } from './item';
 

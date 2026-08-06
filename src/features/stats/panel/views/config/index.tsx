@@ -8,7 +8,6 @@ import { Fields } from '#/components/molecules/fields';
 
 import { views } from './views';
 
-
 type Views = keyof typeof views;
 
 const Config = () => {

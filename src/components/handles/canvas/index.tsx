@@ -6,6 +6,7 @@ import { deepChangeObjectProperty, parseImportedReadme } from 'utils';
 import { actions, command } from 'lib/command';
 import { canvasStore } from 'stores/canvas-store';
 import { extensionsStore } from 'stores/extensions-store';
+import { toJS } from 'mobx';
 
 type HandleEditPayload = {
   id?: string;
@@ -86,7 +87,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     if (!section) return;
 
-    const clone = structuredClone(section);
+    const clone = structuredClone(toJS(section));
     clone.id = uuid();
 
     const index = canvasStore.$sectionsMap.indexById[id];

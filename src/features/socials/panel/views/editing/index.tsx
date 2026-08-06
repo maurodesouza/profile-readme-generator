@@ -83,7 +83,7 @@ export const Editing = observer(function Editing() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedSocials = object.getDeepProperty<Socials>(
+  const selectedSocials = object.deep.get<Socials>(
     canvasStore.$currentSection,
     'props.content.socials'
   )!;

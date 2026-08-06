@@ -1,4 +1,3 @@
-import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
@@ -49,7 +48,7 @@ const profileViewsImporter = (
 
   if (images.length === 0) return null;
 
-  const defaultConfig = object.deepCopy(defaultProfileViewsSectionConfig);
+  const defaultConfig = (structuredClone(defaultProfileViewsSectionConfig) as any);
 
   const image = images[0] as Element;
   const src: string = image.properties['src'] as string;

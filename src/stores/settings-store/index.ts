@@ -30,7 +30,7 @@ class SettingsStore {
   }
 
   edit(path: string, value: unknown) {
-    object.deepChangeProperty<Settings>({
+    object.deep.set<Settings>({
       obj: this.settings,
       path,
       value,

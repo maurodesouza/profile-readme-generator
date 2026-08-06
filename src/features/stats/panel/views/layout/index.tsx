@@ -20,7 +20,7 @@ export const Layout = observer(function Layout() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedStats = object.getDeepProperty<Stats | undefined>(
+  const selectedStats = object.deep.get<Stats | undefined>(
     canvasStore.$currentSection,
     'props.content.graphs'
   );

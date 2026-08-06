@@ -1,4 +1,3 @@
-import { object } from '#/utils/object';
 import type { Element } from 'hast';
 import { social_icons } from '#/resources';
 import { CanvasSection, Sections } from '#/types';
@@ -29,7 +28,7 @@ const _processImage = (
 ): any => {
   let result = {};
 
-  const data = object.deepCopy(social_icons.find(icon => icon.name === logo));
+  const data = (structuredClone(social_icons.find(icon => icon.name === logo)) as any);
   if (!data) return null;
 
   result = {
@@ -58,7 +57,7 @@ const _processImage = (
 };
 
 const socialsImporter = (socialsDiv: Element): CanvasSection | null => {
-  const defaultConfig = object.deepCopy(defaultSocialsSectionConfig);
+  const defaultConfig = (structuredClone(defaultSocialsSectionConfig) as any);
 
   const children = socialsDiv.children.filter(
     child => child.type === 'element'

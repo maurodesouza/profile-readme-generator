@@ -1,4 +1,4 @@
-const copy = async (string: string) => {
+const clipboard = async (string: string) => {
   if (
     typeof navigator !== 'undefined' &&
     navigator.clipboard &&
@@ -37,4 +37,4 @@ const copy = async (string: string) => {
   }
 };
 
-export { copy };
+export { clipboard };

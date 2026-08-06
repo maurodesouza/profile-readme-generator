@@ -1,4 +1,3 @@
-import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { defaultImageSectionConfig } from './default-config';
 import { v4 as uuid } from 'uuid';
@@ -6,7 +5,7 @@ import type { Element } from 'hast';
 
 
 const imageImporter = (imageElement: Element): CanvasSection | null => {
-  const defaultConfig = object.deepCopy(defaultImageSectionConfig);
+  const defaultConfig = (structuredClone(defaultImageSectionConfig) as any);
 
   defaultConfig.props.styles.align = imageElement.properties?.align || 'center';
 

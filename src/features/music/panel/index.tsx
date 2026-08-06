@@ -15,7 +15,7 @@ type Views = keyof typeof views;
 export const MusicEditPanel = observer(function MusicEditPanel() {
   const canvasStore = useCanvas();
 
-  const currentView = object.getDeepProperty<Views>(
+  const currentView = object.deep.get<Views>(
     canvasStore.$currentSection,
     'props.content.type'
   )!;

@@ -52,13 +52,13 @@ export function statsImporter(statsDiv: Element): CanvasSection | null {
 
   if (images.length === 0) return null;
 
-  const defaultConfig = structuredClone(defaultStatsSectionConfig);
+  const defaultConfig = (structuredClone(defaultStatsSectionConfig) as any);
 
   const graphs = defaultConfig.props.content.graphs as GraphConfig;
   const graphTypes = Object.keys(graphs) as GraphType[];
 
   for (const graphType of graphTypes) {
-    graphs[graphType] = object.deepChangeProperty({
+    graphs[graphType] = object.deep.set({
       obj: graphs[graphType],
       path: 'show',
       value: false,

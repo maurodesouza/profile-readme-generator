@@ -1,4 +1,3 @@
-import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { defaultActivitiesSectionConfig } from './default-config';
 import { v4 as uuid } from 'uuid';
@@ -6,7 +5,7 @@ import type { Element } from 'hast';
 
 
 const activitiesImporter = (activityDiv: Element): CanvasSection | null => {
-  const defaultConfig = object.deepCopy(defaultActivitiesSectionConfig);
+  const defaultConfig = (structuredClone(defaultActivitiesSectionConfig) as any);
 
   // NOTE: currently only Medium posts supported
   if (activityDiv.children.length === 0) return null;

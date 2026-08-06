@@ -1,5 +1,5 @@
 import { getDeepProperty } from '..';
-import { deepChangeProperty } from '.';
+import { changeDeepProperty } from '.';
 import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Deep change object property', () => {
@@ -41,7 +41,7 @@ describe('UTILS - Deep change object property', () => {
     inputs.forEach(input => {
       const { path, value } = input;
 
-      const newObject = deepChangeProperty({
+      const newObject = changeDeepProperty({
         obj: objInput,
         path,
         value,
@@ -58,7 +58,7 @@ describe('UTILS - Deep change object property', () => {
     const value = 'some';
 
     const fn = (path: string) =>
-      deepChangeProperty({ obj: objInput, path, value });
+      changeDeepProperty({ obj: objInput, path, value });
 
     inputs.forEach(path => {
       const finded = getDeepProperty(fn(path), path);

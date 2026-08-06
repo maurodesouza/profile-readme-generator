@@ -1,4 +1,4 @@
-import { copy } from '.';
+import { clipboard } from '.';
 import { describe, it, expect, beforeAll, vi } from 'vitest';
 
 Object.assign(navigator, {
@@ -13,7 +13,7 @@ describe('UTILS - Copy to clip board', () => {
   const input = 'some value';
 
   beforeAll(() => {
-    copy(input);
+    clipboard(input);
   });
 
   it('should be called with the correct value', () => {

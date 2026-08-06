@@ -71,7 +71,7 @@ export const GroupFields = observer(function GroupFields(
   }
 
   const canRender = conditions
-    ? object.checkDeepValue({
+    ? object.deep.check({
         obj,
         path: conditions.path,
         be: conditions.be as 'equal',
@@ -107,7 +107,7 @@ export const GroupFields = observer(function GroupFields(
             const { column, ...rest } = field?.props ?? {};
 
             const canRender = field.conditions
-              ? object.checkDeepValue({
+              ? object.deep.check({
                   obj,
                   path: field.conditions.path,
                   be: field.conditions.be as 'equal',
@@ -115,7 +115,7 @@ export const GroupFields = observer(function GroupFields(
                 })
               : true;
 
-            const defaultValue = object.getDeepProperty(
+            const defaultValue = object.deep.get(
               obj?.props,
               field.path
             ) as string | boolean | undefined;

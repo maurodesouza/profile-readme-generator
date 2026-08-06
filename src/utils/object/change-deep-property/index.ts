@@ -8,11 +8,11 @@ type DeepChangeObjectPropertyArgs<T extends Obj = Obj> = {
 
 const deepChangeObjectPropertyError = (path: string) => {
   throw new Error(
-    `deepChangeProperty Error: path "${path}" don't exist in object`
+    `changeDeepProperty Error: path "${path}" don't exist in object`
   );
 };
 
-const deepChangeProperty = <T extends Obj = Obj>({
+const changeDeepProperty = <T extends Obj = Obj>({
   obj,
   path,
   value,
@@ -45,4 +45,4 @@ const deepChangeProperty = <T extends Obj = Obj>({
   return result as T;
 };
 
-export { deepChangeProperty };
+export { changeDeepProperty };

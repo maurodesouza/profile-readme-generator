@@ -44,7 +44,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     const finalPath = path.startsWith('props.') ? path : `props.${path}`;
 
-    object.deepChangeProperty<CanvasSection>({
+    object.deep.set<CanvasSection>({
       obj: section,
       path: finalPath,
       value,
@@ -89,7 +89,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     if (!section) return;
 
-    const clone = structuredClone(toJS(section));
+    const clone = (structuredClone(toJS(section)) as any);
     clone.id = uuid();
 
     const index = canvasStore.$sectionsMap.indexById[id];

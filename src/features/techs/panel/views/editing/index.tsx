@@ -28,7 +28,7 @@ export const Editing = observer(function Editing() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedIcons = object.getDeepProperty<Icons>(
+  const selectedIcons = object.deep.get<Icons>(
     canvasStore.$currentSection,
     'props.content.icons'
   )!;

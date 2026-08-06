@@ -1,4 +1,3 @@
-import { object } from '#/utils/object';
 import type { Element } from 'hast';
 import { tech_icons } from '#/resources';
 import { CanvasSection, Sections } from '#/types';
@@ -7,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { defaultTechsSectionConfig } from './default-config';
 
 const techsImporter = (techsDiv: Element): CanvasSection | null => {
-  const defaultConfig = object.deepCopy(defaultTechsSectionConfig);
+  const defaultConfig = (structuredClone(defaultTechsSectionConfig) as any);
 
   const images = techsDiv.children.filter(
     child =>

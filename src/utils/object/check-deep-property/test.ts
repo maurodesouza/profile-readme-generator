@@ -1,4 +1,4 @@
-import { checkDeepValue } from '.';
+import { checkDeepProperty } from '.';
 import { describe, it, expect } from 'vitest';
 
 describe('UTILS - Check deep object value', () => {
@@ -49,7 +49,7 @@ describe('UTILS - Check deep object value', () => {
     inputs.forEach(input => {
       const { expected, ...rest } = input;
 
-      const result = checkDeepValue({
+      const result = checkDeepProperty({
         obj: objInput,
         be: 'equal',
         ...rest,

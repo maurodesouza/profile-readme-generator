@@ -11,7 +11,7 @@ type checkDeepObjectValueArgs<T> = {
   value: unknown;
 };
 
-const checkDeepValue = <T extends Record<string, unknown>>({
+const checkDeepProperty = <T extends Record<string, unknown>>({
   obj,
   path,
   be,
@@ -23,4 +23,4 @@ const checkDeepValue = <T extends Record<string, unknown>>({
   return handler ? handler(property, value) : false;
 };
 
-export { checkDeepValue };
+export { checkDeepProperty };

@@ -12,11 +12,13 @@ class CanvasStore {
   constructor() {
     makeAutoObservable(this);
 
-    makePersistable(this, {
-      name: 'canvas store',
-      properties: ['sections'],
-      storage: fn.storage,
-    });
+    if (typeof window !== 'undefined') {
+      makePersistable(this, {
+        name: 'canvas store',
+        properties: ['sections'],
+        storage: fn.storage,
+      });
+    }
   }
 
   get $isInPreviewMode() {

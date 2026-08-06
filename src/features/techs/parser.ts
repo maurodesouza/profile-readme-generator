@@ -1,4 +1,4 @@
-import { EditableIcon, Sections } from 'types';
+import { EditableIcon, Sections } from '#/types';
 
 type TechStyles = {
   height: number;

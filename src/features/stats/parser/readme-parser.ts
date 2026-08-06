@@ -1,5 +1,5 @@
-import { Sections, Settings } from 'types';
-import { getStatsUrl, objectToQueryParams } from 'utils';
+import { Sections, Settings } from '#/types';
+import { getStatsUrl, objectToQueryParams } from '#/utils';
 
 type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof getStatsUrl>[0];

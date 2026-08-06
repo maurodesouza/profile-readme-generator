@@ -1,4 +1,4 @@
-import { Sections, Settings } from 'types';
+import { Sections, Settings } from '#/types';
 
 const snakeSectionParser = (_: Record<string, unknown>, settings: Settings) => {
   const { github } = settings.user;

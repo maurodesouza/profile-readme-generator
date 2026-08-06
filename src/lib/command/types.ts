@@ -3,7 +3,7 @@ import type {
   PathValue,
   PayloadFromAction,
   ReturnFromAction,
-} from 'types/helpers';
+} from '#/types/helpers';
 import type { Actions } from './global';
 
 // #region Transitions

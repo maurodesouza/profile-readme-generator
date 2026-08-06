@@ -6,9 +6,9 @@ import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 import { Fields } from '#/components/molecules/fields';
 
-import { CanvasStatesEnum } from 'types';
-import { useCanvas, useSettings } from 'hooks';
-import { actions } from 'lib/command';
+import { CanvasStatesEnum } from '#/types';
+import { useCanvas, useSettings } from '#/hooks';
+import { actions } from '#/lib/command';
 
 const BASE_URL = 'https://api.github.com/users/';
 

@@ -1,7 +1,7 @@
 import type { Element } from 'hast';
-import { tech_icons } from 'resources';
-import { CanvasSection, Sections } from 'types';
-import { deepCopy } from 'utils/deepCopy';
+import { tech_icons } from '#/resources';
+import { CanvasSection, Sections } from '#/types';
+import { deepCopy } from '#/utils/deepCopy';
 import { v4 as uuid } from 'uuid';
 import { defaultTechsSectionConfig } from './default-config';
 

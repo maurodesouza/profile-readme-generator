@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from 'react';
 import { useCallbackRef } from './use-callback-ref';
-import { toArray } from 'utils';
+import { toArray } from '#/utils';
 
 type MediaQueryCallback = (event: MediaQueryListEvent) => void;
 

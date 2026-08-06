@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 import { GFTextField } from './text';
 import { GFSwitchField } from './switch';
 import { GFSelectField } from './select';

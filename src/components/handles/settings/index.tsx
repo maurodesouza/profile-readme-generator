@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { command } from 'lib/command';
-import { settingsStore } from 'stores/settings-store';
+import { command } from '#/lib/command';
+import { settingsStore } from '#/stores/settings-store';
 
 export function SettingsHandle() {
   function handleEdit({ path, value }: { path: string; value: unknown }) {

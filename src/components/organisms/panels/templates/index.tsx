@@ -2,9 +2,9 @@ import { Text } from '#/components/atoms/text';
 import { Panel } from '#/components/organisms/panel';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { actions } from 'lib/command';
-import { templates } from 'resources';
-import { CanvasSection } from 'types';
+import { actions } from '#/lib/command';
+import { templates } from '#/resources';
+import { CanvasSection } from '#/types';
 
 const PanelTemplates = () => {
   return (

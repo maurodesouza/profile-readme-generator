@@ -5,8 +5,8 @@ import { GroupFields } from '#/components/organisms/group-fields';
 import { Text } from '#/components/atoms/text';
 import { Callout } from '#/components/atoms/callout';
 
-import { useCanvas } from 'hooks';
-import { getDeepObjectProperty } from 'utils';
+import { useCanvas } from '#/hooks';
+import { getDeepObjectProperty } from '#/utils';
 
 import { first_group, second_group } from './fields';
 import { list_items, projects_links } from './content';

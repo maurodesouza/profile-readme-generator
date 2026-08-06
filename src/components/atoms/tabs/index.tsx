@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 
 export type Tab = {
   icon?: IconName;

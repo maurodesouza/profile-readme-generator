@@ -6,12 +6,17 @@ import { Panel } from '#/components/organisms/panel';
 import { Fields } from '#/components/molecules/fields';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { actions } from 'lib/command';
-import { useCanvas, useForceUpdate } from 'hooks';
-import { cn, debounce, filterArrayByQueryMatch, getSocialImgUrl } from 'utils';
+import { actions } from '#/lib/command';
+import { useCanvas, useForceUpdate } from '#/hooks';
+import {
+  cn,
+  debounce,
+  filterArrayByQueryMatch,
+  getSocialImgUrl,
+} from '#/utils';
 
-import { social_icons } from 'resources';
-import { CanvasContent, CanvasSection, Sections } from 'types';
+import { social_icons } from '#/resources';
+import { CanvasContent, CanvasSection, Sections } from '#/types';
 
 export const Adding = observer(function Adding() {
   const inputRef = useRef<HTMLInputElement>(null);

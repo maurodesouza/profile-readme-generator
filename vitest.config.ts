@@ -7,6 +7,7 @@ export default defineConfig({
     alias: {
       'react-twc$': path.resolve(__dirname, './.jest/mocks/react-twc.js'),
       '@': path.resolve(__dirname, './src'),
+      '#': path.resolve(__dirname, './src'),
       config: path.resolve(__dirname, './src/config'),
       types: path.resolve(__dirname, './src/types'),
       utils: path.resolve(__dirname, './src/utils'),

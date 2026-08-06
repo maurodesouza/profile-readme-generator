@@ -8,11 +8,11 @@ import Head from 'next/head';
 
 import { AppProps } from 'next/app';
 
-import { config } from 'config';
+import { config } from '#/config';
 import { Modal } from '#/components/molecules/modal';
 import { Handles } from '#/components/handles';
 
-import { Features } from 'features';
+import { Features } from '#/features';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const appUrl = config.general.urls.app;

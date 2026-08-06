@@ -1,5 +1,5 @@
 import React from 'react';
-import { Renderable } from 'types';
+import { Renderable } from '#/types';
 
 type FlexibleRenderProps = {
   render?: Renderable;

@@ -4,7 +4,7 @@ import type {
   PanelsEnumType,
   Renderable,
   Sections,
-} from 'types';
+} from '#/types';
 import type { Action } from './types';
 
 type PanelActions = {

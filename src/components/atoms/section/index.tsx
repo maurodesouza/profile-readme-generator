@@ -1,7 +1,7 @@
 import { Reorder } from 'framer-motion';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { twx } from 'utils';
+import { twx } from '#/utils';
 
 const containerVariants = tv({
   base: '[&+&]:mt-[calc(var(--spacing-md)/2)] [&[data-hasfloat=true]+&]:pt-xl [&[data-hasfloat=true]+&]:mt-0',

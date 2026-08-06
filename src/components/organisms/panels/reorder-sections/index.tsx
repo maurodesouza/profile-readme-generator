@@ -5,8 +5,8 @@ import { Reorder } from 'framer-motion';
 import { Item } from './item';
 import { Panel } from '#/components/organisms/panel';
 
-import { useCanvas } from 'hooks';
-import { actions } from 'lib/command';
+import { useCanvas } from '#/hooks';
+import { actions } from '#/lib/command';
 
 export const ReorderSections = observer(function ReorderSections() {
   const canvasStore = useCanvas();

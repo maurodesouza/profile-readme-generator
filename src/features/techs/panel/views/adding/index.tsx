@@ -7,11 +7,11 @@ import { Text } from '#/components/atoms/text';
 import { Panel } from '#/components/organisms/panel';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { actions } from 'lib/command';
-import { useCanvas, useForceUpdate } from 'hooks';
-import { capitalize, cn, debounce, filterArrayByQueryMatch } from 'utils';
+import { actions } from '#/lib/command';
+import { useCanvas, useForceUpdate } from '#/hooks';
+import { capitalize, cn, debounce, filterArrayByQueryMatch } from '#/utils';
 
-import { tech_icons } from 'resources';
+import { tech_icons } from '#/resources';
 import {
   CanvasContent,
   CanvasSection,
@@ -19,7 +19,7 @@ import {
   Icon,
   IconProviders,
   Sections,
-} from 'types';
+} from '#/types';
 
 type Providers = IconProviders | 'all';
 

@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react-lite';
 
 import { GroupFields } from '#/components/organisms/group-fields';
-import { getDeepObjectProperty } from 'utils';
+import { getDeepObjectProperty } from '#/utils';
 
-import { useCanvas } from 'hooks';
+import { useCanvas } from '#/hooks';
 import { views } from './views';
 
 import { groups } from './fields';

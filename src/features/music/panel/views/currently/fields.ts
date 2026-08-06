@@ -1,4 +1,4 @@
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 
 const first_group = [
   {

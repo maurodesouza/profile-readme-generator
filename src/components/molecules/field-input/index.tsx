@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { Text } from '#/components/atoms/text';
 import { Input as InputAtom } from '#/components/atoms/field-input';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 
 export type InputProps = React.ComponentProps<typeof InputAtom> & {
   label?: string;

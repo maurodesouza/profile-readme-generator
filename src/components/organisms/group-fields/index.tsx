@@ -3,10 +3,10 @@ import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { actions } from 'lib/command';
-import { Inputs } from 'types';
-import { useCanvas, useSettings } from 'hooks';
-import { checkDeepObjectValue, getDeepObjectProperty } from 'utils';
+import { actions } from '#/lib/command';
+import { Inputs } from '#/types';
+import { useCanvas, useSettings } from '#/hooks';
+import { checkDeepObjectValue, getDeepObjectProperty } from '#/utils';
 
 import { variants } from './animations';
 import { GroupFieldsLabel } from './label';

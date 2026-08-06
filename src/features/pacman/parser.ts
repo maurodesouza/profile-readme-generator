@@ -1,5 +1,5 @@
-import { Sections, Settings } from 'types';
-import { objectToQueryParams } from 'utils';
+import { Sections, Settings } from '#/types';
+import { objectToQueryParams } from '#/utils';
 
 const pacmanSectionParser = (
   config: Record<string, unknown>,

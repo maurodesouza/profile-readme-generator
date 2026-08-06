@@ -1,5 +1,5 @@
 import { TFile } from '#/components/atoms/tree';
-import { objectToQueryParams } from 'utils';
+import { objectToQueryParams } from '#/utils';
 
 import { StatsSectionParserArgs } from './readme-parser';
 

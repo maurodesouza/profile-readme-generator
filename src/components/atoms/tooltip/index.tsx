@@ -3,8 +3,8 @@ import { tv, VariantProps } from 'tailwind-variants';
 
 import { OnlyClientSide } from '#/components/helpers/only-client-side';
 import { Portal } from '#/components/helpers/portal';
-import { TooltipPositions } from 'types';
-import { getThemeToken } from 'utils';
+import { TooltipPositions } from '#/types';
+import { getThemeToken } from '#/utils';
 
 const tooltipVariants = tv({
   base: 'text-xs absolute rounded-md z-10 text-tone-foreground-contrast bg-tone-luminosity-300 border border-tone-ring-inner px-xs py-[calc(var(--spacing-xs)_/_2)]',

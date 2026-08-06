@@ -1,4 +1,4 @@
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 
 const customTitleField = (graph: 'stats' | 'languages' | 'activity-graph') => ({
   type: Inputs.TEXT,

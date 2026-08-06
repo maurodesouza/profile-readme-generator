@@ -1,12 +1,12 @@
 import React from 'react';
 import { Reorder, motion } from 'framer-motion';
 
-import { cn, twx } from 'utils';
+import { cn, twx } from '#/utils';
 
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 
-import { createFramerMotionVariants } from 'utils';
+import { createFramerMotionVariants } from '#/utils';
 
 const variants = createFramerMotionVariants({
   expansible: {

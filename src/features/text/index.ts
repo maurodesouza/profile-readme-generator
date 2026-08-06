@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic';
 import { textSectionParser } from './parser';
 import { defaultTextSectionConfig } from './default-config';
 
-import { actions } from 'lib/command';
-import { PanelsEnum, Sections } from 'types';
+import { actions } from '#/lib/command';
+import { PanelsEnum, Sections } from '#/types';
 
 const feature = {
   id: 'text',

@@ -4,7 +4,7 @@ import {
   localeField,
   themeField,
 } from '../@shared';
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 
 const groups = [
   {

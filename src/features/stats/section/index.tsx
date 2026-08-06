@@ -2,8 +2,8 @@ import { observer } from 'mobx-react-lite';
 
 import { GuardSection } from '#/components/organisms/sections/guard';
 
-import { useSettings } from 'hooks';
-import { getStatsUrl, objectToQueryParams } from 'utils';
+import { useSettings } from '#/hooks';
+import { getStatsUrl, objectToQueryParams } from '#/utils';
 
 type Obj = Record<string, unknown>;
 type Graphs = Parameters<typeof getStatsUrl>[0];

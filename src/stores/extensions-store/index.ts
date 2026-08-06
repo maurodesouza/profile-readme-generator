@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-import { Extension, ExtensionsGroup } from 'types';
+import { Extension, ExtensionsGroup } from '#/types';
 
 class ExtensionsStore {
   extensions: ExtensionsGroup = {};

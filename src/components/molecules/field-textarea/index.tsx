@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { Text } from '#/components/atoms/text';
 import { Textarea as TextareaAtom } from '#/components/atoms/field-textarea';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 
 export type TextareaProps = React.ComponentProps<typeof TextareaAtom> & {
   label?: string;

@@ -1,8 +1,8 @@
 import type { Element, Text } from 'hast';
-import { CanvasSection, Sections } from 'types';
+import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import { defaultTextSectionConfig } from './default-config';
-import { deepCopy } from 'utils/deepCopy';
+import { deepCopy } from '#/utils/deepCopy';
 
 const textImporter = (textElement: Element): CanvasSection | null => {
   const defaultConfig = deepCopy(defaultTextSectionConfig);

@@ -1,5 +1,5 @@
-import { Params, Sections, Settings } from 'types';
-import { getProfileViewsUrl, objectToQueryParams } from 'utils';
+import { Params, Sections, Settings } from '#/types';
+import { getProfileViewsUrl, objectToQueryParams } from '#/utils';
 
 type Providers = Parameters<typeof getProfileViewsUrl>[0];
 

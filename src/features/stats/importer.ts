@@ -1,9 +1,9 @@
-import { CanvasSection, Sections } from 'types';
+import { CanvasSection, Sections } from '#/types';
 import type { Element } from 'hast';
 import { v4 as uuid } from 'uuid';
 import { defaultStatsSectionConfig } from './default-config';
-import { deepChangeObjectProperty } from 'utils/deepChangeObjectProperty';
-import { general } from 'config/general';
+import { deepChangeObjectProperty } from '#/utils/deepChangeObjectProperty';
+import { general } from '#/config/general';
 
 type GraphType = keyof typeof defaultStatsSectionConfig.props.content.graphs;
 type GraphConfig = Record<GraphType, Record<string, unknown>>;

@@ -12,8 +12,8 @@ import { SectionContextMenu } from '#/components/molecules/context-menu-section'
 import { Welcome } from '#/components/molecules/welcome';
 import { CanvasSection } from '#/components/molecules/canvas-section';
 
-import { actions } from 'lib/command';
-import { useCanvas, useExtensions } from 'hooks';
+import { actions } from '#/lib/command';
+import { useCanvas, useExtensions } from '#/hooks';
 
 import { CanvasErrorFallback } from './error';
 import { CanvasActions } from './actions';

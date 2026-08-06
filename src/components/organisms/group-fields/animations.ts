@@ -1,4 +1,4 @@
-import { createFramerMotionVariants } from 'utils';
+import { createFramerMotionVariants } from '#/utils';
 
 const variants = createFramerMotionVariants({
   icon: {

@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Fields } from '#/components/molecules/fields';
 
 import { views } from './views';
-import { capitalize } from 'utils';
+import { capitalize } from '#/utils';
 
 type Views = keyof typeof views;
 

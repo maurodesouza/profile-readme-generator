@@ -145,7 +145,7 @@ Structure:
 
 ## Import Rules
 
-* Prefer absolute imports (`@/...`)
+* Prefer absolute imports (`#/...`)
 * Avoid deep relative paths
 
 ---

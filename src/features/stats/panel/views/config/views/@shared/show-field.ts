@@ -1,4 +1,4 @@
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 import { views } from '..';
 
 const showField = (graph: keyof typeof views) => ({

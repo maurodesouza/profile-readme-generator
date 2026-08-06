@@ -3,10 +3,10 @@ import { observer } from 'mobx-react-lite';
 import { AnimatePresence, Reorder } from 'framer-motion';
 import { GroupFields } from '#/components/organisms/group-fields';
 
-import { useCanvas, useForceUpdate } from 'hooks';
-import { getDeepObjectProperty } from 'utils';
+import { useCanvas, useForceUpdate } from '#/hooks';
+import { getDeepObjectProperty } from '#/utils';
 
-import { actions } from 'lib/command';
+import { actions } from '#/lib/command';
 import { Item } from './item';
 
 import { groups } from './fields';

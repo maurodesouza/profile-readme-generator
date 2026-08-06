@@ -1,4 +1,4 @@
-import { actions } from 'lib/command';
+import { actions } from '#/lib/command';
 
 import { Text } from '#/components/atoms/text';
 import { DisplayBlock } from '#/components/atoms/display-block';

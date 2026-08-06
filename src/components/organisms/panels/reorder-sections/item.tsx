@@ -8,9 +8,9 @@ import { Tile } from '#/components/atoms/tile';
 import { Text } from '#/components/atoms/text';
 import { Clickable } from '#/components/atoms/clickable';
 
-import { useExtensions } from 'hooks';
-import { CanvasSection } from 'types';
-import { actions } from 'lib/command';
+import { useExtensions } from '#/hooks';
+import { CanvasSection } from '#/types';
+import { actions } from '#/lib/command';
 
 type ItemProps = {
   data: CanvasSection;

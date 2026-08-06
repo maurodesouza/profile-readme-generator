@@ -1,4 +1,4 @@
-import { Sections } from 'types';
+import { Sections } from '#/types';
 
 type Content = {
   url: string;

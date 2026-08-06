@@ -1,5 +1,5 @@
-import { Params, Sections } from 'types';
-import { getBorderUrl } from 'utils/getBorderUrl';
+import { Params, Sections } from '#/types';
+import { getBorderUrl } from '#/utils/getBorderUrl';
 
 type Borders = Parameters<typeof getBorderUrl>[0];
 

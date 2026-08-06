@@ -1,4 +1,4 @@
-import { config } from 'config';
+import { config } from '#/config';
 import { describe, it, expect, beforeEach } from 'vitest';
 
 import { storage } from '.';

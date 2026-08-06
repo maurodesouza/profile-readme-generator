@@ -1,8 +1,8 @@
 import { TFile } from '#/components/atoms/tree';
 import htmlPrettify from 'html-prettify';
 
-import { CanvasSection, CanvasStatesEnum, Settings } from 'types';
-import { toArray } from 'utils/toArray';
+import { CanvasSection, CanvasStatesEnum, Settings } from '#/types';
+import { toArray } from '#/utils/toArray';
 
 const parseToReadme = (
   template: CanvasSection[],

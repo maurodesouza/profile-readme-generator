@@ -1,4 +1,4 @@
-import type { DeepKeys } from 'types/helpers';
+import type { DeepKeys } from '#/types/helpers';
 import { CommandBus } from './command-bus';
 import { InstanceRegistry } from './instance-registry';
 import { TransitionStore } from './transitions-store';

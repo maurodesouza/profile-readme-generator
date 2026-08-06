@@ -1,5 +1,5 @@
-import { color_names } from 'resources';
-import { Inputs } from 'types';
+import { color_names } from '#/resources';
+import { Inputs } from '#/types';
 
 const colorOptions = [{ value: '', label: 'default' }].concat(
   Object.keys(color_names).map(name => ({

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 import { Icon } from '#/components/atoms/icon';
 import { tv, VariantProps } from 'tailwind-variants';
 

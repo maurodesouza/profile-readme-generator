@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { CanvasSection, PanelsEnum, Sections } from 'types';
-import { deepChangeObjectProperty, parseImportedReadme } from 'utils';
-import { actions, command } from 'lib/command';
-import { canvasStore } from 'stores/canvas-store';
-import { extensionsStore } from 'stores/extensions-store';
+import { CanvasSection, PanelsEnum, Sections } from '#/types';
+import { deepChangeObjectProperty, parseImportedReadme } from '#/utils';
+import { actions, command } from '#/lib/command';
+import { canvasStore } from '#/stores/canvas-store';
+import { extensionsStore } from '#/stores/extensions-store';
 import { toJS } from 'mobx';
 
 type HandleEditPayload = {

@@ -5,7 +5,7 @@ import { Tile } from '#/components/atoms/tile';
 import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
 
-import { actions } from 'lib/command';
+import { actions } from '#/lib/command';
 import { variants, animations } from './animations';
 
 type ItemProps = {

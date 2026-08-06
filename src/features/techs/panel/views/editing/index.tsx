@@ -7,12 +7,12 @@ import { GroupFields } from '#/components/organisms/group-fields';
 import { Panel } from '#/components/organisms/panel';
 import { IconEditor, IconEditorRef } from '#/components/molecules/icon-editor';
 
-import { actions } from 'lib/command';
-import { getDeepObjectProperty } from 'utils';
-import { useCanvas, useForceUpdate } from 'hooks';
+import { actions } from '#/lib/command';
+import { getDeepObjectProperty } from '#/utils';
+import { useCanvas, useForceUpdate } from '#/hooks';
 
 import { fields } from './fields';
-import { EditableIcon } from 'types';
+import { EditableIcon } from '#/types';
 
 import { Variants } from './variants';
 import { Providers } from './providers';

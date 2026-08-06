@@ -1,11 +1,11 @@
-import { actions } from 'lib/command';
+import { actions } from '#/lib/command';
 
 import { Text } from '#/components/atoms/text';
 import { ShareModal } from '#/components/molecules/share-modal';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { templates } from 'resources';
-import { CanvasSection } from 'types';
+import { templates } from '#/resources';
+import { CanvasSection } from '#/types';
 
 const MAX_TEMPLATES_DISPLAY = 8;
 

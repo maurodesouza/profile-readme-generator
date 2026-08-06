@@ -57,7 +57,7 @@ export function CanvasHandle() {
 
     if (sectionId === canvasStore.activeSectionId) {
       canvasStore.activeSectionId = undefined;
-      actions.panel.right.close();
+      actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
     }
   }
 

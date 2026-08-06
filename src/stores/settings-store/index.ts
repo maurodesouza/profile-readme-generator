@@ -4,6 +4,7 @@ import { makePersistable } from 'mobx-persist-store';
 import { config } from 'config';
 import { Settings } from 'types';
 import { deepChangeObjectProperty } from 'utils';
+import { storage } from 'utils/storage';
 
 const { preview: PREVIEW_SETTINGS, initial: INITIAL_SETTINGS } =
   config.general.settings;
@@ -18,7 +19,7 @@ class SettingsStore {
     makePersistable(this, {
       name: 'settings store',
       properties: ['settings'],
-      storage: window.localStorage,
+      storage,
     });
   }
 

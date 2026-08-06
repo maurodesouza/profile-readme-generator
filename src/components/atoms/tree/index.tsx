@@ -4,8 +4,8 @@ import { IconName } from 'lucide-react/dynamic';
 import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 
-import { cn } from 'utils';
-import { actions } from 'lib/command';
+import { cn } from '#/utils';
+import { actions } from '#/lib/command';
 
 export type TFile = {
   file: string;

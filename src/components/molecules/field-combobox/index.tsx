@@ -7,7 +7,7 @@ import { Popover } from '#/components/atoms/popover';
 import { Clickable } from '#/components/atoms/clickable';
 import { Input } from '#/components/atoms/field-input';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 
 type ComboboxOption = {
   label: string;

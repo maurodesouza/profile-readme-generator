@@ -1,4 +1,4 @@
-import { Inputs } from 'types';
+import { Inputs } from '#/types';
 
 const localeField = (graph: 'stats' | 'languages' | 'streak') => ({
   type: Inputs.SELECT,

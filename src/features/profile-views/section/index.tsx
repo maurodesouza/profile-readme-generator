@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
 
 import { GuardSection } from '#/components/organisms/sections/guard';
-import { getProfileViewsUrl, objectToQueryParams } from 'utils';
+import { getProfileViewsUrl, objectToQueryParams } from '#/utils';
 
-import { useSettings } from 'hooks';
-import { Params } from 'types';
+import { useSettings } from '#/hooks';
+import { Params } from '#/types';
 
 type Providers = Parameters<typeof getProfileViewsUrl>[0];
 

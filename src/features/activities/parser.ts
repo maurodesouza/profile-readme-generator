@@ -1,6 +1,6 @@
-import { Sections } from 'types';
-import { getActivitiesUrl } from 'utils';
-import { ActivityUrlType } from 'utils/getActivitiesUrl';
+import { Sections } from '#/types';
+import { getActivitiesUrl } from '#/utils';
+import { ActivityUrlType } from '#/utils/getActivitiesUrl';
 
 type Content = {
   type: Parameters<typeof getActivitiesUrl>[0];

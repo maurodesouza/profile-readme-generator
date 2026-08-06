@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { Extension, ExtensionsGroup } from 'types';
-import { command } from 'lib/command';
-import { extensionsStore } from 'stores/extensions-store';
+import { Extension, ExtensionsGroup } from '#/types';
+import { command } from '#/lib/command';
+import { extensionsStore } from '#/stores/extensions-store';
 
 export function ExtensionsHandle() {
   function handleRegisterExtension(newExtensions: Extension | Extension[]) {

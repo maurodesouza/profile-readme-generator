@@ -11,8 +11,8 @@ import { Icon } from '#/components/atoms/icon';
 import { Clickable } from '#/components/atoms/clickable';
 import { FlexibleRender } from '#/components/helpers/flexible-render';
 
-import { actions } from 'lib/command';
-import { Renderable } from 'types';
+import { actions } from '#/lib/command';
+import { Renderable } from '#/types';
 
 type IconEditorProps = {
   id: string;

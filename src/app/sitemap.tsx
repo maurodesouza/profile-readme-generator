@@ -1,5 +1,5 @@
-import { CONSTANTS } from '@constants';
-import { config } from 'config';
+import { CONSTANTS } from '#/constants';
+import { config } from '#/config';
 import type { MetadataRoute } from 'next';
 
 function populateAlternates(initialPath: string, finalPath: string) {

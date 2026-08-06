@@ -1,7 +1,7 @@
 import type { Element } from 'hast';
-import { social_icons } from 'resources';
-import { CanvasSection, Sections } from 'types';
-import { deepCopy } from 'utils/deepCopy';
+import { social_icons } from '#/resources';
+import { CanvasSection, Sections } from '#/types';
+import { deepCopy } from '#/utils/deepCopy';
 import { v4 as uuid } from 'uuid';
 import { defaultSocialsSectionConfig } from './default-config';
 

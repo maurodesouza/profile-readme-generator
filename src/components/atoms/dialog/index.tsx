@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 import { Text } from '#/components/atoms/text';
 import { Icon } from '#/components/atoms/icon';
 

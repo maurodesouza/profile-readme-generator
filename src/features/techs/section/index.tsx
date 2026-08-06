@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-import { EditableIcon } from 'types';
+import { EditableIcon } from '#/types';
 
 type TechStyles = {
   height: number;

@@ -4,7 +4,7 @@ import { Panel } from '#/components/organisms/panel';
 import { PageFooter } from '#/components/molecules/page-footer';
 import { Clickable } from '#/components/atoms/clickable';
 
-import { PanelsEnum } from 'types';
+import { PanelsEnum } from '#/types';
 
 const CanvasTemplate = () => {
   return (

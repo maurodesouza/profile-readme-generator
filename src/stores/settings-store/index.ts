@@ -1,10 +1,10 @@
 import { makeAutoObservable } from 'mobx';
 import { makePersistable } from 'mobx-persist-store';
 
-import { config } from 'config';
-import { Settings } from 'types';
-import { deepChangeObjectProperty } from 'utils';
-import { storage } from 'utils/storage';
+import { config } from '#/config';
+import { Settings } from '#/types';
+import { deepChangeObjectProperty } from '#/utils';
+import { storage } from '#/utils/storage';
 
 const { preview: PREVIEW_SETTINGS, initial: INITIAL_SETTINGS } =
   config.general.settings;

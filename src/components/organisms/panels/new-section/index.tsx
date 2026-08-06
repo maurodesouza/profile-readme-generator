@@ -5,8 +5,8 @@ import { IconName } from 'lucide-react/dynamic';
 import { Panel } from '#/components/organisms/panel';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { useExtensions } from 'hooks';
-import { PanelsEnum } from 'types';
+import { useExtensions } from '#/hooks';
+import { PanelsEnum } from '#/types';
 
 import { contents } from './contents';
 

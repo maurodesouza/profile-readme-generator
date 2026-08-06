@@ -1,8 +1,8 @@
 import { Text } from '#/components/atoms/text';
 import { DropdownMenu } from '#/components/atoms/dropdown-menu';
 
-import { actions } from 'lib/command';
-import { IconProviders } from 'types';
+import { actions } from '#/lib/command';
+import { IconProviders } from '#/types';
 
 type ProvidersProps = {
   icon: string;

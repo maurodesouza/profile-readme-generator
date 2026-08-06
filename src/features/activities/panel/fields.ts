@@ -1,5 +1,5 @@
-import { themes } from 'resources';
-import { Inputs } from 'types';
+import { themes } from '#/resources';
+import { Inputs } from '#/types';
 
 const groups = [
   {

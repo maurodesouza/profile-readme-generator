@@ -2,7 +2,7 @@ import React, { JSX } from 'react';
 import NextLink from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { twx } from 'utils';
+import { twx } from '#/utils';
 
 const headingVariants = tv({
   base: 'font-semibold text-foreground',

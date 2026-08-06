@@ -1,5 +1,5 @@
 import React, { JSX, useEffect, useRef, useState } from 'react';
-import { copyToClipboard } from 'utils';
+import { copyToClipboard } from '#/utils';
 
 export type CopyChildrenArgs = {
   isCopied: boolean;

@@ -5,9 +5,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Tree } from '#/components/atoms/tree';
 import { TFile, TFolder } from '#/components/atoms/tree';
 
-import { actions, command } from 'lib/command';
-import { parseToReadme } from 'utils';
-import { useCanvas, useExtensions, useSettings } from 'hooks';
+import { actions, command } from '#/lib/command';
+import { parseToReadme } from '#/utils';
+import { useCanvas, useExtensions, useSettings } from '#/hooks';
 
 const WORKFLOWS_FOLDER = '.github/workflows';
 const WORKFLOWS_CLASS = 'tone palette-warning text-tone-foreground-context';

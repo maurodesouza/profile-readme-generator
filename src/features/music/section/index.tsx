@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 
-import { getMusicUrl } from 'utils';
+import { getMusicUrl } from '#/utils';
 
 type Obj = {
   [key: string]: unknown;

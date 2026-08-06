@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { Renderable } from 'types';
-import { command, actions } from 'lib/command';
+import { Renderable } from '#/types';
+import { command, actions } from '#/lib/command';
 
 import { Dialog } from '#/components/atoms/dialog';
 import { FlexibleRender } from '#/components/helpers/flexible-render';

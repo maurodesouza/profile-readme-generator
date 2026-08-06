@@ -1,5 +1,5 @@
-import { actions } from 'lib/command';
-import { PanelsEnum } from 'types';
+import { actions } from '#/lib/command';
+import { PanelsEnum } from '#/types';
 
 const contents = [
   {

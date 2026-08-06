@@ -1,4 +1,4 @@
-import { twx } from 'utils';
+import { twx } from '#/utils';
 import { Text } from '#/components/atoms/text';
 import { Icon as IconPure } from '#/components/atoms/icon';
 

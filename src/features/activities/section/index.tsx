@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 
-import { getActivitiesUrl } from 'utils';
-import { activitiesSectionParser } from 'features/activities//parser';
+import { getActivitiesUrl } from '#/utils';
+import { activitiesSectionParser } from '#/features/activities//parser';
 import parse from 'html-react-parser';
 
 type Content = {

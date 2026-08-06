@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { usePersistedState } from 'hooks';
-import { actions, command } from 'lib/command';
+import { usePersistedState } from '#/hooks';
+import { actions, command } from '#/lib/command';
 
 export function ThemeHandler() {
   function getSystemTheme() {

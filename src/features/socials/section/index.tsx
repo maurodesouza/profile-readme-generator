@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import type { ReactNode } from 'react';
 
-import { getSocialImgUrl } from 'utils';
+import { getSocialImgUrl } from '#/utils';
 
 type SocialStyles = {
   type: 'icon' | 'badge';

@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic';
 import { statsSectionParser, statsWorkflowParser } from './parser';
 import { defaultStatsSectionConfig } from './default-config';
 
-import { actions } from 'lib/command';
-import { PanelsEnum, Sections } from 'types';
+import { actions } from '#/lib/command';
+import { PanelsEnum, Sections } from '#/types';
 
 const feature = {
   id: Sections.STATS,

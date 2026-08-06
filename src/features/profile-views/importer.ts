@@ -1,8 +1,8 @@
-import { CanvasSection, Sections } from 'types';
+import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 import { defaultProfileViewsSectionConfig } from './default-config';
-import { deepCopy } from 'utils/deepCopy';
+import { deepCopy } from '#/utils/deepCopy';
 
 const _processGetLoliParams = (
   params: URLSearchParams,

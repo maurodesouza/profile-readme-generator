@@ -1,4 +1,4 @@
-import { actions } from 'lib/command';
+import { actions } from '#/lib/command';
 
 import { ShareModal } from '#/components/molecules/share-modal';
 

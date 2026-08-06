@@ -1,5 +1,5 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { storage } from 'utils';
+import { storage } from '#/utils';
 
 type Return<T> = [T, Dispatch<SetStateAction<T>>];
 

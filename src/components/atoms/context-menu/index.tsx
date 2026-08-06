@@ -4,7 +4,7 @@ import * as React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
 import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 
-import { cn } from 'utils';
+import { cn } from '#/utils';
 import { Icon } from '#/components/atoms/icon';
 
 const ContextMenuRoot = ContextMenuPrimitive.Root;

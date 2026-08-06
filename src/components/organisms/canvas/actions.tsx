@@ -4,9 +4,9 @@ import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
 import { Clickable } from '#/components/atoms/clickable';
 
-import { useCanvas } from 'hooks';
-import { PanelsEnum } from 'types';
-import { actions } from 'lib/command';
+import { useCanvas } from '#/hooks';
+import { PanelsEnum } from '#/types';
+import { actions } from '#/lib/command';
 
 export const CanvasActions = observer(function CanvasActions() {
   const canvasStore = useCanvas();

@@ -56,7 +56,7 @@ For better organization, you can define action types within feature folders usin
 
 ```typescript
 // /src/features/pipeline/types.ts
-import type { ScopedAction } from "@/lib/command/types";
+import type { ScopedAction } from "#/lib/command/types";
 
 declare module "#/lib/command/global" {
   interface Actions {
@@ -79,7 +79,7 @@ This allows you to keep action types close to the feature implementation while m
 The command system is already instantiated in `src/lib/command/index.ts`:
 
 ```typescript
-import { command, actions } from '@/lib/command';
+import { command, actions } from '#/lib/command';
 ```
 
 ---
@@ -166,7 +166,7 @@ Track execution state for loading indicators:
 ### Using the React Hook (Recommended)
 
 ```typescript
-import { useTransition } from '@/hooks/use-transition';
+import { useTransition } from '#/hooks/use-transition';
 
 function CounterButton() {
   const isExecuting = useTransition(["counter.increment"]);
@@ -182,7 +182,7 @@ function CounterButton() {
 ### Using the Store Directly
 
 ```typescript
-import { TransitionStore } from '@/lib/command/transitions-store';
+import { TransitionStore } from '#/lib/command/transitions-store';
 
 const transitions = TransitionStore.getInstance();
 
@@ -204,7 +204,7 @@ const isCustomExecuting = transitions.isExecuting(["custom-key"]);
 Discover registered instances for UI integration:
 
 ```typescript
-import { InstanceRegistry } from '@/lib/command/instance-registry';
+import { InstanceRegistry } from '#/lib/command/instance-registry';
 
 const registry = InstanceRegistry.getInstance();
 

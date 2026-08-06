@@ -5,7 +5,7 @@ import { Icon } from '#/components/atoms/icon';
 import { Text } from '#/components/atoms/text';
 import { Dialog } from '#/components/atoms/dialog';
 
-import { config } from 'config';
+import { config } from '#/config';
 import { socials } from './socials';
 
 export function ShareModal() {

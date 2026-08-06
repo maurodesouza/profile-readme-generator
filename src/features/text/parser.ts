@@ -1,4 +1,4 @@
-import { Sections } from 'types';
+import { Sections } from '#/types';
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';

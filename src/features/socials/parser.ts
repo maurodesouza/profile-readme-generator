@@ -1,5 +1,5 @@
-import { Sections } from 'types';
-import { getSocialImgUrl } from 'utils';
+import { Sections } from '#/types';
+import { getSocialImgUrl } from '#/utils';
 
 type SocialStyles = {
   type: 'icon' | 'badge';

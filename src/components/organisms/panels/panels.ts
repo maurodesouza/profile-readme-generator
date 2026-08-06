@@ -1,4 +1,4 @@
-import { PanelsEnum, PanelsEnumType } from 'types';
+import { PanelsEnum, PanelsEnumType } from '#/types';
 
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';

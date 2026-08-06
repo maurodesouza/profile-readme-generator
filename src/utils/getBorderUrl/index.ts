@@ -1,6 +1,6 @@
-import { config } from 'config';
-import { Params } from 'types';
-import { objectToQueryParams } from 'utils/objectToQueryParams';
+import { config } from '#/config';
+import { Params } from '#/types';
+import { objectToQueryParams } from '#/utils/objectToQueryParams';
 
 const { capsuleRenderBaseUrl } = config.general.urls.sections.borders;
 

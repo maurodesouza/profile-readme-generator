@@ -1,5 +1,5 @@
-import { Sections } from 'types';
-import { getMusicUrl } from 'utils';
+import { Sections } from '#/types';
+import { getMusicUrl } from '#/utils';
 
 type Obj = {
   [key: string]: unknown;

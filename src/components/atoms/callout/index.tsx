@@ -1,6 +1,6 @@
 import React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
-import { cn } from 'utils';
+import { cn } from '#/utils';
 
 const calloutVariant = tv({
   base: 'w-1 absolute top-0 bottom-0 left-0 bg-tone-luminosity-300',

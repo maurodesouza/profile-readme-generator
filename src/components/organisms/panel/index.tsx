@@ -12,11 +12,11 @@ import React, {
 import { Icon } from '#/components/atoms/icon';
 
 import { panels } from '#/components/organisms/panels/panels';
-import { useExtensions, useOutsideClick, useMediaQuery } from 'hooks';
-import { command, actions } from 'lib/command';
+import { useExtensions, useOutsideClick, useMediaQuery } from '#/hooks';
+import { command, actions } from '#/lib/command';
 
-import { PanelsEnumType, PanelSide } from 'types';
-import { cn, getThemeToken, twx } from 'utils';
+import { PanelsEnumType, PanelSide } from '#/types';
+import { cn, getThemeToken, twx } from '#/utils';
 
 type PanelContextState = {
   isOpen: boolean;

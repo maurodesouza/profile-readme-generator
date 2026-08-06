@@ -1,4 +1,4 @@
-import { actions as commandActions } from 'lib/command';
+import { actions as commandActions } from '#/lib/command';
 
 const actions = [
   {

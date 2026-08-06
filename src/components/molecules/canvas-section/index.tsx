@@ -4,9 +4,9 @@ import React from 'react';
 
 import { Section } from '#/components/atoms/section';
 
-import { actions } from 'lib/command';
-import { useCanvas } from 'hooks';
-import { CanvasStatesEnum } from 'types';
+import { actions } from '#/lib/command';
+import { useCanvas } from '#/hooks';
+import { CanvasStatesEnum } from '#/types';
 
 type CanvasSectionProps = {
   id: string;

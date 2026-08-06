@@ -1,4 +1,4 @@
-import { config } from 'config';
+import { config } from '#/config';
 
 const { getloli, laobi } = config.general.urls.sections.profileViews;
 

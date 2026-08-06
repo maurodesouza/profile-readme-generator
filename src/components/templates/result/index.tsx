@@ -13,11 +13,11 @@ import { ReadmeResult } from '#/components/organisms/readme-result';
 import { PageFooter } from '#/components/molecules/page-footer';
 import { CopyToClipboard } from '#/components/molecules/copy-to-clipboard';
 
-import { actions, command } from 'lib/command';
-import { PanelsEnum } from 'types';
+import { actions, command } from '#/lib/command';
+import { PanelsEnum } from '#/types';
 
-import { useCanvas, useExtensions, useSettings } from 'hooks';
-import { parseToReadme } from 'utils';
+import { useCanvas, useExtensions, useSettings } from '#/hooks';
+import { parseToReadme } from '#/utils';
 
 export const ResultTemplate = observer(function ResultTemplate() {
   const [content, setContent] = useState('');

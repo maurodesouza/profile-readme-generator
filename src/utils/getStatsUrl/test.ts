@@ -1,4 +1,4 @@
-import { config } from 'config';
+import { config } from '#/config';
 import { getStatsUrl } from '.';
 import { describe, it, expect } from 'vitest';
 

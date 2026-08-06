@@ -3,8 +3,8 @@ import dynamic from 'next/dynamic';
 import { musicSectionParser } from './parser';
 import { defaultMusicSectionConfig } from './default-config';
 
-import { actions } from 'lib/command';
-import { PanelsEnum, Sections } from 'types';
+import { actions } from '#/lib/command';
+import { PanelsEnum, Sections } from '#/types';
 
 const feature = {
   id: Sections.MUSIC,

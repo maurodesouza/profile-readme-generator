@@ -7,8 +7,8 @@ import { actions } from './actions';
 import { Icon } from '#/components/atoms/icon';
 import { ContextMenu } from '#/components/atoms/context-menu';
 
-import { useCanvas } from 'hooks';
-import { actions as commandActions } from 'lib/command';
+import { useCanvas } from '#/hooks';
+import { actions as commandActions } from '#/lib/command';
 
 type SectionContextMenuProps = {
   id: string;

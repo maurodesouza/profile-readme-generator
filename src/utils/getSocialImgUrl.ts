@@ -1,4 +1,4 @@
-import { config } from 'config';
+import { config } from '#/config';
 import { objectToQueryParams } from './objectToQueryParams';
 
 const { badgeBaseUrl, iconBaseUrl } = config.general.urls.sections.socials;

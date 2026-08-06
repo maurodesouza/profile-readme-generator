@@ -1,4 +1,4 @@
-import { config } from 'config';
+import { config } from '#/config';
 import { objectToQueryParams } from '../objectToQueryParams';
 
 type Obj = Record<string, unknown>;

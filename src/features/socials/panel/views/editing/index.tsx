@@ -7,9 +7,9 @@ import { GroupFields } from '#/components/organisms/group-fields';
 import { IconEditor, IconEditorRef } from '#/components/molecules/icon-editor';
 import { Panel } from '#/components/organisms/panel';
 
-import { actions } from 'lib/command';
-import { useCanvas, useForceUpdate } from 'hooks';
-import { getDeepObjectProperty, getSocialImgUrl } from 'utils';
+import { actions } from '#/lib/command';
+import { useCanvas, useForceUpdate } from '#/hooks';
+import { getDeepObjectProperty, getSocialImgUrl } from '#/utils';
 
 import { fields, getIconFields } from './fields';
 import React from 'react';

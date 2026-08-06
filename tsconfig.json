@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
-    "lib": ["dom", "es2017"],
-    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "moduleResolution": "bundler",
     "allowJs": true,
     "noEmit": true,
     "strict": true,
@@ -21,7 +24,9 @@
     "isolatedModules": true,
     "baseUrl": "src",
     "paths": {
-      "#/*": ["*"]
+      "#/*": [
+        "*"
+      ]
     },
     "incremental": true,
     "plugins": [
@@ -30,6 +35,14 @@
       }
     ]
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", ".next/types/**/*.ts"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ]
 }

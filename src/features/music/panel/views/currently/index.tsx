@@ -17,7 +17,7 @@ export const Currently = observer(function Currently() {
   const canvasStore = useCanvas();
 
   const project = getDeepObjectProperty<Projects>(
-    canvasStore.currentSection,
+    canvasStore.$currentSection,
     'props.content.currently.project'
   )!;
 

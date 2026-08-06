@@ -15,7 +15,7 @@ export const MusicEditPanel = observer(function MusicEditPanel() {
   const canvasStore = useCanvas();
 
   const currentView = getDeepObjectProperty<Views>(
-    canvasStore.currentSection,
+    canvasStore.$currentSection,
     'props.content.type'
   )!;
 

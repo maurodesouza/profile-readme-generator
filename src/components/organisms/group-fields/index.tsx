@@ -52,12 +52,10 @@ export const GroupFields = observer(function GroupFields(
   const canvasStore = useCanvas();
   const settingsStore = useSettings();
 
-  const currentSection = canvasStore.activeSectionId
-    ? canvasStore.$sectionsMap.byId[canvasStore.activeSectionId]
-    : undefined;
-
   const obj =
-    context === 'canvas' ? currentSection : { props: settingsStore.$settings };
+    context === 'canvas'
+      ? canvasStore.$currentSection
+      : { props: settingsStore.$settings };
 
   function toggleExpansible() {
     setIsExpanded(!isExpanded);

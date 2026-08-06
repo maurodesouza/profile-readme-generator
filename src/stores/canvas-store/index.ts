@@ -40,6 +40,12 @@ class CanvasStore {
       }
     );
   }
+
+  get $currentSection() {
+    return this.activeSectionId
+      ? this.$sectionsMap.byId[this.activeSectionId]
+      : undefined;
+  }
 }
 
 const canvasStore = new CanvasStore();

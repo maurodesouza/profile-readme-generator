@@ -1,3 +1,5 @@
+import { observer } from 'mobx-react-lite';
+
 import { getActivitiesUrl } from 'utils';
 import { activitiesSectionParser } from 'features/activities//parser';
 import parse from 'html-react-parser';
@@ -17,7 +19,9 @@ type ActivitiesSectionProps = {
   styles: Styles;
 };
 
-export function ActivitiesSection(props: ActivitiesSectionProps) {
+export const ActivitiesSection = observer(function ActivitiesSection(
+  props: ActivitiesSectionProps
+) {
   const { content, styles } = props;
 
   const mainContent = activitiesSectionParser({ content, styles });
@@ -27,4 +31,4 @@ export function ActivitiesSection(props: ActivitiesSectionProps) {
       {parse(mainContent)}
     </div>
   );
-}
+});

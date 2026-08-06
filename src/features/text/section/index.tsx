@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+import { observer } from 'mobx-react-lite';
 
 type SectionStyles = {
   align: 'left' | 'center' | 'right';
@@ -14,7 +15,9 @@ type TextSectionProps = {
   styles: SectionStyles;
 };
 
-export function TextSection(props: TextSectionProps) {
+export const TextSection = observer(function TextSection(
+  props: TextSectionProps
+) {
   const { content, styles } = props;
 
   const { text, as: Text } = content;
@@ -29,4 +32,4 @@ export function TextSection(props: TextSectionProps) {
       </Text>
     </div>
   );
-}
+});

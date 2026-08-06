@@ -1,5 +1,6 @@
+'use client';
+
 import { tailwind } from '#/utils/tailwind';
-('use client');
 
 import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';

@@ -1,5 +1,6 @@
+'use client';
+
 import { tailwind } from '#/utils/tailwind';
-('use client');
 
 import * as React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';

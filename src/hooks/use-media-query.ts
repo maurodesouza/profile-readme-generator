@@ -1,11 +1,10 @@
+'use client';
+
 import { array } from '#/utils/array';
 /**
  * Code copied from:
  * https://github.com/chakra-ui/chakra-ui/blob/1a753d53ecfd543dc61279f1618b0d8526325409/packages/react/src/hooks/use-media-query.ts
  */
-
-('use client');
-
 import { useEffect, useState } from 'react';
 import { useCallbackRef } from './use-callback-ref';
 

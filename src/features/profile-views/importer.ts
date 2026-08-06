@@ -1,8 +1,9 @@
+import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 import { defaultProfileViewsSectionConfig } from './default-config';
-import { deepCopy } from '#/utils/deepCopy';
+
 
 const _processGetLoliParams = (
   params: URLSearchParams,
@@ -48,7 +49,7 @@ const profileViewsImporter = (
 
   if (images.length === 0) return null;
 
-  const defaultConfig = deepCopy(defaultProfileViewsSectionConfig);
+  const defaultConfig = object.deepCopy(defaultProfileViewsSectionConfig);
 
   const image = images[0] as Element;
   const src: string = image.properties['src'] as string;

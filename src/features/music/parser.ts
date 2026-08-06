@@ -1,5 +1,6 @@
+import { url } from '#/utils/url';
 import { Sections } from '#/types';
-import { getMusicUrl } from '#/utils';
+
 
 type Obj = {
   [key: string]: unknown;
@@ -32,7 +33,7 @@ const musicSectionParser = ({ content, styles }: MusicSectionParserArgs) => {
   const { type, ...rest } = content;
   const { align } = styles;
 
-  const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, rest[type]);
+  const { spotifyAccountUrl, imageUrl } = url.getMusicUrl(type, rest[type]);
   const alt = ALTS[type];
 
   return `

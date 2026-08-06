@@ -1,8 +1,9 @@
+import { array } from '#/utils/array';
 import { TFile } from '#/components/atoms/tree';
 import htmlPrettify from 'html-prettify';
 
 import { CanvasSection, CanvasStatesEnum, Settings } from '#/types';
-import { toArray } from '#/utils/toArray';
+
 
 const parseToReadme = (
   template: CanvasSection[],
@@ -42,7 +43,7 @@ const parseToReadme = (
 
     if (!workflow) return workflows;
 
-    const next = toArray(workflow);
+    const next = array.toArray(workflow);
 
     return [...workflows, ...next];
   }, [] as TFile[]);

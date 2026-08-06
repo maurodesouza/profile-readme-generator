@@ -1,3 +1,4 @@
+import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
 import { useState } from 'react';
@@ -6,7 +7,7 @@ import { motion } from 'framer-motion';
 import { actions } from '#/lib/command';
 import { Inputs } from '#/types';
 import { useCanvas, useSettings } from '#/hooks';
-import { checkDeepObjectValue, getDeepObjectProperty } from '#/utils';
+
 
 import { variants } from './animations';
 import { GroupFieldsLabel } from './label';
@@ -70,7 +71,7 @@ export const GroupFields = observer(function GroupFields(
   }
 
   const canRender = conditions
-    ? checkDeepObjectValue({
+    ? object.checkDeepObjectValue({
         obj,
         path: conditions.path,
         be: conditions.be as 'equal',
@@ -106,7 +107,7 @@ export const GroupFields = observer(function GroupFields(
             const { column, ...rest } = field?.props ?? {};
 
             const canRender = field.conditions
-              ? checkDeepObjectValue({
+              ? object.checkDeepObjectValue({
                   obj,
                   path: field.conditions.path,
                   be: field.conditions.be as 'equal',
@@ -114,7 +115,7 @@ export const GroupFields = observer(function GroupFields(
                 })
               : true;
 
-            const defaultValue = getDeepObjectProperty(
+            const defaultValue = object.getDeepObjectProperty(
               obj?.props,
               field.path
             ) as string | boolean | undefined;

@@ -1,7 +1,8 @@
+import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
 import { GroupFields } from '#/components/organisms/group-fields';
-import { getDeepObjectProperty } from '#/utils';
+
 
 import { useCanvas } from '#/hooks';
 import { views } from './views';
@@ -14,7 +15,7 @@ type Views = keyof typeof views;
 export const MusicEditPanel = observer(function MusicEditPanel() {
   const canvasStore = useCanvas();
 
-  const currentView = getDeepObjectProperty<Views>(
+  const currentView = object.getDeepObjectProperty<Views>(
     canvasStore.$currentSection,
     'props.content.type'
   )!;

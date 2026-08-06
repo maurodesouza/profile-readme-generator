@@ -1,8 +1,9 @@
+import { tailwind } from '#/utils/tailwind';
 import React from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { twx } from '#/utils';
+
 
 const buttonVariants = tv({
   base: 'flex items-center gap-xs rounded-md hover:no-underline!',
@@ -59,7 +60,7 @@ type ButtonVariantProps = VariantProps<typeof buttonVariants> & {
 
 type ButtonProps = React.ComponentProps<'button'> & ButtonVariantProps;
 
-export const Button = twx.button.attrs<ButtonProps>(props => ({
+export const Button = tailwind.twx.button.attrs<ButtonProps>(props => ({
   'data-tone': props.tone ?? 'default',
 }))(props => buttonVariants(props));
 

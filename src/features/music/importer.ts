@@ -1,8 +1,9 @@
+import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
 import { defaultMusicSectionConfig } from './default-config';
-import { deepCopy } from '#/utils/deepCopy';
+
 
 const _processCurrentMusic = (element: Element, currentConfig: any): any => {
   const src = element.properties.src as string;
@@ -42,7 +43,7 @@ const _processRecentMusic = (element: Element, currentConfig: any): any => {
 };
 
 const musicImporter = (musicDiv: Element): CanvasSection | null => {
-  const defaultConfig = deepCopy(defaultMusicSectionConfig);
+  const defaultConfig = object.deepCopy(defaultMusicSectionConfig);
 
   if (musicDiv.children.length === 0) return null;
 

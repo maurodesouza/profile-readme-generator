@@ -1,3 +1,4 @@
+import { parsers } from '#/utils/parsers';
 import { observer } from 'mobx-react-lite';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -6,7 +7,7 @@ import { Tree } from '#/components/atoms/tree';
 import { TFile, TFolder } from '#/components/atoms/tree';
 
 import { actions, command } from '#/lib/command';
-import { parseToReadme } from '#/utils';
+
 import { useCanvas, useExtensions, useSettings } from '#/hooks';
 
 const WORKFLOWS_FOLDER = '.github/workflows';
@@ -21,7 +22,7 @@ export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
 
   const generatedTree = useMemo(
     () =>
-      parseToReadme(
+      parsers.parseToReadme(
         canvasStore.sections,
         extensionsStore.extensions.sections,
         settingsStore.$settings

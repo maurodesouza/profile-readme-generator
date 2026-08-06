@@ -1,4 +1,4 @@
-import { getDeepObjectProperty } from '../getDeepObjectProperty';
+import { getDeepObjectProperty } from '../get-deep-object-property';
 
 const operators = {
   equal: (a: unknown, b: unknown): boolean => a === b,

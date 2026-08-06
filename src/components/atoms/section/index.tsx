@@ -1,7 +1,8 @@
+import { tailwind } from '#/utils/tailwind';
 import { Reorder } from 'framer-motion';
 import { tv, VariantProps } from 'tailwind-variants';
 
-import { twx } from '#/utils';
+
 
 const containerVariants = tv({
   base: '[&+&]:mt-[calc(var(--spacing-md)/2)] [&[data-hasfloat=true]+&]:pt-xl [&[data-hasfloat=true]+&]:mt-0',
@@ -28,7 +29,7 @@ const containerVariants = tv({
 type ContainerProps = React.ComponentProps<typeof Reorder.Item> &
   VariantProps<typeof containerVariants>;
 
-const Container = twx(Reorder.Item)<ContainerProps>(props =>
+const Container = tailwind.twx(Reorder.Item)<ContainerProps>(props =>
   containerVariants(props)
 );
 
@@ -51,7 +52,7 @@ const wrapperVariants = tv({
 type WrapperProps = React.ComponentProps<'button'> &
   VariantProps<typeof wrapperVariants>;
 
-const Wrapper = twx.button<WrapperProps>(props => wrapperVariants(props));
+const Wrapper = tailwind.twx.button<WrapperProps>(props => wrapperVariants(props));
 
 export const Section = {
   Container,

@@ -1,3 +1,5 @@
+import { object } from '#/utils/object';
+import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
 import { useMemo, useRef } from 'react';
@@ -9,7 +11,7 @@ import { Panel } from '#/components/organisms/panel';
 
 import { actions } from '#/lib/command';
 import { useCanvas, useForceUpdate } from '#/hooks';
-import { getDeepObjectProperty, getSocialImgUrl } from '#/utils';
+
 
 import { fields, getIconFields } from './fields';
 import React from 'react';
@@ -47,7 +49,7 @@ const MemoizedIconEditor = React.memo(
         baseEditPath="content.socials"
         img={{
           alt: `${social} ${icon} logo`,
-          url: getSocialImgUrl('icon', social, { icon }),
+          url: url.getSocialImgUrl('icon', social, { icon }),
         }}
         slots={{
           expansibleContent: () => (
@@ -81,7 +83,7 @@ export const Editing = observer(function Editing() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedSocials = getDeepObjectProperty<Socials>(
+  const selectedSocials = object.getDeepObjectProperty<Socials>(
     canvasStore.$currentSection,
     'props.content.socials'
   )!;

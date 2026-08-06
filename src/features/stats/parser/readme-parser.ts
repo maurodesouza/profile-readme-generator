@@ -1,8 +1,10 @@
+import { object } from '#/utils/object';
+import { url } from '#/utils/url';
 import { Sections, Settings } from '#/types';
-import { getStatsUrl, objectToQueryParams } from '#/utils';
+
 
 type Obj = Record<string, unknown>;
-type Graphs = Parameters<typeof getStatsUrl>[0];
+type Graphs = Parameters<typeof url.getStatsUrl>[0];
 
 type Content = {
   graphs: Record<Graphs, Obj>;
@@ -57,12 +59,12 @@ const statsSectionParser = (
       if (workflowFile) {
         const branch = WORKFLOW_OUTPUT_BRANCH[graph];
         const fullUrl = `https://raw.githubusercontent.com/${github}/${github}/${branch}/${workflowFile}`;
-        const queryParams = objectToQueryParams(rest as Obj);
+        const queryParams = object.objectToQueryParams(rest as Obj);
 
         img = `<img src="${fullUrl}?${queryParams}" height="${height}" alt="${graph} graph" />`;
       } else {
-        const url = getStatsUrl(graph as Graphs, github!);
-        const fullUrl = `${url}&${objectToQueryParams(rest as Obj)}`;
+        const srcUrl = url.getStatsUrl(graph as Graphs, github!);
+        const fullUrl = `${srcUrl}&${object.objectToQueryParams(rest as Obj)}`;
 
         img = `<img src="${fullUrl}" height="${height}" alt="${graph} graph" />`;
       }

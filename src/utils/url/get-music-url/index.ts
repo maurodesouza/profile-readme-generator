@@ -1,5 +1,5 @@
 import { config } from '#/config';
-import { objectToQueryParams } from '../objectToQueryParams';
+import { object } from '#/utils/object';
 
 type Obj = Record<string, unknown>;
 
@@ -11,7 +11,7 @@ const getMusicUrl = (type: string, props: Obj = {}) => {
     const spotifyAccountUrl = (props.user &&
       `${profileBaseUrl}/${props.user}`) as string | undefined;
 
-    const imageUrl = `${recentlyPlayedBaseUrl}?${objectToQueryParams(props)}`;
+    const imageUrl = `${recentlyPlayedBaseUrl}?${object.objectToQueryParams(props)}`;
 
     return { spotifyAccountUrl, imageUrl };
   }
@@ -21,7 +21,7 @@ const getMusicUrl = (type: string, props: Obj = {}) => {
   {
     const props = obj as Obj;
 
-    const queries = objectToQueryParams((props.props ?? {}) as Obj);
+    const queries = object.objectToQueryParams((props.props ?? {}) as Obj);
     const imageUrl = `${props.url}?${queries}`;
 
     return { imageUrl };

@@ -1,10 +1,11 @@
+import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
 import { AnimatePresence, Reorder } from 'framer-motion';
 import { GroupFields } from '#/components/organisms/group-fields';
 
 import { useCanvas, useForceUpdate } from '#/hooks';
-import { getDeepObjectProperty } from '#/utils';
+
 
 import { actions } from '#/lib/command';
 import { Item } from './item';
@@ -19,7 +20,7 @@ export const Layout = observer(function Layout() {
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
 
-  const selectedStats = getDeepObjectProperty<Stats | undefined>(
+  const selectedStats = object.getDeepObjectProperty<Stats | undefined>(
     canvasStore.$currentSection,
     'props.content.graphs'
   );

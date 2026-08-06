@@ -1,8 +1,10 @@
+import { object } from '#/utils/object';
+import { parsers } from '#/utils/parsers';
 import { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { CanvasSection, PanelsEnum, Sections } from '#/types';
-import { deepChangeObjectProperty, parseImportedReadme } from '#/utils';
+
 import { actions, command } from '#/lib/command';
 import { canvasStore } from '#/stores/canvas-store';
 import { extensionsStore } from '#/stores/extensions-store';
@@ -42,7 +44,7 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     const finalPath = path.startsWith('props.') ? path : `props.${path}`;
 
-    deepChangeObjectProperty<CanvasSection>({
+    object.deepChangeObjectProperty<CanvasSection>({
       obj: section,
       path: finalPath,
       value,
@@ -123,7 +125,7 @@ export function CanvasHandle() {
     if (!file) return;
 
     const text = await file.text();
-    const sections = await parseImportedReadme(text);
+    const sections = await parsers.parseImportedReadme(text);
 
     clear();
     canvasStore.sections = sections;

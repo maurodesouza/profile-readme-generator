@@ -1,6 +1,7 @@
+import { object } from '#/utils/object';
 import { config } from '#/config';
 import { Params } from '#/types';
-import { objectToQueryParams } from '#/utils/objectToQueryParams';
+
 
 const { capsuleRenderBaseUrl } = config.general.urls.sections.borders;
 
@@ -69,5 +70,5 @@ const parameters = {
 };
 
 export function getBorderUrl(type: keyof typeof urls, params?: Params) {
-  return `${urls[type]}${objectToQueryParams(parameters[type](params))}`;
+  return `${urls[type]}${object.objectToQueryParams(parameters[type](params))}`;
 }

@@ -1,3 +1,4 @@
+import { array } from '#/utils/array';
 /**
  * Code copied from:
  * https://github.com/chakra-ui/chakra-ui/blob/1a753d53ecfd543dc61279f1618b0d8526325409/packages/react/src/hooks/use-media-query.ts
@@ -7,7 +8,7 @@
 
 import { useEffect, useState } from 'react';
 import { useCallbackRef } from './use-callback-ref';
-import { toArray } from '#/utils';
+
 
 type MediaQueryCallback = (event: MediaQueryListEvent) => void;
 
@@ -34,7 +35,7 @@ export function useMediaQuery(
   const { fallback: _fallback = [], ssr = true, getWindow } = options;
   const getWin = useCallbackRef(getWindow);
 
-  const queries = toArray(query);
+  const queries = array.toArray(query);
 
   const fallback = _fallback?.filter(v => v != null) as boolean[];
 

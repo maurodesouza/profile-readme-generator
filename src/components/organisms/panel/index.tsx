@@ -1,3 +1,4 @@
+import { tailwind } from '#/utils/tailwind';
 import { observer } from 'mobx-react-lite';
 
 import React, {
@@ -16,7 +17,7 @@ import { useExtensions, useOutsideClick, useMediaQuery } from '#/hooks';
 import { command, actions } from '#/lib/command';
 
 import { PanelsEnumType, PanelSide } from '#/types';
-import { cn, getThemeToken, twx } from '#/utils';
+
 
 type PanelContextState = {
   isOpen: boolean;
@@ -94,7 +95,7 @@ function PanelContainer(props: React.PropsWithChildren) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const breakpoint = useMemo(() => {
-    return getThemeToken('--breakpoint-laptop', { fallbackReturn: '0px' });
+    return tailwind.getThemeToken('--breakpoint-laptop', { fallbackReturn: '0px' });
   }, []);
 
   const [isLessThanLaptop] = useMediaQuery(`(max-width: ${breakpoint})`);
@@ -111,7 +112,7 @@ function PanelContainer(props: React.PropsWithChildren) {
 
   return (
     <div
-      className={cn(
+      className={tailwind.cn(
         'w-0 max-w-0 h-full relative laptop:w-full laptop:max-w-panel'
       )}
       ref={containerRef}
@@ -125,7 +126,7 @@ function PanelWrapper(props: React.PropsWithChildren) {
 
   return (
     <div
-      className={cn(
+      className={tailwind.cn(
         `absolute top-0 w-panel h-full bg-background-default p-md rounded-md box-border z-10 laptop:shadow-none`,
         side === 'left' ? 'left-0' : 'right-0',
         isOpen
@@ -142,7 +143,7 @@ function PanelContent(props: React.PropsWithChildren) {
 
   return (
     <div
-      className={cn(
+      className={tailwind.cn(
         'w-full h-full flex flex-col',
         !isOpen && 'max-laptop:opacity-0 max-laptop:overflow-hidden'
       )}
@@ -151,7 +152,7 @@ function PanelContent(props: React.PropsWithChildren) {
   );
 }
 
-const Scrollable = twx.div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
+const Scrollable = tailwind.twx.div`h-full w-[calc(100%+(var(--spacing-md)*2))] -ml-md pl-md pr-xs overflow-y-scroll scrollbar`;
 
 const PanelRender = observer(function PanelRender() {
   const { panel } = usePanel();
@@ -206,7 +207,7 @@ function PanelToggle() {
       style={{
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}
-      className={cn(
+      className={tailwind.cn(
         'absolute grid place-items-center top-md bg-background-default! box-border rounded-md p-[calc(var(--spacing-xs)/2)] z-20 laptop:hidden',
 
         getPositionClasses(),

@@ -1,5 +1,6 @@
+import { object } from '#/utils/object';
 import { TFile } from '#/components/atoms/tree';
-import { objectToQueryParams } from '#/utils';
+
 
 import { StatsSectionParserArgs } from './readme-parser';
 
@@ -15,7 +16,7 @@ const buildActivityGraphOptions = (props: Obj) => {
   const customTitle = rest.customTitle as string | undefined;
   Reflect.deleteProperty(rest, 'customTitle');
 
-  const query = objectToQueryParams(rest);
+  const query = object.objectToQueryParams(rest);
 
   let options = query;
 

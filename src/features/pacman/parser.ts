@@ -1,5 +1,6 @@
+import { object } from '#/utils/object';
 import { Sections, Settings } from '#/types';
-import { objectToQueryParams } from '#/utils';
+
 
 const pacmanSectionParser = (
   config: Record<string, unknown>,
@@ -7,7 +8,7 @@ const pacmanSectionParser = (
 ) => {
   const { github } = settings.user;
   const game = (config?.game as string) ?? 'pacman';
-  const queryParams = objectToQueryParams({ game });
+  const queryParams = object.objectToQueryParams({ game });
 
   return `
     <picture data-importer="${Sections.PACMAN}">

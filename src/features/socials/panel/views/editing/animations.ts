@@ -1,6 +1,7 @@
-import { createFramerMotionVariants } from '#/utils';
+import { framer } from '#/utils/framer';
 
-const variants = createFramerMotionVariants({
+
+const variants = framer.createFramerMotionVariants({
   container: {
     open: {
       transition: { staggerChildren: 0.05, duration: 0.2 },

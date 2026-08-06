@@ -1,3 +1,4 @@
+import { tailwind } from '#/utils/tailwind';
 import React, { useEffect, useState } from 'react';
 
 import { Text } from '#/components/atoms/text';
@@ -7,7 +8,7 @@ import { Popover } from '#/components/atoms/popover';
 import { Clickable } from '#/components/atoms/clickable';
 import { Input } from '#/components/atoms/field-input';
 
-import { cn } from '#/utils';
+
 
 type ComboboxOption = {
   label: string;
@@ -52,7 +53,7 @@ export function Combobox(props: ComboboxProps) {
   }, [value]);
 
   return (
-    <div className={cn('w-full flex flex-col items-start gap-xs', className)}>
+    <div className={tailwind.cn('w-full flex flex-col items-start gap-xs', className)}>
       {label && <Text.Label>{label}</Text.Label>}
 
       <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -92,7 +93,7 @@ export function Combobox(props: ComboboxProps) {
                   >
                     <Icon
                       name="check"
-                      className={cn(
+                      className={tailwind.cn(
                         'size-4',
                         selectedOption?.value === option.value
                           ? 'opacity-100'

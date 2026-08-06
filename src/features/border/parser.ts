@@ -1,7 +1,8 @@
+import { url } from '#/utils/url';
 import { Params, Sections } from '#/types';
-import { getBorderUrl } from '#/utils/getBorderUrl';
 
-type Borders = Parameters<typeof getBorderUrl>[0];
+
+type Borders = Parameters<typeof url.getBorderUrl>[0];
 
 type Content = {
   provider: Borders;
@@ -18,11 +19,11 @@ type BorderSectionParserArgs = {
 const borderSectionParser = ({ content }: BorderSectionParserArgs) => {
   const { borders, provider } = content;
 
-  const url = getBorderUrl(provider, borders[provider]);
+  const srcUrl = url.getBorderUrl(provider, borders[provider]);
 
   return `
     <div data-importer="${Sections.BORDER}">
-      <img style="100%" src="${url}" />
+      <img style="100%" src="${srcUrl}" />
     </div>
   `;
 };

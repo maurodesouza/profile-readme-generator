@@ -1,11 +1,12 @@
+import { object } from '#/utils/object';
 import { CanvasSection, Sections } from '#/types';
 import { defaultImageSectionConfig } from './default-config';
 import { v4 as uuid } from 'uuid';
 import type { Element } from 'hast';
-import { deepCopy } from '#/utils/deepCopy';
+
 
 const imageImporter = (imageElement: Element): CanvasSection | null => {
-  const defaultConfig = deepCopy(defaultImageSectionConfig);
+  const defaultConfig = object.deepCopy(defaultImageSectionConfig);
 
   defaultConfig.props.styles.align = imageElement.properties?.align || 'center';
 

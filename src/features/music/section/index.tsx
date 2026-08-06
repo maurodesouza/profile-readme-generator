@@ -1,6 +1,7 @@
+import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
-import { getMusicUrl } from '#/utils';
+
 
 type Obj = {
   [key: string]: unknown;
@@ -36,7 +37,7 @@ export const MusicSection = observer(function MusicSection(
   const { content, styles } = props;
   const { type, ...rest } = content;
 
-  const { spotifyAccountUrl, imageUrl } = getMusicUrl(type, rest[type]);
+  const { spotifyAccountUrl, imageUrl } = url.getMusicUrl(type, rest[type]);
   const alt = ALTS[type];
 
   const Wrapper = ({ children }: { children: React.ReactNode }) =>

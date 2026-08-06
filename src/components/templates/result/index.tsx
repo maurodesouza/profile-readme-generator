@@ -1,3 +1,4 @@
+import { parsers } from '#/utils/parsers';
 import { observer } from 'mobx-react-lite';
 
 import { useEffect, useState } from 'react';
@@ -17,7 +18,7 @@ import { actions, command } from '#/lib/command';
 import { PanelsEnum } from '#/types';
 
 import { useCanvas, useExtensions, useSettings } from '#/hooks';
-import { parseToReadme } from '#/utils';
+
 
 export const ResultTemplate = observer(function ResultTemplate() {
   const [content, setContent] = useState('');
@@ -27,7 +28,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
   const settingsStore = useSettings();
 
   const hasWorkflows =
-    parseToReadme(
+    parsers.parseToReadme(
       canvasStore.sections,
       extensionsStore.extensions.sections,
       settingsStore.$settings

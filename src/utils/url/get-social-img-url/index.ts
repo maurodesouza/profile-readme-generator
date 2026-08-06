@@ -1,5 +1,5 @@
 import { config } from '#/config';
-import { objectToQueryParams } from './objectToQueryParams';
+import { object } from '#/utils/object';
 
 const { badgeBaseUrl, iconBaseUrl } = config.general.urls.sections.socials;
 
@@ -24,7 +24,7 @@ const getSocialImgUrl = (
     style = 'for-the-badge',
   } = badgeProps;
 
-  return `${badgeBaseUrl}?${objectToQueryParams(
+  return `${badgeBaseUrl}?${object.objectToQueryParams(
     {
       message,
       logo,

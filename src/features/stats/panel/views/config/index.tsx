@@ -1,3 +1,4 @@
+import { string } from '#/utils/string';
 import { useMemo, useState } from 'react';
 
 import { useRouter } from 'next/router';
@@ -6,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Fields } from '#/components/molecules/fields';
 
 import { views } from './views';
-import { capitalize } from '#/utils';
+
 
 type Views = keyof typeof views;
 
@@ -29,7 +30,7 @@ const Config = () => {
         defaultValue={currentTab}
         onChange={option => setCurrentTab(option.value)}
         options={viewNames.map(view => ({
-          label: view.split('-').map(capitalize).join(' '),
+          label: view.split('-').map(string.capitalize).join(' '),
           value: view,
         }))}
       />

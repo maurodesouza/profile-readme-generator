@@ -45,7 +45,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
       .replace(/--+/g, '-')
       .replace(/^-|-$/g, '');
 
-    return tFields(slugKey) as string;
+    return (tFields.has(slugKey) ? tFields(slugKey) : value) as string;
   };
 
   return (

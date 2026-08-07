@@ -30,7 +30,7 @@ export const PanelNewSection = observer(function PanelNewSection() {
       .replace(/--+/g, '-')
       .replace(/^-|-$/g, '');
 
-    return t(slugKey) as string;
+    return (t.has(slugKey) ? t(slugKey) : value) as string;
   };
 
   const items = Object.values(

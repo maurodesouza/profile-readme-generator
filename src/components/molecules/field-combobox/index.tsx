@@ -54,7 +54,7 @@ export function Combobox(props: ComboboxProps) {
       .replace(/--+/g, '-')
       .replace(/^-|-$/g, '');
 
-    return tFields(slugKey) as string;
+    return (tFields.has(slugKey) ? tFields(slugKey) : text) as string;
   };
 
   function getOptionByValue(value?: string) {

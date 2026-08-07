@@ -30,7 +30,7 @@ export function ShortResourceItem(props: ResourceItemProps) {
       .replace(/--+/g, '-')
       .replace(/^-|-$/g, '');
 
-    return t(slugKey) as string;
+    return (t.has(slugKey) ? t(slugKey) : value) as string;
   };
 
   return (

@@ -16,7 +16,7 @@ export function FooterNavs() {
         const El = 'href' in item.props ? Text.Link : Text.Clickable;
 
         return (
-          <El key={i} {...(item.props as any)}>
+          <El key={i} {...(item.props as React.ComponentProps<typeof El>)}>
             {translate(item.label)}
           </El>
         );

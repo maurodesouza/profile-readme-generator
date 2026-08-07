@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useDragControls } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 import { Tile } from '#/components/atoms/tile';
 import { Icon } from '#/components/atoms/icon';
@@ -45,7 +46,7 @@ export function Item(props: ItemProps) {
   return (
     <Tile.Sortable
       value={stats}
-      variants={variants.container}
+      variants={variants.container as Variants}
       dragListener={false}
       dragControls={dragControls}
       layout

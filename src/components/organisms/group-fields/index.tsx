@@ -58,7 +58,7 @@ export const GroupFields = observer(function GroupFields(
   const t = useTranslations('fields');
 
   const translate = (value?: string) =>
-    value ? (t(value.replace(/\./g, '__dot__')) as string) : value;
+    value ? (t(value.replace(/\./g, '__dot__')) as string) : '';
 
   const obj =
     context === 'canvas'

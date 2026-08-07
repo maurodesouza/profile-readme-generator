@@ -1,3 +1,7 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 import { actions } from '#/lib/command';
 
 import { Text } from '#/components/atoms/text';
@@ -12,6 +16,8 @@ type VariantsProps = {
 export function Variants(props: VariantsProps) {
   const { icon, provider, variants = [] } = props;
 
+  const t = useTranslations('ui');
+
   function handleChangeVariation(value: number) {
     return () => {
       const path = `content.icons.${icon}.config.${provider}.variant`;
@@ -21,7 +27,7 @@ export function Variants(props: VariantsProps) {
   }
   return variants.length ? (
     <div className="w-full flex flex-col gap-xs">
-      <Text.Strong>Variants</Text.Strong>
+      <Text.Strong>{t('techs.variants')}</Text.Strong>
 
       <div className="grid grid-cols-4 gap-xs">
         {variants.map((path, index) => {

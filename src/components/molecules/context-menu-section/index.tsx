@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { observer } from 'mobx-react-lite';
 
 import { IconName } from 'lucide-react/dynamic';
@@ -19,6 +21,8 @@ type SectionContextMenuProps = {
 export const SectionContextMenu = observer(function SectionContextMenu(
   props: SectionContextMenuProps
 ) {
+  const tFields = useTranslations('fields');
+  const tUi = useTranslations('ui');
   const canvasStore = useCanvas();
 
   const sectionIndex = canvasStore.sections.findIndex(
@@ -27,6 +31,9 @@ export const SectionContextMenu = observer(function SectionContextMenu(
 
   const isFirst = sectionIndex === 0;
   const isLast = sectionIndex + 1 === canvasStore.sections.length;
+
+  const translate = (value: string) =>
+    tFields(value.replace(/\./g, '__dot__')) as string;
 
   return (
     <ContextMenu.Content>
@@ -39,13 +46,13 @@ export const SectionContextMenu = observer(function SectionContextMenu(
           >
             <Icon name={icon as IconName} />
 
-            {label}
+            {translate(label)}
           </ContextMenu.Item>
         );
       })}
 
       <ContextMenu.Separator />
-      <ContextMenu.Label>Move</ContextMenu.Label>
+      <ContextMenu.Label>{tUi('contextMenu.move')}</ContextMenu.Label>
       <ContextMenu.Separator />
 
       <ContextMenu.Item
@@ -53,7 +60,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
         disabled={isFirst}
       >
         <Icon name="arrow-up" />
-        Up
+        {tUi('contextMenu.up')}
       </ContextMenu.Item>
 
       <ContextMenu.Item
@@ -61,7 +68,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
         disabled={isLast}
       >
         <Icon name="arrow-down" />
-        Down
+        {tUi('contextMenu.down')}
       </ContextMenu.Item>
     </ContextMenu.Content>
   );

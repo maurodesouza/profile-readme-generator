@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { tailwind } from '#/utils/tailwind';
 
 import * as React from 'react';
@@ -25,8 +27,8 @@ function CommandRoot({
 }
 
 function CommandDialog({
-  title = 'Command Palette',
-  description = 'Search for a command to run...',
+  title,
+  description,
   children,
   className,
   ...props
@@ -35,11 +37,15 @@ function CommandDialog({
   description?: string;
   className?: string;
 }) {
+  const t = useTranslations('ui');
+  const resolvedTitle = title ?? t('command.title');
+  const resolvedDescription = description ?? t('command.description');
+
   return (
     <Dialog.Provider {...props}>
       <Dialog.Header className="sr-only">
-        <Dialog.Title>{title}</Dialog.Title>
-        <Dialog.Description>{description}</Dialog.Description>
+        <Dialog.Title>{resolvedTitle}</Dialog.Title>
+        <Dialog.Description>{resolvedDescription}</Dialog.Description>
       </Dialog.Header>
       <Dialog.Content className={tailwind.cn('overflow-hidden p-0', className)}>
         <CommandRoot className="[&_[cmdk-group-heading]]:text-foreground **:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-xs [&_[cmdk-group-heading]]:font-semibold [&_[cmdk-group]]:px-xs [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-xs [&_[cmdk-item]]:py-sm [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">

@@ -1,3 +1,7 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 import { IconName } from 'lucide-react/dynamic';
 
 import { Fields } from '#/components/molecules/fields';
@@ -9,6 +13,7 @@ import { config } from '#/config';
 import { socials } from './socials';
 
 export function ShareModal() {
+  const t = useTranslations('ui');
   const shareUrl = config.general.urls.app;
 
   async function handleCopyToClipboard() {
@@ -18,15 +23,12 @@ export function ShareModal() {
   return (
     <Dialog.Content className="max-w-3xl">
       <Dialog.Header>
-        <Dialog.Title>Share with your friends!</Dialog.Title>
+        <Dialog.Title>{t('shareModal.title')}</Dialog.Title>
 
         <Dialog.Close />
       </Dialog.Header>
 
-      <Text.Paragraph>
-        This is amazing! I appreciate you for helping me by sharing my app,
-        thank you very much ❤
-      </Text.Paragraph>
+      <Text.Paragraph>{t('shareModal.description')}</Text.Paragraph>
 
       <div className="flex justify-center gap-lg my-xl">
         {socials.map(({ id, icon, share: Share }) => (

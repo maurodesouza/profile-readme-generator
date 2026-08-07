@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useDragControls } from 'framer-motion';
 
@@ -21,6 +22,7 @@ export function Item(props: ItemProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const t = useTranslations('ui.statsLayout');
 
   function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;
@@ -37,7 +39,7 @@ export function Item(props: ItemProps) {
     router.replace(`${pathname}?${query.toString()}`);
   }
 
-  const label = isShowing ? 'Hide' : 'Show';
+  const label = isShowing ? t('hide') : t('show');
   const eyeIcon = isShowing ? 'eye' : 'eye-off';
 
   return (
@@ -63,7 +65,7 @@ export function Item(props: ItemProps) {
             </Tile.Button>
           </Tooltip>
 
-          <Tooltip content="Configure" position="right" tone="brand">
+          <Tooltip content={t('configure')} position="right" tone="brand">
             <Tile.Button onClick={onConfigure}>
               <Icon name="settings" />
             </Tile.Button>

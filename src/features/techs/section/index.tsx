@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { observer } from 'mobx-react-lite';
 
 import { EditableIcon } from '#/types';
@@ -27,6 +28,7 @@ export const TechsSection = observer(function TechsSection(
   props: TechsSectionProps
 ) {
   const { content, styles: containerStyles } = props;
+  const t = useTranslations('ui.alts');
 
   const { icons, styles } = content;
   const { height } = styles;
@@ -53,7 +55,7 @@ export const TechsSection = observer(function TechsSection(
             <img
               style={{ height: `${height}px` }}
               key={name}
-              alt={`${name} logo`}
+              alt={t('techLogo', { name })}
               src={path}
             />
           );

@@ -1,3 +1,7 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 import { actions } from '#/lib/command';
 
 import { Text } from '#/components/atoms/text';
@@ -10,20 +14,21 @@ import { CanvasSection } from '#/types';
 const MAX_TEMPLATES_DISPLAY = 8;
 
 export function Welcome() {
+  const t = useTranslations('ui');
+
   return (
     <div className="flex flex-col items-center justify-between text-center pt-[calc(var(--spacing-xl)_*_3)]">
       <div className="flex flex-col gap-xs mb-md">
-        <Text.Heading>Welcome To Profile Readme Generator</Text.Heading>
+        <Text.Heading>{t('welcome.heading')}</Text.Heading>
         <Text.Heading as="h3">
-          <span className="hidden tablet:inline">🚀</span> The best profile
-          readme generator you will find
+          <span className="hidden tablet:inline">🚀</span>{' '}
+          {t('welcome.subheading')}{' '}
           <span className="hidden tablet:inline">⚡</span>
         </Text.Heading>
       </div>
 
       <Text.Paragraph className="max-w-[46rem] mb-xl mt-md">
-        You can create you readme manually by clicking on the options on the
-        left or using one of the templates with some structure already made!
+        {t('welcome.description')}
       </Text.Paragraph>
 
       <div className="hidden w-full max-w-[60rem] flex-col gap-md pb-xl tablet:flex">
@@ -48,23 +53,23 @@ export function Welcome() {
             ))}
         </div>
 
-        <Text.Small>*Click to preview one of the templates options</Text.Small>
+        <Text.Small>{t('welcome.templateHint')}</Text.Small>
       </div>
 
       <Text.Paragraph className="max-w-96 mt-auto">
-        If you like it, give the{' '}
+        {t('welcome.footerBeforeRepo')}{' '}
         <Text.Link
           href="https://github.com/maurodesouza/profile-readme-generator"
           target="_blank"
           rel="noreferrer"
         >
-          project repository
+          {t('welcome.footerRepo')}
         </Text.Link>{' '}
-        a star on Github and{' '}
+        {t('welcome.footerBeforeShare')}{' '}
         <Text.Clickable onClick={() => actions.modal.open(ShareModal)}>
-          share
+          {t('welcome.footerShare')}
         </Text.Clickable>{' '}
-        with your friends!! I will be happy with it! ❤
+        {t('welcome.footerAfterShare')}
       </Text.Paragraph>
     </div>
   );

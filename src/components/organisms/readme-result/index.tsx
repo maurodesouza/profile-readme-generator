@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { useEffect, useRef } from 'react';
 import primsjs from 'prismjs';
 
@@ -14,6 +16,7 @@ type ReadmeResultProps = {
 };
 
 export function ReadmeResult(props: ReadmeResultProps) {
+  const t = useTranslations('ui');
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,7 +31,11 @@ export function ReadmeResult(props: ReadmeResultProps) {
             return (
               <Tooltip
                 key={String(isCopied)}
-                content={isCopied ? 'Copied' : 'Copy File Content'}
+                content={
+                  isCopied
+                    ? t('readmeResult.copiedTooltip')
+                    : t('readmeResult.copyTooltip')
+                }
                 position="top"
               >
                 <Clickable.Button

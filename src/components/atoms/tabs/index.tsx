@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { tailwind } from '#/utils/tailwind';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -25,6 +27,10 @@ type PrePlayerTabsProps = {
 
 export function Tabs(props: PrePlayerTabsProps) {
   const { id = 'tab', tabs, currentTab, setCurrentTab } = props;
+
+  const t = useTranslations('fields');
+  const translate = (value: string) =>
+    t(value.replace(/\./g, '__dot__')) as string;
 
   const searchParams = useSearchParams();
 
@@ -61,7 +67,7 @@ export function Tabs(props: PrePlayerTabsProps) {
                   {icon && <Icon name={icon} size={20} />}
 
                   <Text.Paragraph className="text-inherit">
-                    {label}
+                    {translate(label)}
                   </Text.Paragraph>
                 </div>
 

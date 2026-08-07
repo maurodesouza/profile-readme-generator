@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { observer } from 'mobx-react-lite';
 
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
@@ -22,6 +24,8 @@ export const GuardSection = observer(function GuardSection(
   props: React.PropsWithChildren<GuardSectionProps>
 ) {
   const { sectionId, children } = props;
+
+  const t = useTranslations('ui');
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -47,7 +51,7 @@ export const GuardSection = observer(function GuardSection(
     setIsLoading(false);
 
     if (!response.ok) {
-      setError('User not found');
+      setError(t('guardSection.error'));
 
       return;
     }
@@ -95,17 +99,17 @@ export const GuardSection = observer(function GuardSection(
             />
 
             <Text.Paragraph>
-              To use this section, please tell us your
+              {t('guardSection.description1')}
               <br />
-              github username.
+              {t('guardSection.description2')}
             </Text.Paragraph>
           </div>
 
           <Fields.Compound.Input
             error={error}
             ref={inputRef}
-            label="Github username"
-            placeholder="Your github username"
+            label={t('guardSection.inputLabel')}
+            placeholder={t('guardSection.inputPlaceholder')}
             disabled={isLoading}
           />
         </form>

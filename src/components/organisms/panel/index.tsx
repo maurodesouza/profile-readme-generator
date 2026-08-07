@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { tailwind } from '#/utils/tailwind';
 import { observer } from 'mobx-react-lite';
 
@@ -180,6 +181,7 @@ const percentageMap = {
 
 function PanelToggle() {
   const { side, isOpen } = usePanel();
+  const t = useTranslations('ui.panel');
 
   const percentage = percentageMap[side];
   const isLeft = side === 'left';
@@ -205,7 +207,7 @@ function PanelToggle() {
   return (
     <button
       onClick={togglePanel}
-      aria-label={`Toggle ${side} panel`}
+      aria-label={t('toggle', { side })}
       style={{
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}

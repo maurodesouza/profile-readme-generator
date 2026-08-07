@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { parsers } from '#/utils/parsers';
 import { observer } from 'mobx-react-lite';
 
@@ -22,6 +24,7 @@ import { PanelsEnum } from '#/types';
 import { useCanvas, useExtensions, useSettings } from '#/hooks';
 
 export const ResultTemplate = observer(function ResultTemplate() {
+  const t = useTranslations('ui');
   const [content, setContent] = useState('');
 
   const canvasStore = useCanvas();
@@ -60,7 +63,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             <Icon name="chevron-left" />
           </Clickable.Link>
 
-          <Text.Heading as="h2">Your Readme is Done 🎉🎉🎉</Text.Heading>
+          <Text.Heading as="h2">{t('result.heading')}</Text.Heading>
           <div className="flex justify-end gap-xs ml-auto">
             <Clickable.ExternalLink
               tone="warning"
@@ -70,7 +73,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
               rel="noreferrer"
             >
               <Icon name="star" />
-              Star This Project
+              {t('result.starRepo')}
             </Clickable.ExternalLink>
 
             <Clickable.ExternalLink
@@ -81,7 +84,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
               rel="noreferrer"
             >
               <Icon name="git-fork" />
-              Fork on Github
+              {t('result.forkRepo')}
             </Clickable.ExternalLink>
           </div>
         </header>
@@ -96,14 +99,13 @@ export const ResultTemplate = observer(function ResultTemplate() {
             onMouseEnter={() => actions.generated.workflows.highlight()}
             onMouseLeave={() => actions.generated.workflows.unhighlight()}
           >
-            Hey, hey, hey! You also generated workflow files in{' '}
+            {t('result.workflowBefore')}{' '}
             <Text.Highlight className="tone palette-warning self-center">
-              .github/workflows
+              {t('result.workflowPath')}
             </Text.Highlight>
-            &nbsp;.
+            {' .'}
             <br />
-            Don&apos;t forget to copy those too — your README won&apos;t work
-            without them!
+            {t('result.workflowAfter')}
           </Text.Paragraph>
         )}
 
@@ -120,7 +122,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
                   className="w-41.5"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
-                  {isCopied ? 'Copied 🎉' : 'Copy File Content'}
+                  {isCopied ? t('result.copiedButton') : t('result.copyButton')}
                 </Clickable.Button>
               );
             }}

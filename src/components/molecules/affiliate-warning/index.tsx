@@ -1,11 +1,11 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 import { Text } from '#/components/atoms/text';
 
 export function AffiliateWarning() {
-  return (
-    <Text.Small>
-      💡 This panel contains affiliate links. If you find something useful and
-      make a purchase, I may earn a small commission ☕. Thanks for the support
-      ❤
-    </Text.Small>
-  );
+  const t = useTranslations('ui');
+
+  return <Text.Small>{t('affiliateWarning')}</Text.Small>;
 }

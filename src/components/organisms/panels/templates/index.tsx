@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import { Text } from '#/components/atoms/text';
 import { Panel } from '#/components/organisms/panel';
 import { DisplayBlock } from '#/components/atoms/display-block';
@@ -7,13 +9,13 @@ import { templates } from '#/resources';
 import { CanvasSection } from '#/types';
 
 const PanelTemplates = () => {
+  const t = useTranslations('ui.templates');
+
   return (
     <div className="h-full flex flex-col gap-md">
-      <Text.Heading as="h2">Templates</Text.Heading>
+      <Text.Heading as="h2">{t('heading')}</Text.Heading>
 
-      <Text.Paragraph>
-        Select a template to preview, and then confirm to be able to edit.
-      </Text.Paragraph>
+      <Text.Paragraph>{t('description')}</Text.Paragraph>
 
       <Panel.Scrollable>
         <div className="grid grid-cols-2 gap-md">
@@ -36,9 +38,7 @@ const PanelTemplates = () => {
         </div>
       </Panel.Scrollable>
 
-      <Text.Small>
-        OBS: on confirm, the template will replace all canvas content.
-      </Text.Small>
+      <Text.Small>{t('obs')}</Text.Small>
     </div>
   );
 };

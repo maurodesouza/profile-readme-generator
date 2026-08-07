@@ -9,6 +9,7 @@ import { GFTextAreaField } from './textarea';
 export type GFCommonProps<T = any> = {
   value: T;
   label: string;
+  placeholder?: string;
   error?: string;
   onChange: (value: T) => void;
 };

@@ -15,23 +15,24 @@ export function CanvasErrorFallback() {
 
   return (
     <div className="h-full flex flex-col items-center text-center justify-center my-auto gap-xl">
-      <Text.Heading>{t('canvasError.title')}</Text.Heading>
+      <Text.Heading>{t('canvas-error.title')}</Text.Heading>
 
       <div className="flex flex-col gap-md max-w-[65rem]">
         <Text.Paragraph>
-          {t('canvasError.description1')} <br /> {t('canvasError.description2')}
+          {t('canvas-error.description1')} <br />{' '}
+          {t('canvas-error.description2')}
         </Text.Paragraph>
 
         <Text.Paragraph>
-          {t('canvasError.issueBefore')}{' '}
+          {t('canvas-error.issue-before')}{' '}
           <Text.Link
             href="https://github.com/maurodesouza/profile-readme-generator/issues/new/choose"
             target="_blank"
             rel="noreferrer"
           >
-            {t('canvasError.issueLink')}
+            {t('canvas-error.issue-link')}
           </Text.Link>{' '}
-          {t('canvasError.issueAfter')}
+          {t('canvas-error.issue-after')}
         </Text.Paragraph>
       </div>
 
@@ -42,7 +43,7 @@ export function CanvasErrorFallback() {
           rel="noreferrer"
           href="https://github.com/maurodesouza/profile-readme-generator/issues/new/choose"
         >
-          {t('canvasError.createIssue')}
+          {t('canvas-error.create-issue')}
         </Clickable.ExternalLink>
 
         <Clickable.Button
@@ -50,7 +51,7 @@ export function CanvasErrorFallback() {
           variant="outline"
           onClick={handleClear}
         >
-          {t('canvasError.clearStorage')}
+          {t('canvas-error.clear-storage')}
         </Clickable.Button>
       </div>
     </div>

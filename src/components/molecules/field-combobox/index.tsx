@@ -41,8 +41,21 @@ export function Combobox(props: ComboboxProps) {
   const tFields = useTranslations('fields');
   const tUi = useTranslations('ui');
 
-  const translate = (text: string) =>
-    tFields(text.replace(/\./g, '__dot__')) as string;
+  const translate = (text: string) => {
+    const slugKey = text
+      .replace(/__dot__/g, '.')
+      .replace(/\./g, '-dot-')
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    return tFields(slugKey) as string;
+  };
 
   function getOptionByValue(value?: string) {
     if (!value) return undefined;
@@ -73,7 +86,7 @@ export function Combobox(props: ComboboxProps) {
           <div className="relative w-full">
             <Input
               placeholder={
-                placeholder || tUi('fieldCombobox.choosePlaceholder')
+                placeholder || tUi('field-combobox.choose-placeholder')
               }
               value={
                 selectedOption ? translate(selectedOption.label) : undefined
@@ -93,10 +106,10 @@ export function Combobox(props: ComboboxProps) {
         <Popover.Content className="w-(--radix-popover-trigger-width) p-0">
           <Command.Root>
             <Command.Input
-              placeholder={tUi('fieldCombobox.searchPlaceholder')}
+              placeholder={tUi('field-combobox.search-placeholder')}
             />
             <Command.List>
-              <Command.Empty>{tUi('fieldCombobox.empty')}</Command.Empty>
+              <Command.Empty>{tUi('field-combobox.empty')}</Command.Empty>
               <Command.Group>
                 {options.map(option => (
                   <Command.Item

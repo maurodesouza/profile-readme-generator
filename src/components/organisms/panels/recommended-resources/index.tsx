@@ -15,15 +15,15 @@ const PanelRecommendedResources = () => {
 
   return (
     <div className="flex flex-col gap-md h-full">
-      <Text.Heading as="h2">{t('recommendedResources.heading')}</Text.Heading>
+      <Text.Heading as="h2">{t('recommended-resources.heading')}</Text.Heading>
 
       <div className="flex flex-col gap-xs">
         <Text.Paragraph>
-          {t('recommendedResources.description1')}
+          {t('recommended-resources.description1')}
         </Text.Paragraph>
 
         <Text.Paragraph>
-          {t('recommendedResources.description2')}
+          {t('recommended-resources.description2')}
         </Text.Paragraph>
       </div>
 

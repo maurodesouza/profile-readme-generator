@@ -73,7 +73,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
               rel="noreferrer"
             >
               <Icon name="star" />
-              {t('result.starRepo')}
+              {t('result.star-repo')}
             </Clickable.ExternalLink>
 
             <Clickable.ExternalLink
@@ -84,7 +84,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
               rel="noreferrer"
             >
               <Icon name="git-fork" />
-              {t('result.forkRepo')}
+              {t('result.fork-repo')}
             </Clickable.ExternalLink>
           </div>
         </header>
@@ -99,13 +99,13 @@ export const ResultTemplate = observer(function ResultTemplate() {
             onMouseEnter={() => actions.generated.workflows.highlight()}
             onMouseLeave={() => actions.generated.workflows.unhighlight()}
           >
-            {t('result.workflowBefore')}{' '}
+            {t('result.workflow-before')}{' '}
             <Text.Highlight className="tone palette-warning self-center">
-              {t('result.workflowPath')}
+              {t('result.workflow-path')}
             </Text.Highlight>
             {' .'}
             <br />
-            {t('result.workflowAfter')}
+            {t('result.workflow-after')}
           </Text.Paragraph>
         )}
 
@@ -122,7 +122,9 @@ export const ResultTemplate = observer(function ResultTemplate() {
                   className="w-41.5"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
-                  {isCopied ? t('result.copiedButton') : t('result.copyButton')}
+                  {isCopied
+                    ? t('result.copied-button')
+                    : t('result.copy-button')}
                 </Clickable.Button>
               );
             }}

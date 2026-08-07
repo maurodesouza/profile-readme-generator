@@ -30,7 +30,7 @@ const Config = () => {
   return (
     <>
       <Fields.Compound.Combobox
-        label={t('statsConfig.label')}
+        label={t('stats-config.label')}
         defaultValue={currentTab}
         onChange={option => setCurrentTab(option.value)}
         options={viewNames.map(view => ({

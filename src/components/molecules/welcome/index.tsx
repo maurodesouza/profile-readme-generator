@@ -53,23 +53,23 @@ export function Welcome() {
             ))}
         </div>
 
-        <Text.Small>{t('welcome.templateHint')}</Text.Small>
+        <Text.Small>{t('welcome.template-hint')}</Text.Small>
       </div>
 
       <Text.Paragraph className="max-w-96 mt-auto">
-        {t('welcome.footerBeforeRepo')}{' '}
+        {t('welcome.footer-before-repo')}{' '}
         <Text.Link
           href="https://github.com/maurodesouza/profile-readme-generator"
           target="_blank"
           rel="noreferrer"
         >
-          {t('welcome.footerRepo')}
+          {t('welcome.footer-repo')}
         </Text.Link>{' '}
-        {t('welcome.footerBeforeShare')}{' '}
+        {t('welcome.footer-before-share')}{' '}
         <Text.Clickable onClick={() => actions.modal.open(ShareModal)}>
-          {t('welcome.footerShare')}
+          {t('welcome.footer-share')}
         </Text.Clickable>{' '}
-        {t('welcome.footerAfterShare')}
+        {t('welcome.footer-after-share')}
       </Text.Paragraph>
     </div>
   );

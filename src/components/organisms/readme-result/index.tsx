@@ -33,8 +33,8 @@ export function ReadmeResult(props: ReadmeResultProps) {
                 key={String(isCopied)}
                 content={
                   isCopied
-                    ? t('readmeResult.copiedTooltip')
-                    : t('readmeResult.copyTooltip')
+                    ? t('readme-result.copied-tooltip')
+                    : t('readme-result.copy-tooltip')
                 }
                 position="top"
               >

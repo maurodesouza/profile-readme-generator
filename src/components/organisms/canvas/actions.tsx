@@ -34,11 +34,11 @@ export const CanvasActions = observer(function CanvasActions() {
               <>
                 <Tooltip
                   position="left"
-                  content={t('canvasActions.useTemplate')}
+                  content={t('canvas-actions.use-template')}
                   tone="success"
                 >
                   <Clickable.Button
-                    aria-label={t('canvasActions.useTemplate')}
+                    aria-label={t('canvas-actions.use-template')}
                     size="icon"
                     variant="icon"
                     tone="success"
@@ -50,11 +50,11 @@ export const CanvasActions = observer(function CanvasActions() {
 
                 <Tooltip
                   position="left"
-                  content={t('canvasActions.leavePreview')}
+                  content={t('canvas-actions.leave-preview')}
                   tone="danger"
                 >
                   <Clickable.Button
-                    aria-label={t('canvasActions.leavePreview')}
+                    aria-label={t('canvas-actions.leave-preview')}
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -70,11 +70,11 @@ export const CanvasActions = observer(function CanvasActions() {
               <>
                 <Tooltip
                   position="left"
-                  content={t('canvasActions.reorderSections')}
+                  content={t('canvas-actions.reorder-sections')}
                   tone="brand"
                 >
                   <Clickable.Button
-                    aria-label={t('canvasActions.reorderSections')}
+                    aria-label={t('canvas-actions.reorder-sections')}
                     size="icon"
                     variant="icon"
                     tone="brand"
@@ -87,11 +87,11 @@ export const CanvasActions = observer(function CanvasActions() {
                 </Tooltip>
                 <Tooltip
                   position="left"
-                  content={t('canvasActions.clearCanvas')}
+                  content={t('canvas-actions.clear-canvas')}
                   tone="danger"
                 >
                   <Clickable.Button
-                    aria-label={t('canvasActions.clearCanvas')}
+                    aria-label={t('canvas-actions.clear-canvas')}
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -108,11 +108,11 @@ export const CanvasActions = observer(function CanvasActions() {
         <div className="py-md bg-background-default box-border rounded-full!">
           <Tooltip
             position="left"
-            content={t('canvasActions.openSettings')}
+            content={t('canvas-actions.open-settings')}
             tone="brand"
           >
             <Clickable.Button
-              aria-label={t('canvasActions.openSettings')}
+              aria-label={t('canvas-actions.open-settings')}
               size="icon"
               variant="icon"
               tone="brand"
@@ -124,11 +124,11 @@ export const CanvasActions = observer(function CanvasActions() {
 
           <Tooltip
             position="left"
-            content={t('canvasActions.toggleTheme')}
+            content={t('canvas-actions.toggle-theme')}
             tone="brand"
           >
             <Clickable.Button
-              aria-label={t('canvasActions.toggleTheme')}
+              aria-label={t('canvas-actions.toggle-theme')}
               size="icon"
               variant="icon"
               tone="brand"
@@ -140,11 +140,11 @@ export const CanvasActions = observer(function CanvasActions() {
 
           <Tooltip
             position="left"
-            content={t('canvasActions.importReadme')}
+            content={t('canvas-actions.import-readme')}
             tone="brand"
           >
             <Clickable.Button
-              aria-label={t('canvasActions.importReadme')}
+              aria-label={t('canvas-actions.import-readme')}
               size="icon"
               variant="icon"
               tone="brand"

@@ -51,7 +51,7 @@ export const GuardSection = observer(function GuardSection(
     setIsLoading(false);
 
     if (!response.ok) {
-      setError(t('guardSection.error'));
+      setError(t('guard-section.error'));
 
       return;
     }
@@ -99,17 +99,17 @@ export const GuardSection = observer(function GuardSection(
             />
 
             <Text.Paragraph>
-              {t('guardSection.description1')}
+              {t('guard-section.description1')}
               <br />
-              {t('guardSection.description2')}
+              {t('guard-section.description2')}
             </Text.Paragraph>
           </div>
 
           <Fields.Compound.Input
             error={error}
             ref={inputRef}
-            label={t('guardSection.inputLabel')}
-            placeholder={t('guardSection.inputPlaceholder')}
+            label={t('guard-section.input-label')}
+            placeholder={t('guard-section.input-placeholder')}
             disabled={isLoading}
           />
         </form>

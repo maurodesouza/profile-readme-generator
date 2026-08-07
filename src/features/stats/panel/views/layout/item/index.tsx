@@ -23,7 +23,7 @@ export function Item(props: ItemProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const t = useTranslations('ui.statsLayout');
+  const t = useTranslations('ui.stats-layout');
 
   function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;

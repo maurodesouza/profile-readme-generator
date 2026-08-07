@@ -52,7 +52,7 @@ export const ProfileViewsSection = observer(function ProfileViewsSection(
         className="flex flex-wrap gap-sm"
         style={{ justifyContent: styles.align }}
       >
-        <img src={fullUrl} alt={t('alts.profileViews')} />
+        <img src={fullUrl} alt={t('alts.profile-views')} />
       </div>
     </GuardSection>
   );

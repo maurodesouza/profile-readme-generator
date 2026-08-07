@@ -18,7 +18,7 @@ export function FooterOwner() {
       <div className="flex flex-col h-full justify-center">
         <Text.Strong>{t('footer.title')}</Text.Strong>
         <Text.Small className="not-italic">
-          {t('footer.maintainedBy')}{' '}
+          {t('footer.maintained-by')}{' '}
           <Text.Link
             href="https://github.com/maurodesouza"
             target="_blank"

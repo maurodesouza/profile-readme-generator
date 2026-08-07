@@ -62,7 +62,7 @@ export const Adding = observer(function Adding() {
       <Fields.Compound.Input
         ref={inputRef}
         onInput={fn.debounce(forceUpdate, 200)}
-        placeholder={t('fieldCombobox.searchPlaceholder')}
+        placeholder={t('field-combobox.search-placeholder')}
         className="mb-md"
       />
 

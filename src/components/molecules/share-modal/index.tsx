@@ -23,12 +23,12 @@ export function ShareModal() {
   return (
     <Dialog.Content className="max-w-3xl">
       <Dialog.Header>
-        <Dialog.Title>{t('shareModal.title')}</Dialog.Title>
+        <Dialog.Title>{t('share-modal.title')}</Dialog.Title>
 
         <Dialog.Close />
       </Dialog.Header>
 
-      <Text.Paragraph>{t('shareModal.description')}</Text.Paragraph>
+      <Text.Paragraph>{t('share-modal.description')}</Text.Paragraph>
 
       <div className="flex justify-center gap-lg my-xl">
         {socials.map(({ id, icon, share: Share }) => (

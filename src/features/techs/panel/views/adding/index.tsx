@@ -106,18 +106,18 @@ export const Adding = observer(function Adding() {
     <>
       <div className="flex gap-md mb-md">
         <Fields.Compound.Input
-          label={t('fieldCombobox.searchLabel')}
+          label={t('field-combobox.search-label')}
           ref={inputRef}
           onInput={fn.debounce(forceUpdate, 200)}
-          placeholder={t('fieldCombobox.iconPlaceholder')}
+          placeholder={t('field-combobox.icon-placeholder')}
         />
 
         <Fields.Compound.Combobox
           value={IconProviders.DEVICONS}
-          label={t('techs.providerLabel')}
+          label={t('techs.provider-label')}
           onChange={option => setProvider(option.value as Providers)}
           options={[
-            { value: 'all', label: t('fieldCombobox.all') },
+            { value: 'all', label: t('field-combobox.all') },
             ...Object.values(IconProviders).map(value => ({
               label: value.replace('_', ' '),
               value,

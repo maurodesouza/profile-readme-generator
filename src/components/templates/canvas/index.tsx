@@ -27,7 +27,7 @@ const CanvasTemplate = () => {
           <PageFooter.Navs />
 
           <Clickable.Link tone="success" href="/result">
-            {t('canvas.generateReadme')}
+            {t('canvas.generate-readme')}
           </Clickable.Link>
         </PageFooter.Container>
       </Page.Wrapper>

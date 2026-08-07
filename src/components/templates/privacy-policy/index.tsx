@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Page } from '#/components/atoms/page';
 
 const PrivacyPolicyTemplate = () => {
-  const t = useTranslations('privacyPolicy');
+  const t = useTranslations('privacy-policy');
 
   return (
     <Page.Container>

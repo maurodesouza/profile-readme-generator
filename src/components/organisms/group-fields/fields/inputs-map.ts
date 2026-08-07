@@ -6,7 +6,7 @@ import { GFSwitchField } from './switch';
 import { GFSelectField } from './select';
 import { GFTextAreaField } from './textarea';
 
-export type GFCommonProps<T = any> = {
+export type GFCommonProps<T = unknown> = {
   value: T;
   label: string;
   placeholder?: string;

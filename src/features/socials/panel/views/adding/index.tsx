@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { array } from '#/utils/array';
 import { fn } from '#/utils/fn';
 import { tailwind } from '#/utils/tailwind';
@@ -19,6 +21,7 @@ import { social_icons } from '#/resources';
 import { CanvasContent, CanvasSection, Sections } from '#/types';
 
 export const Adding = observer(function Adding() {
+  const t = useTranslations('ui');
   const inputRef = useRef<HTMLInputElement>(null);
   const forceUpdate = useForceUpdate();
   const canvasStore = useCanvas();
@@ -59,7 +62,7 @@ export const Adding = observer(function Adding() {
       <Fields.Compound.Input
         ref={inputRef}
         onInput={fn.debounce(forceUpdate, 200)}
-        placeholder="Search..."
+        placeholder={t('field-combobox.search-placeholder')}
         className="mb-md"
       />
 

@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { observer } from 'mobx-react-lite';
 
 import { Icon } from '#/components/atoms/icon';
@@ -11,6 +13,7 @@ import { PanelsEnum } from '#/types';
 import { actions } from '#/lib/command';
 
 export const CanvasActions = observer(function CanvasActions() {
+  const t = useTranslations('ui');
   const canvasStore = useCanvas();
   const hasSection = !!canvasStore.sections.length;
 
@@ -29,9 +32,13 @@ export const CanvasActions = observer(function CanvasActions() {
           <div className="py-md bg-background-default box-border rounded-full!">
             {state.is === 'preview-mode' && (
               <>
-                <Tooltip position="left" content="Use template" tone="success">
+                <Tooltip
+                  position="left"
+                  content={t('canvas-actions.use-template')}
+                  tone="success"
+                >
                   <Clickable.Button
-                    aria-label="Use template"
+                    aria-label={t('canvas-actions.use-template')}
                     size="icon"
                     variant="icon"
                     tone="success"
@@ -41,9 +48,13 @@ export const CanvasActions = observer(function CanvasActions() {
                   </Clickable.Button>
                 </Tooltip>
 
-                <Tooltip position="left" content="Leave preview" tone="danger">
+                <Tooltip
+                  position="left"
+                  content={t('canvas-actions.leave-preview')}
+                  tone="danger"
+                >
                   <Clickable.Button
-                    aria-label="Leave preview"
+                    aria-label={t('canvas-actions.leave-preview')}
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -59,11 +70,11 @@ export const CanvasActions = observer(function CanvasActions() {
               <>
                 <Tooltip
                   position="left"
-                  content="Reorder Sections"
+                  content={t('canvas-actions.reorder-sections')}
                   tone="brand"
                 >
                   <Clickable.Button
-                    aria-label="Reorder Sections"
+                    aria-label={t('canvas-actions.reorder-sections')}
                     size="icon"
                     variant="icon"
                     tone="brand"
@@ -74,9 +85,13 @@ export const CanvasActions = observer(function CanvasActions() {
                     <Icon name="arrow-up-down" />
                   </Clickable.Button>
                 </Tooltip>
-                <Tooltip position="left" content="Clear canvas" tone="danger">
+                <Tooltip
+                  position="left"
+                  content={t('canvas-actions.clear-canvas')}
+                  tone="danger"
+                >
                   <Clickable.Button
-                    aria-label="Clear canvas"
+                    aria-label={t('canvas-actions.clear-canvas')}
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -91,9 +106,13 @@ export const CanvasActions = observer(function CanvasActions() {
         )}
 
         <div className="py-md bg-background-default box-border rounded-full!">
-          <Tooltip position="left" content="Open settings panel" tone="brand">
+          <Tooltip
+            position="left"
+            content={t('canvas-actions.open-settings')}
+            tone="brand"
+          >
             <Clickable.Button
-              aria-label="Open settings panel"
+              aria-label={t('canvas-actions.open-settings')}
               size="icon"
               variant="icon"
               tone="brand"
@@ -103,9 +122,13 @@ export const CanvasActions = observer(function CanvasActions() {
             </Clickable.Button>
           </Tooltip>
 
-          <Tooltip position="left" content="Toggle Theme" tone="brand">
+          <Tooltip
+            position="left"
+            content={t('canvas-actions.toggle-theme')}
+            tone="brand"
+          >
             <Clickable.Button
-              aria-label="Toggle Theme"
+              aria-label={t('canvas-actions.toggle-theme')}
               size="icon"
               variant="icon"
               tone="brand"
@@ -115,9 +138,13 @@ export const CanvasActions = observer(function CanvasActions() {
             </Clickable.Button>
           </Tooltip>
 
-          <Tooltip position="left" content="Import README" tone="brand">
+          <Tooltip
+            position="left"
+            content={t('canvas-actions.import-readme')}
+            tone="brand"
+          >
             <Clickable.Button
-              aria-label="Import README"
+              aria-label={t('canvas-actions.import-readme')}
               size="icon"
               variant="icon"
               tone="brand"

@@ -10,7 +10,7 @@ import { CanvasSection, PanelsEnum, Sections } from '#/types';
 import { actions, command } from '#/lib/command';
 import { canvasStore } from '#/stores/canvas-store';
 import { extensionsStore } from '#/stores/extensions-store';
-import { toJS } from 'mobx';
+import { runInAction, toJS } from 'mobx';
 
 type HandleEditPayload = {
   id?: string;
@@ -20,9 +20,11 @@ type HandleEditPayload = {
 
 export function CanvasHandle() {
   function clear() {
-    canvasStore.sections = [];
-    canvasStore.activeSectionId = undefined;
-    canvasStore.previewSections = [];
+    runInAction(() => {
+      canvasStore.sections = [];
+      canvasStore.activeSectionId = undefined;
+      canvasStore.previewSections = [];
+    });
   }
 
   function handleCanvasSectionAdd(sectionType: Sections) {
@@ -36,7 +38,9 @@ export function CanvasHandle() {
       ...(sectionData?.defaultConfig || {}),
     } as CanvasSection;
 
-    canvasStore.sections.push(newSection);
+    runInAction(() => {
+      canvasStore.sections.push(newSection);
+    });
   }
 
   function handleCanvasSectionEdit(payload: HandleEditPayload) {
@@ -46,10 +50,12 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     const finalPath = path.startsWith('props.') ? path : `props.${path}`;
 
-    object.deep.set<CanvasSection>({
-      obj: section,
-      path: finalPath,
-      value,
+    runInAction(() => {
+      object.deep.set<CanvasSection>({
+        obj: section,
+        path: finalPath,
+        value,
+      });
     });
   }
 
@@ -57,10 +63,15 @@ export function CanvasHandle() {
     const index = canvasStore.$sectionsMap.indexById[sectionId];
     if (index === undefined) return;
 
-    canvasStore.sections.splice(index, 1);
+    runInAction(() => {
+      canvasStore.sections.splice(index, 1);
+
+      if (sectionId === canvasStore.activeSectionId) {
+        canvasStore.activeSectionId = undefined;
+      }
+    });
 
     if (sectionId === canvasStore.activeSectionId) {
-      canvasStore.activeSectionId = undefined;
       actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
     }
   }
@@ -69,7 +80,10 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     if (!section) return;
 
-    canvasStore.activeSectionId = id;
+    runInAction(() => {
+      canvasStore.activeSectionId = id;
+    });
+
     actions.panel.right.show(section.type);
   }
 
@@ -84,7 +98,9 @@ export function CanvasHandle() {
       sectionId => canvasStore.$sectionsMap.byId[sectionId]
     );
 
-    canvasStore.sections = sectionsReordered;
+    runInAction(() => {
+      canvasStore.sections = sectionsReordered;
+    });
   }
 
   function handleCanvasSectionDuplicate(id: string) {
@@ -95,25 +111,32 @@ export function CanvasHandle() {
     clone.id = uuid();
 
     const index = canvasStore.$sectionsMap.indexById[id];
-    canvasStore.sections.splice(index + 1, 0, clone);
+
+    runInAction(() => {
+      canvasStore.sections.splice(index + 1, 0, clone);
+    });
   }
 
   function handleCanvasSectionMoveUp(id: string) {
     const index = canvasStore.$sectionsMap.indexById[id];
     if (index === 0) return;
 
-    const temp = canvasStore.sections[index - 1];
-    canvasStore.sections[index - 1] = canvasStore.sections[index];
-    canvasStore.sections[index] = temp;
+    runInAction(() => {
+      const temp = canvasStore.sections[index - 1];
+      canvasStore.sections[index - 1] = canvasStore.sections[index];
+      canvasStore.sections[index] = temp;
+    });
   }
 
   function handleCanvasSectionMoveDown(id: string) {
     const index = canvasStore.$sectionsMap.indexById[id];
     if (index + 1 === canvasStore.sections.length) return;
 
-    const temp = canvasStore.sections[index + 1];
-    canvasStore.sections[index + 1] = canvasStore.sections[index];
-    canvasStore.sections[index] = temp;
+    runInAction(() => {
+      const temp = canvasStore.sections[index + 1];
+      canvasStore.sections[index + 1] = canvasStore.sections[index];
+      canvasStore.sections[index] = temp;
+    });
   }
 
   function handleCanvasImportLoadFile() {
@@ -129,13 +152,19 @@ export function CanvasHandle() {
     const text = await file.text();
     const sections = await parsers.fromReadme(text);
 
-    clear();
-    canvasStore.sections = sections;
+    runInAction(() => {
+      canvasStore.sections = sections;
+      canvasStore.activeSectionId = undefined;
+      canvasStore.previewSections = [];
+    });
   }
 
   function handleCanvasPreviewApply() {
-    canvasStore.sections = canvasStore.previewSections;
-    canvasStore.previewSections = [];
+    runInAction(() => {
+      canvasStore.sections = canvasStore.previewSections;
+      canvasStore.previewSections = [];
+    });
+
     actions.settings.preview.reset();
   }
 
@@ -145,7 +174,10 @@ export function CanvasHandle() {
       id: uuid(),
     }));
 
-    canvasStore.previewSections = mappedTemplate;
+    runInAction(() => {
+      canvasStore.previewSections = mappedTemplate;
+    });
+
     actions.settings.preview.apply();
   }
 

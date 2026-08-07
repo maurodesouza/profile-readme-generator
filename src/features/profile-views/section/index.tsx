@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { object } from '#/utils/object';
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
@@ -35,6 +37,7 @@ export const ProfileViewsSection = observer(function ProfileViewsSection(
 ) {
   const { id, content, styles } = props;
 
+  const t = useTranslations('ui');
   const settingsStore = useSettings();
 
   const { provider, views } = content;
@@ -49,7 +52,7 @@ export const ProfileViewsSection = observer(function ProfileViewsSection(
         className="flex flex-wrap gap-sm"
         style={{ justifyContent: styles.align }}
       >
-        <img src={fullUrl} alt="Profile views count" />
+        <img src={fullUrl} alt={t('alts.profile-views')} />
       </div>
     </GuardSection>
   );

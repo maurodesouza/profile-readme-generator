@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { observer } from 'mobx-react-lite';
 
 import { IconName } from 'lucide-react/dynamic';
@@ -19,6 +21,8 @@ type SectionContextMenuProps = {
 export const SectionContextMenu = observer(function SectionContextMenu(
   props: SectionContextMenuProps
 ) {
+  const tFields = useTranslations('fields');
+  const tUi = useTranslations('ui');
   const canvasStore = useCanvas();
 
   const sectionIndex = canvasStore.sections.findIndex(
@@ -27,6 +31,22 @@ export const SectionContextMenu = observer(function SectionContextMenu(
 
   const isFirst = sectionIndex === 0;
   const isLast = sectionIndex + 1 === canvasStore.sections.length;
+
+  const translate = (value: string) => {
+    const slugKey = value
+      .replace(/__dot__/g, '.')
+      .replace(/\./g, '-dot-')
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    return (tFields.has(slugKey) ? tFields(slugKey) : value) as string;
+  };
 
   return (
     <ContextMenu.Content>
@@ -39,13 +59,13 @@ export const SectionContextMenu = observer(function SectionContextMenu(
           >
             <Icon name={icon as IconName} />
 
-            {label}
+            {translate(label)}
           </ContextMenu.Item>
         );
       })}
 
       <ContextMenu.Separator />
-      <ContextMenu.Label>Move</ContextMenu.Label>
+      <ContextMenu.Label>{tUi('context-menu.move')}</ContextMenu.Label>
       <ContextMenu.Separator />
 
       <ContextMenu.Item
@@ -53,7 +73,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
         disabled={isFirst}
       >
         <Icon name="arrow-up" />
-        Up
+        {tUi('context-menu.up')}
       </ContextMenu.Item>
 
       <ContextMenu.Item
@@ -61,7 +81,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
         disabled={isLast}
       >
         <Icon name="arrow-down" />
-        Down
+        {tUi('context-menu.down')}
       </ContextMenu.Item>
     </ContextMenu.Content>
   );

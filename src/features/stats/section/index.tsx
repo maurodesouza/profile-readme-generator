@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { object } from '#/utils/object';
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
@@ -39,6 +40,7 @@ export const StatsSection = observer(function StatsSection(
 ) {
   const { id, content, styles: containerStyles } = props;
   const settingsStore = useSettings();
+  const t = useTranslations('ui.alts');
 
   const { graphs } = content;
   const { github } = settingsStore.$settings.user;
@@ -77,7 +79,7 @@ export const StatsSection = observer(function StatsSection(
               height={Number(height || 150)}
               key={graph}
               src={fullUrl}
-              alt={`${graph} graph`}
+              alt={t('graph', { graph })}
               className="max-w-full"
             />
           );

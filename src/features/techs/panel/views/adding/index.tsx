@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { array } from '#/utils/array';
 import { fn } from '#/utils/fn';
 import { string } from '#/utils/string';
@@ -29,6 +31,7 @@ import {
 type Providers = IconProviders | 'all';
 
 export const Adding = observer(function Adding() {
+  const t = useTranslations('ui');
   const inputRef = useRef<HTMLInputElement>(null);
   const [provider, setProvider] = useState<Providers>(IconProviders.DEVICONS);
 
@@ -103,18 +106,18 @@ export const Adding = observer(function Adding() {
     <>
       <div className="flex gap-md mb-md">
         <Fields.Compound.Input
-          label="Search"
+          label={t('field-combobox.search-label')}
           ref={inputRef}
           onInput={fn.debounce(forceUpdate, 200)}
-          placeholder="Icon..."
+          placeholder={t('field-combobox.icon-placeholder')}
         />
 
         <Fields.Compound.Combobox
           value={IconProviders.DEVICONS}
-          label="Provider"
+          label={t('techs.provider-label')}
           onChange={option => setProvider(option.value as Providers)}
           options={[
-            { value: 'all', label: 'all' },
+            { value: 'all', label: t('field-combobox.all') },
             ...Object.values(IconProviders).map(value => ({
               label: value.replace('_', ' '),
               value,

@@ -1,7 +1,7 @@
 import { color_names } from '#/resources';
 import { Inputs } from '#/types';
 
-const colorOptions = [{ value: '', label: 'default' }].concat(
+const colorOptions = [{ value: '', label: 'default-2' }].concat(
   Object.keys(color_names).map(name => ({
     value: name,
     label: name,

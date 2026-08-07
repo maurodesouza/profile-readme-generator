@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { Canvas } from '#/components/organisms/canvas';
 import { Page } from '#/components/atoms/page';
 import { Panel } from '#/components/organisms/panel';
@@ -9,6 +11,8 @@ import { Clickable } from '#/components/atoms/clickable';
 import { PanelsEnum } from '#/types';
 
 const CanvasTemplate = () => {
+  const t = useTranslations('ui');
+
   return (
     <Page.Container>
       <Panel.Template.Full initialPanel={PanelsEnum.NEW_SECTION} side="left" />
@@ -23,7 +27,7 @@ const CanvasTemplate = () => {
           <PageFooter.Navs />
 
           <Clickable.Link tone="success" href="/result">
-            Generate README
+            {t('canvas.generate-readme')}
           </Clickable.Link>
         </PageFooter.Container>
       </Page.Wrapper>

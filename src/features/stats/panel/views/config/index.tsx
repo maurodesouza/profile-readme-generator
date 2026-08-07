@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { string } from '#/utils/string';
 import { useMemo, useState } from 'react';
 
@@ -13,6 +15,7 @@ import { views } from './views';
 type Views = keyof typeof views;
 
 const Config = () => {
+  const t = useTranslations('ui');
   const searchParams = useSearchParams();
   const viewNames = useMemo(() => Object.keys(views), []);
 
@@ -27,7 +30,7 @@ const Config = () => {
   return (
     <>
       <Fields.Compound.Combobox
-        label="Select the stats to config"
+        label={t('stats-config.label')}
         defaultValue={currentTab}
         onChange={option => setCurrentTab(option.value)}
         options={viewNames.map(view => ({

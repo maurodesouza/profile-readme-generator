@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 import type { ReactNode } from 'react';
@@ -38,6 +40,7 @@ export const SocialsSection = observer(function SocialsSection(
   props: SocialSectionProps
 ) {
   const { content, styles: containerStyles } = props;
+  const t = useTranslations('ui.alts');
 
   const { socials, styles } = content;
   const { type, style, height } = styles;
@@ -66,7 +69,7 @@ export const SocialsSection = observer(function SocialsSection(
           <Wrapper href={link} key={social} target="_blank">
             <img
               style={{ height: `${height}px` }}
-              alt={`${social} logo`}
+              alt={t('social-logo', { social })}
               src={url.getSocialImg(type, social, props)}
             />
           </Wrapper>

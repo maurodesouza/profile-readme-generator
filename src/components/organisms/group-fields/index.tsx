@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
@@ -53,6 +55,25 @@ export const GroupFields = observer(function GroupFields(
 
   const canvasStore = useCanvas();
   const settingsStore = useSettings();
+  const t = useTranslations('fields');
+
+  const translate = (value?: string) => {
+    if (!value) return '';
+
+    const slugKey = value
+      .replace(/__dot__/g, '.')
+      .replace(/\./g, '-dot-')
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    return (t.has(slugKey) ? t(slugKey) : value) as string;
+  };
 
   const obj =
     context === 'canvas'
@@ -88,7 +109,7 @@ export const GroupFields = observer(function GroupFields(
   return canRender ? (
     <div className="mb-md">
       <GroupFieldsLabel
-        label={label}
+        label={translate(label)}
         animationState={animationState}
         expansible={isExpansible}
         toggleExpansible={toggleExpansible}
@@ -105,7 +126,8 @@ export const GroupFields = observer(function GroupFields(
         >
           {fields.map(field => {
             const Input = inputMap[field.type];
-            const { column, ...rest } = field?.props ?? {};
+            const { column, placeholder, ...rest } = (field?.props ??
+              {}) as Record<string, unknown>;
 
             const canRender = field.conditions
               ? object.deep.check({
@@ -121,6 +143,11 @@ export const GroupFields = observer(function GroupFields(
               | boolean
               | undefined;
 
+            const translatedPlaceholder =
+              typeof placeholder === 'string'
+                ? translate(placeholder)
+                : undefined;
+
             return canRender ? (
               <motion.div
                 key={field.path}
@@ -128,9 +155,12 @@ export const GroupFields = observer(function GroupFields(
                 style={{ gridColumn: column as string }}
               >
                 <Input
-                  label={field.label}
+                  label={translate(field.label)}
+                  placeholder={translatedPlaceholder}
                   value={defaultValue}
-                  onChange={value => onChange(value, field.path)}
+                  onChange={value =>
+                    onChange(value as string | boolean, field.path)
+                  }
                   {...rest}
                 />
               </motion.div>

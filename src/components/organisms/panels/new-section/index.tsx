@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { observer } from 'mobx-react-lite';
 
 import { IconName } from 'lucide-react/dynamic';
@@ -14,6 +16,22 @@ import { contents } from './contents';
 
 export const PanelNewSection = observer(function PanelNewSection() {
   const extensionsStore = useExtensions();
+  const t = useTranslations('fields');
+  const translate = (value: string) => {
+    const slugKey = value
+      .replace(/__dot__/g, '.')
+      .replace(/\./g, '-dot-')
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    return (t.has(slugKey) ? t(slugKey) : value) as string;
+  };
 
   const items = Object.values(
     extensionsStore.extensions[PanelsEnum.NEW_SECTION] ?? {}
@@ -34,7 +52,7 @@ export const PanelNewSection = observer(function PanelNewSection() {
                     size={48}
                     className="text-inherit group-hover/test:animate-spin"
                   />
-                  <DisplayBlock.Label>{name}</DisplayBlock.Label>
+                  <DisplayBlock.Label>{translate(name)}</DisplayBlock.Label>
                 </DisplayBlock.Content>
               </DisplayBlock.Container>
             </El>

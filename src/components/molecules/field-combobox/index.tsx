@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { tailwind } from '#/utils/tailwind';
 import React, { useEffect, useState } from 'react';
 
@@ -24,8 +26,6 @@ type ComboboxProps = {
   onChange?: (value: ComboboxOption) => void;
 } & Omit<React.ComponentProps<typeof Input>, 'onChange'>;
 
-const DEFAULT_PLACEHOLDER = 'Chose an option';
-
 export function Combobox(props: ComboboxProps) {
   const {
     options = [],
@@ -34,8 +34,28 @@ export function Combobox(props: ComboboxProps) {
     label,
     error,
     className,
+    placeholder,
     ...rest
   } = props;
+
+  const tFields = useTranslations('fields');
+  const tUi = useTranslations('ui');
+
+  const translate = (text: string) => {
+    const slugKey = text
+      .replace(/__dot__/g, '.')
+      .replace(/\./g, '-dot-')
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/_/g, '-')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]+/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    return (tFields.has(slugKey) ? tFields(slugKey) : text) as string;
+  };
 
   function getOptionByValue(value?: string) {
     if (!value) return undefined;
@@ -65,8 +85,12 @@ export function Combobox(props: ComboboxProps) {
         <Popover.Trigger asChild>
           <div className="relative w-full">
             <Input
-              placeholder={DEFAULT_PLACEHOLDER}
-              value={selectedOption?.label}
+              placeholder={
+                placeholder || tUi('field-combobox.choose-placeholder')
+              }
+              value={
+                selectedOption ? translate(selectedOption.label) : undefined
+              }
               {...rest}
             />
 
@@ -81,9 +105,11 @@ export function Combobox(props: ComboboxProps) {
         </Popover.Trigger>
         <Popover.Content className="w-(--radix-popover-trigger-width) p-0">
           <Command.Root>
-            <Command.Input placeholder="Search..." />
+            <Command.Input
+              placeholder={tUi('field-combobox.search-placeholder')}
+            />
             <Command.List>
-              <Command.Empty>No framework found.</Command.Empty>
+              <Command.Empty>{tUi('field-combobox.empty')}</Command.Empty>
               <Command.Group>
                 {options.map(option => (
                   <Command.Item
@@ -106,7 +132,7 @@ export function Combobox(props: ComboboxProps) {
                       )}
                     />
 
-                    {option.label}
+                    {translate(option.label)}
                   </Command.Item>
                 ))}
               </Command.Group>

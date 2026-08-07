@@ -1,3 +1,5 @@
+'use client';
+
 import { Canvas } from '#/components/organisms/canvas';
 import { Page } from '#/components/atoms/page';
 import { Panel } from '#/components/organisms/panel';

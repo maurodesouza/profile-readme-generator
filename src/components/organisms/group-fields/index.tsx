@@ -1,3 +1,5 @@
+'use client';
+
 import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 

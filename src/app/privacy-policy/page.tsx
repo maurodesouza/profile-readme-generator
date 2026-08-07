@@ -1,7 +1,5 @@
 import { PrivacyPolicyTemplate } from '#/components/templates/privacy-policy';
 
-const PrivacyPolicy = () => {
+export default function PrivacyPolicyPage() {
   return <PrivacyPolicyTemplate />;
-};
-
-export default PrivacyPolicy;
+}

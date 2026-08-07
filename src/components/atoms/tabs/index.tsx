@@ -1,6 +1,8 @@
+'use client';
+
 import { tailwind } from '#/utils/tailwind';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 import { IconName } from 'lucide-react/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -24,17 +26,17 @@ type PrePlayerTabsProps = {
 export function Tabs(props: PrePlayerTabsProps) {
   const { id = 'tab', tabs, currentTab, setCurrentTab } = props;
 
-  const router = useRouter();
+  const searchParams = useSearchParams();
 
   function hasMatchWithSomeTab(view: string) {
     return tabs.some(tab => tab.view === view);
   }
 
   useEffect(() => {
-    const { [id]: view } = router.query;
+    const view = searchParams.get(id);
 
-    if (hasMatchWithSomeTab(view as string)) setCurrentTab(view);
-  }, [router]);
+    if (view && hasMatchWithSomeTab(view)) setCurrentTab(view);
+  }, [searchParams, id]);
 
   return (
     <div className="w-full mb-md">

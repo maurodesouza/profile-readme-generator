@@ -1,7 +1,9 @@
+'use client';
+
 import { string } from '#/utils/string';
 import { useMemo, useState } from 'react';
 
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 
 import { Fields } from '#/components/molecules/fields';
@@ -11,10 +13,10 @@ import { views } from './views';
 type Views = keyof typeof views;
 
 const Config = () => {
-  const router = useRouter();
+  const searchParams = useSearchParams();
   const viewNames = useMemo(() => Object.keys(views), []);
 
-  const view = router.query['config-view'] as string;
+  const view = searchParams.get('config-view') ?? '';
   const hasMatch = viewNames.includes(view);
   const initialView = hasMatch ? view : viewNames[0];
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 import type { ReactNode } from 'react';

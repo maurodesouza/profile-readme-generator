@@ -1,3 +1,5 @@
+'use client';
+
 import { tailwind } from '#/utils/tailwind';
 import { observer } from 'mobx-react-lite';
 

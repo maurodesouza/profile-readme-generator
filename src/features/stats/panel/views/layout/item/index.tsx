@@ -1,4 +1,6 @@
-import Router from 'next/router';
+'use client';
+
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useDragControls } from 'framer-motion';
 
 import { Tile } from '#/components/atoms/tile';
@@ -16,10 +18,9 @@ type ItemProps = {
 export function Item(props: ItemProps) {
   const { isShowing, stats } = props;
   const dragControls = useDragControls();
-
-  function getQueries() {
-    return new URLSearchParams(window.location.search);
-  }
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;
@@ -28,21 +29,12 @@ export function Item(props: ItemProps) {
   }
 
   function onConfigure() {
-    const query = getQueries();
+    const query = new URLSearchParams(searchParams.toString());
 
     query.set('tab', 'config');
     query.set('config-view', stats);
 
-    Router.replace(
-      {
-        pathname: window.location.pathname,
-        query: query.toString(),
-      },
-      undefined,
-      {
-        shallow: true,
-      }
-    );
+    router.replace(`${pathname}?${query.toString()}`);
   }
 
   const label = isShowing ? 'Hide' : 'Show';

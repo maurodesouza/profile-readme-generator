@@ -1,3 +1,5 @@
+'use client';
+
 import { object } from '#/utils/object';
 import { parsers } from '#/utils/parsers';
 import { useEffect } from 'react';

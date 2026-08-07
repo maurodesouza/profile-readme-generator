@@ -1,3 +1,5 @@
+'use client';
+
 import { parsers } from '#/utils/parsers';
 import { observer } from 'mobx-react-lite';
 

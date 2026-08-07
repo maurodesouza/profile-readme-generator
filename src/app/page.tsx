@@ -1,7 +1,5 @@
 import { CanvasTemplate } from '#/components/templates/canvas';
 
-const Home = () => {
+export default function HomePage() {
   return <CanvasTemplate />;
-};
-
-export default Home;
+}

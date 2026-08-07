@@ -1,3 +1,5 @@
+'use client';
+
 import { observer } from 'mobx-react-lite';
 
 import { Icon } from '#/components/atoms/icon';

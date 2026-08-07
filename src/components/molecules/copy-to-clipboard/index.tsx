@@ -1,3 +1,5 @@
+'use client';
+
 import { fn } from '#/utils/fn';
 import React, { JSX, useEffect, useRef, useState } from 'react';
 

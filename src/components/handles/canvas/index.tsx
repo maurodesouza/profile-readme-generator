@@ -10,7 +10,7 @@ import { CanvasSection, PanelsEnum, Sections } from '#/types';
 import { actions, command } from '#/lib/command';
 import { canvasStore } from '#/stores/canvas-store';
 import { extensionsStore } from '#/stores/extensions-store';
-import { toJS } from 'mobx';
+import { runInAction, toJS } from 'mobx';
 
 type HandleEditPayload = {
   id?: string;
@@ -46,10 +46,12 @@ export function CanvasHandle() {
     const section = canvasStore.$sectionsMap.byId[id];
     const finalPath = path.startsWith('props.') ? path : `props.${path}`;
 
-    object.deep.set<CanvasSection>({
-      obj: section,
-      path: finalPath,
-      value,
+    runInAction(() => {
+      object.deep.set<CanvasSection>({
+        obj: section,
+        path: finalPath,
+        value,
+      });
     });
   }
 

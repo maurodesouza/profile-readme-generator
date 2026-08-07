@@ -1,3 +1,5 @@
+'use client';
+
 import { array } from '#/utils/array';
 import { fn } from '#/utils/fn';
 import { string } from '#/utils/string';

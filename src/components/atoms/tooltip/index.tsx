@@ -1,3 +1,5 @@
+'use client';
+
 import { tailwind } from '#/utils/tailwind';
 import React, { useEffect, useRef, useState } from 'react';
 import { tv, VariantProps } from 'tailwind-variants';

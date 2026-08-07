@@ -1,3 +1,5 @@
+'use client';
+
 import { fn } from '#/utils/fn';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 

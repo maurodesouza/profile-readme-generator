@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 
 import { Renderable } from '#/types';
 import { command, actions } from '#/lib/command';

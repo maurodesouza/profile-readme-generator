@@ -1,3 +1,5 @@
+'use client';
+
 import { observer } from 'mobx-react-lite';
 
 import { IconName } from 'lucide-react/dynamic';

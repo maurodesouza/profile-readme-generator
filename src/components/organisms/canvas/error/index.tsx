@@ -1,3 +1,5 @@
+'use client';
+
 import { Text } from '#/components/atoms/text';
 import { Clickable } from '#/components/atoms/clickable';
 

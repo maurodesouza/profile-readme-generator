@@ -6,11 +6,6 @@ const withBundleAnalyzer = analyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'es', 'pt-BR', 'fr', 'de'],
-    defaultLocale: 'en',
-  },
-
   typescript: {
     ignoreBuildErrors: true,
   },

@@ -69,7 +69,7 @@ export const SocialsSection = observer(function SocialsSection(
           <Wrapper href={link} key={social} target="_blank">
             <img
               style={{ height: `${height}px` }}
-              alt={t('socialLogo', { social })}
+              alt={t('social-logo', { social })}
               src={url.getSocialImg(type, social, props)}
             />
           </Wrapper>

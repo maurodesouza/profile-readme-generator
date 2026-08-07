@@ -55,7 +55,7 @@ export const TechsSection = observer(function TechsSection(
             <img
               style={{ height: `${height}px` }}
               key={name}
-              alt={t('techLogo', { name })}
+              alt={t('tech-logo', { name })}
               src={path}
             />
           );

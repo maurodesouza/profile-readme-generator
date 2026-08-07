@@ -158,7 +158,9 @@ export const GroupFields = observer(function GroupFields(
                   label={translate(field.label)}
                   placeholder={translatedPlaceholder}
                   value={defaultValue}
-                  onChange={value => onChange(value, field.path)}
+                  onChange={value =>
+                    onChange(value as string | boolean, field.path)
+                  }
                   {...rest}
                 />
               </motion.div>

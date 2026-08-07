@@ -20,7 +20,7 @@ type PrePlayerTabsProps = {
   id?: string;
   tabs: Tab[];
   currentTab: string;
-  setCurrentTab: (tab: any) => void;
+  setCurrentTab: (tab: string) => void;
 };
 
 export function Tabs(props: PrePlayerTabsProps) {

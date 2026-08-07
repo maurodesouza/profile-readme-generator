@@ -1,5 +1,6 @@
 'use client';
 
+import { runInAction } from 'mobx';
 import { useEffect } from 'react';
 
 import { Extension, ExtensionsGroup } from '#/types';
@@ -36,8 +37,10 @@ export function ExtensionsHandle() {
       {} as ExtensionsGroup
     );
 
-    extensionsStore.registers = newRegisters;
-    extensionsStore.extensions = nextExtensions;
+    runInAction(() => {
+      extensionsStore.registers = newRegisters;
+      extensionsStore.extensions = nextExtensions;
+    });
   }
 
   useEffect(() => {

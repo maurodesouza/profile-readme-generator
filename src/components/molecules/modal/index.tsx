@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Renderable } from '#/types';
 import { command, actions } from '#/lib/command';

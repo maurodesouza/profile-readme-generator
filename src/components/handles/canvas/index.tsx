@@ -19,12 +19,21 @@ type HandleEditPayload = {
 };
 
 export function CanvasHandle() {
+  function deactivateSection() {
+    runInAction(() => {
+      canvasStore.activeSectionId = undefined;
+    });
+
+    actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
+  }
+
   function clear() {
     runInAction(() => {
       canvasStore.sections = [];
-      canvasStore.activeSectionId = undefined;
       canvasStore.previewSections = [];
     });
+
+    deactivateSection();
   }
 
   function handleCanvasSectionAdd(sectionType: Sections) {
@@ -63,17 +72,13 @@ export function CanvasHandle() {
     const index = canvasStore.$sectionsMap.indexById[sectionId];
     if (index === undefined) return;
 
+    const wasActive = sectionId === canvasStore.activeSectionId;
+
     runInAction(() => {
       canvasStore.sections.splice(index, 1);
-
-      if (sectionId === canvasStore.activeSectionId) {
-        canvasStore.activeSectionId = undefined;
-      }
     });
 
-    if (sectionId === canvasStore.activeSectionId) {
-      actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
-    }
+    if (wasActive) deactivateSection();
   }
 
   function handleCanvasSectionActivate(id: string) {
@@ -89,7 +94,6 @@ export function CanvasHandle() {
 
   function handleCanvasSectionsClear() {
     clear();
-    actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES);
     actions.settings.preview.reset();
   }
 
@@ -154,9 +158,10 @@ export function CanvasHandle() {
 
     runInAction(() => {
       canvasStore.sections = sections;
-      canvasStore.activeSectionId = undefined;
       canvasStore.previewSections = [];
     });
+
+    deactivateSection();
   }
 
   function handleCanvasPreviewApply() {

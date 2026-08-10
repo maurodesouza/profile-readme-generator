@@ -99,8 +99,8 @@ USER node
 EXPOSE 3000
 
 # Healthcheck to verify the application is running
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "const http=require('http'); http.get('http://localhost:3000/',(res)=>{process.exit(res.statusCode>=200&&res.statusCode<300?0:1)}).on('error',()=>process.exit(1))" || exit 1
+# HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+#   CMD node -e "const http=require('http'); http.get('http://localhost:3000/',(res)=>{process.exit(res.statusCode>=200&&res.statusCode<300?0:1)}).on('error',()=>process.exit(1))" || exit 1
 
 # Use tini as init to handle signals properly, then start Next.js standalone server
 ENTRYPOINT ["tini", "--"]

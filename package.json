@@ -76,6 +76,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.7",
     "@next/bundle-analyzer": "^16.3.0",
+    "@playwright/test": "^1.62.1",
     "@testing-library/react": "^16.3.2",
     "@types/node": "22.15.18",
     "@types/prismjs": "^1.26.6",

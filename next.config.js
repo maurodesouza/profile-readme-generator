@@ -9,6 +9,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   allowedDevOrigins: ['127.0.0.1', 'localhost'],
   typescript: {
     ignoreBuildErrors: true,

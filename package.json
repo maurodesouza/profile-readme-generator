@@ -37,6 +37,7 @@
     "format": "biome format --write src",
     "format:check": "biome format src",
     "test": "vitest",
+    "test:e2e": "playwright test",
     "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {

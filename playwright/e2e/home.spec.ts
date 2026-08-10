@@ -1,18 +1,27 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../fixtures';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+test.beforeEach(async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
+  await page.reload();
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('visiting home shows the welcome message', async ({ page }) => {
+  await expect(page.getByTestId('welcome')).toBeVisible();
+});
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+test('left and right panels are visible on desktop', async ({ page }) => {
+  await expect(page.getByTestId('panel-content-left')).toBeVisible();
+  await expect(page.getByTestId('panel-content-right')).toBeVisible();
+});
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+test('adding a text section and reloading persists', async ({ page }) => {
+  await page.getByTestId('Text').click();
+  await expect(page.getByTestId('canvas-section')).toHaveCount(1);
+
+  await page.reload();
+  await expect(page.getByTestId('canvas-section')).toHaveCount(1);
 });

@@ -88,6 +88,7 @@ export const GuardSection = observer(function GuardSection(
 
       {state.is === 'invalid' && (
         <form
+          data-testid="guard-form"
           className="w-[min(100%,30rem)] flex flex-col gap-lg mx-auto"
           onSubmit={checkGithubUsername}
         >
@@ -106,6 +107,7 @@ export const GuardSection = observer(function GuardSection(
           </div>
 
           <Fields.Compound.Input
+            data-testid="guard-input"
             error={error}
             ref={inputRef}
             label={t('guard-section.input-label')}

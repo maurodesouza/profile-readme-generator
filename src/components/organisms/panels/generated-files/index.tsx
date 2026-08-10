@@ -80,7 +80,7 @@ export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
   }, []);
 
   return (
-    <div>
+    <div data-testid="generated-files">
       <Tree tree={tree} />
     </div>
   );

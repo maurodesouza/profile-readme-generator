@@ -49,7 +49,12 @@ function File(props: FileProps) {
 
   return (
     <button className="flex w-full mt-xs **:cursor-pointer hover:text-tone-foreground-context!">
-      <Label onClick={onClick} icon="file" className={className}>
+      <Label
+        onClick={onClick}
+        icon="file"
+        className={className}
+        data-testid="tree-file"
+      >
         {file}
       </Label>
     </button>
@@ -65,7 +70,7 @@ function Folder(props: FolderProps) {
 
   return hasFiles ? (
     <div>
-      <Label icon="folder" className={className}>
+      <Label icon="folder" className={className} data-testid="tree-folder">
         {name}
       </Label>
 

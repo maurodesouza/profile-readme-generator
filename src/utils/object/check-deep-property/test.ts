@@ -55,9 +55,18 @@ describe('UTILS - Check deep object value', () => {
         ...rest,
       });
 
-      const method = expected ? 'toBeTruthy' : 'toBeFalsy';
-
-      expect(result)[method];
+      expect(result).toBe(expected);
     });
+  });
+
+  it('should return false for an unknown operator', () => {
+    const result = checkDeepProperty({
+      obj: objInput,
+      path: 'prop1',
+      be: 'different' as any,
+      value: 'some1',
+    });
+
+    expect(result).toBe(false);
   });
 });

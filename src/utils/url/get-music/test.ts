@@ -81,6 +81,20 @@ describe('UTILS - Get music url', () => {
           imgUrl: `some-url?bla=cat&dog=here`,
         },
       },
+
+      {
+        props: {
+          project: 'foo',
+          foo: {
+            url: 'empty-props',
+          },
+        },
+
+        expect: {
+          profileUrl: undefined,
+          imgUrl: 'empty-props?',
+        },
+      },
     ];
 
     inputs.forEach(input => {

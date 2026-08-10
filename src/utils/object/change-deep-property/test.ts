@@ -66,4 +66,14 @@ describe('UTILS - Deep change object property', () => {
       expect(finded).toBe(value);
     });
   });
+
+  it('should throw when the root is not an object', () => {
+    expect(() =>
+      changeDeepProperty({
+        obj: 'not an object' as any,
+        path: 'a',
+        value: 'x',
+      })
+    ).toThrow('changeDeepProperty Error: path "a" don\'t exist in object');
+  });
 });

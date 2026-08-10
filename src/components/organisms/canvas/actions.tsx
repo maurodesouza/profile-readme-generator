@@ -39,6 +39,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.use-template')}
+                    data-testid="canvas-action-use-template"
                     size="icon"
                     variant="icon"
                     tone="success"
@@ -55,6 +56,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.leave-preview')}
+                    data-testid="canvas-action-leave-preview"
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -75,6 +77,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.reorder-sections')}
+                    data-testid="canvas-action-reorder-sections"
                     size="icon"
                     variant="icon"
                     tone="brand"
@@ -92,6 +95,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.clear-canvas')}
+                    data-testid="canvas-action-clear-canvas"
                     size="icon"
                     variant="icon"
                     tone="danger"
@@ -113,6 +117,7 @@ export const CanvasActions = observer(function CanvasActions() {
           >
             <Clickable.Button
               aria-label={t('canvas-actions.open-settings')}
+              data-testid="canvas-action-open-settings"
               size="icon"
               variant="icon"
               tone="brand"
@@ -129,6 +134,7 @@ export const CanvasActions = observer(function CanvasActions() {
           >
             <Clickable.Button
               aria-label={t('canvas-actions.toggle-theme')}
+              data-testid="canvas-action-toggle-theme"
               size="icon"
               variant="icon"
               tone="brand"
@@ -145,6 +151,7 @@ export const CanvasActions = observer(function CanvasActions() {
           >
             <Clickable.Button
               aria-label={t('canvas-actions.import-readme')}
+              data-testid="canvas-action-import-readme"
               size="icon"
               variant="icon"
               tone="brand"

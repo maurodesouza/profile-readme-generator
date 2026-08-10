@@ -22,6 +22,8 @@ const PanelTemplates = () => {
           {templates.map(({ template }, index) => (
             <button
               key={index}
+              data-testid="template-card"
+              aria-label={`Template ${index + 1}`}
               onClick={() =>
                 actions.canvas.preview.sections(template as CanvasSection[])
               }

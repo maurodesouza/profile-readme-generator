@@ -119,6 +119,7 @@ function PanelContainer(props: React.PropsWithChildren) {
       )}
       ref={containerRef}
       {...props}
+      data-testid="panel"
     />
   );
 }
@@ -136,12 +137,13 @@ function PanelWrapper(props: React.PropsWithChildren) {
           : 'max-laptop:border-none max-laptop:-z-10 max-laptop:shadow-none'
       )}
       {...props}
+      data-testid={`panel-wrapper-${side}`}
     />
   );
 }
 
 function PanelContent(props: React.PropsWithChildren) {
-  const { isOpen } = usePanel();
+  const { isOpen, side } = usePanel();
 
   return (
     <div
@@ -150,6 +152,7 @@ function PanelContent(props: React.PropsWithChildren) {
         !isOpen && 'max-laptop:opacity-0 max-laptop:overflow-hidden'
       )}
       {...props}
+      data-testid={`panel-content-${side}`}
     />
   );
 }
@@ -208,6 +211,7 @@ function PanelToggle() {
     <button
       onClick={togglePanel}
       aria-label={t('toggle', { side })}
+      data-testid={`panel-toggle-${side}`}
       style={{
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}

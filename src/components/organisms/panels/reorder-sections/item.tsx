@@ -47,6 +47,8 @@ export const Item = observer(function Item(props: ItemProps) {
       dragListener={false}
       dragControls={dragControls}
       layout
+      data-testid="reorder-item"
+      data-sectionid={data.id}
     >
       <Tile.Container>
         <Tile.Drag onPointerDown={event => dragControls.start(event)} />

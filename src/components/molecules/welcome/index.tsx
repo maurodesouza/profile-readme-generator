@@ -17,7 +17,10 @@ export function Welcome() {
   const t = useTranslations('ui');
 
   return (
-    <div className="flex flex-col items-center justify-between text-center pt-[calc(var(--spacing-xl)_*_3)]">
+    <div
+      data-testid="welcome"
+      className="flex flex-col items-center justify-between text-center pt-[calc(var(--spacing-xl)*3)]"
+    >
       <div className="flex flex-col gap-xs mb-md">
         <Text.Heading>{t('welcome.heading')}</Text.Heading>
         <Text.Heading as="h3">
@@ -27,7 +30,7 @@ export function Welcome() {
         </Text.Heading>
       </div>
 
-      <Text.Paragraph className="max-w-[46rem] mb-xl mt-md">
+      <Text.Paragraph className="max-w-184 mb-xl mt-md">
         {t('welcome.description')}
       </Text.Paragraph>
 

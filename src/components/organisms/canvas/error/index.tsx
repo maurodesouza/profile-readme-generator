@@ -14,7 +14,10 @@ export function CanvasErrorFallback() {
   }
 
   return (
-    <div className="h-full flex flex-col items-center text-center justify-center my-auto gap-xl">
+    <div
+      data-testid="canvas-error"
+      className="h-full flex flex-col items-center text-center justify-center my-auto gap-xl"
+    >
       <Text.Heading>{t('canvas-error.title')}</Text.Heading>
 
       <div className="flex flex-col gap-md max-w-[65rem]">
@@ -47,6 +50,7 @@ export function CanvasErrorFallback() {
         </Clickable.ExternalLink>
 
         <Clickable.Button
+          data-testid="canvas-error-clear-storage"
           tone="warning"
           variant="outline"
           onClick={handleClear}

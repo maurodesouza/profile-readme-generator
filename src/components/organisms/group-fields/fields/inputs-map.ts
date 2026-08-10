@@ -12,13 +12,23 @@ export type GFCommonProps<T = unknown> = {
   placeholder?: string;
   error?: string;
   onChange: (value: T) => void;
+  'data-testid'?: string;
+  'aria-label'?: string;
 };
 
 type InputMap = Record<Inputs, (props: GFCommonProps) => JSX.Element>;
 
 export const inputMap: InputMap = {
-  [Inputs.TEXT]: GFTextField,
-  [Inputs.SWITCH]: GFSwitchField,
-  [Inputs.SELECT]: GFSelectField,
-  [Inputs.TEXTAREA]: GFTextAreaField,
+  [Inputs.TEXT]: GFTextField as unknown as (
+    props: GFCommonProps
+  ) => JSX.Element,
+  [Inputs.SWITCH]: GFSwitchField as unknown as (
+    props: GFCommonProps
+  ) => JSX.Element,
+  [Inputs.SELECT]: GFSelectField as unknown as (
+    props: GFCommonProps
+  ) => JSX.Element,
+  [Inputs.TEXTAREA]: GFTextAreaField as unknown as (
+    props: GFCommonProps
+  ) => JSX.Element,
 };

@@ -162,6 +162,8 @@ export const GroupFields = observer(function GroupFields(
                     onChange(value as string | boolean, field.path)
                   }
                   {...rest}
+                  data-testid={field.path}
+                  aria-label={translate(field.label)}
                 />
               </motion.div>
             ) : null;

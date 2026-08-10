@@ -52,6 +52,7 @@ export const CanvasSection = observer(function CanvasSection(
       data-sectionid={id}
       data-hasfloat={float !== 'none'}
       {...rest}
+      data-testid="canvas-section"
     >
       <Section.Wrapper onClick={onSelectSection} state={state.is}>
         {children}

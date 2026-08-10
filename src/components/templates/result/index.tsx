@@ -95,6 +95,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
 
         {hasWorkflows && (
           <Text.Paragraph
+            data-testid="workflow-paragraph"
             className="text-center"
             onMouseEnter={() => actions.generated.workflows.highlight()}
             onMouseLeave={() => actions.generated.workflows.unhighlight()}
@@ -117,6 +118,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             {({ copy, isCopied }) => {
               return (
                 <Clickable.Button
+                  data-testid="copy-button"
                   onClick={copy}
                   tone="success"
                   className="w-41.5"

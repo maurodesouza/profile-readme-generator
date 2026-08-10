@@ -6,6 +6,7 @@ type LinkProps = {
   href: string;
   target: string;
   rel: string;
+  prefetch?: boolean;
 };
 
 type ButtonProps = {
@@ -47,6 +48,7 @@ const navItems: NavItem[] = [
       href: '/privacy-policy',
       target: '_blank',
       rel: 'noreferrer',
+      prefetch: false,
     },
   },
 ];

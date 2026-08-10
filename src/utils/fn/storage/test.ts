@@ -35,6 +35,15 @@ describe('UTILS - Storage', () => {
     expect(storedValue).toStrictEqual(value);
   });
 
+  it('should remove the item from local storage', () => {
+    const key = `${APP_KEY}:${storageTestKey}`;
+    window.localStorage.setItem(key, 'value');
+
+    storage.removeItem(storageTestKey);
+
+    expect(window.localStorage.getItem(key)).toBeNull();
+  });
+
   it('should do nothing if window is undefined', () => {
     const win = global.window;
 
@@ -47,6 +56,10 @@ describe('UTILS - Storage', () => {
     expect(storedValue).toBeNull();
 
     storedValue = storage.getItem(storageTestKey);
+    expect(storedValue).toBeNull();
+
+    storage.removeItem(storageTestKey);
+    storedValue = win.localStorage.getItem(`${APP_KEY}:${storageTestKey}`);
     expect(storedValue).toBeNull();
 
     global.window = win;

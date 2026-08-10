@@ -60,6 +60,37 @@ describe('UTILS - Get border url', () => {
         },
         expected: `${capsuleRenderBaseUrl}?theme=value`,
       },
+      {
+        input: {
+          type: 'capsule-render',
+          params: {
+            color: {
+              type: 'custom-gradient',
+              'custom-gradient': 'linear-gradient',
+            },
+          } as CapsuleRenderParams,
+        },
+        expected: `${capsuleRenderBaseUrl}?color=linear-gradient`,
+      },
+      {
+        input: {
+          type: 'capsule-render',
+          params: {
+            strokeWidth: 0,
+            color: {
+              type: 'gradient',
+            },
+          } as CapsuleRenderParams,
+        },
+        expected: `${capsuleRenderBaseUrl}?stroke=-&color=gradient`,
+      },
+      {
+        input: {
+          type: 'capsule-render',
+          params: undefined,
+        },
+        expected: `${capsuleRenderBaseUrl}?`,
+      },
     ];
 
     inputs.forEach(({ input, expected }) => {

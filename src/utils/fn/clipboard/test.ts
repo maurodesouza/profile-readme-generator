@@ -1,23 +1,47 @@
 import { clipboard } from '.';
-import { describe, it, expect, beforeAll, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
-Object.assign(navigator, {
-  clipboard: {
-    writeText: () => null,
-  },
-});
-
-vi.spyOn(navigator.clipboard, 'writeText');
-
-describe('UTILS - Copy to clip board', () => {
+describe('UTILS - Copy to clipboard', () => {
   const input = 'some value';
 
-  beforeAll(() => {
-    clipboard(input);
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    vi.clearAllMocks();
   });
 
-  it('should be called with the correct value', () => {
-    expect(navigator.clipboard.writeText).toHaveBeenCalledTimes(1);
-    expect(navigator.clipboard.writeText).toHaveBeenCalledWith(input);
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should use navigator.clipboard when available', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, { clipboard: { writeText } });
+
+    await clipboard(input);
+
+    expect(writeText).toHaveBeenCalledOnce();
+    expect(writeText).toHaveBeenCalledWith(input);
+  });
+
+  it('should fallback to document.execCommand', async () => {
+    Object.assign(navigator, { clipboard: undefined });
+    const execCommand = vi.fn().mockReturnValue(true);
+    document.execCommand = execCommand as typeof document.execCommand;
+
+    await clipboard(input);
+
+    expect(execCommand).toHaveBeenCalledOnce();
+    expect(execCommand).toHaveBeenCalledWith('copy');
+  });
+
+  it('should throw when execCommand is unsuccessful', async () => {
+    Object.assign(navigator, { clipboard: undefined });
+    const execCommand = vi.fn().mockReturnValue(false);
+    document.execCommand = execCommand as typeof document.execCommand;
+
+    await expect(clipboard(input)).rejects.toThrow(
+      'execCommand copy was unsuccessful'
+    );
+    expect(execCommand).toHaveBeenCalledOnce();
   });
 });

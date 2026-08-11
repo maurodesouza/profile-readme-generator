@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2022",
     "module": "esnext",
     "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "noEmit": true,
     "strict": true,
@@ -22,11 +20,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": "src",
     "paths": {
-      "#/*": [
-        "*"
-      ]
+      "#/*": ["./src/*"]
     },
     "incremental": true,
     "plugins": [
@@ -35,9 +30,7 @@
       }
     ]
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "**/*.ts",
     "**/*.tsx",

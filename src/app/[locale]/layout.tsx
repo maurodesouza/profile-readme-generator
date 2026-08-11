@@ -1,8 +1,8 @@
-import 'styles/global.css';
-import 'styles/markdown-theme.css';
-import 'styles/prism-syntax-theme.css';
+import '#/styles/global.css';
+import '#/styles/markdown-theme.css';
+import '#/styles/prism-syntax-theme.css';
 
-import 'features/text/text-styles.css';
+import '#/features/text/text-styles.css';
 
 import type { Metadata, Viewport } from 'next';
 

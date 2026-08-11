@@ -38,7 +38,7 @@ export function CanvasHandle() {
 
   function handleCanvasSectionAdd(sectionType: Sections) {
     const sectionData = extensionsStore.extensions.sections?.[sectionType] as
-      | Record<string, unknown>
+      | Record<string, object>
       | undefined;
 
     const newSection = {

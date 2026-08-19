@@ -32,7 +32,8 @@
       "label": "Select the stats to config"
     },
     "canvas": {
-      "generate-readme": "Generate README"
+      "generate-readme": "Generate README",
+      "generate-readme-empty": "Add sections to your canvas first"
     },
     "result": {
       "heading": "Your Readme is Done 🎉🎉🎉",

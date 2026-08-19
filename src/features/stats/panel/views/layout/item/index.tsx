@@ -8,6 +8,7 @@ import type { Variants } from 'framer-motion';
 import { Tile } from '#/components/atoms/tile';
 import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
+import { useTranslateField } from '#/hooks';
 
 import { actions } from '#/lib/command';
 import { variants, animations } from './animations';
@@ -24,6 +25,7 @@ export function Item(props: ItemProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const t = useTranslations('ui.stats-layout');
+  const translate = useTranslateField();
 
   function onChangeDisplay() {
     const path = `content.graphs.${stats}.show`;
@@ -56,7 +58,7 @@ export function Item(props: ItemProps) {
         <Tile.Drag onPointerDown={event => [dragControls.start(event)]} />
 
         <Tile.Content>
-          <Tile.Label>{stats}</Tile.Label>
+          <Tile.Label>{translate(stats)}</Tile.Label>
         </Tile.Content>
 
         <Tile.Actions>

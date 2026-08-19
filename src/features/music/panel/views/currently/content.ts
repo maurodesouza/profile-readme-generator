@@ -1,32 +1,3 @@
-const list_items = [
-  {
-    id: 1,
-    content: `
-      Create a
-      <a href="https://developer.spotify.com/dashboard/applications" target="_blank">
-        Spotify application
-      </a>
-      , you can follow this
-      <a href="https://github.com/novatorem/novatorem/blob/master/SetUp.md#spotify-api" target="_blank">
-        guide
-      </a>
-      .
-    `,
-  },
-  {
-    id: 2,
-    content: 'Choose one of the available projects.',
-  },
-  {
-    id: 3,
-    content: 'Upload your own project instance.',
-  },
-  {
-    id: 4,
-    content: 'Then put the url of your app here.',
-  },
-];
-
 const novatorem_repo = 'https://github.com/novatorem/novatorem';
 const itstommi_repo = 'https://github.com/itstommi/Spotify-Readme';
 
@@ -75,4 +46,4 @@ const projects_links = {
   ],
 };
 
-export { list_items, projects_links };
+export { projects_links };

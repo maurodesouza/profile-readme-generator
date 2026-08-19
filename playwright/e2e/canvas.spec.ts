@@ -23,6 +23,18 @@ test('editing a text section updates the preview', async ({ page }) => {
   await expect(section).toContainText(newText);
 });
 
+test('generate readme button is disabled when canvas is empty', async ({
+  page,
+}) => {
+  const button = page.getByRole('button', { name: /Generate README/i });
+  await expect(button).toBeVisible();
+  await expect(button).toBeDisabled();
+
+  await expect(
+    page.getByRole('link', { name: /Generate README/i })
+  ).toHaveCount(0);
+});
+
 test('stats guard disappears after setting the github username', async ({
   page,
 }) => {

@@ -1,7 +1,5 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
 import { object } from '#/utils/object';
 import { observer } from 'mobx-react-lite';
 
@@ -10,7 +8,7 @@ import { motion } from 'framer-motion';
 
 import { actions } from '#/lib/command';
 import { Inputs } from '#/types';
-import { useCanvas, useSettings } from '#/hooks';
+import { useCanvas, useSettings, useTranslateField } from '#/hooks';
 
 import { variants } from './animations';
 import { GroupFieldsLabel } from './label';
@@ -55,24 +53,12 @@ export const GroupFields = observer(function GroupFields(
 
   const canvasStore = useCanvas();
   const settingsStore = useSettings();
-  const t = useTranslations('fields');
+  const t = useTranslateField();
 
   const translate = (value?: string) => {
     if (!value) return '';
 
-    const slugKey = value
-      .replace(/__dot__/g, '.')
-      .replace(/\./g, '-dot-')
-      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
-      .toLowerCase()
-      .replace(/_/g, '-')
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]+/g, '-')
-      .replace(/--+/g, '-')
-      .replace(/^-|-$/g, '');
-
-    return (t.has(slugKey) ? t(slugKey) : value) as string;
+    return t(value);
   };
 
   const obj =

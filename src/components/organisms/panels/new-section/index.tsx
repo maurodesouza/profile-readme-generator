@@ -27,7 +27,12 @@ export const PanelNewSection = observer(function PanelNewSection() {
           const El = 'href' in rest ? 'a' : 'button';
 
           return (
-            <El key={name} {...rest} aria-label={name} data-testid={name}>
+            <El
+              key={name}
+              {...rest}
+              aria-label={translate(name)}
+              data-testid={name}
+            >
               <DisplayBlock.Container>
                 <DisplayBlock.Content>
                   <DisplayBlock.Icon

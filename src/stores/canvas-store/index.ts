@@ -21,6 +21,10 @@ class CanvasStore {
     }
   }
 
+  get $isEmpty() {
+    return this.sections.length === 0;
+  }
+
   get $isInPreviewMode() {
     return this.previewSections.length > 0;
   }

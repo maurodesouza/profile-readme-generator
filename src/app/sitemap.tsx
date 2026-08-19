@@ -5,29 +5,23 @@ import type { MetadataRoute } from 'next';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const basePath = config.general.urls.app;
   const today = new Date();
-  const localePrefix = `/${routing.defaultLocale}`;
 
-  return [
-    {
-      url: `${basePath}${localePrefix}`,
+  const pathnames = ['', '/result', '/privacy-policy'];
+
+  return routing.locales.flatMap(locale => {
+    const isDefault = locale === routing.defaultLocale;
+
+    return pathnames.map(pathname => ({
+      url: `${basePath}/${locale}${pathname}`,
       lastModified: today,
       changeFrequency: 'yearly',
-      priority: 1,
+      priority: isDefault && pathname === '' ? 1 : 0.2,
       images: [`${basePath}/assets/app.png`],
-    },
-    {
-      url: `${basePath}${localePrefix}/result`,
-      lastModified: today,
-      changeFrequency: 'yearly',
-      priority: 0.2,
-      images: [`${basePath}/assets/app.png`],
-    },
-    {
-      url: `${basePath}${localePrefix}/privacy-policy`,
-      lastModified: today,
-      changeFrequency: 'yearly',
-      priority: 0.2,
-      images: [`${basePath}/assets/app.png`],
-    },
-  ];
+      alternates: {
+        languages: Object.fromEntries(
+          routing.locales.map(loc => [loc, `${basePath}/${loc}${pathname}`])
+        ),
+      },
+    }));
+  });
 }

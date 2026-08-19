@@ -52,6 +52,7 @@
       "clear-canvas": "Clear canvas",
       "open-settings": "Open settings panel",
       "toggle-theme": "Toggle Theme",
+      "change-language": "Change language",
       "import-readme": "Import README"
     },
     "canvas-error": {

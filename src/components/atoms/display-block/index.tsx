@@ -15,7 +15,7 @@ const Icon = tailwind.twx(
 
 const Label = tailwind.twx(
   Text.Paragraph
-)`group-hover:text-tone-foreground-context transition-colors`;
+)`group-hover:text-tone-foreground-context transition-colors text-center`;
 
 export const DisplayBlock = {
   Container,

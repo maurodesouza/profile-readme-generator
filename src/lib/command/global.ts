@@ -5,6 +5,7 @@ import type {
   Renderable,
   Sections,
 } from '#/types';
+import type { AppLocale } from '#/i18n/locales';
 import type { Action } from './types';
 
 type PanelActions = {
@@ -75,5 +76,9 @@ export interface Actions {
   theme: {
     use: Action<string>;
     toggle: Action;
+  };
+
+  locale: {
+    use: Action<AppLocale>;
   };
 }

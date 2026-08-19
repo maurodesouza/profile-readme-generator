@@ -1,5 +1,6 @@
 import { CanvasHandle } from './canvas';
 import { ExtensionsHandle } from './extensions';
+import { LocaleHandler } from './locale';
 import { SettingsHandle } from './settings';
 import { ThemeHandler } from './theme';
 
@@ -10,6 +11,7 @@ export function Handles() {
       <SettingsHandle />
       <ExtensionsHandle />
       <ThemeHandler />
+      <LocaleHandler />
     </>
   );
 }

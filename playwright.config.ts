@@ -33,6 +33,11 @@ export default defineConfig({
 
     /* Start every test with a clean browser context so localStorage is isolated */
     storageState: undefined,
+
+    /* Pin browser locale so next-intl detection always resolves to English.
+       Without this, a non-en browser would redirect to a localized URL and
+       break assertions that expect English UI strings. */
+    locale: 'en-US',
   },
 
   expect: {

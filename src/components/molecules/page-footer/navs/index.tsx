@@ -10,12 +10,20 @@ export function FooterNavs() {
   return (
     <nav className="flex items-center flex-wrap gap-x-xl gap-y-xs desktop:gap-x-md">
       {navItems.map((item, i) => {
-        const El = 'href' in item.props ? Text.Link : Text.Clickable;
+        const label = translate(item.label);
+
+        if ('href' in item.props) {
+          return (
+            <Text.Link key={i} {...item.props}>
+              {label}
+            </Text.Link>
+          );
+        }
 
         return (
-          <El key={i} {...(item.props as React.ComponentProps<typeof El>)}>
-            {translate(item.label)}
-          </El>
+          <Text.Clickable key={i} {...item.props}>
+            {label}
+          </Text.Clickable>
         );
       })}
     </nav>

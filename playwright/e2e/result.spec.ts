@@ -26,7 +26,7 @@ test('generated files tree, copy button and workflow hover', async ({
   await page.getByTestId('content.text').fill(text);
 
   await page.getByRole('link', { name: /Generate README/i }).click();
-  await page.waitForURL('**/result');
+  await page.waitForURL('**/result', { waitUntil: 'load' });
 
   await expect(page.getByTestId('generated-files')).toBeVisible();
   await expect(page.getByTestId('tree-file').first()).toBeVisible();

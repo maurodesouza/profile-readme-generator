@@ -7,6 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { Icon } from '#/components/atoms/icon';
 import { Tooltip } from '#/components/atoms/tooltip';
 import { Clickable } from '#/components/atoms/clickable';
+import { LanguageSwitcher } from '#/components/molecules/language-switcher';
 
 import { useCanvas } from '#/hooks';
 import { PanelsEnum } from '#/types';
@@ -143,6 +144,8 @@ export const CanvasActions = observer(function CanvasActions() {
               <Icon name="sun-moon" />
             </Clickable.Button>
           </Tooltip>
+
+          <LanguageSwitcher />
 
           <Tooltip
             position="left"

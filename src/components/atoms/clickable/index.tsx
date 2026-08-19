@@ -1,6 +1,6 @@
 import { tailwind } from '#/utils/tailwind';
 import React from 'react';
-import NextLink, { LinkProps as NextLinkProps } from 'next/link';
+import { Link as NextIntlLink } from '#/i18n/navigation';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const buttonVariants = tv({
@@ -63,7 +63,7 @@ export const Button = tailwind.twx.button.attrs<ButtonProps>(props => ({
 }))(props => buttonVariants(props));
 
 type LinkProps = ButtonVariantProps &
-  NextLinkProps & {
+  React.ComponentProps<typeof NextIntlLink> & {
     className?: string;
   };
 
@@ -78,7 +78,7 @@ function Link(props: React.PropsWithChildren<LinkProps>) {
       className={className}
       asChild
     >
-      <NextLink {...linkProps} />
+      <NextIntlLink {...linkProps} />
     </Button>
   );
 }

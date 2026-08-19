@@ -1,6 +1,6 @@
 import { tailwind } from '#/utils/tailwind';
 import React, { JSX } from 'react';
-import NextLink from 'next/link';
+import { Link as NextIntlLink } from '#/i18n/navigation';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const headingVariants = tv({
@@ -39,7 +39,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 const Paragraph = tailwind.twx.p`text-foreground text-sm transition-all`;
 
 const Link = tailwind.twx(
-  NextLink
+  NextIntlLink
 )`text-tone-foreground-context text-sm hover:underline`;
 
 const Clickable = tailwind.twx

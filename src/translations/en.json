@@ -119,7 +119,9 @@
       "social-logo": "{social} logo",
       "tech-logo": "{name} logo",
       "graph": "{graph} graph",
-      "pacman": "An animation of {game} eating the github user contributions (like {game} game)"
+      "pacman": "An animation of {game} eating the github user contributions (like {game} game)",
+      "spotify-recently": "Spotify recently played",
+      "spotify-currently": "Widget with the current Spotify song"
     },
     "context-menu": {
       "move": "Move",
@@ -129,7 +131,8 @@
     "templates": {
       "heading": "Templates",
       "description": "Select a template to preview, and then confirm to be able to edit.",
-      "obs": "OBS: on confirm, the template will replace all canvas content."
+      "obs": "OBS: on confirm, the template will replace all canvas content.",
+      "aria-label": "Template {index}"
     },
     "stats-layout": {
       "hide": "Hide",
@@ -138,6 +141,19 @@
     },
     "panel": {
       "toggle": "Toggle {side} panel"
+    },
+    "music": {
+      "currently": {
+        "callout": "To show the current music from your Spotify, you will need to:",
+        "links": "Links related to the {project}'s project:",
+        "list-item-1": "Create a <a href=\"https://developer.spotify.com/dashboard/applications\" target=\"_blank\">Spotify application</a>, you can follow this <a href=\"https://github.com/novatorem/novatorem/blob/master/SetUp.md#spotify-api\" target=\"_blank\">guide</a>.",
+        "list-item-2": "Choose one of the available projects.",
+        "list-item-3": "Upload your own project instance.",
+        "list-item-4": "Then put the url of your app here."
+      },
+      "recently": {
+        "callout": "Before start, you need to connect your Spotify account with the Vercel app."
+      }
     }
   },
   "fields": {
@@ -464,6 +480,13 @@
     "privacy-policy": "Privacy Policy",
     "duplicate": "Duplicate",
     "delete": "Delete",
+    "socials": "Social Media",
+    "pacman": "Arcade games",
+    "activities": "My activities",
+    "languages": "Languages",
+    "streak": "Streak",
+    "trophy": "Trophy",
+    "activity-graph": "Activity Graph",
     "dot-github-workflows": ".github/workflows",
     "mauro-de-souza": "Mauro de Souza",
     "boost-your-english": "Boost Your English",

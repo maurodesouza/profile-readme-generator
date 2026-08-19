@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
@@ -26,19 +28,16 @@ type MusicSectionProps = {
   styles: Styles;
 };
 
-const ALTS = {
-  recently: 'Spotify recently played',
-  currently: 'Widget with the current Spotify song',
-};
-
 export const MusicSection = observer(function MusicSection(
   props: MusicSectionProps
 ) {
   const { content, styles } = props;
   const { type, ...rest } = content;
 
+  const t = useTranslations('ui.alts');
+
   const { spotifyAccountUrl, imageUrl } = url.getMusic(type, rest[type]);
-  const alt = ALTS[type];
+  const alt = t(`spotify-${type}`);
 
   const Wrapper = ({ children }: { children: React.ReactNode }) =>
     spotifyAccountUrl ? (

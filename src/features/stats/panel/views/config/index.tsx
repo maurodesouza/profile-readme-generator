@@ -2,13 +2,13 @@
 
 import { useTranslations } from 'next-intl';
 
-import { string } from '#/utils/string';
 import { useMemo, useState } from 'react';
 
 import { useSearchParams } from 'next/navigation';
 import { AnimatePresence } from 'framer-motion';
 
 import { Fields } from '#/components/molecules/fields';
+import { useTranslateField } from '#/hooks';
 
 import { views } from './views';
 
@@ -16,6 +16,7 @@ type Views = keyof typeof views;
 
 const Config = () => {
   const t = useTranslations('ui');
+  const translate = useTranslateField();
   const searchParams = useSearchParams();
   const viewNames = useMemo(() => Object.keys(views), []);
 
@@ -34,7 +35,7 @@ const Config = () => {
         defaultValue={currentTab}
         onChange={option => setCurrentTab(option.value)}
         options={viewNames.map(view => ({
-          label: view.split('-').map(string.capitalize).join(' '),
+          label: translate(view),
           value: view,
         }))}
       />

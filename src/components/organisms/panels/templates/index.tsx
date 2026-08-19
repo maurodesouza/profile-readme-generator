@@ -23,7 +23,7 @@ const PanelTemplates = () => {
             <button
               key={index}
               data-testid="template-card"
-              aria-label={`Template ${index + 1}`}
+              aria-label={t('aria-label', { index: index + 1 })}
               onClick={() =>
                 actions.canvas.preview.sections(template as CanvasSection[])
               }

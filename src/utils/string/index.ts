@@ -1,4 +1,4 @@
 import { capitalize } from './capitalize';
+import { slugify } from './slugify';
 
-export const string = { capitalize };
-export { capitalize } from './capitalize';
+export const string = { capitalize, slugify };

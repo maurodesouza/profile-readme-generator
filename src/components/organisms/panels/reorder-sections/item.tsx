@@ -10,7 +10,7 @@ import { Tile } from '#/components/atoms/tile';
 import { Text } from '#/components/atoms/text';
 import { Clickable } from '#/components/atoms/clickable';
 
-import { useExtensions } from '#/hooks';
+import { useExtensions, useTranslateField } from '#/hooks';
 import { CanvasSection } from '#/types';
 import { actions } from '#/lib/command';
 
@@ -26,6 +26,7 @@ export const Item = observer(function Item(props: ItemProps) {
   const dragControls = useDragControls();
 
   const extensionsStore = useExtensions();
+  const translate = useTranslateField();
 
   const featureData = extensionsStore.extensions['new-section'][
     data.type
@@ -59,7 +60,7 @@ export const Item = observer(function Item(props: ItemProps) {
 
         <Tile.Content className="flex justify-center flex-col min-w-0">
           <Tile.Label className="flex items-center  gap-xs">
-            {data.type.replace('-', ' ')}
+            {translate(featureData.name)}
           </Tile.Label>
 
           {content && (

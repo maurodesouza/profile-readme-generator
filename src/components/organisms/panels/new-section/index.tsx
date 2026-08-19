@@ -1,7 +1,5 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
 import { observer } from 'mobx-react-lite';
 
 import { IconName } from 'lucide-react/dynamic';
@@ -9,29 +7,14 @@ import { IconName } from 'lucide-react/dynamic';
 import { Panel } from '#/components/organisms/panel';
 import { DisplayBlock } from '#/components/atoms/display-block';
 
-import { useExtensions } from '#/hooks';
+import { useExtensions, useTranslateField } from '#/hooks';
 import { PanelsEnum } from '#/types';
 
 import { contents } from './contents';
 
 export const PanelNewSection = observer(function PanelNewSection() {
   const extensionsStore = useExtensions();
-  const t = useTranslations('fields');
-  const translate = (value: string) => {
-    const slugKey = value
-      .replace(/__dot__/g, '.')
-      .replace(/\./g, '-dot-')
-      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-      .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2')
-      .toLowerCase()
-      .replace(/_/g, '-')
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]+/g, '-')
-      .replace(/--+/g, '-')
-      .replace(/^-|-$/g, '');
-
-    return (t.has(slugKey) ? t(slugKey) : value) as string;
-  };
+  const translate = useTranslateField();
 
   const items = Object.values(
     extensionsStore.extensions[PanelsEnum.NEW_SECTION] ?? {}
@@ -44,7 +27,12 @@ export const PanelNewSection = observer(function PanelNewSection() {
           const El = 'href' in rest ? 'a' : 'button';
 
           return (
-            <El key={name} {...rest} aria-label={name} data-testid={name}>
+            <El
+              key={name}
+              {...rest}
+              aria-label={translate(name)}
+              data-testid={name}
+            >
               <DisplayBlock.Container>
                 <DisplayBlock.Content>
                   <DisplayBlock.Icon

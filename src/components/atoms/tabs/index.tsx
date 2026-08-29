@@ -48,7 +48,7 @@ export function Tabs(props: PrePlayerTabsProps) {
           {tabs.map(({ label, icon, view }) => {
             const isActive = view === currentTab;
             const classes = isActive
-              ? 'text-palette-accent!'
+              ? 'text-blue-accent!'
               : 'text-palette-contrast!';
 
             return (
@@ -70,7 +70,7 @@ export function Tabs(props: PrePlayerTabsProps) {
 
                 {isActive ? (
                   <motion.div
-                    className="absolute left-0 right-0 -bottom-0.5 w-full h-1 rounded-full bg-palette-base"
+                    className="absolute left-0 right-0 -bottom-0.5 w-full h-1 rounded-full bg-blue-base"
                     layoutId="underline"
                   />
                 ) : null}

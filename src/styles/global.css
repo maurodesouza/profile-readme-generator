@@ -66,6 +66,10 @@
     --palette-base-hover,
     oklch(from var(--palette-base) calc(l + var(--palette-state-shift)) c h)
   );
+
+  /* Blue accent tokens — always available for global accents (links, tabs) */
+  --color-blue-base: var(--palette-blue-base);
+  --color-blue-accent: var(--palette-blue-accent);
 }
 
 * {
@@ -145,7 +149,7 @@ body {
 }
 
 a {
-  @apply text-palette-accent;
+  @apply text-blue-accent;
 }
 
 a:hover {

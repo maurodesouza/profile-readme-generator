@@ -93,11 +93,7 @@ export const GuardSection = observer(function GuardSection(
           onSubmit={checkGithubUsername}
         >
           <div className="flex gap-lg items-center">
-            <Icon
-              name="alert-circle"
-              size={24}
-              className="text-palette-accent"
-            />
+            <Icon name="alert-circle" size={24} className="text-palette-base" />
 
             <Text.Paragraph>
               {t('guard-section.description1')}

@@ -13,7 +13,7 @@ import { actions, command } from '#/lib/command';
 import { useCanvas, useExtensions, useSettings } from '#/hooks';
 
 const WORKFLOWS_FOLDER = '.github/workflows';
-const WORKFLOWS_CLASS = 'palette-warning text-palette-accent';
+const WORKFLOWS_CLASS = 'palette-warning text-palette-base';
 
 export const PanelGeneratedFiles = observer(function PanelGeneratedFiles() {
   const [isHighlighted, setIsHighlighted] = useState(false);

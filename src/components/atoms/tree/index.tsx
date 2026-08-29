@@ -48,7 +48,7 @@ function File(props: FileProps) {
   }
 
   return (
-    <button className="flex w-full mt-xs **:cursor-pointer hover:text-palette-accent!">
+    <button className="flex w-full mt-xs **:cursor-pointer hover:text-blue-accent!">
       <Label
         onClick={onClick}
         icon="file"

@@ -34,11 +34,13 @@ export const SectionContextMenu = observer(function SectionContextMenu(
 
   return (
     <ContextMenu.Content>
-      {actions.map(({ label, icon, action, ...rest }) => {
+      {actions.map(({ label, icon, action, className, ...rest }) => {
         return (
           <ContextMenu.Item
             key={label}
+            soft={!className}
             onClick={() => action(props.id)}
+            className={className}
             {...rest}
           >
             <Icon name={icon as IconName} />
@@ -53,6 +55,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
       <ContextMenu.Separator />
 
       <ContextMenu.Item
+        soft
         onClick={() => commandActions.canvas.section.moveUp(props.id)}
         disabled={isFirst}
       >
@@ -61,6 +64,7 @@ export const SectionContextMenu = observer(function SectionContextMenu(
       </ContextMenu.Item>
 
       <ContextMenu.Item
+        soft
         onClick={() => commandActions.canvas.section.moveDown(props.id)}
         disabled={isLast}
       >

@@ -55,13 +55,9 @@ const contextMenuItemVariants = tv({
   base: 'relative flex gap-sm cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-palette-base focus:text-palette-contrast data-disabled:pointer-events-none data-disabled:opacity-50',
 
   variants: {
-    tone: {
-      default:
-        'palette-surface focus:bg-palette-soft focus:text-palette-contrast',
-      blue: 'palette-blue',
-      green: 'palette-green',
-      warning: 'palette-orange',
-      danger: 'palette-danger',
+    soft: {
+      true: 'focus:bg-palette-soft focus:text-palette-contrast',
+      false: '',
     },
 
     inset: {
@@ -72,7 +68,6 @@ const contextMenuItemVariants = tv({
 
   defaultVariants: {
     inset: false,
-    tone: 'default',
   },
 });
 
@@ -80,10 +75,10 @@ const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> &
     VariantProps<typeof contextMenuItemVariants>
->(({ ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Item
     ref={ref}
-    className={contextMenuItemVariants(props)}
+    className={contextMenuItemVariants({ ...props, className })}
     {...props}
   />
 ));

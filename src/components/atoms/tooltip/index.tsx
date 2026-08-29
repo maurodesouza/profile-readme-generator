@@ -2,24 +2,15 @@
 
 import { tailwind } from '#/utils/tailwind';
 import React, { useEffect, useRef, useState } from 'react';
-import { tv, VariantProps } from 'tailwind-variants';
+import { tv } from 'tailwind-variants';
 
 import { OnlyClientSide } from '#/components/helpers/only-client-side';
 import { Portal } from '#/components/helpers/portal';
 import { TooltipPositions } from '#/types';
 
 const tooltipVariants = tv({
-  base: 'text-xs absolute rounded-md z-10 text-palette-contrast bg-palette-base border border-palette-line px-xs py-[calc(var(--spacing-xs)_/_2)]',
+  base: 'palette-surface text-xs absolute rounded-md z-10 text-palette-contrast bg-palette-base border border-palette-line px-xs py-[calc(var(--spacing-xs)_/_2)]',
   variants: {
-    tone: {
-      default:
-        'palette-surface bg-palette-base text-palette-contrast border-palette-line',
-      blue: 'palette-blue',
-      warning: 'palette-orange',
-      danger: 'palette-danger',
-      green: 'palette-green',
-    },
-
     open: {
       true: 'opacity-100 pointer-events-auto',
       false: 'opacity-0 pointer-events-none',
@@ -28,18 +19,18 @@ const tooltipVariants = tv({
 
   defaultVariants: {
     open: false,
-    tone: 'default',
   },
 });
 
-type TooltipProps = Pick<VariantProps<typeof tooltipVariants>, 'tone'> & {
+type TooltipProps = {
   children: Parameters<typeof React.cloneElement>[0];
   position?: `${TooltipPositions}`;
   content: string;
+  className?: string;
 };
 
 export function Tooltip(props: TooltipProps) {
-  const { children, position = 'top', content, ...rest } = props;
+  const { children, position = 'top', content, className } = props;
 
   const openTimeoutRef = useRef<NodeJS.Timeout>(undefined);
   const closeTimeoutRef = useRef<NodeJS.Timeout>(undefined);
@@ -134,7 +125,7 @@ export function Tooltip(props: TooltipProps) {
               left: coordinate.x,
             }}
             className={tooltipVariants({
-              ...rest,
+              className,
               open,
             })}
           >

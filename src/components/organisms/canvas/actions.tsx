@@ -36,7 +36,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.use-template')}
-                  tone="green"
+                  className="palette-green"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.use-template')}
@@ -53,7 +53,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.leave-preview')}
-                  tone="danger"
+                  className="palette-danger"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.leave-preview')}
@@ -74,7 +74,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.reorder-sections')}
-                  tone="blue"
+                  className="palette-blue"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.reorder-sections')}
@@ -92,7 +92,7 @@ export const CanvasActions = observer(function CanvasActions() {
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.clear-canvas')}
-                  tone="danger"
+                  className="palette-danger"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.clear-canvas')}
@@ -114,7 +114,7 @@ export const CanvasActions = observer(function CanvasActions() {
           <Tooltip
             position="left"
             content={t('canvas-actions.open-settings')}
-            tone="blue"
+            className="palette-blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.open-settings')}
@@ -131,7 +131,7 @@ export const CanvasActions = observer(function CanvasActions() {
           <Tooltip
             position="left"
             content={t('canvas-actions.toggle-theme')}
-            tone="blue"
+            className="palette-blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.toggle-theme')}
@@ -150,7 +150,7 @@ export const CanvasActions = observer(function CanvasActions() {
           <Tooltip
             position="left"
             content={t('canvas-actions.import-readme')}
-            tone="blue"
+            className="palette-blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.import-readme')}

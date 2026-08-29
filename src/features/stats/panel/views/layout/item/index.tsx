@@ -62,13 +62,17 @@ export function Item(props: ItemProps) {
         </Tile.Content>
 
         <Tile.Actions>
-          <Tooltip content={label} position="right" tone="blue">
+          <Tooltip content={label} position="right" className="palette-blue">
             <Tile.Button onClick={onChangeDisplay}>
               <Icon name={eyeIcon} />
             </Tile.Button>
           </Tooltip>
 
-          <Tooltip content={t('configure')} position="right" tone="blue">
+          <Tooltip
+            content={t('configure')}
+            position="right"
+            className="palette-blue"
+          >
             <Tile.Button onClick={onConfigure}>
               <Icon name="settings" />
             </Tile.Button>

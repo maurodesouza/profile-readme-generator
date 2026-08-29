@@ -8,7 +8,7 @@ const buttonVariants = tv({
   variants: {
     variant: {
       solid: `
-          bg-palette-base! text-palette-contrast! hover:bg-palette-base-hover
+          bg-palette-base! text-palette-contrast! hover:bg-palette-base-hover!
           data-[soft=true]:bg-palette-soft! data-[soft=true]:text-palette-contrast!
       `,
       ghost: `

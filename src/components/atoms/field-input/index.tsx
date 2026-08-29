@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { tv, VariantProps } from 'tailwind-variants';
+import { tv } from 'tailwind-variants';
 
 const inputVariants = tv({
   base: `
@@ -13,38 +13,18 @@ const inputVariants = tv({
 
     focus-visible:ring-palette-ring focus-visible:ring-[1px]
   `,
-
-  variants: {
-    tone: {
-      default:
-        'palette-surface border-palette-line focus-visible:ring-palette-ring',
-      blue: 'palette-blue',
-      danger: 'palette-danger',
-      warning: 'palette-orange',
-      green: 'palette-green',
-    },
-  },
-
-  defaultVariants: {
-    tone: 'default',
-  },
 });
 
-type InputProps = React.ComponentProps<'input'> &
-  VariantProps<typeof inputVariants> & {
-    invalid?: boolean;
-  };
+type InputProps = React.ComponentProps<'input'> & {
+  invalid?: boolean;
+};
 
 export function Input({ className, invalid = false, ...props }: InputProps) {
   return (
     <input
       aria-invalid={invalid}
       data-slot="input"
-      className={inputVariants({
-        ...props,
-        tone: invalid ? 'danger' : props.tone,
-        className,
-      })}
+      className={inputVariants({ className })}
       {...props}
     />
   );

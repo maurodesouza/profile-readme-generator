@@ -1,5 +1,5 @@
 .token.punctuation {
-  color: var(--palette-contrast);
+  color: var(--palette-base);
 }
 
 .token.boolean,
@@ -24,7 +24,7 @@
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: var(--palette-soft);
+  color: var(--palette-line);
 }
 
 .token.bold,

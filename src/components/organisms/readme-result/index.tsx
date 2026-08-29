@@ -52,8 +52,8 @@ export function ReadmeResult(props: ReadmeResultProps) {
         </CopyToClipboard>
       </ul>
 
-      <pre className={`language-html`}>
-        <code className={`language-html`}>{props.content}</code>
+      <pre className="language-html palette-blue">
+        <code className="language-html">{props.content}</code>
       </pre>
     </div>
   );

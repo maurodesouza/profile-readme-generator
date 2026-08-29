@@ -12,11 +12,11 @@ export function Modal() {
   const [Modal, setModal] = useState<Renderable>();
 
   function onOpenModal(modal: Renderable) {
-    setModal(modal);
+    setModal(() => modal);
   }
 
   function onCloseModal() {
-    setModal(undefined);
+    setModal(() => undefined);
   }
 
   useEffect(() => {

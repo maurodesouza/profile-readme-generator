@@ -48,7 +48,7 @@ export function Tabs(props: PrePlayerTabsProps) {
           {tabs.map(({ label, icon, view }) => {
             const isActive = view === currentTab;
             const classes = isActive
-              ? 'text-blue-accent!'
+              ? 'text-palette-ring!'
               : 'text-palette-contrast!';
 
             return (

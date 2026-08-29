@@ -65,13 +65,9 @@ const dropdownMenuItemVariants = tv({
   base: `focus:bg-palette-base focus:text-palette-contrast relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4`,
 
   variants: {
-    tone: {
-      default:
-        'palette-surface focus:bg-palette-soft focus:text-palette-contrast',
-      blue: 'palette-blue',
-      green: 'palette-green',
-      warning: 'palette-orange',
-      danger: 'palette-danger',
+    soft: {
+      true: 'focus:bg-palette-soft focus:text-palette-contrast',
+      false: '',
     },
 
     inset: {
@@ -87,7 +83,6 @@ const dropdownMenuItemVariants = tv({
 
   defaultVariants: {
     inset: false,
-    tone: 'default',
   },
 });
 

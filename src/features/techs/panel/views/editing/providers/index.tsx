@@ -46,6 +46,7 @@ export function Providers({ icon, current, available }: ProvidersProps) {
           return (
             <DropdownMenu.Item
               key={provider}
+              soft
               onClick={changeProvider(provider)}
               disabled={isUnavailable}
             >
@@ -54,7 +55,7 @@ export function Providers({ icon, current, available }: ProvidersProps) {
           );
         })}
         <DropdownMenu.Separator />
-        <DropdownMenu.Item disabled>
+        <DropdownMenu.Item soft disabled>
           {t('techs.current', { provider: current })}
         </DropdownMenu.Item>
       </DropdownMenu.Content>

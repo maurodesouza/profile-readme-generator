@@ -23,7 +23,7 @@ const buttonVariants = tv({
         data-[soft=true]:hover:bg-palette-soft! data-[soft=true]:hover:text-palette-contrast! data-[soft=true]:hover:border-palette-soft!
       `,
       icon: `
-        bg-transparent! text-palette-contrast! hover:text-palette-accent!
+        bg-transparent! text-palette-line! hover:text-palette-accent!
         data-[soft=true]:hover:text-palette-contrast!
       `,
     },

@@ -43,7 +43,7 @@ const Link = tailwind.twx(
 )`text-palette-accent text-sm hover:underline`;
 
 const Clickable = tailwind.twx
-  .button`inline text-palette-accent! text-sm hover:underline`;
+  .button`inline text-palette-ring! text-sm hover:underline`;
 
 const Strong = tailwind.twx.strong`text-palette-contrast text-sm font-semibold`;
 

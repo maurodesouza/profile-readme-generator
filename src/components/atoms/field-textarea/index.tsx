@@ -10,7 +10,7 @@ const textareaVariants = tv({
     transition-[color,box-shadow]
     file:text-palette-contrast file:inline-flex file:h-7 file:border-0 file:bg-palette-base file:text-sm file:font-semibold
     disabled:cursor-not-allowed! disabled:opacity-50
-    resize-none min-h-[10rem] max-h-[10rem] pr-sm scrollbar
+    resize-none min-h-40 max-h-40 pr-sm scrollbar
     focus-visible:ring-palette-ring focus-visible:ring-[1px]
   `,
 });

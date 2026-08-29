@@ -36,7 +36,7 @@ export const Currently = observer(function Currently() {
 
   return (
     <div className="flex flex-col">
-      <Callout tone="warning" className="mb-sm">
+      <Callout className="palette-orange mb-sm">
         {tUi('music.currently.callout')}{' '}
         <ul className="flex flex-col">
           {listItems.map(item => (
@@ -53,7 +53,7 @@ export const Currently = observer(function Currently() {
         <GroupFields key={group.id} {...group} />
       ))}
 
-      <Callout tone="warning" className="mb-sm">
+      <Callout className="palette-orange mb-sm">
         {tUi('music.currently.links', { project })}
         <div className="flex flex-col">
           {links.map(link => (

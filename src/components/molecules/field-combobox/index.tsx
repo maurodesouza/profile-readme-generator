@@ -82,6 +82,7 @@ export function Combobox(props: ComboboxProps) {
             <Clickable.Button
               size="icon"
               variant="icon"
+              soft
               className="absolute right-1 bottom-0.5"
             >
               <Icon name="chevrons-up-down" />

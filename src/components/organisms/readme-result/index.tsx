@@ -25,7 +25,7 @@ export function ReadmeResult(props: ReadmeResultProps) {
 
   return (
     <div ref={containerRef} className="code w-0">
-      <ul className="absolute top-xl right-xl flex bg-background-default">
+      <ul className="absolute top-xl right-xl flex bg-palette-base">
         <CopyToClipboard content={props.content}>
           {({ copy, isCopied }) => {
             return (
@@ -42,6 +42,7 @@ export function ReadmeResult(props: ReadmeResultProps) {
                   onClick={copy}
                   size="icon"
                   variant="icon"
+                  soft
                   className="box-border rounded-full!"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
@@ -52,8 +53,8 @@ export function ReadmeResult(props: ReadmeResultProps) {
         </CopyToClipboard>
       </ul>
 
-      <pre className={`language-html`}>
-        <code className={`language-html`}>{props.content}</code>
+      <pre className="language-html palette-blue">
+        <code className="language-html">{props.content}</code>
       </pre>
     </div>
   );

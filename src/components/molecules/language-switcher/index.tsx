@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
       <Tooltip
         position="left"
         content={t('canvas-actions.change-language')}
-        tone="brand"
+        className="palette-blue"
       >
         <DropdownMenu.Trigger asChild>
           <Clickable.Button
@@ -26,7 +26,7 @@ export function LanguageSwitcher() {
             data-testid="canvas-action-change-language"
             size="icon"
             variant="icon"
-            tone="brand"
+            className="palette-blue"
           >
             <Icon name="languages" />
           </Clickable.Button>

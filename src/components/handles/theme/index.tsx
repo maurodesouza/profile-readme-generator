@@ -17,16 +17,12 @@ export function ThemeHandler() {
   const [storedTheme, setTheme] = usePersistedState('theme', getSystemTheme());
 
   function clearTheme() {
-    document.documentElement.classList.forEach(cls => {
-      if (cls.startsWith('theme-')) {
-        document.documentElement.classList.remove(cls);
-      }
-    });
+    document.documentElement.removeAttribute('data-theme');
   }
 
   function changeTheme(theme: string) {
     clearTheme();
-    document.documentElement.classList.add(`theme-${theme}`);
+    document.documentElement.setAttribute('data-theme', theme);
     setTheme(theme);
   }
 

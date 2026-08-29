@@ -1,6 +1,13 @@
 import { actions as commandActions } from '#/lib/command';
 
-const actions = [
+type Action = {
+  label: string;
+  icon: string;
+  action: (id: string) => void;
+  className?: string;
+};
+
+const actions: Action[] = [
   {
     label: 'Duplicate',
     icon: 'copy',
@@ -15,8 +22,8 @@ const actions = [
     label: 'Delete',
     icon: 'trash',
     action: commandActions.canvas.section.remove,
-    tone: 'danger',
+    className: 'palette-danger',
   },
-] as const;
+];
 
 export { actions };

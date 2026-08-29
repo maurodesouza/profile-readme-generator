@@ -42,6 +42,7 @@ export function CanvasErrorFallback() {
       <div className="flex items-center gap-md">
         <Clickable.ExternalLink
           variant="ghost"
+          soft
           target="_blank"
           rel="noreferrer"
           href="https://github.com/maurodesouza/profile-readme-generator/issues/new/choose"
@@ -51,7 +52,7 @@ export function CanvasErrorFallback() {
 
         <Clickable.Button
           data-testid="canvas-error-clear-storage"
-          tone="warning"
+          className="palette-orange"
           variant="outline"
           onClick={handleClear}
         >

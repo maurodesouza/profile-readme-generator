@@ -130,7 +130,7 @@ function PanelWrapper(props: React.PropsWithChildren) {
   return (
     <div
       className={tailwind.cn(
-        `absolute top-0 w-panel h-full bg-background-default p-md rounded-md box-border z-10 laptop:shadow-none`,
+        `absolute top-0 w-panel h-full bg-palette-base p-md rounded-md box-border z-10 laptop:shadow-none`,
         side === 'left' ? 'left-0' : 'right-0',
         isOpen
           ? `shadow-panel-${side}`
@@ -216,7 +216,7 @@ function PanelToggle() {
         transform: isOpen ? `translateX(${percentage})` : 'rotate(180deg)',
       }}
       className={tailwind.cn(
-        'absolute grid place-items-center top-md bg-background-default! box-border rounded-md p-[calc(var(--spacing-xs)/2)] z-20 laptop:hidden',
+        'absolute grid place-items-center top-md bg-palette-base! box-border rounded-md p-[calc(var(--spacing-xs)/2)] z-20 laptop:hidden',
 
         getPositionClasses(),
         !isOpen && getBorderClasses()

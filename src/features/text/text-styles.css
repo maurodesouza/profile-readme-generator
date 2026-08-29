@@ -3,7 +3,7 @@
   line-height: normal;
 
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--ring-inner));
+  border-bottom-color: var(--palette-line);
   border-bottom-style: solid;
   padding-bottom: var(--spacing-xs);
 }
@@ -13,7 +13,7 @@
   line-height: normal;
 
   border-bottom-width: 1px;
-  border-bottom-color: hsl(var(--ring-inner));
+  border-bottom-color: var(--palette-line);
   border-bottom-style: solid;
   padding-bottom: var(--spacing-xs);
 }

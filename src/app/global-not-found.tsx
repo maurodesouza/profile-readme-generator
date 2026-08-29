@@ -3,7 +3,7 @@ import '#/styles/global.css';
 export default function GlobalNotFound() {
   return (
     <html lang="en">
-      <body className="theme-dark tone palette-brand base-1">
+      <body data-theme="dark" className="palette-surface">
         <div
           style={{
             display: 'flex',

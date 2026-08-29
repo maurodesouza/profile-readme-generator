@@ -15,7 +15,7 @@ export function Recently() {
 
   return (
     <div className="flex flex-col gap-sm">
-      <Callout tone="warning">
+      <Callout className="palette-orange">
         {tUi('music.recently.callout')}
         <div className="flex flex-col">
           {info_links.map(link => (

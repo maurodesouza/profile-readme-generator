@@ -34,7 +34,7 @@ export function ShareModal() {
         {socials.map(({ id, icon, share: Share }) => (
           <button
             key={id}
-            className="box-border hover:text-tone-luminosity-300! hover:border-tone-luminosity-300! rounded-full! size-16"
+            className="box-border hover:text-palette-ring! hover:border-palette-ring! rounded-full! size-16"
           >
             <Share url={shareUrl}>
               <Icon name={icon as IconName} size={32} />
@@ -47,7 +47,7 @@ export function ShareModal() {
         <Fields.Atoms.Input defaultValue={shareUrl} disabled />
 
         <button
-          className="absolute top-0 right-md h-10 grid place-items-center hover:text-tone-luminosity-300!"
+          className="absolute top-0 right-md h-10 grid place-items-center hover:text-palette-ring!"
           onClick={handleCopyToClipboard}
         >
           <Icon name="copy" />

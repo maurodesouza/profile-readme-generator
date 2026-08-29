@@ -114,8 +114,8 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html className="theme-dark" lang={locale}>
-      <body className="tone palette-brand base-1">
+    <html data-theme="dark" lang={locale}>
+      <body className="palette-surface">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Handles />
 

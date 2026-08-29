@@ -20,7 +20,7 @@ export function HighlightedResourceItem(props: ResourceItemProps) {
 
   return (
     <Tile.Container className="h-auto flex-col">
-      <div className="flex justify-center border-b w-[calc(100%+2.4rem)] -ml-sm p-sm border-ring-inner">
+      <div className="flex justify-center border-b w-[calc(100%+2.4rem)] -ml-sm p-sm border-palette-line">
         <Tile.Img src={imageSrc} className="self-center h-36 w-36" />
       </div>
 

@@ -93,13 +93,9 @@ export const GuardSection = observer(function GuardSection(
           onSubmit={checkGithubUsername}
         >
           <div className="flex gap-lg items-center">
-            <Icon
-              name="alert-circle"
-              size={24}
-              className="text-tone-luminosity-300"
-            />
+            <Icon name="alert-circle" size={24} className="text-palette-base" />
 
-            <Text.Paragraph>
+            <Text.Paragraph className="palette-surface">
               {t('guard-section.description1')}
               <br />
               {t('guard-section.description2')}
@@ -107,6 +103,7 @@ export const GuardSection = observer(function GuardSection(
           </div>
 
           <Fields.Compound.Input
+            className="palette-surface-orange"
             data-testid="guard-input"
             error={error}
             ref={inputRef}

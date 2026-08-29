@@ -1,5 +1,5 @@
 .token.punctuation {
-  color: hsl(var(--color-foreground));
+  color: var(--palette-base);
 }
 
 .token.boolean,
@@ -9,7 +9,7 @@
 .token.property,
 .token.symbol,
 .token.tag {
-  color: hsl(var(--tone-luminosity-300));
+  color: var(--palette-base);
 }
 
 .token.attr-name,
@@ -18,13 +18,13 @@
 .token.inserted,
 .token.selector,
 .token.string {
-  color: hsl(var(--tone-luminosity-400));
+  color: var(--palette-accent);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: hsl(var(--tone-luminosity-200));
+  color: var(--palette-line);
 }
 
 .token.bold,
@@ -43,7 +43,7 @@
 .code code,
 .code pre {
   width: 100%;
-  color: hsl(var(--color-foreground));
+  color: var(--palette-contrast);
 }
 
 .code code {

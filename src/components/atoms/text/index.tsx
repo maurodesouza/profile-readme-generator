@@ -4,7 +4,7 @@ import { Link as NextIntlLink } from '#/i18n/navigation';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const headingVariants = tv({
-  base: 'font-semibold text-foreground',
+  base: 'font-semibold text-palette-contrast',
   variants: {
     hierarchy: {
       h1: 'text-xl',
@@ -36,24 +36,25 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   }
 );
 
-const Paragraph = tailwind.twx.p`text-foreground text-sm transition-all`;
+const Paragraph = tailwind.twx.p`text-palette-contrast text-sm transition-all`;
 
 const Link = tailwind.twx(
   NextIntlLink
-)`text-tone-foreground-context text-sm hover:underline`;
+)`text-palette-accent text-sm hover:underline`;
 
 const Clickable = tailwind.twx
-  .button`inline text-tone-foreground-context! text-sm hover:underline`;
+  .button`inline text-palette-accent! text-sm hover:underline`;
 
-const Strong = tailwind.twx.strong`text-foreground text-sm font-semibold`;
+const Strong = tailwind.twx.strong`text-palette-contrast text-sm font-semibold`;
 
-const Small = tailwind.twx.small`text-foreground text-xs italic`;
+const Small = tailwind.twx.small`text-palette-contrast text-xs italic`;
 
-const Label = tailwind.twx.label`text-foreground text-sm font-semibold block`;
+const Label = tailwind.twx
+  .label`text-palette-contrast text-sm font-semibold block`;
 
-const Highlight = tailwind.twx.span`text-tone-foreground-context text-sm`;
+const Highlight = tailwind.twx.span`text-palette-accent text-sm`;
 
-const Error = tailwind.twx(Highlight)`tone palette-danger text-xs`;
+const Error = tailwind.twx(Highlight)`palette-danger text-xs`;
 
 export const Text = {
   Heading,

@@ -25,7 +25,7 @@ export function ReadmeResult(props: ReadmeResultProps) {
 
   return (
     <div ref={containerRef} className="code w-0">
-      <ul className="absolute top-xl right-xl flex bg-background-default">
+      <ul className="absolute top-xl right-xl flex bg-palette-base">
         <CopyToClipboard content={props.content}>
           {({ copy, isCopied }) => {
             return (

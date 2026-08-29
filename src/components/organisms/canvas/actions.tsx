@@ -30,20 +30,20 @@ export const CanvasActions = observer(function CanvasActions() {
     <>
       <div className="absolute top-md -left-md w-8 flex flex-col gap-md">
         {state.is !== 'hidden' && (
-          <div className="py-md bg-background-default box-border rounded-full!">
+          <div className="py-md bg-palette-base box-border rounded-full!">
             {state.is === 'preview-mode' && (
               <>
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.use-template')}
-                  tone="success"
+                  tone="green"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.use-template')}
                     data-testid="canvas-action-use-template"
                     size="icon"
                     variant="icon"
-                    tone="success"
+                    tone="green"
                     onClick={actions.canvas.preview.apply}
                   >
                     <Icon name="check" />
@@ -74,14 +74,14 @@ export const CanvasActions = observer(function CanvasActions() {
                 <Tooltip
                   position="left"
                   content={t('canvas-actions.reorder-sections')}
-                  tone="brand"
+                  tone="blue"
                 >
                   <Clickable.Button
                     aria-label={t('canvas-actions.reorder-sections')}
                     data-testid="canvas-action-reorder-sections"
                     size="icon"
                     variant="icon"
-                    tone="brand"
+                    tone="blue"
                     onClick={() =>
                       actions.panel.right.show(PanelsEnum.REORDER_SECTIONS)
                     }
@@ -110,18 +110,18 @@ export const CanvasActions = observer(function CanvasActions() {
           </div>
         )}
 
-        <div className="py-md bg-background-default box-border rounded-full!">
+        <div className="py-md bg-palette-base box-border rounded-full!">
           <Tooltip
             position="left"
             content={t('canvas-actions.open-settings')}
-            tone="brand"
+            tone="blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.open-settings')}
               data-testid="canvas-action-open-settings"
               size="icon"
               variant="icon"
-              tone="brand"
+              tone="blue"
               onClick={() => actions.panel.right.show(PanelsEnum.USER_SETTINGS)}
             >
               <Icon name="settings" />
@@ -131,14 +131,14 @@ export const CanvasActions = observer(function CanvasActions() {
           <Tooltip
             position="left"
             content={t('canvas-actions.toggle-theme')}
-            tone="brand"
+            tone="blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.toggle-theme')}
               data-testid="canvas-action-toggle-theme"
               size="icon"
               variant="icon"
-              tone="brand"
+              tone="blue"
               onClick={actions.theme.toggle}
             >
               <Icon name="sun-moon" />
@@ -150,14 +150,14 @@ export const CanvasActions = observer(function CanvasActions() {
           <Tooltip
             position="left"
             content={t('canvas-actions.import-readme')}
-            tone="brand"
+            tone="blue"
           >
             <Clickable.Button
               aria-label={t('canvas-actions.import-readme')}
               data-testid="canvas-action-import-readme"
               size="icon"
               variant="icon"
-              tone="brand"
+              tone="blue"
               onClick={actions.canvas.import.loadFile}
             >
               <Icon name="upload-cloud" />

@@ -1,63 +1,63 @@
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --palette-state-shift: 0.1;
 }
 
 /* Surface — app floor (base, text, borders) */
-:root[data-theme="dark"] .palette-surface {
+:root[data-theme='dark'] .palette-surface {
   --palette-base: oklch(0.176 0.014 258.4);
   --palette-soft: oklch(0.399 0.049 258.3);
   --palette-line: oklch(0.326 0.015 251.8);
-  --palette-contrast: oklch(0.857 0.014 248.0);
+  --palette-contrast: oklch(0.857 0.014 248);
   --palette-accent: oklch(0.589 0.042 248.5);
   --palette-ring: oklch(0.759 0.017 251.6);
 }
 
 /* Raised — elevated surface (cards, popovers, dialogs) */
-:root[data-theme="dark"] .palette-raised {
-  --palette-base: oklch(0.235 0.020 258);
+:root[data-theme='dark'] .palette-raised {
+  --palette-base: oklch(0.235 0.02 258);
   --palette-soft: oklch(0.399 0.049 258.3);
   --palette-line: oklch(0.326 0.015 251.8);
-  --palette-contrast: oklch(0.857 0.014 248.0);
+  --palette-contrast: oklch(0.857 0.014 248);
   --palette-accent: oklch(0.589 0.042 248.5);
   --palette-ring: oklch(0.759 0.017 251.6);
 }
 
 /* Blue — primary brand (was palette-brand, hue 212) */
-:root[data-theme="dark"] .palette-blue {
+:root[data-theme='dark'] .palette-blue {
   --palette-base: oklch(0.713 0.153 253.4);
   --palette-soft: oklch(0.385 0.136 256.8);
-  --palette-line: oklch(0.570 0.211 257.9);
+  --palette-line: oklch(0.57 0.211 257.9);
   --palette-contrast: oklch(1 0 0);
   --palette-accent: oklch(0.795 0.106 252.4);
   --palette-ring: var(--palette-accent);
 }
 
 /* Green — success/positive (was palette-success, hue 136) */
-:root[data-theme="dark"] .palette-green {
+:root[data-theme='dark'] .palette-green {
   --palette-base: oklch(0.627 0.157 148.4);
-  --palette-soft: oklch(0.260 0.055 149.8);
+  --palette-soft: oklch(0.26 0.055 149.8);
   --palette-line: oklch(0.513 0.126 148.6);
   --palette-contrast: oklch(1 0 0);
-  --palette-accent: oklch(0.778 0.150 150.3);
+  --palette-accent: oklch(0.778 0.15 150.3);
   --palette-ring: var(--palette-accent);
 }
 
 /* Danger — error/destructive (hue 3), also applied to [data-invalid] */
-:root[data-theme="dark"] .palette-danger,
-:root[data-theme="dark"] [data-invalid] {
+:root[data-theme='dark'] .palette-danger,
+:root[data-theme='dark'] [data-invalid] {
   --palette-base: oklch(0.666 0.204 27.2);
   --palette-soft: oklch(0.351 0.136 29.7);
-  --palette-line: oklch(0.550 0.219 29.5);
+  --palette-line: oklch(0.55 0.219 29.5);
   --palette-contrast: oklch(1 0 0);
-  --palette-accent: oklch(0.738 0.150 24.5);
+  --palette-accent: oklch(0.738 0.15 24.5);
   --palette-ring: var(--palette-accent);
 }
 
 /* Warning — caution (hue 11) */
-:root[data-theme="dark"] .palette-warning {
+:root[data-theme='dark'] .palette-warning {
   --palette-base: oklch(0.727 0.153 33.9);
   --palette-soft: oklch(0.412 0.144 33.4);
-  --palette-line: oklch(0.608 0.220 32.9);
+  --palette-line: oklch(0.608 0.22 32.9);
   --palette-contrast: oklch(1 0 0);
   --palette-accent: oklch(0.804 0.102 33.2);
   --palette-ring: var(--palette-accent);

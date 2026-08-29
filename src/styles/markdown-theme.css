@@ -9,7 +9,7 @@
 .markdown pre {
   border-radius: var(--radius-md);
   border-width: var(--spacing-border);
-  border-color: hsl(var(--ring-inner));
+  border-color: var(--palette-line);
   padding: var(--spacing-md);
 }
 

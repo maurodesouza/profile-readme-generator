@@ -101,7 +101,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             onMouseLeave={() => actions.generated.workflows.unhighlight()}
           >
             {t('result.workflow-before')}{' '}
-            <Text.Highlight className="tone palette-warning self-center">
+            <Text.Highlight className="palette-warning self-center">
               {t('result.workflow-path')}
             </Text.Highlight>
             {' .'}
@@ -120,7 +120,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
                 <Clickable.Button
                   data-testid="copy-button"
                   onClick={copy}
-                  tone="success"
+                  tone="green"
                   className="w-41.5"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />

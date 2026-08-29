@@ -24,7 +24,7 @@ export function GroupFieldsLabel(props: GroupFieldsLabelProps) {
       <Clickable.Button
         onClick={toggleExpansible}
         variant="icon"
-        tone="brand"
+        tone="blue"
         className="w-full px-0! font-semibold!"
       >
         <motion.div

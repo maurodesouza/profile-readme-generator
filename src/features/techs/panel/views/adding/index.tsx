@@ -143,7 +143,7 @@ export const Adding = observer(function Adding() {
                     <div
                       className={tailwind.cn(
                         'col-span-3 pb-md',
-                        index > 0 && 'border-t border-ring-inner mt-md pt-md'
+                        index > 0 && 'border-t border-palette-line mt-md pt-md'
                       )}
                     >
                       <Text.Strong>

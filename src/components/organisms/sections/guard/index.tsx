@@ -96,7 +96,7 @@ export const GuardSection = observer(function GuardSection(
             <Icon
               name="alert-circle"
               size={24}
-              className="text-tone-luminosity-300"
+              className="text-palette-accent"
             />
 
             <Text.Paragraph>

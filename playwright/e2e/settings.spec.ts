@@ -25,19 +25,19 @@ test('opening user settings and persisting github username', async ({
 
 test.fixme('toggling theme persists after reload', async ({ page }) => {
   const html = page.locator('html');
-  const before = await html.getAttribute('class');
+  const before = await html.getAttribute('data-theme');
 
   await page.getByTestId('canvas-action-toggle-theme').click();
   await page.waitForFunction(
-    oldClass => document.documentElement.className !== oldClass,
+    oldTheme => document.documentElement.getAttribute('data-theme') !== oldTheme,
     before
   );
 
-  const after = await html.getAttribute('class');
+  const after = await html.getAttribute('data-theme');
   expect(after).not.toEqual(before);
 
   await page.reload();
-  const afterReload = await html.getAttribute('class');
+  const afterReload = await html.getAttribute('data-theme');
   expect(afterReload).toEqual(after);
 });
 

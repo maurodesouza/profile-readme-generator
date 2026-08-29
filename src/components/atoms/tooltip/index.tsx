@@ -9,14 +9,15 @@ import { Portal } from '#/components/helpers/portal';
 import { TooltipPositions } from '#/types';
 
 const tooltipVariants = tv({
-  base: 'text-xs absolute rounded-md z-10 text-tone-foreground-contrast bg-tone-luminosity-300 border border-tone-ring-inner px-xs py-[calc(var(--spacing-xs)_/_2)]',
+  base: 'text-xs absolute rounded-md z-10 text-palette-contrast bg-palette-base border border-palette-line px-xs py-[calc(var(--spacing-xs)_/_2)]',
   variants: {
     tone: {
-      default: 'bg-background-default text-foreground border-ring-inner',
-      brand: 'tone palette-brand',
-      warning: 'tone palette-warning',
-      danger: 'tone palette-danger',
-      success: 'tone palette-success',
+      default:
+        'palette-surface bg-palette-base text-palette-contrast border-palette-line',
+      blue: 'palette-blue',
+      warning: 'palette-warning',
+      danger: 'palette-danger',
+      green: 'palette-green',
     },
 
     open: {

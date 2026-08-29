@@ -3,15 +3,15 @@ import React from 'react';
 import { tv, VariantProps } from 'tailwind-variants';
 
 const calloutVariant = tv({
-  base: 'w-1 absolute top-0 bottom-0 left-0 bg-tone-luminosity-300',
+  base: 'w-1 absolute top-0 bottom-0 left-0 bg-palette-base',
 
   variants: {
     tone: {
-      default: 'bg-background-support',
-      brand: 'tone palette-brand',
-      warning: 'tone palette-warning',
-      danger: 'tone palette-danger',
-      success: 'tone palette-success',
+      default: 'palette-surface bg-palette-soft',
+      blue: 'palette-blue',
+      warning: 'palette-warning',
+      danger: 'palette-danger',
+      green: 'palette-green',
     },
   },
 

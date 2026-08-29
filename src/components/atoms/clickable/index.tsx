@@ -7,31 +7,31 @@ const buttonVariants = tv({
   base: 'flex items-center gap-xs rounded-md hover:no-underline!',
   variants: {
     tone: {
-      default: 'bg-background-support text-foreground',
-      brand: 'tone palette-brand',
-      success: 'tone palette-success',
-      warning: 'tone palette-warning',
-      danger: 'tone palette-danger',
+      default: 'palette-surface',
+      blue: 'palette-blue',
+      green: 'palette-green',
+      warning: 'palette-warning',
+      danger: 'palette-danger',
     },
     variant: {
       solid: `
-          bg-tone-luminosity-300! text-tone-foreground-contrast! hover:brightness-125
-          data-[tone=default]:bg-background-support! data-[tone=default]:text-foreground!
+          bg-palette-base! text-palette-contrast! hover:bg-palette-base-hover
+          data-[tone=default]:bg-palette-soft! data-[tone=default]:text-palette-contrast!
       `,
       ghost: `
-        bg-transparent! text-foreground! hover:bg-tone-luminosity-300! hover:text-tone-foreground-contrast!
-        data-[tone=default]:hover:bg-background-support! data-[tone=default]:hover:text-foreground!
+        bg-transparent! text-palette-contrast! hover:bg-palette-base! hover:text-palette-contrast!
+        data-[tone=default]:hover:bg-palette-soft! data-[tone=default]:hover:text-palette-contrast!
       `,
       outline: `
-        bg-background! text-tone-foreground-context!
-        box-border border-tone-ring-inner!
-        hover:bg-tone-luminosity-300! hover:text-tone-foreground-contrast!
-        data-[tone=default]:text-foreground! data-[tone=default]:border-ring-inner!
-        data-[tone=default]:hover:bg-background-support! data-[tone=default]:hover:text-foreground! data-[tone=default]:hover:border-background-support!
+        bg-palette-base! text-palette-accent!
+        box-border border-palette-line!
+        hover:bg-palette-base! hover:text-palette-contrast!
+        data-[tone=default]:text-palette-contrast! data-[tone=default]:border-palette-line!
+        data-[tone=default]:hover:bg-palette-soft! data-[tone=default]:hover:text-palette-contrast! data-[tone=default]:hover:border-palette-soft!
       `,
       icon: `
-        bg-transparent! text-foreground! hover:text-tone-foreground-context!
-        data-[tone=default]:hover:text-foreground-max!
+        bg-transparent! text-palette-contrast! hover:text-palette-accent!
+        data-[tone=default]:hover:text-palette-contrast!
       `,
     },
     size: {

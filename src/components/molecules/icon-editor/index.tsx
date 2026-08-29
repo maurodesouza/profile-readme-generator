@@ -115,7 +115,7 @@ const IconEditor: React.ForwardRefRenderFunction<
             <Clickable.Button
               size="icon"
               variant="icon"
-              tone="brand"
+              tone="blue"
               onClick={toggleExpansible}
             >
               <Icon name="edit-2" />

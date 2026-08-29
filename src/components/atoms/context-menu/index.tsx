@@ -22,7 +22,7 @@ const ContextMenuContent = React.forwardRef<
     <ContextMenuPrimitive.Content
       ref={ref}
       className={tailwind.cn(
-        'z-50 max-h-[--radix-context-menu-content-available-height] min-w-[8rem] overflow-y-auto overflow-x-hidden box-border bg-background-default p-xs text-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
+        'z-50 max-h-[--radix-context-menu-content-available-height] min-w-[8rem] overflow-y-auto overflow-x-hidden box-border bg-palette-base p-xs text-palette-contrast shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
         className
       )}
       {...props}
@@ -40,7 +40,7 @@ const ContextMenuLabel = React.forwardRef<
   <ContextMenuPrimitive.Label
     ref={ref}
     className={tailwind.cn(
-      'px-sm py-xs text-sm font-semibold text-foreground',
+      'px-sm py-xs text-sm font-semibold text-palette-contrast',
       inset && 'pl-8',
       className
     )}
@@ -52,15 +52,16 @@ ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName;
 const ContextMenuGroup = ContextMenuPrimitive.Group;
 
 const contextMenuItemVariants = tv({
-  base: 'relative flex gap-sm cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-tone-luminosity-300 focus:text-tone-foreground-contrast data-disabled:pointer-events-none data-disabled:opacity-50',
+  base: 'relative flex gap-sm cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-palette-base focus:text-palette-contrast data-disabled:pointer-events-none data-disabled:opacity-50',
 
   variants: {
     tone: {
-      default: 'focus:bg-background-support focus:text-foreground',
-      brand: 'tone palette-brand',
-      success: 'tone palette-success',
-      warning: 'tone palette-warning',
-      danger: 'tone palette-danger',
+      default:
+        'palette-surface focus:bg-palette-soft focus:text-palette-contrast',
+      blue: 'palette-blue',
+      green: 'palette-green',
+      warning: 'palette-warning',
+      danger: 'palette-danger',
     },
 
     inset: {
@@ -95,7 +96,7 @@ const ContextMenuShortcut = ({
   return (
     <span
       className={tailwind.cn(
-        'ml-auto text-xs tracking-widest text-foreground',
+        'ml-auto text-xs tracking-widest text-palette-contrast',
         className
       )}
       {...props}
@@ -115,7 +116,7 @@ const ContextMenuSubTrigger = React.forwardRef<
   <ContextMenuPrimitive.SubTrigger
     ref={ref}
     className={tailwind.cn(
-      'flex cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-background-support focus:text-foreground data-[state=open]:bg-background-support data-[state=open]:text-foreground',
+      'flex cursor-default select-none items-center rounded-sm px-sm py-xs text-sm outline-none focus:bg-palette-soft focus:text-palette-contrast data-[state=open]:bg-palette-soft data-[state=open]:text-palette-contrast',
       inset && 'pl-8',
       className
     )}
@@ -134,7 +135,7 @@ const ContextMenuSubContent = React.forwardRef<
   <ContextMenuPrimitive.SubContent
     ref={ref}
     className={tailwind.cn(
-      'z-50 min-w-[8rem] overflow-hidden box-border bg-background-default p-xs text-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
+      'z-50 min-w-[8rem] overflow-hidden box-border bg-palette-base p-xs text-palette-contrast shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-context-menu-content-transform-origin]',
       className
     )}
     {...props}
@@ -149,7 +150,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
   <ContextMenuPrimitive.CheckboxItem
     ref={ref}
     className={tailwind.cn(
-      'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-background-support focus:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
+      'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-palette-soft focus:text-palette-contrast data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
     checked={checked}
@@ -175,7 +176,7 @@ const ContextMenuRadioItem = React.forwardRef<
   <ContextMenuPrimitive.RadioItem
     ref={ref}
     className={tailwind.cn(
-      'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-background-support focus:text-foreground data-disabled:pointer-events-none data-disabled:opacity-50',
+      'relative flex cursor-default select-none items-center rounded-sm py-xs pl-8 pr-2 text-sm outline-none focus:bg-palette-soft focus:text-palette-contrast data-disabled:pointer-events-none data-disabled:opacity-50',
       className
     )}
     {...props}
@@ -196,7 +197,7 @@ const ContextMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Separator
     ref={ref}
-    className={tailwind.cn('-mx-xs my-xs h-px bg-ring-inner', className)}
+    className={tailwind.cn('-mx-xs my-xs h-px bg-palette-line', className)}
     {...props}
   />
 ));

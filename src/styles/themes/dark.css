@@ -9,7 +9,25 @@
   --palette-line: oklch(0.326 0.015 251.8);
   --palette-contrast: oklch(0.857 0.014 248);
   --palette-accent: oklch(0.589 0.042 248.5);
-  --palette-ring: oklch(0.759 0.017 251.6);
+  --palette-ring: oklch(0.713 0.153 253.4);
+}
+
+:root[data-theme='dark'] .palette-surface-orange {
+  --palette-base: oklch(0.176 0.014 258.4);
+  --palette-soft: oklch(0.399 0.049 258.3);
+  --palette-line: oklch(0.326 0.015 251.8);
+  --palette-contrast: oklch(0.857 0.014 248);
+  --palette-accent: oklch(0.589 0.042 248.5);
+  --palette-ring: oklch(0.727 0.153 33.9);
+}
+
+:root[data-theme='dark'] .palette-surface-green {
+  --palette-base: oklch(0.176 0.014 258.4);
+  --palette-soft: oklch(0.399 0.049 258.3);
+  --palette-line: oklch(0.326 0.015 251.8);
+  --palette-contrast: oklch(0.857 0.014 248);
+  --palette-accent: oklch(0.589 0.042 248.5);
+  --palette-ring: oklch(0.627 0.157 148.4);
 }
 
 /* Raised — elevated surface (cards, popovers, dialogs) */

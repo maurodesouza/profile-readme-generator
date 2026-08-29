@@ -9,7 +9,7 @@ const contents = [
     href: 'https://github.com/maurodesouza/profile-readme-generator',
     target: '_blank',
     rel: 'noreferrer',
-    className: 'text-inherit! palette-orange',
+    className: 'text-inherit! palette-surface-orange',
   },
   {
     icon: 'git-fork',
@@ -18,7 +18,7 @@ const contents = [
     href: 'https://github.com/maurodesouza/profile-readme-generator/fork',
     target: '_blank',
     rel: 'noreferrer',
-    className: 'text-inherit! palette-orange',
+    className: 'text-inherit! palette-surface-orange',
   },
 
   {
@@ -26,7 +26,7 @@ const contents = [
     name: 'Level Up',
 
     onClick: () => actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES),
-    className: 'palette-green',
+    className: 'palette-surface-green',
   },
 
   {
@@ -34,7 +34,7 @@ const contents = [
     name: 'Templates',
 
     onClick: () => actions.panel.right.show(PanelsEnum.TEMPLATES),
-    className: 'palette-green',
+    className: 'palette-surface-green',
   },
 ];
 

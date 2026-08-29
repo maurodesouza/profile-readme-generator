@@ -1,28 +1,8 @@
 @import 'tailwindcss';
 @import './themes/index.css';
 
-.tone {
-  --tone-contrast-100: var(--tone-100);
-  --tone-contrast-200: var(--tone-200);
-  --tone-contrast-300: var(--tone-300);
-  --tone-contrast-400: var(--tone-400);
-  --tone-contrast-500: var(--tone-500);
-
-  --tone-luminosity-100: var(--tone-100);
-  --tone-luminosity-200: var(--tone-200);
-  --tone-luminosity-300: var(--tone-300);
-  --tone-luminosity-400: var(--tone-400);
-  --tone-luminosity-500: var(--tone-500);
-
-  --tone-ring-inner: var(--tone-300);
-  --tone-ring-outer: var(--tone-100);
-
-  --tone-foreground-contrast: var(--tone-contrast);
-  --tone-foreground-context: var(--tone-300);
-}
-
 .box-border {
-  @apply rounded-md border border-ring-inner transition-all;
+  @apply rounded-md border border-palette-line transition-all;
 }
 
 @theme inline {
@@ -71,40 +51,21 @@
 
   /* Shadow */
 
-  --shadow-panel-left: 5px 0 20px 5px hsla(var(--background-default));
-  --shadow-panel-right: -5px 0 20px 5px hsla(var(--background-default));
+  --shadow-panel-left: 5px 0 20px 5px var(--palette-base);
+  --shadow-panel-right: -5px 0 20px 5px var(--palette-base);
 
-  /* Base color tokens */
+  /* Palette color tokens */
 
-  --color-background-default: hsla(var(--background-default));
-  --color-background-support: hsla(var(--background-support));
-
-  --color-ring-inner: hsla(var(--ring-inner));
-  --color-ring-outer: hsla(var(--ring-outer));
-
-  --color-foreground-min: hsla(var(--foreground-min));
-  --color-foreground: hsla(var(--foreground));
-  --color-foreground-max: hsla(var(--foreground-max));
-
-  /* Tone color tokens */
-
-  --color-tone-contrast-100: hsla(var(--tone-contrast-100));
-  --color-tone-contrast-200: hsla(var(--tone-contrast-200));
-  --color-tone-contrast-300: hsla(var(--tone-contrast-300));
-  --color-tone-contrast-400: hsla(var(--tone-contrast-400));
-  --color-tone-contrast-500: hsla(var(--tone-contrast-500));
-
-  --color-tone-luminosity-100: hsla(var(--tone-luminosity-100));
-  --color-tone-luminosity-200: hsla(var(--tone-luminosity-200));
-  --color-tone-luminosity-300: hsla(var(--tone-luminosity-300));
-  --color-tone-luminosity-400: hsla(var(--tone-luminosity-400));
-  --color-tone-luminosity-500: hsla(var(--tone-luminosity-500));
-
-  --color-tone-ring-inner: hsla(var(--tone-ring-inner));
-  --color-tone-ring-outer: hsla(var(--tone-ring-outer));
-
-  --color-tone-foreground-contrast: hsla(var(--tone-foreground-contrast));
-  --color-tone-foreground-context: hsla(var(--tone-foreground-context));
+  --color-palette-base: var(--palette-base);
+  --color-palette-soft: var(--palette-soft);
+  --color-palette-line: var(--palette-line);
+  --color-palette-contrast: var(--palette-contrast);
+  --color-palette-accent: var(--palette-accent);
+  --color-palette-ring: var(--palette-ring, var(--palette-accent));
+  --color-palette-base-hover: var(
+    --palette-base-hover,
+    oklch(from var(--palette-base) calc(l + var(--palette-state-shift)) c h)
+  );
 }
 
 * {
@@ -154,7 +115,7 @@ body,
 button,
 input,
 textarea {
-  @apply font-sans text-sm text-foreground font-normal;
+  @apply font-sans text-sm text-palette-contrast font-normal;
 }
 
 h1,
@@ -167,7 +128,7 @@ h6 {
 }
 
 body {
-  @apply bg-background-default;
+  @apply bg-palette-base;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -180,11 +141,11 @@ body {
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-ring-inner;
+  @apply bg-palette-line;
 }
 
 a {
-  @apply text-tone-luminosity-300;
+  @apply text-palette-accent;
 }
 
 a:hover {
@@ -192,5 +153,5 @@ a:hover {
 }
 
 .is-used {
-  @apply border border-ring-outer;
+  @apply border border-palette-ring;
 }

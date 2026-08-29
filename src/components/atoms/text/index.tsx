@@ -52,7 +52,7 @@ const Small = tailwind.twx.small`text-palette-contrast text-xs italic`;
 const Label = tailwind.twx
   .label`text-palette-contrast text-sm font-semibold block`;
 
-const Highlight = tailwind.twx.span`text-palette-accent text-sm`;
+const Highlight = tailwind.twx.span`text-palette-base text-sm`;
 
 const Error = tailwind.twx(Highlight)`palette-danger text-xs`;
 

@@ -20,7 +20,7 @@ const textareaVariants = tv({
         'palette-surface border-palette-line focus-visible:ring-palette-ring',
       blue: 'palette-blue',
       danger: 'palette-danger',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       green: 'palette-green',
     },
   },

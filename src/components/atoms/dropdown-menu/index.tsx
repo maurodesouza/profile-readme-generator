@@ -70,7 +70,7 @@ const dropdownMenuItemVariants = tv({
         'palette-surface focus:bg-palette-soft focus:text-palette-contrast',
       blue: 'palette-blue',
       green: 'palette-green',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
     },
 

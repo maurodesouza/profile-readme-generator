@@ -9,7 +9,7 @@ const calloutVariant = tv({
     tone: {
       default: 'palette-surface bg-palette-soft',
       blue: 'palette-blue',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
       green: 'palette-green',
     },

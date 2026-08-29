@@ -15,7 +15,7 @@ const tooltipVariants = tv({
       default:
         'palette-surface bg-palette-base text-palette-contrast border-palette-line',
       blue: 'palette-blue',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
       green: 'palette-green',
     },

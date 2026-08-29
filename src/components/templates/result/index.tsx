@@ -101,7 +101,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             onMouseLeave={() => actions.generated.workflows.unhighlight()}
           >
             {t('result.workflow-before')}{' '}
-            <Text.Highlight className="palette-warning self-center">
+            <Text.Highlight className="palette-orange self-center">
               {t('result.workflow-path')}
             </Text.Highlight>
             {' .'}

@@ -10,7 +10,7 @@ const buttonVariants = tv({
       default: 'palette-surface',
       blue: 'palette-blue',
       green: 'palette-green',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
     },
     variant: {

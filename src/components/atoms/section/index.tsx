@@ -32,13 +32,13 @@ const Container = tailwind.twx(Reorder.Item)<ContainerProps>(props =>
 );
 
 const wrapperVariants = tv({
-  base: 'w-[-webkit-fill-available] flex flex-col p-sm box-border border-transparent! hover:border-blue-base!',
+  base: 'w-[-webkit-fill-available] flex flex-col p-sm box-border border-transparent! hover:border-palette-ring!',
   variants: {
     state: {
       default: '',
-      selected: 'border-blue-base!',
+      selected: 'border-palette-ring!',
       preview: 'cursor-default! **:cursor-default! hover:border-transparent!',
-      alert: 'palette-warning border-palette-base! border-dashed!',
+      alert: 'palette-orange border-palette-base! border-dashed!',
     },
   },
 

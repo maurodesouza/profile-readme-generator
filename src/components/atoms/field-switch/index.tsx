@@ -19,7 +19,7 @@ const switchVariants = tv({
     tone: {
       blue: 'palette-blue',
       green: 'palette-green',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
     },
   },
@@ -39,7 +39,7 @@ const switchThumbVariants = tv({
     tone: {
       blue: 'palette-blue',
       green: 'palette-green',
-      warning: 'palette-warning',
+      warning: 'palette-orange',
       danger: 'palette-danger',
     },
   },

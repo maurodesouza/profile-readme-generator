@@ -34,7 +34,7 @@ export function ShareModal() {
         {socials.map(({ id, icon, share: Share }) => (
           <button
             key={id}
-            className="box-border hover:text-blue-accent! hover:border-blue-base! rounded-full! size-16"
+            className="box-border hover:text-blue-accent! hover:border-palette-ring! rounded-full! size-16"
           >
             <Share url={shareUrl}>
               <Icon name={icon as IconName} size={32} />

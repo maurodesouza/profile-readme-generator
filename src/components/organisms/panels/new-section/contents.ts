@@ -9,7 +9,7 @@ const contents = [
     href: 'https://github.com/maurodesouza/profile-readme-generator',
     target: '_blank',
     rel: 'noreferrer',
-    className: 'text-inherit! palette-warning',
+    className: 'text-inherit! palette-orange',
   },
   {
     icon: 'git-fork',
@@ -18,7 +18,7 @@ const contents = [
     href: 'https://github.com/maurodesouza/profile-readme-generator/fork',
     target: '_blank',
     rel: 'noreferrer',
-    className: 'text-inherit! palette-warning',
+    className: 'text-inherit! palette-orange',
   },
 
   {

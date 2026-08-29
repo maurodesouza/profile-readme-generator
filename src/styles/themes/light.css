@@ -54,7 +54,7 @@
 }
 
 /* Warning — caution (hue 11) */
-:root[data-theme='light'] .palette-warning {
+:root[data-theme='light'] .palette-orange {
   --palette-base: oklch(0.608 0.22 32.9);
   --palette-soft: oklch(0.89 0.053 32.8);
   --palette-line: oklch(0.727 0.153 33.9);

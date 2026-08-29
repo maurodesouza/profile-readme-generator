@@ -6,37 +6,35 @@ import { tv, VariantProps } from 'tailwind-variants';
 const buttonVariants = tv({
   base: 'flex items-center gap-xs rounded-md hover:no-underline!',
   variants: {
-    tone: {
-      default: 'palette-surface',
-      blue: 'palette-blue',
-      green: 'palette-green',
-      warning: 'palette-orange',
-      danger: 'palette-danger',
-    },
     variant: {
       solid: `
           bg-palette-base! text-palette-contrast! hover:bg-palette-base-hover
-          data-[tone=default]:bg-palette-soft! data-[tone=default]:text-palette-contrast!
+          data-[soft=true]:bg-palette-soft! data-[soft=true]:text-palette-contrast!
       `,
       ghost: `
         bg-transparent! text-palette-contrast! hover:bg-palette-base! hover:text-palette-contrast!
-        data-[tone=default]:hover:bg-palette-soft! data-[tone=default]:hover:text-palette-contrast!
+        data-[soft=true]:hover:bg-palette-soft! data-[soft=true]:hover:text-palette-contrast!
       `,
       outline: `
         bg-palette-base! text-palette-accent!
         box-border border-palette-line!
         hover:bg-palette-base! hover:text-palette-contrast!
-        data-[tone=default]:text-palette-contrast! data-[tone=default]:border-palette-line!
-        data-[tone=default]:hover:bg-palette-soft! data-[tone=default]:hover:text-palette-contrast! data-[tone=default]:hover:border-palette-soft!
+        data-[soft=true]:text-palette-contrast! data-[soft=true]:border-palette-line!
+        data-[soft=true]:hover:bg-palette-soft! data-[soft=true]:hover:text-palette-contrast! data-[soft=true]:hover:border-palette-soft!
       `,
       icon: `
         bg-transparent! text-palette-contrast! hover:text-palette-accent!
-        data-[tone=default]:hover:text-palette-contrast!
+        data-[soft=true]:hover:text-palette-contrast!
       `,
     },
     size: {
       icon: 'size-8 justify-center',
       default: 'px-md py-xs',
+    },
+
+    soft: {
+      true: '',
+      false: '',
     },
 
     disabled: {
@@ -47,7 +45,6 @@ const buttonVariants = tv({
 
   defaultVariants: {
     size: 'default',
-    tone: 'default',
     variant: 'solid',
   },
 });
@@ -59,7 +56,7 @@ type ButtonVariantProps = VariantProps<typeof buttonVariants> & {
 type ButtonProps = React.ComponentProps<'button'> & ButtonVariantProps;
 
 export const Button = tailwind.twx.button.attrs<ButtonProps>(props => ({
-  'data-tone': props.tone ?? 'default',
+  'data-soft': props.soft ? 'true' : 'false',
 }))(props => buttonVariants(props));
 
 type LinkProps = ButtonVariantProps &
@@ -68,11 +65,11 @@ type LinkProps = ButtonVariantProps &
   };
 
 function Link(props: React.PropsWithChildren<LinkProps>) {
-  const { tone = 'default', variant, size, className, ...linkProps } = props;
+  const { variant, size, soft, className, ...linkProps } = props;
 
   return (
     <Button
-      tone={tone}
+      soft={soft}
       variant={variant}
       size={size}
       className={className}
@@ -86,11 +83,11 @@ function Link(props: React.PropsWithChildren<LinkProps>) {
 type ExternalLinkProps = ButtonProps & React.ComponentProps<'a'>;
 
 function ExternalLink(props: ExternalLinkProps) {
-  const { tone = 'default', variant, size, className, ...anchorProps } = props;
+  const { variant, size, soft, className, ...anchorProps } = props;
 
   return (
     <Button
-      tone={tone}
+      soft={soft}
       variant={variant}
       size={size}
       className={className}

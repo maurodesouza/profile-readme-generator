@@ -42,6 +42,7 @@ export function ReadmeResult(props: ReadmeResultProps) {
                   onClick={copy}
                   size="icon"
                   variant="icon"
+                  soft
                   className="box-border rounded-full!"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />

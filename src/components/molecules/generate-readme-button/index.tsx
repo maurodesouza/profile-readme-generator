@@ -15,7 +15,7 @@ export const GenerateReadmeButton = observer(function GenerateReadmeButton() {
   if (isEmpty) {
     return (
       <Clickable.Button
-        tone="green"
+        className="palette-green"
         disabled
         title={t('canvas.generate-readme-empty')}
       >
@@ -25,7 +25,7 @@ export const GenerateReadmeButton = observer(function GenerateReadmeButton() {
   }
 
   return (
-    <Clickable.Link tone="green" href="/result" prefetch={false}>
+    <Clickable.Link className="palette-green" href="/result" prefetch={false}>
       {t('canvas.generate-readme')}
     </Clickable.Link>
   );

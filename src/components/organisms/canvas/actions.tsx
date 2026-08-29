@@ -43,7 +43,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     data-testid="canvas-action-use-template"
                     size="icon"
                     variant="icon"
-                    tone="green"
+                    className="palette-green"
                     onClick={actions.canvas.preview.apply}
                   >
                     <Icon name="check" />
@@ -60,7 +60,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     data-testid="canvas-action-leave-preview"
                     size="icon"
                     variant="icon"
-                    tone="danger"
+                    className="palette-danger"
                     onClick={() => actions.canvas.preview.sections()}
                   >
                     <Icon name="x" />
@@ -81,7 +81,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     data-testid="canvas-action-reorder-sections"
                     size="icon"
                     variant="icon"
-                    tone="blue"
+                    className="palette-blue"
                     onClick={() =>
                       actions.panel.right.show(PanelsEnum.REORDER_SECTIONS)
                     }
@@ -99,7 +99,7 @@ export const CanvasActions = observer(function CanvasActions() {
                     data-testid="canvas-action-clear-canvas"
                     size="icon"
                     variant="icon"
-                    tone="danger"
+                    className="palette-danger"
                     onClick={actions.canvas.sections.clear}
                   >
                     <Icon name="trash" />
@@ -121,7 +121,7 @@ export const CanvasActions = observer(function CanvasActions() {
               data-testid="canvas-action-open-settings"
               size="icon"
               variant="icon"
-              tone="blue"
+              className="palette-blue"
               onClick={() => actions.panel.right.show(PanelsEnum.USER_SETTINGS)}
             >
               <Icon name="settings" />
@@ -138,7 +138,7 @@ export const CanvasActions = observer(function CanvasActions() {
               data-testid="canvas-action-toggle-theme"
               size="icon"
               variant="icon"
-              tone="blue"
+              className="palette-blue"
               onClick={actions.theme.toggle}
             >
               <Icon name="sun-moon" />
@@ -157,7 +157,7 @@ export const CanvasActions = observer(function CanvasActions() {
               data-testid="canvas-action-import-readme"
               size="icon"
               variant="icon"
-              tone="blue"
+              className="palette-blue"
               onClick={actions.canvas.import.loadFile}
             >
               <Icon name="upload-cloud" />

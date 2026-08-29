@@ -105,7 +105,7 @@ const IconEditor: React.ForwardRefRenderFunction<
           <Clickable.Button
             size="icon"
             variant="icon"
-            tone="danger"
+            className="palette-danger"
             onClick={deleteIcon}
           >
             <Icon name="trash" />
@@ -115,7 +115,7 @@ const IconEditor: React.ForwardRefRenderFunction<
             <Clickable.Button
               size="icon"
               variant="icon"
-              tone="blue"
+              className="palette-blue"
               onClick={toggleExpansible}
             >
               <Icon name="edit-2" />

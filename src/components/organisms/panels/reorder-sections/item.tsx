@@ -74,6 +74,7 @@ export const Item = observer(function Item(props: ItemProps) {
           <Clickable.Button
             size="icon"
             variant="icon"
+            soft
             disabled={first}
             onClick={() => actions.canvas.section.moveUp(data.id)}
           >
@@ -83,6 +84,7 @@ export const Item = observer(function Item(props: ItemProps) {
           <Clickable.Button
             size="icon"
             variant="icon"
+            soft
             disabled={last}
             onClick={() => actions.canvas.section.moveDown(data.id)}
           >

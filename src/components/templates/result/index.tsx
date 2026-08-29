@@ -59,14 +59,14 @@ export const ResultTemplate = observer(function ResultTemplate() {
 
       <Page.Wrapper>
         <header className="flex items-center gap-md box-border py-md px-xl">
-          <Clickable.Link href="/" size="icon" variant="ghost">
+          <Clickable.Link href="/" size="icon" variant="ghost" soft>
             <Icon name="chevron-left" />
           </Clickable.Link>
 
           <Text.Heading as="h2">{t('result.heading')}</Text.Heading>
           <div className="flex justify-end gap-xs ml-auto">
             <Clickable.ExternalLink
-              tone="warning"
+              className="palette-orange"
               variant="ghost"
               href="https://github.com/maurodesouza/profile-readme-generator"
               target="_blank"
@@ -77,7 +77,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             </Clickable.ExternalLink>
 
             <Clickable.ExternalLink
-              tone="warning"
+              className="palette-orange"
               variant="ghost"
               href="https://github.com/maurodesouza/profile-readme-generator/fork"
               target="_blank"
@@ -120,8 +120,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
                 <Clickable.Button
                   data-testid="copy-button"
                   onClick={copy}
-                  tone="green"
-                  className="w-41.5"
+                  className="palette-green w-41.5"
                 >
                   <Icon name={isCopied ? 'check' : 'copy'} />
                   {isCopied

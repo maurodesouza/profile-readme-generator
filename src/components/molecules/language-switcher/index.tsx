@@ -26,7 +26,7 @@ export function LanguageSwitcher() {
             data-testid="canvas-action-change-language"
             size="icon"
             variant="icon"
-            tone="blue"
+            className="palette-blue"
           >
             <Icon name="languages" />
           </Clickable.Button>

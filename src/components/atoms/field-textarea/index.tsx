@@ -1,5 +1,5 @@
 import React from 'react';
-import { tv, VariantProps } from 'tailwind-variants';
+import { tv } from 'tailwind-variants';
 
 const textareaVariants = tv({
   base: `
@@ -13,27 +13,11 @@ const textareaVariants = tv({
     resize-none min-h-[10rem] max-h-[10rem] pr-sm scrollbar
     focus-visible:ring-palette-ring focus-visible:ring-[1px]
   `,
-
-  variants: {
-    tone: {
-      default:
-        'palette-surface border-palette-line focus-visible:ring-palette-ring',
-      blue: 'palette-blue',
-      danger: 'palette-danger',
-      warning: 'palette-orange',
-      green: 'palette-green',
-    },
-  },
-
-  defaultVariants: {
-    tone: 'default',
-  },
 });
 
-type TextareaProps = React.ComponentProps<'textarea'> &
-  VariantProps<typeof textareaVariants> & {
-    invalid?: boolean;
-  };
+type TextareaProps = React.ComponentProps<'textarea'> & {
+  invalid?: boolean;
+};
 
 export function Textarea({
   className,
@@ -44,11 +28,7 @@ export function Textarea({
     <textarea
       aria-invalid={invalid}
       data-slot="textarea"
-      className={textareaVariants({
-        ...props,
-        tone: invalid ? 'danger' : props.tone,
-        className,
-      })}
+      className={textareaVariants({ className })}
       {...props}
     />
   );

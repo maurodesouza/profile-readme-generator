@@ -63,11 +63,10 @@ const borderImporter = (borderElement: Element): CanvasSection | null => {
   const url = new URL(src);
   const params = url.searchParams;
 
-  defaultImageSectionConfig.props.content.borders['capsule-render'] =
-    _updateBorderConfig(
-      params,
-      defaultConfig.props.content.borders['capsule-render']
-    );
+  defaultConfig.props.content.borders['capsule-render'] = _updateBorderConfig(
+    params,
+    defaultConfig.props.content.borders['capsule-render']
+  );
 
   return {
     id: uuid(),

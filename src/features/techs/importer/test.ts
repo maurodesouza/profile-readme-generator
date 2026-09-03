@@ -128,7 +128,7 @@ describe('FEATURE - techs importer', () => {
       ) as any
     );
 
-    expect(result?.props.styles.align).toBe('right');
+    expect(result?.props?.styles?.align).toBe('right');
   });
 
   it('extracts spacing from the first spacing image width', () => {
@@ -143,7 +143,7 @@ describe('FEATURE - techs importer', () => {
       ]) as any
     );
 
-    expect(result?.props.styles.spacing).toBe(20);
+    expect(result?.props?.styles?.spacing).toBe(20);
   });
 
   it('defaults spacing to 12 when no spacing image is found', () => {
@@ -156,7 +156,7 @@ describe('FEATURE - techs importer', () => {
       ]) as any
     );
 
-    expect(result?.props.styles.spacing).toBe(12);
+    expect(result?.props?.styles?.spacing).toBe(12);
   });
 
   it('does not mutate the shared defaultTechsSectionConfig', () => {

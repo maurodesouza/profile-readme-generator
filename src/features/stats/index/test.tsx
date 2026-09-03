@@ -41,8 +41,9 @@ describe('FEATURE - stats index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.STATS];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.STATS
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('pie-chart');
@@ -59,8 +60,9 @@ describe('FEATURE - stats index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.STATS', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.STATS];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.STATS
+    ] as any;
 
     newSection.onClick();
 

@@ -64,13 +64,13 @@ describe('FEATURE - activities importer', () => {
       makeActivitiesElement({ align: 'left' }) as any
     );
 
-    expect(result?.props.styles.align).toBe('left');
+    expect(result?.props?.styles?.align).toBe('left');
   });
 
   it('defaults align to center when the element has no align property', () => {
     const result = activitiesImporter(makeActivitiesElement() as any);
 
-    expect(result?.props.styles.align).toBe('center');
+    expect(result?.props?.styles?.align).toBe('center');
   });
 
   it('returns a CanvasSection with type Sections.ACTIVITIES and a string id', () => {

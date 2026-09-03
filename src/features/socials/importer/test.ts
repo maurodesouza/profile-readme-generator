@@ -146,7 +146,7 @@ describe('FEATURE - socials importer', () => {
       ) as any
     );
 
-    expect(result?.props.styles.align).toBe('right');
+    expect(result?.props?.styles?.align).toBe('right');
   });
 
   it('does not mutate the shared defaultSocialsSectionConfig', () => {

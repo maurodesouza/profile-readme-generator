@@ -41,8 +41,9 @@ describe('FEATURE - snake index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SNAKE];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.SNAKE
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('worm');
@@ -59,8 +60,9 @@ describe('FEATURE - snake index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.SNAKE', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SNAKE];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.SNAKE
+    ] as any;
 
     newSection.onClick();
 

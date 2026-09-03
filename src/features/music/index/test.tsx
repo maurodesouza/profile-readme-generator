@@ -41,8 +41,9 @@ describe('FEATURE - music index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.MUSIC];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.MUSIC
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('music');
@@ -58,8 +59,9 @@ describe('FEATURE - music index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.MUSIC', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.MUSIC];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.MUSIC
+    ] as any;
 
     newSection.onClick();
 

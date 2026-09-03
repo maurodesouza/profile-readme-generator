@@ -41,8 +41,9 @@ describe('FEATURE - pacman index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.PACMAN];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.PACMAN
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('ghost');
@@ -59,8 +60,9 @@ describe('FEATURE - pacman index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.PACMAN', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.PACMAN];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.PACMAN
+    ] as any;
 
     newSection.onClick();
 

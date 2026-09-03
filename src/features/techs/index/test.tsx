@@ -41,8 +41,9 @@ describe('FEATURE - techs index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.TECHS];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.TECHS
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('cpu');
@@ -58,8 +59,9 @@ describe('FEATURE - techs index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.TECHS', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.TECHS];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.TECHS
+    ] as any;
 
     newSection.onClick();
 

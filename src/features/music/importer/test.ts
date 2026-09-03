@@ -88,7 +88,7 @@ describe('FEATURE - music importer', () => {
       ) as any
     );
 
-    expect(result?.props.styles.align).toBe('left');
+    expect(result?.props?.styles?.align).toBe('left');
   });
 
   it('defaults align to center when the element has no align property', () => {
@@ -96,7 +96,7 @@ describe('FEATURE - music importer', () => {
       makeMusicDiv([makeImg('https://example.com/widget?theme=dark')]) as any
     );
 
-    expect(result?.props.styles.align).toBe('center');
+    expect(result?.props?.styles?.align).toBe('center');
   });
 
   it('returns a CanvasSection with a string id', () => {

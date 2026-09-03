@@ -146,7 +146,7 @@ describe('FEATURE - stats importer', () => {
       ) as any
     );
 
-    expect(result?.props.styles.align).toBe('right');
+    expect(result?.props?.styles?.align).toBe('right');
   });
 
   it('defaults align to center when the element has no align property', () => {
@@ -159,7 +159,7 @@ describe('FEATURE - stats importer', () => {
       ]) as any
     );
 
-    expect(result?.props.styles.align).toBe('center');
+    expect(result?.props?.styles?.align).toBe('center');
   });
 
   it('sets show to false for graphs not present in the imported images', () => {

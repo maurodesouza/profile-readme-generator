@@ -43,8 +43,9 @@ describe('FEATURE - activities index (registration)', () => {
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.ACTIVITIES];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.ACTIVITIES
+    ] as any;
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('activity');
@@ -60,8 +61,9 @@ describe('FEATURE - activities index (registration)', () => {
   });
 
   it('onClick dispatches canvas.section.add with Sections.ACTIVITIES', () => {
-    const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.ACTIVITIES];
+    const newSection = extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      Sections.ACTIVITIES
+    ] as any;
 
     newSection.onClick();
 

@@ -6,7 +6,10 @@ import { statsSectionParser, statsWorkflowParser } from '../parser';
 
 vi.mock('#/utils/url', () => ({
   url: {
-    getStats: vi.fn((type: string, github: string) => `https://stats.example.com/${type}?username=${github}`),
+    getStats: vi.fn(
+      (type: string, github: string) =>
+        `https://stats.example.com/${type}?username=${github}`
+    ),
   },
 }));
 
@@ -151,7 +154,9 @@ describe('FEATURE - stats parser (readme)', () => {
       settings
     );
 
-    expect(result).toContain('src="https://stats.example.com/streak?username=octocat&"');
+    expect(result).toContain(
+      'src="https://stats.example.com/streak?username=octocat&"'
+    );
   });
 
   it('defaults height to 150 when not provided', () => {

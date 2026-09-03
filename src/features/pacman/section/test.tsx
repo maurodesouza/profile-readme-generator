@@ -34,9 +34,7 @@ describe('FEATURE - PacmanSection', () => {
   });
 
   it('renders an img with the pacman svg src by default', () => {
-    const { container } = renderWithProvider(
-      <PacmanSection id="section-1" />
-    );
+    const { container } = renderWithProvider(<PacmanSection id="section-1" />);
 
     const img = container.querySelector('img');
 
@@ -65,9 +63,7 @@ describe('FEATURE - PacmanSection', () => {
   });
 
   it('renders the img with w-full class', () => {
-    const { container } = renderWithProvider(
-      <PacmanSection id="section-1" />
-    );
+    const { container } = renderWithProvider(<PacmanSection id="section-1" />);
 
     expect(container.querySelector('img')?.className).toContain('w-full');
   });

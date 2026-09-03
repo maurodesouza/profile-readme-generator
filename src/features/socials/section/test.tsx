@@ -68,8 +68,12 @@ describe('FEATURE - SocialsSection', () => {
     const imgs = container.querySelectorAll('img');
 
     expect(imgs).toHaveLength(2);
-    expect(imgs[0]?.getAttribute('src')).toBe('https://example.com/icon/linkedin');
-    expect(imgs[1]?.getAttribute('src')).toBe('https://example.com/icon/twitter');
+    expect(imgs[0]?.getAttribute('src')).toBe(
+      'https://example.com/icon/linkedin'
+    );
+    expect(imgs[1]?.getAttribute('src')).toBe(
+      'https://example.com/icon/twitter'
+    );
   });
 
   it('wraps the img in an anchor when link is present', () => {

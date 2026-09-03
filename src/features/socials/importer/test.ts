@@ -120,7 +120,10 @@ describe('FEATURE - socials importer', () => {
       makeSocialsDiv([
         makeAnchorWithImg(
           'https://linkedin.com/in/user',
-          makeImg('linkedin logo', 'https://cdn.simpleicons.org/linkedin/0077B5')
+          makeImg(
+            'linkedin logo',
+            'https://cdn.simpleicons.org/linkedin/0077B5'
+          )
         ),
       ]) as any
     );
@@ -133,7 +136,12 @@ describe('FEATURE - socials importer', () => {
   it('reads align from the element properties', () => {
     const result = socialsImporter(
       makeSocialsDiv(
-        [makeImg('linkedin logo', 'https://cdn.simpleicons.org/linkedin/0077B5')],
+        [
+          makeImg(
+            'linkedin logo',
+            'https://cdn.simpleicons.org/linkedin/0077B5'
+          ),
+        ],
         'right'
       ) as any
     );
@@ -146,7 +154,11 @@ describe('FEATURE - socials importer', () => {
 
     socialsImporter(
       makeSocialsDiv([
-        makeImg('linkedin logo', 'https://cdn.simpleicons.org/linkedin/0077B5', 50),
+        makeImg(
+          'linkedin logo',
+          'https://cdn.simpleicons.org/linkedin/0077B5',
+          50
+        ),
       ]) as any
     );
 

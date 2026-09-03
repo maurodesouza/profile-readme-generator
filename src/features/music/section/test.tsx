@@ -81,7 +81,9 @@ describe('FEATURE - MusicSection', () => {
     const anchor = container.querySelector('a');
 
     expect(anchor).not.toBeNull();
-    expect(anchor?.getAttribute('href')).toBe('https://spotify.com/user/johndoe');
+    expect(anchor?.getAttribute('href')).toBe(
+      'https://spotify.com/user/johndoe'
+    );
   });
 
   it('does not wrap the img in an anchor when spotifyAccountUrl is absent (currently)', () => {

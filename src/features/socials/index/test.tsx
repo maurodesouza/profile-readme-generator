@@ -37,7 +37,9 @@ describe('FEATURE - socials index (registration)', () => {
 
   it('registers the socials feature with id Sections.SOCIALS', () => {
     expect(extensionsStore.registers[Sections.SOCIALS]).toBeDefined();
-    expect(extensionsStore.registers[Sections.SOCIALS].id).toBe(Sections.SOCIALS);
+    expect(extensionsStore.registers[Sections.SOCIALS].id).toBe(
+      Sections.SOCIALS
+    );
   });
 
   it('registers the NEW_SECTION presentation with icon and name', () => {

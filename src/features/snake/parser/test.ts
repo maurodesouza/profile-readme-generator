@@ -6,14 +6,18 @@ import { snakeSectionParser, snakeWorkflowParser } from '../parser';
 
 describe('FEATURE - snake parser', () => {
   it('emits an img with data-importer="snake"', () => {
-    const result = snakeSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = snakeSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain(`data-importer="${Sections.SNAKE}"`);
     expect(result).toContain('<img');
   });
 
   it('builds the src URL from settings.user.github', () => {
-    const result = snakeSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = snakeSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain(
       'src="https://raw.githubusercontent.com/octocat/octocat/snake-output/snake.svg"'
@@ -21,7 +25,9 @@ describe('FEATURE - snake parser', () => {
   });
 
   it('uses "Snake animation" as alt', () => {
-    const result = snakeSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = snakeSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain('alt="Snake animation"');
   });

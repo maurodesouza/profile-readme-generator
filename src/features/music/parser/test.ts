@@ -21,7 +21,11 @@ vi.mock('#/utils/url', () => ({
 describe('FEATURE - music parser', () => {
   it('emits a div with data-importer="music"', () => {
     const result = musicSectionParser({
-      content: { type: 'recently', recently: { user: 'johndoe' }, currently: {} } as any,
+      content: {
+        type: 'recently',
+        recently: { user: 'johndoe' },
+        currently: {},
+      } as any,
       styles: { align: 'center' },
     });
 
@@ -32,7 +36,11 @@ describe('FEATURE - music parser', () => {
 
   it('includes the align attribute on the wrapper div', () => {
     const result = musicSectionParser({
-      content: { type: 'recently', recently: { user: 'johndoe' }, currently: {} } as any,
+      content: {
+        type: 'recently',
+        recently: { user: 'johndoe' },
+        currently: {},
+      } as any,
       styles: { align: 'right' },
     });
 
@@ -41,7 +49,11 @@ describe('FEATURE - music parser', () => {
 
   it('wraps the img in an anchor when spotifyAccountUrl is present (recently)', () => {
     const result = musicSectionParser({
-      content: { type: 'recently', recently: { user: 'johndoe' }, currently: {} } as any,
+      content: {
+        type: 'recently',
+        recently: { user: 'johndoe' },
+        currently: {},
+      } as any,
       styles: { align: 'center' },
     });
 
@@ -62,7 +74,11 @@ describe('FEATURE - music parser', () => {
 
   it('uses the correct alt text for recently type', () => {
     const result = musicSectionParser({
-      content: { type: 'recently', recently: { user: 'johndoe' }, currently: {} } as any,
+      content: {
+        type: 'recently',
+        recently: { user: 'johndoe' },
+        currently: {},
+      } as any,
       styles: { align: 'center' },
     });
 

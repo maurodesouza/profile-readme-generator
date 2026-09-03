@@ -21,12 +21,11 @@ const makeIcon = ({
   tags: [],
   available_providers: ['devicons'],
   providers: {
-    devicons: variants
-      ? { path: path, variants }
-      : { path },
+    devicons: variants ? { path: path, variants } : { path },
   },
   currentProvider: 'devicons',
-  config: variantIndex !== undefined ? { devicons: { variant: variantIndex } } : {},
+  config:
+    variantIndex !== undefined ? { devicons: { variant: variantIndex } } : {},
 });
 
 describe('FEATURE - techs parser', () => {
@@ -60,8 +59,14 @@ describe('FEATURE - techs parser', () => {
     const result = techsSectionParser({
       content: {
         icons: {
-          javascript: makeIcon({ name: 'javascript', path: 'https://example.com/js.svg' }) as any,
-          react: makeIcon({ name: 'react', path: 'https://example.com/react.svg' }) as any,
+          javascript: makeIcon({
+            name: 'javascript',
+            path: 'https://example.com/js.svg',
+          }) as any,
+          react: makeIcon({
+            name: 'react',
+            path: 'https://example.com/react.svg',
+          }) as any,
         },
         styles: { height: 40 },
       },
@@ -148,7 +153,9 @@ describe('FEATURE - techs parser', () => {
   it('defaults height to 40 when not provided', () => {
     const result = techsSectionParser({
       content: {
-        icons: { myicon: makeIcon({ path: 'https://example.com/icon.svg' }) as any },
+        icons: {
+          myicon: makeIcon({ path: 'https://example.com/icon.svg' }) as any,
+        },
         styles: {},
       } as any,
       styles: { align: 'center', spacing: 12 },
@@ -160,7 +167,9 @@ describe('FEATURE - techs parser', () => {
   it('uses the provided height', () => {
     const result = techsSectionParser({
       content: {
-        icons: { myicon: makeIcon({ path: 'https://example.com/icon.svg' }) as any },
+        icons: {
+          myicon: makeIcon({ path: 'https://example.com/icon.svg' }) as any,
+        },
         styles: { height: 60 },
       },
       styles: { align: 'center', spacing: 12 },

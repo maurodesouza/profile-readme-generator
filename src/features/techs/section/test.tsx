@@ -20,7 +20,11 @@ function renderWithProvider(ui: React.ReactNode) {
   );
 }
 
-const makeIcon = (path: string, variants?: string[], variantIndex?: number) => ({
+const makeIcon = (
+  path: string,
+  variants?: string[],
+  variantIndex?: number
+) => ({
   name: 'test',
   color: '#fff',
   alias: [],
@@ -30,7 +34,8 @@ const makeIcon = (path: string, variants?: string[], variantIndex?: number) => (
     devicons: variants ? { path, variants } : { path },
   },
   currentProvider: 'devicons',
-  config: variantIndex !== undefined ? { devicons: { variant: variantIndex } } : {},
+  config:
+    variantIndex !== undefined ? { devicons: { variant: variantIndex } } : {},
 });
 
 describe('FEATURE - TechsSection', () => {
@@ -84,7 +89,10 @@ describe('FEATURE - TechsSection', () => {
           icons: {
             myicon: makeIcon(
               'https://example.com/original.svg',
-              ['https://example.com/original.svg', 'https://example.com/plain.svg'],
+              [
+                'https://example.com/original.svg',
+                'https://example.com/plain.svg',
+              ],
               1
             ) as any,
           },

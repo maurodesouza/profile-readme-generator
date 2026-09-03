@@ -44,7 +44,9 @@ describe('FEATURE - music importer', () => {
   it('parses a "currently" section from an img child', () => {
     const result = musicImporter(
       makeMusicDiv([
-        makeImg('https://example.com/widget?theme=dark&spin=true&scan=false&rainbow=true'),
+        makeImg(
+          'https://example.com/widget?theme=dark&spin=true&scan=false&rainbow=true'
+        ),
       ]) as any
     );
 

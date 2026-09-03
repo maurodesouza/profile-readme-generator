@@ -81,13 +81,17 @@ describe('FEATURE - socials parser', () => {
   it('wraps the img in an anchor when link is present', () => {
     const result = socialsSectionParser({
       content: {
-        socials: { linkedin: { icon: 'default', link: 'https://linkedin.com/in/user' } },
+        socials: {
+          linkedin: { icon: 'default', link: 'https://linkedin.com/in/user' },
+        },
         styles: { type: 'icon', style: 'for-the-badge', height: 40 },
       },
       styles: { align: 'center', spacing: 12 },
     });
 
-    expect(result).toContain('<a href="https://linkedin.com/in/user" target="_blank">');
+    expect(result).toContain(
+      '<a href="https://linkedin.com/in/user" target="_blank">'
+    );
     expect(result).toContain('</a>');
   });
 

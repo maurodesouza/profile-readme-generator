@@ -16,7 +16,9 @@ vi.mock('#/utils/object', () => ({
 
 describe('FEATURE - pacman parser', () => {
   it('emits a picture with data-importer="pacman"', () => {
-    const result = pacmanSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = pacmanSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain(`data-importer="${Sections.PACMAN}"`);
     expect(result).toContain('<picture');
@@ -24,7 +26,9 @@ describe('FEATURE - pacman parser', () => {
   });
 
   it('builds source and img URLs from settings.user.github', () => {
-    const result = pacmanSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = pacmanSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain(
       'srcset="https://raw.githubusercontent.com/octocat/octocat/pacman-output/pacman-contribution-graph-dark.svg?game=pacman"'
@@ -35,30 +39,35 @@ describe('FEATURE - pacman parser', () => {
   });
 
   it('defaults game to pacman when config.game is absent', () => {
-    const result = pacmanSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = pacmanSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain('pacman-contribution-graph');
   });
 
   it('uses the provided game when config.game is set', () => {
-    const result = pacmanSectionParser(
-      { game: 'breakout' },
-      { user: { github: 'octocat' } } as any
-    );
+    const result = pacmanSectionParser({ game: 'breakout' }, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain('breakout-contribution-graph');
     expect(result).toContain('game=breakout');
   });
 
   it('includes dark and light prefers-color-scheme sources', () => {
-    const result = pacmanSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = pacmanSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain('media="(prefers-color-scheme: dark)"');
     expect(result).toContain('media="(prefers-color-scheme: light)"');
   });
 
   it('uses "pacman contribution graph" as img alt', () => {
-    const result = pacmanSectionParser({}, { user: { github: 'octocat' } } as any);
+    const result = pacmanSectionParser({}, {
+      user: { github: 'octocat' },
+    } as any);
 
     expect(result).toContain('alt="pacman contribution graph"');
   });

@@ -15,7 +15,10 @@ vi.mock('#/components/organisms/sections/guard', () => ({
 
 vi.mock('#/utils/url', () => ({
   url: {
-    getStats: vi.fn((type: string, github: string) => `https://stats.example.com/${type}?username=${github}`),
+    getStats: vi.fn(
+      (type: string, github: string) =>
+        `https://stats.example.com/${type}?username=${github}`
+    ),
   },
 }));
 

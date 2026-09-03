@@ -32,9 +32,7 @@ describe('FEATURE - SnakeSection', () => {
   });
 
   it('renders an img with the snake svg src', () => {
-    const { container } = renderWithProvider(
-      <SnakeSection id="section-1" />
-    );
+    const { container } = renderWithProvider(<SnakeSection id="section-1" />);
 
     const img = container.querySelector('img');
 
@@ -43,9 +41,7 @@ describe('FEATURE - SnakeSection', () => {
   });
 
   it('renders the img with alt from translations', () => {
-    const { container } = renderWithProvider(
-      <SnakeSection id="section-1" />
-    );
+    const { container } = renderWithProvider(<SnakeSection id="section-1" />);
 
     expect(container.querySelector('img')?.getAttribute('alt')).toBe(
       'Snake animation'
@@ -53,9 +49,7 @@ describe('FEATURE - SnakeSection', () => {
   });
 
   it('renders the img with w-full class', () => {
-    const { container } = renderWithProvider(
-      <SnakeSection id="section-1" />
-    );
+    const { container } = renderWithProvider(<SnakeSection id="section-1" />);
 
     expect(container.querySelector('img')?.className).toContain('w-full');
   });

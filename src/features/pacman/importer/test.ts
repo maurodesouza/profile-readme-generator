@@ -25,9 +25,7 @@ const makePicture = (children?: unknown[]) => ({
 
 describe('FEATURE - pacman importer', () => {
   it('returns null when no img child with src is found', () => {
-    expect(
-      pacmanImporter(makePicture([makeImg()]) as any)
-    ).toBeNull();
+    expect(pacmanImporter(makePicture([makeImg()]) as any)).toBeNull();
   });
 
   it('returns null when the picture has no children', () => {

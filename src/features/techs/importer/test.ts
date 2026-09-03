@@ -58,7 +58,10 @@ describe('FEATURE - techs importer', () => {
   it('returns a CanvasSection with type Sections.TECHS and a string id', () => {
     const result = techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E'),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E'
+        ),
       ]) as any
     );
 
@@ -71,7 +74,10 @@ describe('FEATURE - techs importer', () => {
   it('parses icons matching tech_icons by alt name', () => {
     const result = techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E'),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E'
+        ),
       ]) as any
     );
 
@@ -85,7 +91,10 @@ describe('FEATURE - techs importer', () => {
     const result = techsImporter(
       makeTechsDiv([
         makeImg('unknownlogo', 'https://example.com/unknown.svg'),
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E'),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E'
+        ),
       ]) as any
     );
 
@@ -95,7 +104,11 @@ describe('FEATURE - techs importer', () => {
   it('extracts height from the first image', () => {
     const result = techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E', 50),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E',
+          50
+        ),
       ]) as any
     );
 
@@ -105,7 +118,12 @@ describe('FEATURE - techs importer', () => {
   it('reads align from the element properties', () => {
     const result = techsImporter(
       makeTechsDiv(
-        [makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E')],
+        [
+          makeImg(
+            'javascript logo',
+            'https://cdn.simpleicons.org/javascript/F7DF1E'
+          ),
+        ],
         'right'
       ) as any
     );
@@ -116,7 +134,10 @@ describe('FEATURE - techs importer', () => {
   it('extracts spacing from the first spacing image width', () => {
     const result = techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E'),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E'
+        ),
         makeSpacingImg(20),
         makeImg('react logo', 'https://cdn.simpleicons.org/react/61DAFB'),
       ]) as any
@@ -128,7 +149,10 @@ describe('FEATURE - techs importer', () => {
   it('defaults spacing to 12 when no spacing image is found', () => {
     const result = techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E'),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E'
+        ),
       ]) as any
     );
 
@@ -140,7 +164,11 @@ describe('FEATURE - techs importer', () => {
 
     techsImporter(
       makeTechsDiv([
-        makeImg('javascript logo', 'https://cdn.simpleicons.org/javascript/F7DF1E', 60),
+        makeImg(
+          'javascript logo',
+          'https://cdn.simpleicons.org/javascript/F7DF1E',
+          60
+        ),
       ]) as any
     );
 

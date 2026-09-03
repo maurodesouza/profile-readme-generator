@@ -28,7 +28,7 @@ vi.mock('#/hooks', () => ({
 vi.mock('#/utils/object', () => ({
   object: {
     deep: {
-      get: vi.fn((obj: any, path: string) => {
+      get: vi.fn((_obj: any, path: string) => {
         if (path === 'props.content.type') return 'recently';
         return undefined;
       }),

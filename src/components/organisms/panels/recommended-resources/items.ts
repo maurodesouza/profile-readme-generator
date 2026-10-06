@@ -3,6 +3,26 @@ import { ResourceItemMapperProps } from '#/components/molecules/resource-items/m
 function getItems() {
   return [
     {
+      imageSrc: '/assets/resources/toffugy.svg',
+      title: 'Toffugy',
+      description:
+        '🌍 Learn a language by exploring 3D places — walk into a room, point at things and learn what they are called 🚀',
+      link: 'https://toffugy.com',
+      linkLabel: '👉 Start learning 👈',
+
+      template: 'Short',
+    },
+    {
+      imageSrc: '/assets/resources/fragiola.svg',
+      title: 'Fragiola',
+      description:
+        '🧩 An ecosystem of headless components — behavior, state and accessibility built in, the look is yours 🚀',
+      link: 'https://fragiola.com',
+      linkLabel: '👉 Explore the projects 👈',
+
+      template: 'Short',
+    },
+    {
       imageSrc: '/assets/resources/uncle-sam.webp',
       title: 'Boost Your English',
       subtitle: 'Real devs debug in English.',

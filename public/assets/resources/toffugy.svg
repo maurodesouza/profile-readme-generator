@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<title>Toffugy</title>
+<rect width="512" height="512" rx="104" fill="#d26538"/>
+<svg x="25.6" y="50" width="460.8" height="412" viewBox="181 221 935 836">
+<rect x="413" y="850" width="184" height="203" rx="78" fill="#e5e9ee"/>
+<rect x="474" y="850" width="118" height="200" rx="58" fill="#fdf7ef"/>
+<rect x="713" y="830" width="172" height="197" rx="76" fill="#e5e9ee"/>
+<rect x="770" y="830" width="112" height="193" rx="54" fill="#fdf7ef"/>
+<path d="M233.1 894.1Q200 880 235.5 886L520.5 934Q556 940 591.5 934L868.2 887Q880 885 880 897L880 902Q880 914 868.3 916.7L591 981.8Q556 990 520.5 984.3L435.5 970.7Q400 965 366.9 950.9Z" fill="#b6bfca"/>
+<ellipse cx="1074" cy="728" rx="36" ry="66" transform="rotate(-12 1074 728)" fill="#e5e9ee"/>
+<ellipse cx="1083" cy="722" rx="24" ry="58" transform="rotate(-12 1083 722)" fill="#fdf7ef"/>
+<path d="M185.7 425Q184 345 260.9 322.8L546.3 240.5Q652 210 757.8 240.1L997.9 308.3Q1046 322 1048.4 371.9L1067.7 778.1Q1072 868 983.4 883.6L599.4 951.1Q560 958 520.5 951.7L265.1 911Q196 900 194.5 830Z" fill="#e5e9ee"/>
+<path d="M208 389Q208 355 240.4 365.3L489.6 444.7Q522 455 522 489L522 895Q522 935 483 926.3L237.3 871.5Q208 865 208 835Z" fill="#cdd5de"/>
+<path d="M277.4 326.4Q262 322 277.4 317.6L546.3 240.4Q652 210 757.8 240.1L997.9 308.3Q1046 322 996.7 330.3L575.7 401Q552 405 528.9 398.4Z" fill="#fcf9f1"/>
+<path d="M548.5 428Q548 404 571.7 400.1L996.7 330.1Q1046 322 1048.4 371.9L1067.7 778.1Q1072 868 983.4 883.6L599.4 951.1Q560 958 559.1 918Z" fill="#fefdf9"/>
+<path d="M575.7 482Q575 430 626.2 421L994.5 355.9Q1028 350 1029.2 384L1044.1 792.1Q1047 872 967.8 883.2L631.5 931Q582 938 581.3 888Z" fill="#fdf6ec"/>
+<ellipse cx="322" cy="808" rx="134" ry="68" transform="rotate(-50 322 808)" fill="#b6bfca"/>
+<path d="M214.9 896.9L238.9 912.9L405.1 703.1L381.1 687.1Z" fill="#b6bfca"/>
+<ellipse cx="298" cy="792" rx="134" ry="68" transform="rotate(-50 298 792)" fill="#e5e9ee"/>
+<ellipse cx="301" cy="787" rx="110" ry="50" transform="rotate(-50 301 787)" fill="#fdf7ef"/>
+<ellipse cx="697" cy="625" rx="31" ry="53" fill="#271c1b"/>
+<ellipse cx="953" cy="580" rx="29" ry="51" fill="#271c1b"/>
+<ellipse cx="703" cy="600" rx="10" ry="12" fill="#fff"/>
+<ellipse cx="957" cy="555" rx="10" ry="12" fill="#fff"/>
+<path d="M780 686Q834 739 891 665" fill="none" stroke="#271c1b" stroke-width="15" stroke-linecap="round"/>
+</svg>
+</svg>

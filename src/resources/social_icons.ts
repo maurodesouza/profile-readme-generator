@@ -99,6 +99,17 @@ const social_icons = [
     },
   },
   {
+    name: 'fluxer',
+    icons: ['default'],
+    badge: {
+      message: 'Fluxer',
+      color: 'white',
+      label: '',
+      logo: 'fluxer',
+      logoColor: '4641D9',
+    },
+  },
+  {
     name: 'gitlab',
     icons: ['default'],
     badge: {
